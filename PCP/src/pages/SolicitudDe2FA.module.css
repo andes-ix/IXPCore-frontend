@@ -1,0 +1,120 @@
+.rectngulo1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--color-darkslateblue-100);
+  width: 1425px;
+  height: 1080px;
+}
+.ingreseElCdigo {
+  margin: 0;
+}
+.codigo,
+.ingreseElCdigoContainer {
+  position: absolute;
+  left: 50px;
+  font-weight: 600;
+}
+.ingreseElCdigoContainer {
+  top: calc(50% - 115px);
+  font-size: var(--font-size-5xl);
+}
+.codigo {
+  top: calc(50% - 20px);
+  color: var(--color-dimgray-100);
+}
+.rectngulo4,
+.rectngulo5 {
+  position: absolute;
+  width: calc(100% - 92px);
+  right: 42px;
+  left: 50px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.02);
+  border-radius: var(--br-7xs);
+  height: 48px;
+}
+.rectngulo4 {
+  top: calc(50% + 9px);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-whitesmoke-300);
+  box-sizing: border-box;
+}
+.rectngulo5 {
+  bottom: 67px;
+  background-color: var(--color-steelblue-100);
+}
+.enviar {
+  position: absolute;
+  bottom: 81px;
+  left: calc(50% - 28px);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-white);
+}
+.div,
+.regresar {
+  position: absolute;
+  top: calc(50% + 24px);
+  left: 64px;
+  color: var(--color-darkgray-100);
+}
+.regresar {
+  top: calc(50% - 144px);
+  color: var(--color-cornflowerblue);
+}
+.chevronRightIcon {
+  position: absolute;
+  top: calc(50% - 140px);
+  left: 50px;
+  width: 7.3px;
+  height: 12px;
+}
+.logoPlaceholder3RemovebgPrIcon {
+  position: absolute;
+  top: 20px;
+  left: 6px;
+  width: 223px;
+  height: 156px;
+  object-fit: cover;
+}
+.searchUsersBy {
+  position: absolute;
+  height: calc(100% - 571px);
+  width: calc(100% - 217px);
+  top: 379px;
+  left: 80px;
+  font-size: var(--font-size-base);
+  color: #6e6893;
+  display: inline-block;
+}
+.grupo8Child {
+  position: absolute;
+  top: calc(50% + 85px);
+  left: calc(50% - 207px);
+  filter: drop-shadow(-1.8461538553237915px 4.307692527770996px 8px #f1f7ff);
+  border-radius: var(--br-8xs);
+  border: 1px solid var(--color-gray-300);
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+}
+.grupo8 {
+  position: absolute;
+  top: 236px;
+  right: 258px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-white);
+  width: 514px;
+  height: 586px;
+  cursor: pointer;
+}
+.solicitudDe2fa1 {
+  position: relative;
+  background-color: var(--color-aliceblue-300);
+  width: 100%;
+  height: 1080px;
+  text-align: left;
+  font-size: var(--font-size-sm);
+  color: var(--color-dimgray-200);
+  font-family: var(--font-open-sans);
+}

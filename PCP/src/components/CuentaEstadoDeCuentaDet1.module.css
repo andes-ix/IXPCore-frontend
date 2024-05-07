@@ -1,0 +1,558 @@
+.lnea50Icon {
+  position: absolute;
+  width: calc(100% - 170px);
+  top: 139.5px;
+  right: 87.5px;
+  left: 82.5px;
+  max-width: 100%;
+  overflow: hidden;
+  height: 2px;
+}
+.f00100001753 {
+  color: var(--color-cornflowerblue);
+}
+.detalleDeFacturaContainer {
+  position: absolute;
+  top: 53px;
+  left: 83px;
+  font-size: var(--font-size-5xl);
+  color: var(--color-dimgray-100);
+}
+.rectangle2Icon {
+  position: absolute;
+  height: calc(100% - 200.6px);
+  top: 164.5px;
+  bottom: 36.1px;
+  left: 82.5px;
+  max-height: 100%;
+  width: 1016.8px;
+}
+.observaciones,
+.ruc20605039546,
+.son {
+  position: absolute;
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+}
+.ruc20605039546 {
+  top: calc(50% - 323.5px);
+  left: 132px;
+  color: var(--color-steelblue-100);
+}
+.observaciones,
+.son {
+  left: calc(50% + 177px);
+}
+.observaciones {
+  top: 193px;
+  color: var(--color-dimgray-200);
+}
+.son {
+  top: calc(50% - 34.5px);
+  color: var(--color-gray-200);
+}
+.mirafloresLimaPer,
+.pitPeruSac {
+  position: absolute;
+  top: calc(50% - 346.5px);
+  left: 132px;
+  font-size: var(--font-size-lg);
+  line-height: 22px;
+  color: var(--color-dimgray-100);
+}
+.mirafloresLimaPer {
+  top: calc(50% - 269.5px);
+}
+.sa {
+  text-transform: capitalize;
+}
+.nMiguelDe {
+  text-transform: lowercase;
+}
+.sanMiguelDeContainer {
+  position: absolute;
+  top: calc(50% - 295.5px);
+  left: 132px;
+  line-height: 22px;
+  font-weight: 300;
+  color: var(--color-dimgray-100);
+}
+.detraccion {
+  top: calc(50% + 21.66px);
+  left: 132.08px;
+  color: var(--color-dimgray-100);
+}
+.b,
+.descripcion,
+.detraccion,
+.montoDetraccion {
+  position: absolute;
+  font-size: var(--font-size-lg);
+}
+.descripcion {
+  top: calc(50% + 21.66px);
+  left: calc(50% - 507.92px);
+  color: var(--color-dimgray-100);
+}
+.b,
+.montoDetraccion {
+  top: calc(50% + 61.29px);
+  left: calc(50% - 137.92px);
+}
+.b {
+  top: calc(50% + 33.66px);
+  font-size: var(--font-size-5xl);
+  color: var(--color-cornflowerblue);
+}
+.operacinSujetaAl {
+  margin: 0;
+}
+.loremIpsumDolorContainer,
+.operacinSujetaAlContainer {
+  position: absolute;
+  top: calc(50% + 48.29px);
+  color: var(--color-darkgray-200);
+}
+.operacinSujetaAlContainer {
+  left: 132.08px;
+}
+.loremIpsumDolorContainer {
+  left: calc(50% - 507.92px);
+}
+.f001000017531 {
+  font-family: var(--font-open-sans);
+  color: var(--color-cornflowerblue);
+}
+.porFavorUtiliceContainer {
+  position: absolute;
+  top: calc(50% - 420.5px);
+  left: calc(50% + 177px);
+  color: var(--color-darkgray-200);
+}
+.autorizadoMedianteResolucinContainer,
+.operacinSujetaAlContainer1 {
+  position: absolute;
+  top: calc(50% - 354.5px);
+  right: 145px;
+  color: var(--color-darkgray-200);
+}
+.operacinSujetaAlContainer1 {
+  top: calc(50% + 5.5px);
+  right: 178px;
+}
+.rectngulo1511 {
+  top: calc(50% + 183.29px);
+  left: 132px;
+  width: 911.7px;
+}
+.rectngulo1511,
+.rectngulo6337,
+.rectngulo6340 {
+  position: absolute;
+  background-color: var(--color-white);
+  height: 70px;
+}
+.rectngulo6337 {
+  bottom: 175.21px;
+  left: calc(50% - 390.99px);
+  width: 474.7px;
+}
+.rectngulo6340 {
+  top: calc(50% - 200.84px);
+  right: 146px;
+  width: 637px;
+}
+.rectngulo15111 {
+  position: absolute;
+  top: calc(50% + 253.29px);
+  left: 132px;
+  background-color: var(--color-whitesmoke-100);
+  width: 911.7px;
+  height: 70px;
+}
+.rectngulo6339 {
+  position: absolute;
+  top: calc(50% - 130.84px);
+  right: 146px;
+  background-color: var(--color-aliceblue-300);
+  width: 637px;
+  height: 70px;
+}
+.rectngulo1510 {
+  top: calc(50% + 128.29px);
+  left: 132px;
+  width: 911.7px;
+}
+.rectngulo1510,
+.rectngulo6338,
+.rectngulo6341 {
+  position: absolute;
+  background-color: var(--color-aliceblue-300);
+  height: 55px;
+}
+.rectngulo6338 {
+  top: calc(50% + 357.29px);
+  left: calc(50% - 390.99px);
+  width: 474.7px;
+}
+.rectngulo6341 {
+  top: calc(50% - 255.84px);
+  right: 146px;
+  width: 637px;
+}
+.cantidad {
+  position: absolute;
+  top: calc(50% + 142.29px);
+  left: calc(50% - 496.06px);
+  line-height: 13px;
+}
+.b1 {
+  top: calc(50% + 371.29px);
+  left: calc(50% - 39.55px);
+}
+.b1,
+.importe,
+.precioUnitario {
+  position: absolute;
+  line-height: 13px;
+}
+.importe {
+  top: calc(50% - 241.84px);
+  right: 203.26px;
+}
+.precioUnitario {
+  top: calc(50% + 142.29px);
+  left: calc(50% - 360.18px);
+}
+.impuestos {
+  top: calc(50% + 142.29px);
+  left: calc(50% - 190.47px);
+}
+.descripcin,
+.importe1,
+.impuestos {
+  position: absolute;
+  line-height: 13px;
+}
+.importe1 {
+  top: calc(50% + 142.29px);
+  left: calc(50% - 47.29px);
+}
+.descripcin {
+  top: calc(50% + 143.29px);
+  left: 175px;
+}
+.baseImponible,
+.vencimiento {
+  position: absolute;
+  top: calc(50% + 372.29px);
+  left: calc(50% - 349.87px);
+  line-height: 13px;
+}
+.vencimiento {
+  top: calc(50% - 240.84px);
+  left: calc(50% + 218.12px);
+}
+.serv0010PuertaAContainer {
+  top: calc(50% + 200.29px);
+  left: 176px;
+}
+.div,
+.igv,
+.serv0010PuertaAContainer {
+  position: absolute;
+  font-size: var(--font-size-sm);
+}
+.igv {
+  bottom: 203.21px;
+  left: calc(50% - 338.17px);
+}
+.div {
+  top: calc(50% - 177.84px);
+  left: calc(50% + 229.82px);
+}
+.div1,
+.div2,
+.igv18 {
+  position: absolute;
+  top: calc(50% + 206.29px);
+  left: calc(50% - 186.73px);
+  color: var(--color-darkslategray);
+}
+.div1,
+.div2 {
+  left: calc(50% - 47.77px);
+}
+.div2 {
+  top: calc(50% + 209.29px);
+  left: calc(50% - 490.63px);
+}
+.div3 {
+  bottom: 197.21px;
+  left: calc(50% - 39.66px);
+}
+.div3,
+.div4,
+.div5 {
+  position: absolute;
+  color: var(--color-darkslategray);
+}
+.div4 {
+  top: calc(50% - 174.84px);
+  right: 205.37px;
+}
+.div5 {
+  top: calc(50% + 209.29px);
+  left: calc(50% - 353.02px);
+}
+.serv0020Crossconexin {
+  position: absolute;
+  top: calc(50% + 278.29px);
+  left: 176px;
+  font-size: var(--font-size-sm);
+}
+.b2,
+.igv181 {
+  position: absolute;
+}
+.b2 {
+  top: calc(50% - 105.84px);
+  left: calc(50% + 228.39px);
+  font-size: var(--font-size-sm);
+}
+.igv181 {
+  top: calc(50% + 275.29px);
+  left: calc(50% - 186.73px);
+}
+.div6,
+.div7,
+.igv181 {
+  color: var(--color-darkslategray);
+}
+.div6 {
+  position: absolute;
+  top: calc(50% + 275.29px);
+  left: calc(50% - 47.77px);
+}
+.div7 {
+  top: calc(50% + 278.29px);
+  left: calc(50% - 490.63px);
+}
+.b3,
+.div7,
+.div8 {
+  position: absolute;
+}
+.b3 {
+  top: calc(50% - 105.84px);
+  right: 191.37px;
+}
+.div8 {
+  top: calc(50% + 278.29px);
+  left: calc(50% - 351.01px);
+  color: var(--color-darkslategray);
+}
+.rectngulo6336 {
+  bottom: 105.21px;
+  left: calc(50% - 390.99px);
+  background-color: var(--color-aliceblue-300);
+  width: 474.7px;
+  height: 70px;
+}
+.b4,
+.rectngulo6336,
+.total {
+  position: absolute;
+}
+.total {
+  bottom: 131.21px;
+  left: calc(50% - 339.6px);
+  font-size: var(--font-size-sm);
+}
+.b4 {
+  bottom: 128.21px;
+  left: calc(50% - 39.66px);
+}
+.cdigoQrAWikimediaVenezuelIcon {
+  position: absolute;
+  top: calc(50% + 77.5px);
+  left: calc(50% + 177px);
+  width: 228px;
+  height: 228px;
+  object-fit: cover;
+}
+.timbreElectronico {
+  position: absolute;
+  top: calc(50% + 298.5px);
+  left: calc(50% + 198px);
+  font-size: var(--font-size-sm);
+  color: var(--color-darkgray-200);
+}
+.frameCopyIcon {
+  position: absolute;
+  top: 53px;
+  right: 107px;
+  width: 30px;
+  height: 30px;
+}
+.downloadIcon {
+  position: absolute;
+  top: calc(50% - 9px);
+  left: calc(50% - 9px);
+  width: 20px;
+  height: 20px;
+}
+.grupo37469 {
+  position: absolute;
+  top: 213px;
+  left: calc(50% + 19px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.02);
+  border-radius: var(--br-7xs);
+  background-color: var(--color-cornflowerblue);
+  width: 54px;
+  height: 48px;
+}
+.logoPlaceholder3RemovebgPrIcon {
+  position: absolute;
+  top: 191px;
+  left: 100px;
+  width: 190px;
+  height: 133px;
+  object-fit: cover;
+}
+.rectangle12Icon,
+.rectangle12Icon1 {
+  position: absolute;
+  top: calc(50% - 230.5px);
+  left: calc(50% - 266px);
+  width: 1px;
+  height: 72px;
+}
+.rectangle12Icon1 {
+  left: calc(50% - 465px);
+}
+.p {
+  font-weight: 600;
+  color: var(--color-cornflowerblue);
+}
+.p,
+.total2 {
+  margin: 0;
+}
+.span,
+.total2 {
+  font-weight: 300;
+}
+.total1 {
+  position: absolute;
+  top: calc(50% - 217.5px);
+  left: calc(50% - 208px);
+  font-size: var(--font-size-lg);
+  line-height: 22px;
+  text-align: center;
+}
+.p1 {
+  margin: 0;
+  font-weight: 600;
+}
+.vencimiento2 {
+  margin: 0;
+  color: var(--color-lightslategray-100);
+}
+.estatus,
+.vencimiento1 {
+  position: absolute;
+  font-size: var(--font-size-lg);
+  line-height: 22px;
+  text-align: center;
+}
+.vencimiento1 {
+  top: calc(50% - 217.5px);
+  left: calc(50% - 625px);
+  color: var(--color-cornflowerblue);
+}
+.estatus {
+  top: calc(50% - 195.16px);
+  left: calc(50% - 407.92px);
+  font-weight: 300;
+}
+.groupCopy2Icon {
+  position: absolute;
+  top: calc(50% - 217.5px);
+  left: calc(50% - 401.42px);
+  width: 47px;
+  height: 22px;
+}
+.dashboard {
+  position: absolute;
+  top: calc(50% - 111.84px);
+  left: 6.88%;
+  line-height: 19px;
+  color: var(--color-royalblue);
+}
+.datosDelCliente {
+  position: absolute;
+  top: calc(50% - 138.84px);
+  left: 132.08px;
+  font-size: var(--font-size-lg);
+  color: var(--color-dimgray-100);
+}
+.ruc206046304881 {
+  font-weight: 600;
+}
+.span1 {
+  color: var(--color-darkgray-200);
+}
+.direccin,
+.ruc20604630488 {
+  position: absolute;
+  top: calc(50% - 87.21px);
+  left: 132.08px;
+  color: var(--color-dimgray-200);
+}
+.direccin {
+  top: calc(50% - 61.84px);
+  font-weight: 600;
+}
+.mzal18Lote25chmariscal {
+  position: absolute;
+  top: calc(50% - 34.84px);
+  left: 134.04px;
+  color: var(--color-darkgray-200);
+}
+.emisin {
+  font-weight: 300;
+  font-family: var(--font-open-sans);
+  color: var(--color-lightslategray-100);
+}
+.emisin10032024 {
+  position: absolute;
+  top: 88px;
+  left: 83px;
+  font-size: var(--font-size-lg);
+  line-height: 22px;
+  text-align: center;
+  color: var(--color-cornflowerblue);
+}
+.grupo37726 {
+  position: absolute;
+  top: 90px;
+  left: 0;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-white);
+  width: 1920px;
+  height: 1315px;
+}
+.cuentaEstadoDeCuentaDet {
+  position: relative;
+  background-color: var(--color-gray-400);
+  width: 1920px;
+  height: 1400px;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+  text-align: left;
+  font-size: var(--font-size-base);
+  color: var(--color-lightslategray-100);
+  font-family: var(--font-open-sans);
+}

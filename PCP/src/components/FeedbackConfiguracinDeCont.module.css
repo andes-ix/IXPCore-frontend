@@ -1,0 +1,63 @@
+.configuracinDeContrasea {
+  position: absolute;
+  top: calc(50% - 38px);
+  left: calc(50% - 251px);
+}
+.ingresaAlSistema {
+  margin: 0;
+}
+.ingresaAlSistemaContainer {
+  position: absolute;
+  top: calc(50% - 6px);
+  left: calc(50% - 251px);
+  font-size: var(--font-size-base);
+  font-weight: 300;
+  color: var(--color-seagreen);
+}
+.frameCopyIcon {
+  position: absolute;
+  top: calc(50% - 45px);
+  right: 36px;
+  width: 30px;
+  height: 30px;
+}
+.rectngulo6419 {
+  position: absolute;
+  top: calc(50% - 34px);
+  left: 50px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-aquamarine);
+  width: 50px;
+  height: 50px;
+}
+.trazado29750Icon {
+  position: absolute;
+  top: calc(50% - 19px);
+  left: 65px;
+  width: 20px;
+  height: 20px;
+}
+.grupo37820 {
+  position: absolute;
+  top: 60px;
+  left: 564px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  border-radius: var(--br-3xs);
+  background-color: var(--color-azure);
+  width: 792px;
+  height: 154px;
+}
+.feedbackConfiguracinDeCont {
+  position: relative;
+  background-color: var(--color-gray-400);
+  width: 1920px;
+  height: 1074px;
+  cursor: pointer;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+  text-align: left;
+  font-size: var(--font-size-lg);
+  color: var(--color-dimgray-200);
+  font-family: var(--font-open-sans);
+}
