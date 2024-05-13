@@ -1,1 +1,0 @@
-export { UsuariosGestinDeScreen } from "./UsuariosGestinDeScreen";
