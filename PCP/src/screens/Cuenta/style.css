@@ -1,0 +1,2022 @@
+.cuenta {
+  background-color: #eff5ff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.cuenta .div-2 {
+  background-color: #eff5ff;
+  height: 1650px;
+  overflow: hidden;
+  position: relative;
+  width: 1920px;
+}
+
+.cuenta .overlap {
+  height: 469px;
+  left: 299px;
+  position: absolute;
+  top: -2px;
+  width: 1621px;
+}
+
+.cuenta .rectangle {
+  height: 224px;
+  left: 32px;
+  object-fit: cover;
+  position: absolute;
+  top: 245px;
+  width: 1479px;
+}
+
+.cuenta .text-wrapper-9 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 600;
+  left: 811px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 388px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-10 {
+  color: #168eea;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  left: 1111px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 388px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-11 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 600;
+  left: 811px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 312px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-12 {
+  color: #168eea;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  left: 1111px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 312px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-13 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 600;
+  left: 811px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 352px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-14 {
+  color: #168eea;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  left: 1111px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 352px;
+  white-space: nowrap;
+}
+
+.cuenta .grupo {
+  height: 19px;
+  left: 1307px;
+  position: absolute;
+  top: 142px;
+  width: 200px;
+}
+
+.cuenta .text-wrapper-15 {
+  color: #168eea;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 22px;
+  position: absolute;
+  top: -2px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-16 {
+  color: #168eea;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 92px;
+  letter-spacing: 0;
+  line-height: 22px;
+  position: absolute;
+  top: -2px;
+  white-space: nowrap;
+}
+
+.cuenta .img {
+  height: 12px;
+  left: 68px;
+  object-fit: cover;
+  position: absolute;
+  top: 5px;
+  width: 7px;
+}
+
+.cuenta .overlap-wrapper {
+  height: 298px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1621px;
+}
+
+.cuenta .overlap-2 {
+  height: 298px;
+  position: relative;
+}
+
+.cuenta .rectngulo-5 {
+  background-color: #ffffff;
+  box-shadow: 0px 3px 6px #00000008;
+  height: 100px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1621px;
+}
+
+.cuenta .grupo-wrapper {
+  height: 45px;
+  left: 1321px;
+  position: absolute;
+  top: 28px;
+  width: 45px;
+}
+
+.cuenta .sun-wrapper {
+  height: 45px;
+}
+
+.cuenta .sun {
+  height: 20px;
+  left: 13px;
+  position: relative;
+  top: 13px;
+  width: 20px;
+}
+
+.cuenta .overlap-group-2 {
+  height: 17px;
+  left: 2px;
+  position: absolute;
+  top: 2px;
+  width: 17px;
+}
+
+.cuenta .elipse {
+  border: 2px solid;
+  border-color: #8a8f9c;
+  border-radius: 4px;
+  height: 10px;
+  left: 3px;
+  position: absolute;
+  top: 3px;
+  width: 10px;
+}
+
+.cuenta .trazado-2 {
+  height: 4px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 4px;
+}
+
+.cuenta .trazado-3 {
+  height: 4px;
+  left: 13px;
+  object-fit: cover;
+  position: absolute;
+  top: 13px;
+  width: 4px;
+}
+
+.cuenta .trazado-4 {
+  height: 4px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 13px;
+  width: 4px;
+}
+
+.cuenta .trazado-5 {
+  height: 4px;
+  left: 13px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 4px;
+}
+
+.cuenta .trazado-6 {
+  height: 4px;
+  left: 9px;
+  object-fit: cover;
+  position: absolute;
+  top: -1px;
+  width: 2px;
+}
+
+.cuenta .trazado-7 {
+  height: 4px;
+  left: 9px;
+  object-fit: cover;
+  position: absolute;
+  top: 17px;
+  width: 2px;
+}
+
+.cuenta .trazado-8 {
+  height: 2px;
+  left: -1px;
+  object-fit: cover;
+  position: absolute;
+  top: 9px;
+  width: 4px;
+}
+
+.cuenta .trazado-9 {
+  height: 2px;
+  left: 17px;
+  object-fit: cover;
+  position: absolute;
+  top: 9px;
+  width: 4px;
+}
+
+.cuenta .componente-2 {
+  height: 45px;
+  left: 1391px;
+  position: absolute;
+  top: 28px;
+  width: 45px;
+}
+
+.cuenta .grupo-2 {
+  height: 45px;
+  position: relative;
+}
+
+.cuenta .oval {
+  height: 6px;
+  left: 33px;
+  object-fit: cover;
+  position: absolute;
+  top: 4px;
+  width: 6px;
+}
+
+.cuenta .bell-ring {
+  height: 20px;
+  left: 12px;
+  position: absolute;
+  top: 12px;
+  width: 20px;
+}
+
+.cuenta .overlap-group-3 {
+  height: 17px;
+  left: -1px;
+  position: absolute;
+  top: -1px;
+  width: 22px;
+}
+
+.cuenta .trazado-10 {
+  height: 17px;
+  left: 1px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 20px;
+}
+
+.cuenta .trazado-11 {
+  height: 8px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 4px;
+}
+
+.cuenta .trazado-12 {
+  height: 8px;
+  left: 18px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 4px;
+}
+
+.cuenta .trazado-13 {
+  height: 3px;
+  left: 7px;
+  object-fit: cover;
+  position: absolute;
+  top: 18px;
+  width: 6px;
+}
+
+.cuenta .text-wrapper-17 {
+  color: #168eea;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 35px;
+  letter-spacing: 0;
+  line-height: 22px;
+  position: absolute;
+  top: 42px;
+  white-space: nowrap;
+}
+
+.cuenta .chevron-right-2 {
+  height: 7px;
+  left: 164px;
+  object-fit: cover;
+  position: absolute;
+  top: 50px;
+  width: 12px;
+}
+
+.cuenta .componente-3 {
+  height: 274px;
+  left: 1218px;
+  position: absolute;
+  top: 24px;
+  width: 302px;
+}
+
+.cuenta .grupo-3 {
+  background-color: #eff6ff;
+  background-image: url(../../../static/img/enmascarar-grupo-2-9.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  border-radius: 24px;
+  height: 48px;
+  left: 251px;
+  position: relative;
+  width: 48px;
+}
+
+.cuenta .componente-4 {
+  height: 152px;
+  left: 1250px;
+  position: absolute;
+  top: 27px;
+  width: 144px;
+}
+
+.cuenta .rectngulo-wrapper {
+  height: 152px;
+  position: relative;
+}
+
+.cuenta .rectngulo-6 {
+  border-radius: 2px;
+  height: 32px;
+  left: 7px;
+  object-fit: cover;
+  position: absolute;
+  top: 7px;
+  width: 32px;
+}
+
+.cuenta .rectangle-2 {
+  height: 40px;
+  left: 52px;
+  object-fit: cover;
+  position: absolute;
+  top: 367px;
+  width: 130px;
+}
+
+.cuenta .rectangle-copy {
+  height: 40px;
+  left: 182px;
+  object-fit: cover;
+  position: absolute;
+  top: 367px;
+  width: 98px;
+}
+
+.cuenta .rectangle-copy-2 {
+  height: 40px;
+  left: 280px;
+  object-fit: cover;
+  position: absolute;
+  top: 367px;
+  width: 373px;
+}
+
+.cuenta .text-wrapper-18 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 28px;
+  font-weight: 400;
+  left: 32px;
+  letter-spacing: 0;
+  line-height: 28px;
+  position: absolute;
+  top: 142px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-19 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 300;
+  left: 194px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 306px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-20 {
+  color: #ffffff;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 300;
+  left: 99px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 380px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-21 {
+  color: #ffffff;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 300;
+  left: 220px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 380px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-22 {
+  color: #ffffff;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 300;
+  left: 449px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 380px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-23 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 300;
+  left: 52px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 330px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-24 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 300;
+  left: 52px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 420px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-25 {
+  color: #168eea;
+  font-family: "Open Sans", Helvetica;
+  font-size: 22px;
+  font-weight: 700;
+  left: 32px;
+  letter-spacing: 0;
+  line-height: 22px;
+  position: absolute;
+  top: 187px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-26 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 22px;
+  font-weight: 400;
+  left: 52px;
+  letter-spacing: 0;
+  line-height: 22px;
+  position: absolute;
+  top: 270px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-27 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 26px;
+  font-weight: 600;
+  left: 52px;
+  letter-spacing: 0;
+  line-height: 26px;
+  position: absolute;
+  top: 296px;
+  white-space: nowrap;
+}
+
+.cuenta .download-wrapper {
+  background-color: #168eea;
+  border-radius: 6px;
+  box-shadow: 0px 3px 6px #00000005;
+  height: 48px;
+  left: 1400px;
+  position: absolute;
+  top: 275px;
+  width: 54px;
+}
+
+.cuenta .download {
+  height: 18px;
+  left: 18px;
+  position: relative;
+  top: 15px;
+  width: 18px;
+}
+
+.cuenta .overlap-group-4 {
+  height: 20px;
+  left: -1px;
+  position: relative;
+  top: -1px;
+  width: 20px;
+}
+
+.cuenta .trazado-14 {
+  height: 8px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 12px;
+  width: 20px;
+}
+
+.cuenta .trazado-15 {
+  height: 7px;
+  left: 4px;
+  object-fit: cover;
+  position: absolute;
+  top: 7px;
+  width: 13px;
+}
+
+.cuenta .lnea {
+  height: 14px;
+  left: 9px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 2px;
+}
+
+.cuenta .overlap-3 {
+  height: 1650px;
+  left: -6px;
+  position: absolute;
+  top: 0;
+  width: 305px;
+}
+
+.cuenta .rectangle-3 {
+  height: 1650px;
+  left: 6px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 299px;
+}
+
+.cuenta .rectangle-4 {
+  background-color: #dbdbdb;
+  height: 1080px;
+  left: 304px;
+  position: absolute;
+  top: 0;
+  width: 1px;
+}
+
+.cuenta .logo-placeholder-2 {
+  height: 118px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 12px;
+  width: 169px;
+}
+
+.cuenta .componente-5 {
+  height: 323px;
+  left: 23px;
+  position: absolute;
+  top: 144px;
+  width: 262px;
+}
+
+.cuenta .overlap-4 {
+  background-image: url(../../../static/img/rectangle-30-1x-png.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 50px;
+  left: 0;
+  position: absolute;
+  top: 113px;
+  width: 262px;
+}
+
+.cuenta .text-wrapper-28 {
+  color: #3f88cb;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 59px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 15px;
+  white-space: nowrap;
+}
+
+.cuenta .chevron-right-3 {
+  height: 7px;
+  left: 223px;
+  object-fit: cover;
+  position: absolute;
+  top: 21px;
+  width: 12px;
+}
+
+.cuenta .wallet {
+  height: 18px;
+  left: 19px;
+  position: absolute;
+  top: 16px;
+  width: 19px;
+}
+
+.cuenta .overlap-group-5 {
+  height: 20px;
+  left: -1px;
+  position: relative;
+  top: -1px;
+  width: 21px;
+}
+
+.cuenta .trazado-16 {
+  height: 15px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 21px;
+}
+
+.cuenta .trazado-17 {
+  height: 18px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 2px;
+  width: 20px;
+}
+
+.cuenta .text-wrapper-29 {
+  color: #8a8f9c;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 59px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 57px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-30 {
+  color: #8a8f9c;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 59px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 246px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-31 {
+  color: #3f88cb;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 59px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 188px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-32 {
+  color: #ffffff;
+  font-family: "Open Sans", Helvetica;
+  font-size: 18px;
+  font-weight: 600;
+  left: 6px;
+  letter-spacing: 0;
+  line-height: 18px;
+  position: absolute;
+  top: 3px;
+  white-space: nowrap;
+}
+
+.cuenta .chevron-right-4 {
+  height: 12px;
+  left: 226px;
+  object-fit: cover;
+  position: absolute;
+  top: 250px;
+  width: 7px;
+}
+
+.cuenta .layout-dashboard {
+  height: 18px;
+  left: 19px;
+  position: absolute;
+  top: 57px;
+  width: 18px;
+}
+
+.cuenta .rectngulo-7 {
+  border: 2px solid;
+  border-color: #8a8f9c;
+  border-radius: 1px;
+  height: 11px;
+  left: -1px;
+  position: absolute;
+  top: -1px;
+  width: 9px;
+}
+
+.cuenta .rectngulo-8 {
+  border: 2px solid;
+  border-color: #8a8f9c;
+  border-radius: 1px;
+  height: 7px;
+  left: 10px;
+  position: absolute;
+  top: -1px;
+  width: 9px;
+}
+
+.cuenta .rectngulo-9 {
+  border: 2px solid;
+  border-color: #8a8f9c;
+  border-radius: 1px;
+  height: 11px;
+  left: 10px;
+  position: absolute;
+  top: 8px;
+  width: 9px;
+}
+
+.cuenta .rectngulo-10 {
+  border: 2px solid;
+  border-color: #8a8f9c;
+  border-radius: 1px;
+  height: 7px;
+  left: -1px;
+  position: absolute;
+  top: 12px;
+  width: 9px;
+}
+
+.cuenta .square-user-round {
+  height: 18px;
+  left: 19px;
+  position: absolute;
+  top: 245px;
+  width: 18px;
+}
+
+.cuenta .overlap-5 {
+  border-radius: 2px;
+  height: 20px;
+  left: -1px;
+  position: relative;
+  top: -1px;
+  width: 20px;
+}
+
+.cuenta .trazado-18 {
+  height: 8px;
+  left: 3px;
+  object-fit: cover;
+  position: absolute;
+  top: 12px;
+  width: 14px;
+}
+
+.cuenta .elipse-2 {
+  border: 2px solid;
+  border-color: #8a8f9c;
+  border-radius: 4px;
+  height: 10px;
+  left: 5px;
+  position: absolute;
+  top: 4px;
+  width: 10px;
+}
+
+.cuenta .rectngulo-11 {
+  border: 2px solid;
+  border-color: #8a8f9c;
+  border-radius: 2px;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 20px;
+}
+
+.cuenta .oval-2 {
+  height: 4px;
+  left: 25px;
+  object-fit: cover;
+  position: absolute;
+  top: 313px;
+  width: 4px;
+}
+
+.cuenta .oval-3 {
+  height: 4px;
+  left: 25px;
+  object-fit: cover;
+  position: absolute;
+  top: 195px;
+  width: 4px;
+}
+
+.cuenta .overlap-6 {
+  height: 1077px;
+  left: 331px;
+  position: absolute;
+  top: 504px;
+  width: 4462px;
+}
+
+.cuenta .rectangle-5 {
+  height: 1077px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 1479px;
+}
+
+.cuenta .text-wrapper-33 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  left: 33px;
+  letter-spacing: 0;
+  line-height: 24px;
+  position: absolute;
+  top: 33px;
+  white-space: nowrap;
+}
+
+.cuenta .grupo-4 {
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #f0f0f0;
+  border-radius: 6px;
+  box-shadow: 0px 3px 6px #00000005;
+  height: 48px;
+  left: 33px;
+  position: absolute;
+  top: 110px;
+  width: 290px;
+}
+
+.cuenta .text-wrapper-34 {
+  color: #838eab;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 13px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 16px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-35 {
+  color: #59626a;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  height: 34px;
+  left: 33px;
+  letter-spacing: 0;
+  line-height: 22px;
+  position: absolute;
+  top: 67px;
+  width: 314px;
+}
+
+.cuenta .componente-6 {
+  height: 912px;
+  left: 0;
+  position: absolute;
+  top: 39px;
+  width: 4462px;
+}
+
+.cuenta .grupo-5 {
+  height: 756px;
+  left: 0;
+  position: absolute;
+  top: 156px;
+  width: 4462px;
+}
+
+.cuenta .grupo-6 {
+  height: 756px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1480px;
+}
+
+.cuenta .overlap-7 {
+  background-color: #ffffff;
+  height: 70px;
+  left: 0;
+  position: absolute;
+  top: 55px;
+  width: 1480px;
+}
+
+.cuenta .text-wrapper-36 {
+  color: #168eea;
+  display: block;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  left: 44px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 26px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-37 {
+  color: #172b4d;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 945px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 26px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-38 {
+  color: #172b4d;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 1295px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 26px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-39 {
+  color: #172b4d;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 225px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 30px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-40 {
+  color: #172b4d;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 772px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 28px;
+  white-space: nowrap;
+}
+
+.cuenta .lorem-ipsum-dolor {
+  color: #172b4d;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 378px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 17px;
+  white-space: nowrap;
+}
+
+.cuenta .grupo-7 {
+  background-image: url(../../../static/img/rectangle-4.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 25px;
+  left: 1081px;
+  position: absolute;
+  top: 23px;
+  width: 103px;
+}
+
+.cuenta .text-wrapper-41 {
+  color: #ef4444;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 27px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 4px;
+  white-space: nowrap;
+}
+
+.cuenta .oval-4 {
+  height: 6px;
+  left: 10px;
+  object-fit: cover;
+  position: absolute;
+  top: 10px;
+  width: 6px;
+}
+
+.cuenta .overlap-8 {
+  background-color: #ffffff;
+  height: 70px;
+  left: 0;
+  position: absolute;
+  top: 335px;
+  width: 1480px;
+}
+
+.cuenta .text-wrapper-42 {
+  color: #168eea;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  left: 44px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 26px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-43 {
+  color: #172b4d;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 945px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 30px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-44 {
+  color: #172b4d;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 1295px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 30px;
+  white-space: nowrap;
+}
+
+.cuenta .lorem-ipsum-dolor-2 {
+  color: #172b4d;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 378px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 19px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-45 {
+  color: #172b4d;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 225px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 32px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-46 {
+  color: #172b4d;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 772px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 30px;
+  white-space: nowrap;
+}
+
+.cuenta .grupo-8 {
+  background-image: url(../../../static/img/rectangle-13.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 25px;
+  left: 1080px;
+  position: absolute;
+  top: 23px;
+  width: 88px;
+}
+
+.cuenta .text-wrapper-47 {
+  color: #249782;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 27px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 4px;
+  white-space: nowrap;
+}
+
+.cuenta .overlap-group-6 {
+  background-color: #ffffff;
+  height: 70px;
+  left: 0;
+  position: absolute;
+  top: 476px;
+  width: 1480px;
+}
+
+.cuenta .text-wrapper-48 {
+  color: #168eea;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  left: 44px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 28px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-49 {
+  color: #172b4d;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 945px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 28px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-50 {
+  color: #172b4d;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 1295px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 28px;
+  white-space: nowrap;
+}
+
+.cuenta .grupo-9 {
+  background-image: url(../../../static/img/rectangle-13.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 25px;
+  left: 1080px;
+  position: absolute;
+  top: 24px;
+  width: 88px;
+}
+
+.cuenta .overlap-9 {
+  background-color: #ffffff;
+  height: 70px;
+  left: 0;
+  position: absolute;
+  top: 616px;
+  width: 1480px;
+}
+
+.cuenta .overlap-10 {
+  background-color: #f7fafc;
+  height: 70px;
+  left: 0;
+  position: absolute;
+  top: 125px;
+  width: 1480px;
+}
+
+.cuenta .lorem-ipsum-dolor-3 {
+  color: #172b4d;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 378px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 16px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-51 {
+  color: #172b4d;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 945px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 24px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-52 {
+  color: #172b4d;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 1295px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 24px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-53 {
+  color: #172b4d;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 225px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 28px;
+  white-space: nowrap;
+}
+
+.cuenta .grupo-10 {
+  background-image: url(../../../static/img/rectangle-6.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 25px;
+  left: 1081px;
+  position: absolute;
+  top: 21px;
+  width: 103px;
+}
+
+.cuenta .text-wrapper-54 {
+  color: #3f88cb;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 27px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 4px;
+  white-space: nowrap;
+}
+
+.cuenta .overlap-11 {
+  background-color: #f7fafc;
+  height: 70px;
+  left: 0;
+  position: absolute;
+  top: 406px;
+  width: 1480px;
+}
+
+.cuenta .grupo-11 {
+  background-image: url(../../../static/img/rectangle-8.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 25px;
+  left: 1080px;
+  position: absolute;
+  top: 27px;
+  width: 84px;
+}
+
+.cuenta .text-wrapper-55 {
+  color: #eab308;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 27px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 4px;
+  white-space: nowrap;
+}
+
+.cuenta .overlap-12 {
+  background-color: #f7fafc;
+  height: 70px;
+  left: 0;
+  position: absolute;
+  top: 546px;
+  width: 1480px;
+}
+
+.cuenta .lorem-ipsum-dolor-4 {
+  color: #172b4d;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 378px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 18px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-56 {
+  color: #172b4d;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 945px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 20px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-57 {
+  color: #172b4d;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 1295px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 20px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-58 {
+  color: #172b4d;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 225px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 26px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-59 {
+  color: #172b4d;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 772px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 26px;
+  white-space: nowrap;
+}
+
+.cuenta .grupo-12 {
+  background-image: url(../../../static/img/rectangle-13.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 25px;
+  left: 1080px;
+  position: absolute;
+  top: 20px;
+  width: 88px;
+}
+
+.cuenta .overlap-13 {
+  background-color: #f7fafc;
+  height: 70px;
+  left: 0;
+  position: absolute;
+  top: 686px;
+  width: 1480px;
+}
+
+.cuenta .overlap-14 {
+  background-color: #ffffff;
+  height: 70px;
+  left: 0;
+  position: absolute;
+  top: 195px;
+  width: 1480px;
+}
+
+.cuenta .grupo-13 {
+  background-image: url(../../../static/img/rectangle-6.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 25px;
+  left: 1081px;
+  position: absolute;
+  top: 23px;
+  width: 103px;
+}
+
+.cuenta .overlap-15 {
+  background-color: #f7fafc;
+  height: 70px;
+  left: 0;
+  position: absolute;
+  top: 265px;
+  width: 1480px;
+}
+
+.cuenta .grupo-14 {
+  background-image: url(../../../static/img/rectangle-8.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 25px;
+  left: 1080px;
+  position: absolute;
+  top: 22px;
+  width: 84px;
+}
+
+.cuenta .overlap-16 {
+  background-color: #f1f5f9;
+  height: 55px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1480px;
+}
+
+.cuenta .text-wrapper-60 {
+  color: #8a8f9c;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  left: 218px;
+  letter-spacing: 0;
+  line-height: 13px;
+  position: absolute;
+  top: 19px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-61 {
+  color: #8a8f9c;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  left: 772px;
+  letter-spacing: 0;
+  line-height: 13px;
+  position: absolute;
+  top: 18px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-62 {
+  color: #8a8f9c;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  left: 376px;
+  letter-spacing: 0;
+  line-height: 13px;
+  position: absolute;
+  top: 19px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-63 {
+  color: #8a8f9c;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  left: 945px;
+  letter-spacing: 0;
+  line-height: 13px;
+  position: absolute;
+  top: 18px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-64 {
+  color: #8a8f9c;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  left: 1081px;
+  letter-spacing: 0;
+  line-height: 13px;
+  position: absolute;
+  top: 18px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-65 {
+  color: #8a8f9c;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  left: 1295px;
+  letter-spacing: 0;
+  line-height: 13px;
+  position: absolute;
+  top: 18px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-66 {
+  color: #8a8f9c;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  left: 43px;
+  letter-spacing: 0;
+  line-height: 13px;
+  position: absolute;
+  top: 19px;
+  white-space: nowrap;
+}
+
+.cuenta .grupo-15 {
+  background-image: url(../../../static/img/rectangle-23.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 25px;
+  left: 4249px;
+  position: absolute;
+  top: 74px;
+  width: 108px;
+}
+
+.cuenta .grupo-16 {
+  height: 48px;
+  left: 1079px;
+  position: absolute;
+  top: 0;
+  width: 347px;
+}
+
+.cuenta .grupo-17 {
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #168eea;
+  border-radius: 6px;
+  box-shadow: 0px 3px 6px #00000005;
+  height: 48px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 109px;
+}
+
+.cuenta .text-wrapper-67 {
+  color: #168eea;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 24px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 14px;
+  white-space: nowrap;
+}
+
+.cuenta .grupo-18 {
+  background-color: #168eea;
+  border-radius: 6px;
+  box-shadow: 0px 3px 6px #00000005;
+  height: 48px;
+  left: 119px;
+  position: absolute;
+  top: 0;
+  width: 109px;
+}
+
+.cuenta .text-wrapper-68 {
+  color: #ffffff;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 23px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 16px;
+  white-space: nowrap;
+}
+
+.cuenta .grupo-19 {
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #168eea;
+  border-radius: 6px;
+  box-shadow: 0px 3px 6px #00000005;
+  height: 48px;
+  left: 238px;
+  position: absolute;
+  top: 0;
+  width: 109px;
+}
+
+.cuenta .text-wrapper-69 {
+  color: #168eea;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 30px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 14px;
+  white-space: nowrap;
+}
+
+.cuenta .text-wrapper-70 {
+  color: #59626a;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  height: 34px;
+  left: 40px;
+  letter-spacing: 0;
+  line-height: 22px;
+  position: absolute;
+  top: 1003px;
+  width: 230px;
+}
+
+.cuenta .next {
+  height: 32px;
+  left: 1081px;
+  position: absolute;
+  top: 1000px;
+  width: 280px;
+}
+
+.cuenta .element-wrapper {
+  background-image: url(../../../static/img/rectangle-2-8.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 32px;
+  left: 123px;
+  position: absolute;
+  top: 0;
+  width: 32px;
+}
+
+.cuenta .element {
+  background-image: url(../../../static/img/trazado-6955-1.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 10px;
+  left: 13px;
+  position: relative;
+  top: 11px;
+  width: 7px;
+}
+
+.cuenta .overlap-17 {
+  background-image: url(../../../static/img/grupo-476-1.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 32px;
+  left: 163px;
+  position: absolute;
+  top: 0;
+  width: 32px;
+}
+
+.cuenta .element-2 {
+  background-image: url(../../../static/img/trazado-6957-1.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 10px;
+  left: 13px;
+  position: relative;
+  top: 11px;
+  width: 7px;
+}
+
+.cuenta .overlap-18 {
+  background-image: url(../../../static/img/grupo-477-1.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 32px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 75px;
+}
+
+.cuenta .prev {
+  background-image: url(../../../static/img/trazado-6954-1.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 10px;
+  left: 34px;
+  position: absolute;
+  top: 11px;
+  width: 28px;
+}
+
+.cuenta .frame {
+  height: 16px;
+  left: 13px;
+  position: absolute;
+  top: 8px;
+  transform: rotate(180deg);
+  width: 16px;
+}
+
+.cuenta .overlap-19 {
+  height: 16px;
+  position: relative;
+}
+
+.cuenta .frame-2 {
+  height: 16px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  transform: rotate(-180deg);
+  width: 16px;
+}
+
+.cuenta .group {
+  height: 8px;
+  left: 6px;
+  position: absolute;
+  top: 4px;
+  width: 4px;
+}
+
+.cuenta .overlap-group-7 {
+  height: 9px;
+  left: -1px;
+  position: relative;
+  top: -1px;
+  width: 5px;
+}
+
+.cuenta .line {
+  height: 5px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  transform: rotate(-180deg);
+  width: 5px;
+}
+
+.cuenta .line-2 {
+  height: 5px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 4px;
+  transform: rotate(-180deg);
+  width: 5px;
+}
+
+.cuenta .overlap-20 {
+  background-image: url(../../../static/img/grupo-478-1.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 32px;
+  left: 83px;
+  position: absolute;
+  top: 0;
+  width: 32px;
+}
+
+.cuenta .element-3 {
+  background-image: url(../../../static/img/trazado-6956-1.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 10px;
+  left: 14px;
+  position: relative;
+  top: 11px;
+  width: 3px;
+}
+
+.cuenta .overlap-21 {
+  background-image: url(../../../static/img/grupo-479-1.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 32px;
+  left: 203px;
+  position: absolute;
+  top: 0;
+  width: 77px;
+}
+
+.cuenta .next-2 {
+  background-image: url(../../../static/img/trazado-6958-1.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 10px;
+  left: 14px;
+  position: absolute;
+  top: 11px;
+  width: 29px;
+}
+
+.cuenta .frame-copy {
+  background-image: url(../../../static/img/frame-copy-5.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 16px;
+  left: 48px;
+  position: absolute;
+  top: 8px;
+  width: 16px;
+}
+
+.cuenta .group-2 {
+  height: 8px;
+  left: 6px;
+  position: relative;
+  top: 4px;
+  width: 4px;
+}
+
+.cuenta .line-3 {
+  height: 5px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 4px;
+  width: 5px;
+}
+
+.cuenta .line-4 {
+  height: 5px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 5px;
+}
+
+.cuenta .componente-7 {
+  height: 195px;
+  left: 330px;
+  position: absolute;
+  top: 110px;
+  width: 225px;
+}
+
+.cuenta .filter-wrapper {
+  background-color: #168eea;
+  border-radius: 6px;
+  box-shadow: 0px 3px 6px #00000005;
+  height: 48px;
+  position: relative;
+  width: 54px;
+}
+
+.cuenta .filter {
+  height: 20px;
+  left: 16px;
+  object-fit: cover;
+  position: absolute;
+  top: 14px;
+  width: 22px;
+}

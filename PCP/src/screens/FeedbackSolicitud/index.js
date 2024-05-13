@@ -1,0 +1,1 @@
+export { FeedbackSolicitud } from "./FeedbackSolicitud";

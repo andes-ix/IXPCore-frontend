@@ -1,0 +1,1 @@
+export { SolicitudDe } from "./SolicitudDe";
