@@ -1,1 +1,0 @@
-export { PerfilDeUsuarioScreen } from "./PerfilDeUsuarioScreen";
