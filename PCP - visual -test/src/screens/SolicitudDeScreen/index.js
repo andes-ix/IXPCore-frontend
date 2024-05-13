@@ -1,0 +1,1 @@
+export { SolicitudDeScreen } from "./SolicitudDeScreen";

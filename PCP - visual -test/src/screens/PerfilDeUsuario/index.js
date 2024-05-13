@@ -1,0 +1,1 @@
+export { PerfilDeUsuario } from "./PerfilDeUsuario";

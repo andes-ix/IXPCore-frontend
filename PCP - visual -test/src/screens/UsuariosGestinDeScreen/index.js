@@ -1,0 +1,1 @@
+export { UsuariosGestinDeScreen } from "./UsuariosGestinDeScreen";
