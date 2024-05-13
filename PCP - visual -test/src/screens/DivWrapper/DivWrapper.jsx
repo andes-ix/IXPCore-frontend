@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 export const DivWrapper = () => {
   return (
@@ -47,7 +48,7 @@ export const DivWrapper = () => {
           </div>
           <img className="lnea-7" alt="Lnea" src="/img/l-nea-50-3.png" />
           <div className="text-wrapper-254">Agregar usuario</div>
-          <div className="text-wrapper-255">Cancelar</div>
+          <Link className="text-wrapper-255" to="/dashboard" >Cancelar</Link>
           <div className="text-wrapper-256">Permisos y accesos</div>
         </div>
       </div>
