@@ -1,1 +1,0 @@
-export { FeedbackSolicitud } from "./FeedbackSolicitud";
