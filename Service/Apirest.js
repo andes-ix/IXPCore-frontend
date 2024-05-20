@@ -1,1 +1,0 @@
-export const Apiurl = "https://portal-dev.andesix.net/v1/signin/"
