@@ -1,0 +1,1 @@
+export const Userapp = "https://portal-dev.andesix.net/v1/userapp"
