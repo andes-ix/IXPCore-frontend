@@ -38,7 +38,7 @@
 }
 
 .login .rectngulo-50 {
-  background-color: #ffffff;
+  background: linear-gradient(#ffffff, 10%, #F5F6F7);
   border-radius: 10px;
   height: 683px;
   left: 1148px;
