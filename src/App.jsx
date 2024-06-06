@@ -10,6 +10,7 @@ import { CuentaEstadoDeScreen } from "./screens/CuentaEstadoDeScreen";
 import { Dashboard } from "./screens/Dashboard";
 import { PerfilDeUsuario } from "./screens/PerfilDeUsuario";
 import { SolicitudDe } from "./screens/SolicitudDe";
+import { SolicitudDeRestablecimiento } from "./screens/SolicitudDeRestablecimiento";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,11 @@ const router = createBrowserRouter([
     
     path: "/SolicitudDe",
     element: <SolicitudDe />,
+  },
+  {
+    
+    path: "/SolicitudDeRestablecimiento",
+    element: <SolicitudDeRestablecimiento />,
   },
 ]);
 

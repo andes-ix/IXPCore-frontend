@@ -1,0 +1,1 @@
+export { SolicitudDeRestablecimiento } from "./SolicitudDeRestablecimiento";
