@@ -14,25 +14,6 @@ export const Login = ({ state }) => {
     return re.test(email);
   };
 
-  const handleButton = (e) => {
-    state = {
-      form: {
-        email: email,
-        password: password,
-      },
-    };
-
-    let url = Apiurl + "v1/signin/";
-    axios.post(url, state.form).then((response) => {
-      console.log(response);
-      if (response.status == "200") {
-        console.log(response.data);
-        localStorage.setItem("token", response.data.token);
-        window.location.href = "./dashboard";
-      }
-    });
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     let emailError = false;
@@ -52,6 +33,25 @@ export const Login = ({ state }) => {
 
     setError({ email: false, password: false, general: false });
     handleButton();
+  };
+
+  const handleButton = () => {
+    state = {
+      form: {
+        email: email,
+        password: password,
+      },
+    };
+
+    let url = Apiurl + "v1/signin/";
+    axios.post(url, state.form).then((response) => {
+      console.log(response);
+      if (response.status === 200) {
+        console.log(response.data);
+        localStorage.setItem("token", response.data.token);
+        window.location.href = "./dashboard";
+      }
+    });
   };
 
   return (
@@ -91,7 +91,7 @@ export const Login = ({ state }) => {
               onChange={(e) => setPassword(e.target.value)}
             />
             {error.password && <p className="error">Contraseña no válida</p>}
-            <button className="text-wrapper-276"  >Iniciar sesión</button>
+            <button className="text-wrapper-276">Iniciar sesión</button>
             <div className="text-wrapper-277">¿Recuperar contraseña?</div>
             <div className="text-wrapper-278">Contraseñas</div>
           </form>

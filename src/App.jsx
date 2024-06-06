@@ -9,6 +9,7 @@ import { CuentaEstadoDe } from "./screens/CuentaEstadoDe";
 import { CuentaEstadoDeScreen } from "./screens/CuentaEstadoDeScreen";
 import { Dashboard } from "./screens/Dashboard";
 import { PerfilDeUsuario } from "./screens/PerfilDeUsuario";
+import { SolicitudDe } from "./screens/SolicitudDe";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,11 @@ const router = createBrowserRouter([
     
     path: "/PerfilDeUsuario",
     element: <PerfilDeUsuario />,
+  },
+  {
+    
+    path: "/SolicitudDe",
+    element: <SolicitudDe />,
   },
 ]);
 
