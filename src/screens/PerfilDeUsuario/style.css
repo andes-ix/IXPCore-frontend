@@ -1162,3 +1162,9 @@
   top: 313px;
   width: 4px;
 }
+
+.correo-electronico-2 {
+  border:0px!important;
+  width: 200px!important;
+  outline: none!important;
+}

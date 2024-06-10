@@ -9,8 +9,9 @@ import { CuentaEstadoDe } from "./screens/CuentaEstadoDe";
 import { CuentaEstadoDeScreen } from "./screens/CuentaEstadoDeScreen";
 import { Dashboard } from "./screens/Dashboard";
 import { PerfilDeUsuario } from "./screens/PerfilDeUsuario";
-import { SolicitudDe } from "./screens/SolicitudDe/SolicitudDe";
-import { SolicitudDeRestablecimiento } from "./screens/SolicitudDeRestablecimiento/SolicitudDeSolicitudDeRestablecimiento";
+import { Element } from "./screens/Element";
+import { ElementScreen } from "./screens/ElementScreen";
+import { ElementRecuperar } from "./screens/ElementRecuperar";
 
 const router = createBrowserRouter([
   {
@@ -54,16 +55,23 @@ const router = createBrowserRouter([
     path: "/PerfilDeUsuario",
     element: <PerfilDeUsuario />,
   },
-  {
-    
-    path: "/SolicitudDe",
-    element: <SolicitudDe />,
-  },
-  {
-    
-    path: "/SolicitudDeRestablecimiento",
-    element: <SolicitudDeRestablecimiento />,
-  },
+    {
+      path: "/*",
+      element: <ElementRecuperar />,
+    },
+    {
+      path: "/1-3recuperar-contrasea",
+      element: <Element />,
+    },
+    {
+      path: "/0-3recuperar-contrasena",
+      element: <ElementScreen />,
+    },
+    {
+      path: "/2-3recuperar-contrasena",
+      element: <ElementRecuperar />,
+    },
+  
 ]);
 
 export const App = () => {

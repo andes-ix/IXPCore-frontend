@@ -9,21 +9,13 @@ export const SolicitudDe = () => {
           <div className="rectngulo" />
           <div className="b-preview" />
           <div className="div" />
-          <img
-            className="fondo"
-            alt="Fondo"
-            src="https://cdn.animaapp.com/projects/665f11f92ded8993c553c57d/releases/665f121cbb31552cfe4bf499/img/fondo2port@1x.png"
-          />
+          <img className="fondo" alt="Fondo" src="/img/fondo2port-2.png" />
           <div className="rectngulo-2" />
           <div className="rectngulo-3" />
           <div className="text-wrapper">Restablecer contraseña</div>
           <div className="text-wrapper-2">Correo Electrónico</div>
           <div className="rectngulo-4" />
-          <img
-            className="trazado"
-            alt="Trazado"
-            src="https://cdn.animaapp.com/projects/665f11f92ded8993c553c57d/releases/665f121cbb31552cfe4bf499/img/trazado-2500@1x.png"
-          />
+          <img className="trazado" alt="Trazado" src="/img/trazado-2501.png" />
           <div className="text-wrapper-3">Guardar</div>
           <div className="rectngulo-5" />
           <input className="correo-electrnico" />
@@ -32,7 +24,7 @@ export const SolicitudDe = () => {
           <img
             className="logo-placeholder"
             alt="Logo placeholder"
-            src="https://cdn.animaapp.com/projects/665f11f92ded8993c553c57d/releases/665f121cbb31552cfe4bf499/img/logo-placeholder-3-removebg-preview-10@1x.png"
+            src="/img/logo-placeholder-3-removebg-preview-10.png"
           />
           <p className="tu-clave-de-acceso">
             <span className="span">

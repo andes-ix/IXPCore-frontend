@@ -12,9 +12,7 @@ export const SolicitudDeRestablecimiento = () => {
             <p className="ingrese-el-c-digo-de">
               Ingrese el código de su <br />
               aplicación de autenticación
-            </p>
-            <div className="text-wrapper">Correo Electrónico</div>
-            <input className="overlap-group" />
+            </p>  
             <div className="div">
               <div className="rectngulo-2" />
               <div className="text-wrapper-2">Enviar</div>

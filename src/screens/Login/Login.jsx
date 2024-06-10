@@ -10,28 +10,8 @@ export const Login = ({ state }) => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState({ email: false, password: false, general: false });
 
-  const validateEmail = (email) => {
-    const re = /\S+@\S+\.\S+/;
-    return re.test(email);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    let emailError = false;
-    let passwordError = false;
-
-    if (email === "" || !validateEmail(email)) {
-      emailError = true;
-    }
-    if (password === "") {
-      passwordError = true;
-    }
-
-    if (emailError || passwordError) {
-      setError({ email: emailError, password: passwordError, general: true });
-      return;
-    }
-
     setError({ email: false, password: false, general: false });
     handleButton();
   };
@@ -46,12 +26,14 @@ export const Login = ({ state }) => {
 
     let url = Apiurl + "v1/signin/";
     axios.post(url, state.form).then((response) => {
-      console.log(response);
       if (response.status === 200) {
-        console.log(response.data);
         localStorage.setItem("token", response.data.token);
         window.location.href = "./dashboard";
+      } else {
+        alert(`Error: ${response.data.message}`);
       }
+    }).catch((error) => {
+      alert(`Error: ${error.response.data.message}`);
     });
   };
 
@@ -93,7 +75,7 @@ export const Login = ({ state }) => {
             />
             {error.password && <p className="error">Contraseña no válida</p>}
             <button className="text-wrapper-276">Iniciar sesión</button>
-            <Link to="/SolicitudDeRestablecimiento" className="text-wrapper-277">¿Recuperar contraseña?</Link>
+            <Link to="/0-3recuperar-contrasena" className="text-wrapper-277">¿Recuperar contraseña?</Link>
             <div className="text-wrapper-278">Contraseñas</div>
           </form>
           {error.general && <p className="error">Todos los campos son obligatorios</p>}
