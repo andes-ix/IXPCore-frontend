@@ -3,6 +3,7 @@ import "./style.css";
 import { useState } from "react";
 import { Apiurl } from "../../../Service/Apirest";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export const Login = ({ state }) => {
   const [email, setEmail] = useState("");
@@ -92,7 +93,7 @@ export const Login = ({ state }) => {
             />
             {error.password && <p className="error">Contraseña no válida</p>}
             <button className="text-wrapper-276">Iniciar sesión</button>
-            <div className="text-wrapper-277">¿Recuperar contraseña?</div>
+            <Link to="/SolicitudDeRestablecimiento" className="text-wrapper-277">¿Recuperar contraseña?</Link>
             <div className="text-wrapper-278">Contraseñas</div>
           </form>
           {error.general && <p className="error">Todos los campos son obligatorios</p>}

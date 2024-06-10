@@ -1,1 +1,1 @@
-export { SolicitudDe } from "./SolicitudDe";
+export { SolicitudDe } from "./screens/SolicitudDe/SolicitudDe";

@@ -1,54 +1,7 @@
 import React from "react";
 import "./style.css";
-import { useState } from "react";
-import { password_reset } from "../../../Service/Apirest";
-import axios from "axios";
 
-  export const SolicitudDe = ({state}) => {
-    const [email, setEmail] = useState ("")
-    const [password1, setPassword1] = useState ("")
-    const [password2, setPassword2] = useState ("")
-    const [error, setError] = useState (false)
-  
-    
-  
-    const handlebutton = (e) => {
-      state={ 
-        form: {
-        "email":email,
-        "password1":password1,
-        "password2":password2
-        }
-      }
-      
-      let url = password_reset 
-      axios.post(url,state.form)
-      .then( response =>{
-        console.log(response);
-        if(response.status == "success"){
-          console.log(response.data)
-          localStorage.setItem("token",response.data.token);
-          window.location.href="./Login";
-        }
-        
-      }
-      
-  
-      )
-    }
-    
-  
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      if (email == "" || password1 == "" || password2 == "") {
-        setError(true)
-        return;
-      }
-      setError(false)
-    }
-
-
-
+export const SolicitudDe = () => {
   return (
     <div className="solicitud-de">
       <div className="overlap-group-wrapper">
@@ -56,26 +9,31 @@ import axios from "axios";
           <div className="rectngulo" />
           <div className="b-preview" />
           <div className="div" />
-          <img className="fondo" alt="Fondo" src="/img/portal.png" />
+          <img
+            className="fondo"
+            alt="Fondo"
+            src="https://cdn.animaapp.com/projects/665f11f92ded8993c553c57d/releases/665f121cbb31552cfe4bf499/img/fondo2port@1x.png"
+          />
           <div className="rectngulo-2" />
-          <form onSubmit={handleSubmit} >
           <div className="rectngulo-3" />
           <div className="text-wrapper">Restablecer contraseña</div>
           <div className="text-wrapper-2">Correo Electrónico</div>
           <div className="rectngulo-4" />
-          <img className="trazado" alt="Trazado" src="/img/trazado-2500.png" />
-          <button onClick={handlebutton} className="text-wrapper-3">Guardar</button>
+          <img
+            className="trazado"
+            alt="Trazado"
+            src="https://cdn.animaapp.com/projects/665f11f92ded8993c553c57d/releases/665f121cbb31552cfe4bf499/img/trazado-2500@1x.png"
+          />
+          <div className="text-wrapper-3">Guardar</div>
           <div className="rectngulo-5" />
-          <input className="correo-electrnico" type="email" value={email} onChange={e => setEmail(e.target.value)} />
-          <input className="input" type="password" value={password1} onChange={e => setPassword1(e.target.value)} />
-          
+          <input className="correo-electrnico" />
+          <input className="input" />
           <div className="text-wrapper-4">Contraseña</div>
           <img
             className="logo-placeholder"
             alt="Logo placeholder"
-            src="/img/logo-placeholder-3-removebg-preview-5.png"
+            src="https://cdn.animaapp.com/projects/665f11f92ded8993c553c57d/releases/665f121cbb31552cfe4bf499/img/logo-placeholder-3-removebg-preview-10@1x.png"
           />
-          </form>
           <p className="tu-clave-de-acceso">
             <span className="span">
               Tu clave de acceso debe cumplir con estos requisitos:
@@ -89,12 +47,11 @@ import axios from "axios";
             </span>
           </p>
           <div className="rectngulo-6" />
-          <input className="input-2" type="password" value={password2} onChange={e => setPassword2(e.target.value)} />
+          <input className="input-2" />
           <div className="text-wrapper-6">Confirmar contraseña</div>
           <p className="p">Ten en cuenta los parámetros que debe cumplir la contraseña de acceso a configurar.</p>
         </div>
       </div>
     </div>
   );
-};    
- 
+};

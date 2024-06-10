@@ -9,8 +9,8 @@ import { CuentaEstadoDe } from "./screens/CuentaEstadoDe";
 import { CuentaEstadoDeScreen } from "./screens/CuentaEstadoDeScreen";
 import { Dashboard } from "./screens/Dashboard";
 import { PerfilDeUsuario } from "./screens/PerfilDeUsuario";
-import { SolicitudDe } from "./screens/SolicitudDe";
-import { SolicitudDeRestablecimiento } from "./screens/SolicitudDeRestablecimiento";
+import { SolicitudDe } from "./screens/SolicitudDe/SolicitudDe";
+import { SolicitudDeRestablecimiento } from "./screens/SolicitudDeRestablecimiento/SolicitudDeSolicitudDeRestablecimiento";
 
 const router = createBrowserRouter([
   {
