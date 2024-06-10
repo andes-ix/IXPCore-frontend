@@ -17,10 +17,10 @@ export const ElementRecuperar = () => {
           email: email
         }
       );
-      console.log(response.data); // Puedes manejar la respuesta de la API aquí
+      console.log(response.data); 
       if (response.data.success) {
         alert("Contraseña cambiada exitosamente.");
-        window.location.href = "./Login"; // Redirección en éxito
+        window.location.href = "./Login"; 
       } else {
         alert(`Error: ${response.data.message}`);
       }

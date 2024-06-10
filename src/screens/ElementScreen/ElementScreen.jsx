@@ -17,7 +17,7 @@ export const ElementScreen = () => {
       );
       if (response.data.success) {
         alert("Código de restablecimiento enviado a su correo electrónico.");
-        window.location.href = "./1-3recuperar-contrasea";
+        
       } else {
         alert("Hubo un problema al enviar el código de restablecimiento.");
       }

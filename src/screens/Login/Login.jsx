@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
-import { useState } from "react";
 import { Apiurl } from "../../../Service/Apirest";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -25,16 +24,19 @@ export const Login = ({ state }) => {
     };
 
     let url = Apiurl + "v1/signin/";
-    axios.post(url, state.form).then((response) => {
-      if (response.status === 200) {
-        localStorage.setItem("token", response.data.token);
-        window.location.href = "./dashboard";
-      } else {
-        alert(`Error: ${response.data.message}`);
-      }
-    }).catch((error) => {
-      alert(`Error: ${error.response.data.message}`);
-    });
+    axios
+      .post(url, state.form)
+      .then((response) => {
+        if (response.status === 200) {
+          localStorage.setItem("token", response.data.token);
+          window.location.href = "./dashboard";
+        } else {
+          alert(`Error: ${response.data.message}`);
+        }
+      })
+      .catch((error) => {
+        alert(`Error: ${error.response.data.message}`);
+      });
   };
 
   return (
@@ -75,7 +77,9 @@ export const Login = ({ state }) => {
             />
             {error.password && <p className="error">Contraseña no válida</p>}
             <button className="text-wrapper-276">Iniciar sesión</button>
-            <Link to="/0-3recuperar-contrasena" className="text-wrapper-277">¿Recuperar contraseña?</Link>
+            <Link to="/0-3recuperar-contrasena" className="text-wrapper-277">
+              ¿Recuperar contraseña?
+            </Link>
             <div className="text-wrapper-278">Contraseñas</div>
           </form>
           {error.general && <p className="error">Todos los campos son obligatorios</p>}
@@ -91,3 +95,4 @@ export const Login = ({ state }) => {
     </div>
   );
 };
+
