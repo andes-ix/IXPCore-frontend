@@ -1,11 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import queryString from "query-string";
 import "./style.css";
 
 export const ElementRecuperar = () => {
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
   const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    const fetchEmailFromQueryParams = () => {
+      const params = queryString.parse(window.location.search);
+      if (params.email) {
+        setEmail(params.email);
+      }
+    };
+
+    fetchEmailFromQueryParams();
+  }, []);
 
   const handleChangePassword = async () => {
     try {
@@ -17,10 +29,10 @@ export const ElementRecuperar = () => {
           email: email
         }
       );
-      console.log(response.data); 
+      console.log(response.data);
       if (response.data.success) {
         alert("Contraseña cambiada exitosamente.");
-        window.location.href = "./Login"; 
+        window.location.href = "./Login";
       } else {
         alert(`Error: ${response.data.message}`);
       }
@@ -46,6 +58,7 @@ export const ElementRecuperar = () => {
           <div className="text-wrapper-11">Contraseña</div>
           <div className="rectngulo-8" />
           <img className="trazado-2" alt="Trazado" src="/img/trazado-2501.png" />
+          <div className="form-size">
           <button onClick={handleChangePassword} className="text-wrapper-12">Guardar</button>
           <div className="rectngulo-9" />
           <input 
@@ -54,7 +67,7 @@ export const ElementRecuperar = () => {
             className="input" 
             value={password1}
             onChange={(e) => setPassword1(e.target.value)} />
-           <input 
+          <input 
             type="password" 
             placeholder="Confirmar Contraseña" 
             className="input-2" 
@@ -80,14 +93,8 @@ export const ElementRecuperar = () => {
               <br />- Tener uno de estos caracteres especiales - / = . $ # *<br />- Evita colocar información personal
             </span>
           </p>
-          <div className="text-wrapper-15">Correo Electronico</div>
-          <div className="rectngulo-10" />
-          <input 
-            placeholder="Correo Electronico" 
-            type="email" 
-            className="correo-electronico-2" 
-            value={email}
-            onChange={(e) => setEmail(e.target.value)} />
+          </div>
+          
         </div>
       </div>
     </div>
