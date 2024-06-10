@@ -42,7 +42,7 @@
 .element-recuperar .rectngulo-7 {
   background-color: #ffffff;
   border-radius: 10px;
-  height: 876px;
+  height: 776px;
   left: 1257px;
   position: absolute;
   top: 119px;
@@ -301,5 +301,23 @@ input.text-wrapper-7 {
   outline: none !important;
 }
 
+.rectngulo-8 {
+  margin-top: -130px;
+}
 
+.text-wrapper-11, .b-preview  {
+  margin-top: -130px;
+}
+input.input {
+  margin-top: -130px;
+}
+.text-wrapper-13, .rectngulo-9, input.input-2, .b-preview-2 {
+  margin-top: -115px;
+}
+p.tu-clave-de-acceso {
+  margin-top: -100px;
+}
+img.trazado-2, button.text-wrapper-12 {
+  margin-top: -101px;
+}
 
