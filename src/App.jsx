@@ -1,7 +1,7 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Login } from "./screens/Login";
-import { UsuariosGestinDe } from "./screens/UsuariosGestinDe";
+import { AgregarUsuario } from "./screens/AgregarUsuario";
 import { UsuariosGestinDeScreen } from "./screens/UsuariosGestinDeScreen";
 import { DivWrapper } from "./screens/DivWrapper";
 import { Cuenta } from "./screens/Cuenta";
@@ -23,8 +23,8 @@ const router = createBrowserRouter([
     element: <PerfilDeUsuario />,
   },
   {
-    path: "/usuarios-gestion-de-usuarios-agregar-usuario-1",
-    element: <UsuariosGestinDe />,
+    path: "/AgregarUsuario",
+    element: <AgregarUsuario />,
   },
   {
     path: "/usuarios-gestion-de-usuarios-1",

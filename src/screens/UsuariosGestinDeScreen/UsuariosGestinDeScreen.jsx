@@ -223,7 +223,7 @@ export const UsuariosGestinDeScreen = () => {
               </div>
             </div>
             <div className="grupo-14">
-              <Link className="text-wrapper-89" to="/usuarios-gestion-de-usuarios-agregar-usuario-1">
+              <Link className="text-wrapper-89" to="/AgregarUsuario">
                 Agregar usuario
               </Link>
             </div>
