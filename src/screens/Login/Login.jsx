@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import "./style.css";
 import { Apiurl } from "../../../Service/Apirest";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "./AuthContext"; // Importamos el hook useAuth
 
-export const Login = ({ state }) => {
+export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState({ email: false, password: false, general: false });
+  const { setAuthenticatedEmail } = useAuth(); // Obtenemos la función para guardar el email
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,7 +19,7 @@ export const Login = ({ state }) => {
   };
 
   const handleButton = () => {
-    state = {
+    const state = {
       form: {
         email: email,
         password: password,
@@ -29,7 +32,9 @@ export const Login = ({ state }) => {
       .then((response) => {
         if (response.status === 200) {
           localStorage.setItem("token", response.data.token);
-          window.location.href = "./dashboard";
+          localStorage.setItem("email", email); // Guardamos el email en localStorage
+          setAuthenticatedEmail(email); // Guardamos el email en el contexto (opcional)
+          navigate("/dashboard");
         } else {
           alert(`Error: ${response.data.message}`);
         }
@@ -95,4 +100,5 @@ export const Login = ({ state }) => {
     </div>
   );
 };
+
 

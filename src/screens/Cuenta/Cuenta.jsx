@@ -56,9 +56,6 @@ export const Cuenta = () => {
                 <span className="text-wrapper-9">Fiber digital</span>
               </p>
               <img className="chevron-right-2" alt="Chevron right" src="/img/chevron-right-3.png" />
-              <div className="div-wrapper">
-                <div className="grupo-3" />
-              </div>
               <div className="componente-2">
                 <div className="rectngulo-wrapper">
                   <img className="rectngulo-2" alt="Rectngulo" src="/img/rect-ngulo-17.png" />

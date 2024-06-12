@@ -1,42 +1,24 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 export const SolicitudDeCdigo = () => {
   return (
     <div className="solicitud-de-cdigo">
       <div className="grupo-wrapper-2">
-        <div className="grupo-7">
-          <div className="grupo-8">
-            <div className="text-wrapper-27">Guardar</div>
+        <div className="grupo-13">
+          <p className="text-wrapper-57">Ingrese el código de su aplicación de autenticación</p>
+          <div className="text-wrapper-58">Codigo</div>
+          <div className="overlap-group-8">
+            <div className="text-wrapper-59">******</div>
           </div>
-          <img className="lnea-4" alt="Lnea" src="/img/l-nea-50.png" />
-          <div className="text-wrapper-28">Configuración de contraseña</div>
-          <div className="text-wrapper-29">Cancelar</div>
-          <p className="text-wrapper-30">
-            Ten en cuenta los parámetros que debe cumplir la contraseña de acceso a configurar.
-          </p>
-          <div className="text-wrapper-31">Contraseña</div>
-          <div className="overlap-9">
-            <div className="text-wrapper-32">**************</div>
-            <div className="b-preview" />
+          <div className="overlap-16">
+            <Link className="text-wrapper-60" to="/solicitud-de-codigo-si-el-usuario-tiene-el-2fa-activo-1">
+              Enviar
+            </Link>
           </div>
-          <div className="overlap-group-5">
-            <div className="text-wrapper-32">**************</div>
-            <div className="b-preview-2" />
-          </div>
-          <div className="text-wrapper-33">Confirmar contraseña</div>
-          <p className="tu-clave-de-acceso">
-            <span className="text-wrapper-34">
-              Tu clave de acceso debe cumplir con estos requisitos:
-              <br />
-            </span>
-            <span className="text-wrapper-35">
-              - Tener 8 caracteres
-              <br />- Ser alfanumérica con al menos 1 carácter numérico y un <br />
-              único carácter especial
-              <br />- Tener uno de estos caracteres especiales - / = . $ # *<br />- Evita colocar información personal
-            </span>
-          </p>
+          <img className="lnea-7" alt="Lnea" src="/img/l-nea-50-2.png" />
+          <div className="text-wrapper-61">Autenticación de usuario</div>
         </div>
       </div>
     </div>

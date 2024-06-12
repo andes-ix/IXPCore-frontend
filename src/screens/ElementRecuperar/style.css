@@ -233,7 +233,7 @@
   letter-spacing: 0;
   line-height: 22px;
   position: absolute;
-  top: 726px;
+  top: 726px!important;
   width: 388px;
 }
 
@@ -316,6 +316,7 @@ input.input {
 }
 p.tu-clave-de-acceso {
   margin-top: -100px;
+  
 }
 img.trazado-2, button.text-wrapper-12 {
   margin-top: -101px;

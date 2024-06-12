@@ -12,92 +12,30 @@
   width: 1920px;
 }
 
-.solicitud-de-cdigo .grupo-7 {
+.solicitud-de-cdigo .grupo-13 {
   background-color: #ffffff;
-  border-radius: 4px;
-  box-shadow: 0px 3px 6px #0000001a;
-  height: 651px;
-  left: 617px;
+  border-radius: 10px;
+  height: 375px;
+  left: 703px;
   position: relative;
-  top: 212px;
-  width: 687px;
+  top: 343px;
+  width: 514px;
 }
 
-.solicitud-de-cdigo .grupo-8 {
-  background-color: #168eea;
-  border-radius: 6px;
-  box-shadow: 0px 3px 6px #00000005;
-  height: 48px;
-  left: 505px;
-  position: absolute;
-  top: 557px;
-  width: 136px;
-}
-
-.solicitud-de-cdigo .text-wrapper-27 {
-  color: #ffffff;
-  font-family: "Open Sans", Helvetica;
-  font-size: 16px;
-  font-weight: 600;
-  left: 36px;
-  letter-spacing: 0;
-  line-height: 16px;
-  position: absolute;
-  top: 16px;
-  white-space: nowrap;
-}
-
-.solicitud-de-cdigo .lnea-4 {
-  height: 2px;
-  left: 0;
-  object-fit: cover;
-  position: absolute;
-  top: 88px;
-  width: 687px;
-}
-
-.solicitud-de-cdigo .text-wrapper-28 {
+.solicitud-de-cdigo .text-wrapper-57 {
   color: #51626e;
   font-family: "Open Sans", Helvetica;
-  font-size: 24px;
-  font-weight: 400;
-  left: 40px;
-  letter-spacing: 0;
-  line-height: 24px;
-  position: absolute;
-  top: 36px;
-  white-space: nowrap;
-}
-
-.solicitud-de-cdigo .text-wrapper-29 {
-  color: #168eea;
-  font-family: "Open Sans", Helvetica;
-  font-size: 16px;
-  font-weight: 600;
-  left: 394px;
-  letter-spacing: 0;
-  line-height: 16px;
-  position: absolute;
-  top: 573px;
-  white-space: nowrap;
-}
-
-.solicitud-de-cdigo .text-wrapper-30 {
-  color: #59626a;
-  font-family: "Open Sans", Helvetica;
   font-size: 14px;
-  font-weight: 400;
-  height: 26px;
+  font-weight: 600;
   left: 40px;
   letter-spacing: 0;
-  line-height: 22px;
+  line-height: 14px;
   position: absolute;
-  top: 114px;
+  top: 128px;
   white-space: nowrap;
-  width: 566px;
 }
 
-.solicitud-de-cdigo .text-wrapper-31 {
+.solicitud-de-cdigo .text-wrapper-58 {
   color: #59626a;
   font-family: "Open Sans", Helvetica;
   font-size: 14px;
@@ -106,11 +44,11 @@
   letter-spacing: 0;
   line-height: 14px;
   position: absolute;
-  top: 172px;
+  top: 160px;
   white-space: nowrap;
 }
 
-.solicitud-de-cdigo .overlap-9 {
+.solicitud-de-cdigo .overlap-group-8 {
   background-color: #ffffff;
   border: 1px solid;
   border-color: #f0f0f0;
@@ -119,11 +57,11 @@
   height: 48px;
   left: 40px;
   position: absolute;
-  top: 198px;
-  width: 601px;
+  top: 187px;
+  width: 422px;
 }
 
-.solicitud-de-cdigo .text-wrapper-32 {
+.solicitud-de-cdigo .text-wrapper-59 {
   color: #95989a;
   font-family: "Open Sans", Helvetica;
   font-size: 14px;
@@ -136,73 +74,49 @@
   white-space: nowrap;
 }
 
-.solicitud-de-cdigo .b-preview {
-  background-image: url(../../../static/img/combined-shape-1.png);
-  background-position: 50% 50%;
-  background-size: cover;
-  height: 15px;
-  left: 557px;
-  position: absolute;
-  top: 17px;
-  width: 17px;
-}
-
-.solicitud-de-cdigo .overlap-group-5 {
-  background-color: #ffffff;
-  border: 1px solid;
-  border-color: #f0f0f0;
+.solicitud-de-cdigo .overlap-16 {
+  background-color: #3f88cb;
   border-radius: 6px;
   box-shadow: 0px 3px 6px #00000005;
   height: 48px;
   left: 40px;
   position: absolute;
-  top: 295px;
-  width: 601px;
+  top: 274px;
+  width: 422px;
 }
 
-.solicitud-de-cdigo .b-preview-2 {
-  background-image: url(../../../static/img/combined-shape-1.png);
-  background-position: 50% 50%;
-  background-size: cover;
-  height: 15px;
-  left: 557px;
-  position: absolute;
-  top: 14px;
-  width: 17px;
-}
-
-.solicitud-de-cdigo .text-wrapper-33 {
-  color: #59626a;
+.solicitud-de-cdigo .text-wrapper-60 {
+  color: #ffffff;
+  display: block;
   font-family: "Open Sans", Helvetica;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
-  left: 40px;
+  left: 179px;
   letter-spacing: 0;
-  line-height: 14px;
+  line-height: 16px;
   position: absolute;
-  top: 268px;
+  top: 15px;
   white-space: nowrap;
 }
 
-.solicitud-de-cdigo .tu-clave-de-acceso {
-  color: #59626a;
+.solicitud-de-cdigo .lnea-7 {
+  height: 2px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 94px;
+  width: 514px;
+}
+
+.solicitud-de-cdigo .text-wrapper-61 {
+  color: #51626e;
   font-family: "Open Sans", Helvetica;
-  font-size: 14px;
-  height: 137px;
+  font-size: 24px;
+  font-weight: 400;
   left: 40px;
   letter-spacing: 0;
-  line-height: 22px;
+  line-height: 24px;
   position: absolute;
-  top: 363px;
-  width: 388px;
-}
-
-.solicitud-de-cdigo .text-wrapper-34 {
-  font-family: "Open Sans", Helvetica;
-  font-weight: 700;
-}
-
-.solicitud-de-cdigo .text-wrapper-35 {
-  font-family: "Open Sans", Helvetica;
-  font-weight: 400;
+  top: 42px;
+  white-space: nowrap;
 }
