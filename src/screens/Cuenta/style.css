@@ -495,7 +495,7 @@
   letter-spacing: 0;
   line-height: 22px;
   position: absolute;
-  top: 280px;
+  top: 396px!important;
   white-space: nowrap;
 }
 
@@ -556,7 +556,7 @@
 }
 
 .cuenta .overlap-3 {
-  background-image: url(../../../static/img/rectangle-1.png);
+
   background-position: 50% 50%;
   background-size: cover;
   height: 50px;
@@ -1911,4 +1911,10 @@
   position: absolute;
   top: 3px;
   white-space: nowrap;
+}
+
+.cuenta .text-wrapper-13 {
+
+  top: 396px;
+  
 }

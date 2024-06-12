@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 export const Cuenta = () => {
   return (
@@ -76,7 +77,7 @@ export const Cuenta = () => {
           <img className="logo-placeholder" alt="Logo placeholder" src="/img/logo-placeholder-3-removebg-preview.png" />
           <div className="componente-3">
             <div className="overlap-3">
-              <div className="text-wrapper-15">Dashboard</div>
+              <Link to={"/Dashboard"} className="text-wrapper-15">Dashboard</Link>
               <div className="layout-dashboard">
                 <div className="rectngulo-3" />
                 <div className="rectngulo-4" />
@@ -84,8 +85,8 @@ export const Cuenta = () => {
                 <div className="rectngulo-6" />
               </div>
             </div>
-            <div className="text-wrapper-16">Cuenta</div>
-            <div className="text-wrapper-17">Usuarios</div>
+            <Link to={"/Cuenta"} className="text-wrapper-16">Cuenta</Link>
+            <Link to={"/usuarios-gestion-de-usuarios-1"} className="text-wrapper-17">Usuarios</Link>
             <div className="text-wrapper-18">Menu</div>
             <img className="chevron-right-3" alt="Chevron right" src="/img/chevron-right-2.png" />
             <img className="chevron-right-4" alt="Chevron right" src="/img/chevron-right-2.png" />
