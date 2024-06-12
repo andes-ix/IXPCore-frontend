@@ -47,7 +47,7 @@
   letter-spacing: 0;
   line-height: 40px;
   position: absolute;
-  top: 152px;
+  top: 154px;
   white-space: nowrap;
 }
 
@@ -60,7 +60,7 @@
   letter-spacing: 0;
   line-height: 28px;
   position: absolute;
-  top: 150px;
+  top: 151px;
   white-space: nowrap;
 }
 
@@ -357,11 +357,10 @@
   width: 6px;
 }
 
-.perfil-de-usuario .text-wrapper-5 {
+.perfil-de-usuario .empresa-fiber {
   color: #168eea;
   font-family: "Open Sans", Helvetica;
   font-size: 14px;
-  font-weight: 400;
   left: 35px;
   letter-spacing: 0;
   line-height: 22px;
@@ -370,16 +369,26 @@
   white-space: nowrap;
 }
 
+.perfil-de-usuario .span {
+  font-family: "Open Sans", Helvetica;
+  font-weight: 400;
+}
+
+.perfil-de-usuario .text-wrapper-5 {
+  font-family: "Open Sans", Helvetica;
+  font-weight: 700;
+}
+
 .perfil-de-usuario .chevron-right {
   height: 7px;
-  left: 164px;
+  left: 194px;
   object-fit: cover;
   position: absolute;
   top: 50px;
   width: 12px;
 }
 
-.perfil-de-usuario .componente-2 {
+.perfil-de-usuario .div-wrapper {
   height: 274px;
   left: 1218px;
   position: absolute;
@@ -389,7 +398,7 @@
 
 .perfil-de-usuario .grupo-3 {
   background-color: #eff6ff;
-  background-image: url(../../../static/img/enmascarar-grupo-2-7.png);
+  background-image: url(../../../static/img/enmascarar-grupo-2-1.png);
   background-position: 50% 50%;
   background-size: cover;
   border-radius: 24px;
@@ -399,7 +408,7 @@
   width: 48px;
 }
 
-.perfil-de-usuario .componente-3 {
+.perfil-de-usuario .componente-2 {
   height: 152px;
   left: 1250px;
   position: absolute;
@@ -431,7 +440,7 @@
   letter-spacing: 0;
   line-height: 20px;
   position: absolute;
-  top: 294px;
+  top: 296px;
   white-space: nowrap;
 }
 
@@ -886,7 +895,7 @@
   letter-spacing: 0;
   line-height: 20px;
   position: absolute;
-  top: 6px;
+  top: 8px;
   white-space: nowrap;
 }
 
@@ -925,7 +934,7 @@
   width: 169px;
 }
 
-.perfil-de-usuario .componente-4 {
+.perfil-de-usuario .componente-3 {
   height: 323px;
   left: 29px;
   position: absolute;
@@ -942,7 +951,7 @@
   letter-spacing: 0;
   line-height: 16px;
   position: absolute;
-  top: 57px;
+  top: 58px;
   white-space: nowrap;
 }
 
@@ -955,7 +964,7 @@
   letter-spacing: 0;
   line-height: 16px;
   position: absolute;
-  top: 128px;
+  top: 129px;
   white-space: nowrap;
 }
 
@@ -968,7 +977,7 @@
   letter-spacing: 0;
   line-height: 16px;
   position: absolute;
-  top: 199px;
+  top: 200px;
   white-space: nowrap;
 }
 
@@ -1161,10 +1170,4 @@
   position: absolute;
   top: 313px;
   width: 4px;
-}
-
-.correo-electronico-2 {
-  border:0px!important;
-  width: 200px!important;
-  outline: none!important;
 }

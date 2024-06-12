@@ -12,6 +12,9 @@ import { PerfilDeUsuario } from "./screens/PerfilDeUsuario";
 import { Element } from "./screens/Element";
 import { ElementScreen } from "./screens/ElementScreen";
 import { ElementRecuperar } from "./screens/ElementRecuperar";
+import { PerfilDeUsuario } from "./screens/PerfilDeUsuario";
+import { SolicitudDeCdigo } from "./screens/SolicitudDeCdigo";
+import { SolicitudDeCdigoScreen } from "./screens/SolicitudDeCdigoScreen";
 
 const router = createBrowserRouter([
   {
@@ -50,12 +53,7 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: <Dashboard  />,
   },
-  {
-    
-    path: "/PerfilDeUsuario",
-    element: <PerfilDeUsuario />,
-  },
-    {
+      {
       path: "/*",
       element: <ElementRecuperar />,
     },
@@ -70,6 +68,19 @@ const router = createBrowserRouter([
     {
       path: "/2-3recuperar-contrasena",
       element: <ElementRecuperar />,
+    },
+
+    {
+      path: "/perfil-de-usuario-9",
+      element: <PerfilDeUsuario />,
+    },
+    {
+      path: "/solicitud-de-codigo-si-el-usuario-tiene-el-2fa-activo-1",
+      element: <SolicitudDeCdigo />,
+    },
+    {
+      path: "/solicitud-de-codigo-si-el-usuario-no-tiene-el-2fa-activo",
+      element: <SolicitudDeCdigoScreen />,
     },
   
 ]);
