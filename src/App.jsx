@@ -13,6 +13,7 @@ import { PerfilDeUsuario } from "./screens/PerfilDeUsuario";
 import { Element } from "./screens/Element";
 import { ElementScreen } from "./screens/ElementScreen";
 import { ElementRecuperar } from "./screens/ElementRecuperar";
+import { PerfilDeUsuario } from "./screens/PerfilDeUsuario";
 import { SolicitudDeCdigo } from "./screens/SolicitudDeCdigo";
 import { SolicitudDeCdigoScreen } from "./screens/SolicitudDeCdigoScreen";
 import { Screen5 } from "./screens/Screen5";
@@ -21,7 +22,7 @@ import { Screen7 } from "./screens/Screen7";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/*",
     element: <Login />,
   },
   {
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
     element: <PerfilDeUsuario />,
   },
   {
-    path: "/agregar-usuario",
+    path: "/AgregarUsuario",
     element: <AgregarUsuario />,
   },
   {
@@ -54,50 +55,57 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element: <Dashboard  />,
   },
-  {
-    path: "/1-3recuperar-contrasea",
-    element: <Element />,
-  },
-  {
-    path: "/0-3recuperar-contrasena",
-    element: <ElementScreen />,
-  },
-  {
-    path: "/2-3recuperar-contrasena",
-    element: <ElementRecuperar />,
-  },
-  {
-    path: "/solicitud-de-codigo-si-el-usuario-tiene-el-2fa-activo",
-    element: <SolicitudDeCdigo />,
-  },
-  {
-    path: "/solicitud-de-codigo-si-el-usuario-tiene-el-2fa-activo-1",
-    element: <SolicitudDeCdigoScreen />,
-  },
-  {
-    path: "/solicitud-de-codigo-si-el-usuario-no-tiene-el-2fa-activo",
-    element: <DivWrapper />,
-  },
-  {
-    path: "/perfil-de-usuario-7",
-    element: <Screen5 />,
-  },
-  {
-    path: "/perfil-de-usuario-6",
-    element: <Screen6 />,
-  },
-  {
-    path: "/perfil-de-usuario-5",
-    element: <Screen7 />,
-  },
+      {
+      path: "/*",
+      element: <ElementRecuperar />,
+    },
+    {
+      path: "/1-3recuperar-contrasea",
+      element: <Element />,
+    },
+    {
+      path: "/0-3recuperar-contrasena",
+      element: <ElementScreen />,
+    },
+    {
+      path: "/2-3recuperar-contrasena",
+      element: <ElementRecuperar />,
+    },
+
+    {
+      path: "/perfil-de-usuario-9",
+      element: <PerfilDeUsuario />,
+    },
+    {
+      path: "/solicitud-de-codigo-si-el-usuario-tiene-el-2fa-activo",
+      element: <SolicitudDeCdigo />,
+    },
+    {
+      path: "/solicitud-de-codigo-si-el-usuario-tiene-el-2fa-activo-1",
+      element: <SolicitudDeCdigoScreen />,
+    },
+    {
+      path: "/solicitud-de-codigo-si-el-usuario-no-tiene-el-2fa-activo",
+      element: <DivWrapper />,
+    },
+    {
+      path: "/perfil-de-usuario-7",
+      element: <Screen5 />,
+    },
+    {
+      path: "/perfil-de-usuario-6",
+      element: <Screen6 />,
+    },
+    {
+      path: "/perfil-de-usuario-5",
+      element: <Screen7 />,
+    },
 ]);
 
 export const App = () => {
-  return (
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
-  );
+  return <RouterProvider router={router} />;
+  <Route path='/dashboard' element={<Dashboard/>}/>
+
 };

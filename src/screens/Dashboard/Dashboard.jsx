@@ -285,7 +285,7 @@ export const Dashboard = () => {
           <div className="rectangle-14">
             <img className="trazado-53" alt="Trazado" src="/img/trazado-3763.png" />
           </div>
-          <div className="text-wrapper-261">Perfil de usuario</div>
+          <Link to={"/perfil-de-usuario-9"} className="text-wrapper-261">Perfil de usuario</Link>
           <div className="text-wrapper-262">Juan Hernandez</div>
           <div className="text-wrapper-263">Example@pit.net</div>
           <div className="text-wrapper-264">(0) 053 555 555</div>

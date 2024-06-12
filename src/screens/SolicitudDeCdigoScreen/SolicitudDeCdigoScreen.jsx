@@ -1,15 +1,12 @@
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./style.css";
 import { Link } from "react-router-dom";
-import { useAuth } from "../Login/AuthContext"; 
 
 export const SolicitudDeCdigoScreen = () => {
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
-  const { email: contextEmail } = useAuth(); 
-  const [email, setEmail] = useState(contextEmail || "");
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
     const savedEmail = localStorage.getItem("email");
@@ -91,3 +88,5 @@ export const SolicitudDeCdigoScreen = () => {
     </div>
   );
 };
+
+export default SolicitudDeCdigoScreen;
