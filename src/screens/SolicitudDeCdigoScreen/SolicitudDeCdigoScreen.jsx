@@ -32,6 +32,7 @@ export const SolicitudDeCdigoScreen = () => {
       const response = await axios.post("https://portal-dev.andesix.net/v2/password_reset/change_password/", payload);
 
       alert("Contraseña cambiada exitosamente");
+      window.location.href = "./perfil-de-usuario-9";
     } catch (error) {
       console.error("Error response:", error.response);
       alert("Error al cambiar la contraseña: " + (error.response?.data?.message || error.message));

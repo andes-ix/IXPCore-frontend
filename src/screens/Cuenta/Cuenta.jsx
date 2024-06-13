@@ -54,7 +54,7 @@ export const Cuenta = () => {
               </div>
               <p className="empresa-fiber">
                 <span className="span">Empresa: </span>
-                <span className="text-wrapper-9">Fiber digital</span>
+                <span className="text-wrapper-9">Peru IX</span>
               </p>
               <img className="chevron-right-2" alt="Chevron right" src="/img/chevron-right-3.png" />
               <div className="componente-2">
