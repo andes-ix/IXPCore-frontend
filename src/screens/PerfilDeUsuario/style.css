@@ -856,6 +856,8 @@
   position: absolute;
   top: 496px;
   width: 136px;
+  cursor: pointer;
+  border:0px!important;
 }
 
 .perfil-de-usuario .text-wrapper-286 {
