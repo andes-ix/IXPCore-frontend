@@ -28,16 +28,25 @@ export const Login = () => {
     axios
       .post(url, state.form)
       .then((response) => {
-        if (response.status === 200) {
-          localStorage.setItem("token", response.data.token);
-          localStorage.setItem("email", email); // Guardamos el email en localStorage
+        console.log(response);
+        if (response.status === 200 && response.data) {
+          const userData = response.data;
+          localStorage.setItem("user", JSON.stringify({
+            cargo: userData.cargo || "",
+            pais: userData.pais || "",
+            email: userData.email || "",
+            first_name: userData.first_name || "",
+            last_name: userData.last_name || "",
+            phone: userData.phone || ""
+          }));
           navigate("/dashboard");
         } else {
-          alert(`Error: ${response.data.message}`);
+          alert(`Error: ${response.data?.message || 'Unexpected error occurred'}`);
         }
       })
       .catch((error) => {
-        alert(`Error: ${error.response.data.message}`);
+        console.error(error);
+        alert(`Error: ${error.response?.data?.message || 'Unexpected error occurred'}`);
       });
   };
 

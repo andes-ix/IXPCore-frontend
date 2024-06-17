@@ -893,6 +893,9 @@
   position: absolute;
   top: 224px;
   white-space: nowrap;
+  border:0px!important;
+  width: 200px!important;
+  outline: none!important;
 }
 
 .perfil-de-usuario .text-wrapper-288 {
@@ -906,6 +909,9 @@
   position: absolute;
   top: 420px;
   white-space: nowrap;
+  border:0px!important;
+  width: 200px!important;
+  outline: none!important;
 }
 
 .perfil-de-usuario .text-wrapper-289 {
@@ -919,6 +925,9 @@
   position: absolute;
   top: 320px;
   white-space: nowrap;
+  border:0px!important;
+  width: 200px!important;
+  outline: none!important;
 }
 
 .perfil-de-usuario .text-wrapper-290 {
@@ -956,6 +965,9 @@
   position: absolute;
   top: 224px;
   white-space: nowrap;
+  border:0px!important;
+  width: 200px!important;
+  outline: none!important;
 }
 
 .perfil-de-usuario .text-wrapper-292 {
@@ -1137,6 +1149,9 @@
   position: absolute;
   top: 320px;
   white-space: nowrap;
+  border:0px!important;
+  width: 200px!important;
+  outline: none!important;
 }
 
 .perfil-de-usuario .chevron-right-18 {

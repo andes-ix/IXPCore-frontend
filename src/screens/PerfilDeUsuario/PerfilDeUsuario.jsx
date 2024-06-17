@@ -1,8 +1,54 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import "./style.css";
 
 export const PerfilDeUsuario = () => {
+  const [userData, setUserData] = useState({
+    name: "",
+    cargo: "",
+    pais: "",
+    email: "",
+    phone: ""
+  });
+
+  useEffect(() => {
+    // Realizar la llamada a la API para obtener los datos del usuario
+    axios.get("https://portal-dev.andesix.net/v1/userapp/1/")
+      .then(response => {
+        const user = response.data; // Ajusta esto según la estructura de la respuesta de tu API
+        setUserData({
+          name: user.name || "",
+          cargo: user.cargo || "",
+          pais: user.pais || "",
+          email: user.email || "",
+          phone: user.phone || ""
+        });
+      })
+      .catch(error => {
+        console.error("Error fetching user data:", error);
+      });
+  }, []);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserData({ ...userData, [name]: value });
+  };
+
+  const handleUpdate = async () => {
+    try {
+      const response = await axios.patch(
+        "https://portal-dev.andesix.net/v1/userapp/1/",
+        userData
+      );
+      console.log("User updated successfully:", response.data);
+      
+    } catch (error) {
+      console.error("Error updating user:", error);
+      
+    }
+  };
+
   return (
     <div className="perfil-de-usuario">
       <div className="div-4">
@@ -89,9 +135,9 @@ export const PerfilDeUsuario = () => {
             <Link className="text-wrapper-278" to="/dashboard">
               Dashboard
             </Link>
-            <Link className="text-wrapper-279" to="/cuenta" >Cuenta</Link>
-            <div className="text-wrapper-280" >Usuarios</div>
-            <div className="text-wrapper-281">Menu</div>
+            <Link className="text-wrapper-279" to="/cuenta">Cuenta</Link>
+            <div className="text-wrapper-280">Usuarios</div>
+            <div className="text-wrapper-281"></div>
             <img className="chevron-right-15" alt="Chevron right" src="/img/chevron-right-24.png" />
             <img className="chevron-right-16" alt="Chevron right" src="/img/chevron-right-24.png" />
             <div className="layout-dashboard-4">
@@ -123,22 +169,50 @@ export const PerfilDeUsuario = () => {
         <img className="chevron-right-17" alt="Chevron right" src="/img/chevron-right-21.png" />
         <div className="overlap-102">
           <div className="rectngulo-44" />
-          <div className="text-wrapper-283">Salvador Bertenbreiter</div>
+          <div className="text-wrapper-283"></div>
           <div className="rectngulo-45" />
           <div className="text-wrapper-284">Nombre completo</div>
           <div className="text-wrapper-285">Cargo</div>
           <div className="rectngulo-46" />
           <div className="rectngulo-47" />
-          <div className="grupo-53">
+          <button className="grupo-53" onClick={handleUpdate}>
             <div className="text-wrapper-286">Actualizar</div>
-          </div>
+          </button>
           <div className="rectngulo-48" />
-          <div className="text-wrapper-287">Salvador Bertenbreiter</div>
-          <div className="text-wrapper-288">Gerente general</div>
-          <div className="text-wrapper-289">Peru</div>
+          <input
+            type="text"
+            name="name"
+            value={userData.name}
+            onChange={handleChange}
+            placeholder={userData.name || "Salvador Bertenbreiter"}
+            className="text-wrapper-287"
+          />
+          <input
+            type="text"
+            name="cargo"
+            value={userData.cargo}
+            onChange={handleChange}
+            placeholder={userData.cargo || "Gerente General"}
+            className="text-wrapper-288"
+          />
+          <input
+            type="text"
+            name="pais"
+            value={userData.pais}
+            onChange={handleChange}
+            placeholder={userData.pais || "Perú"}
+            className="text-wrapper-289"
+          />
           <div className="text-wrapper-290">Pais</div>
           <div className="rectngulo-49" />
-          <div className="text-wrapper-291">Example@pit.net</div>
+          <input
+            type="email"
+            name="email"
+            value={userData.email}
+            onChange={handleChange}
+            placeholder={userData.email || "Example@pit.net"}
+            className="text-wrapper-291"
+          />
           <div className="text-wrapper-292">Correo electronico</div>
           <Link to={"/solicitud-de-codigo-si-el-usuario-tiene-el-2fa-activo"} className="text-wrapper-294">Autogestión de contraseña: Cambio de contraseña</Link>
           <div className="text-wrapper-295">Realiza el cambio de tu contraseña de acceso, de manera fácil y rápida.</div>
@@ -151,7 +225,14 @@ export const PerfilDeUsuario = () => {
           <div className="text-wrapper-298">+66</div>
           <img className="imagen-3" alt="Imagen" src="/img/imagen-4-1.png" />
           <img className="lnea-11" alt="Lnea" src="/img/l-nea-48-1.png" />
-          <div className="text-wrapper-299">(0) 053 555 555</div>
+          <input
+            type="tel"
+            name="phone"
+            value={userData.phone}
+            onChange={handleChange}
+            placeholder={userData.phone || "(0) 053 555 555"}
+            className="text-wrapper-299"
+          />
           <img className="chevron-right-18" alt="Chevron right" src="/img/chevron-right-22.png" />
           <img className="lnea-12" alt="Lnea" src="/img/l-nea-48-1.png" />
           <img className="lnea-13" alt="Lnea" src="/img/l-nea-49-1.png" />
