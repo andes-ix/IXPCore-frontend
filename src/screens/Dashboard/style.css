@@ -1,0 +1,2108 @@
+.dashboard {
+  background-color: #f1f5f9;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.dashboard .div-3 {
+  background-color: #f1f5f9;
+  height: 1080px;
+  overflow: hidden;
+  position: relative;
+  width: 1920px;
+}
+
+.dashboard .overlap-83 {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 399px;
+  left: 332px;
+  position: absolute;
+  top: 540px;
+  width: 1057px;
+}
+
+.dashboard .overlap-84 {
+  background-color: #f9f9f9;
+  border-radius: 0px 10px 10px 0px;
+  height: 399px;
+  left: 716px;
+  position: absolute;
+  top: 0;
+  width: 341px;
+}
+
+.dashboard .text-wrapper-228 {
+  color: #168eea;
+  font-family: "Open Sans", Helvetica;
+  font-size: 28px;
+  font-weight: 600;
+  left: 39px;
+  letter-spacing: 0;
+  line-height: 28px;
+  position: absolute;
+  top: 268px;
+  white-space: nowrap;
+}
+
+.dashboard .overlap-group-21 {
+  height: 76px;
+  left: 41px;
+  position: absolute;
+  top: 33px;
+  width: 117px;
+}
+
+.dashboard .text-wrapper-229 {
+  color: #59626a;
+  font-family: "Open Sans", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 214px;
+  position: absolute;
+  top: 48px;
+  white-space: nowrap;
+}
+
+.dashboard .rectngulo-38 {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 50px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 50px;
+}
+
+.dashboard .trazado-51 {
+  height: 18px;
+  left: 16px;
+  object-fit: cover;
+  position: absolute;
+  top: 16px;
+  width: 19px;
+}
+
+.dashboard .tu-factura-tiene-un {
+  color: #8f9198;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 41px;
+  letter-spacing: 0;
+  line-height: 22px;
+  position: absolute;
+  top: 214px;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-230 {
+  color: #8f9198;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  left: 41px;
+  letter-spacing: 0;
+  line-height: 22px;
+  position: absolute;
+  top: 308px;
+  white-space: nowrap;
+}
+
+.dashboard .overlap-85 {
+  height: 54px;
+  left: 472px;
+  position: absolute;
+  top: 61px;
+  width: 188px;
+}
+
+.dashboard .SERV-puerta-a-2 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 300;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-231 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 12px;
+  font-weight: 700;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 12px;
+  position: absolute;
+  top: 36px;
+  white-space: nowrap;
+}
+
+.dashboard .overlap-86 {
+  height: 54px;
+  left: 472px;
+  position: absolute;
+  top: 137px;
+  width: 188px;
+}
+
+.dashboard .overlap-87 {
+  height: 54px;
+  left: 472px;
+  position: absolute;
+  top: 212px;
+  width: 188px;
+}
+
+.dashboard .overlap-88 {
+  height: 54px;
+  left: 472px;
+  position: absolute;
+  top: 284px;
+  width: 188px;
+}
+
+.dashboard .text-wrapper-232 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 22px;
+  font-weight: 400;
+  left: 32px;
+  letter-spacing: 0;
+  line-height: 22px;
+  position: absolute;
+  top: 38px;
+  white-space: nowrap;
+}
+
+.dashboard .group-6 {
+  background-image: url(../../../static/img/grupo-95.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 47px;
+  left: 411px;
+  position: absolute;
+  top: 58px;
+  width: 48px;
+}
+
+.dashboard .group-7 {
+  height: 31px;
+  left: 13px;
+  position: relative;
+  top: 8px;
+  width: 22px;
+}
+
+.dashboard .july {
+  background-image: url(../../../static/img/trazado-1370.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 12px;
+  left: 0;
+  position: absolute;
+  top: 20px;
+  width: 22px;
+}
+
+.dashboard .element-8 {
+  background-image: url(../../../static/img/trazado-1352.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 10px;
+  left: 3px;
+  position: absolute;
+  top: 0;
+  width: 16px;
+}
+
+.dashboard .group-8 {
+  background-image: url(../../../static/img/grupo-98.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 48px;
+  left: 411px;
+  position: absolute;
+  top: 135px;
+  width: 48px;
+}
+
+.dashboard .group-9 {
+  height: 30px;
+  left: 11px;
+  position: relative;
+  top: 8px;
+  width: 26px;
+}
+
+.dashboard .june {
+  background-image: url(../../../static/img/trazado-1366.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 10px;
+  left: 0;
+  position: absolute;
+  top: 21px;
+  width: 26px;
+}
+
+.dashboard .element-9 {
+  background-image: url(../../../static/img/trazado-1367.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 10px;
+  left: 5px;
+  position: absolute;
+  top: 0;
+  width: 16px;
+}
+
+.dashboard .group-10 {
+  background-image: url(../../../static/img/grupo-98.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 48px;
+  left: 411px;
+  position: absolute;
+  top: 207px;
+  width: 48px;
+}
+
+.dashboard .group-11 {
+  height: 32px;
+  left: 13px;
+  position: relative;
+  top: 9px;
+  width: 22px;
+}
+
+.dashboard .july-2 {
+  background-image: url(../../../static/img/trazado-1370.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 12px;
+  left: 0;
+  position: absolute;
+  top: 21px;
+  width: 22px;
+}
+
+.dashboard .element-10 {
+  background-image: url(../../../static/img/trazado-1371.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 10px;
+  left: 5px;
+  position: absolute;
+  top: 0;
+  width: 13px;
+}
+
+.dashboard .group-12 {
+  background-image: url(../../../static/img/grupo-98.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 48px;
+  left: 411px;
+  position: absolute;
+  top: 281px;
+  width: 48px;
+}
+
+.dashboard .group-13 {
+  height: 30px;
+  left: 13px;
+  position: relative;
+  top: 9px;
+  width: 22px;
+}
+
+.dashboard .nov {
+  background-image: url(../../../static/img/trazado-1374.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 10px;
+  left: 0;
+  position: absolute;
+  top: 21px;
+  width: 22px;
+}
+
+.dashboard .element-11 {
+  background-image: url(../../../static/img/trazado-1375.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 10px;
+  left: 5px;
+  position: absolute;
+  top: 0;
+  width: 9px;
+}
+
+.dashboard .group-14 {
+  height: 187px;
+  left: 24px;
+  position: absolute;
+  top: 138px;
+  width: 329px;
+}
+
+.dashboard .mon {
+  background-image: url(../../../static/img/trazado-1406.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 13px;
+  position: absolute;
+  top: 0;
+  width: 22px;
+}
+
+.dashboard .element-12 {
+  background-image: url(../../../static/img/trazado-1407.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 18px;
+  position: absolute;
+  top: 31px;
+  width: 14px;
+}
+
+.dashboard .element-13 {
+  background-image: url(../../../static/img/trazado-1408.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 69px;
+  position: absolute;
+  top: 31px;
+  width: 10px;
+}
+
+.dashboard .element-14 {
+  background-image: url(../../../static/img/trazado-1409.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 121px;
+  position: absolute;
+  top: 31px;
+  width: 3px;
+}
+
+.dashboard .element-15 {
+  background-image: url(../../../static/img/trazado-1410.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 170px;
+  position: absolute;
+  top: 31px;
+  width: 6px;
+}
+
+.dashboard .element-16 {
+  background-image: url(../../../static/img/trazado-1411.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 218px;
+  position: absolute;
+  top: 31px;
+  width: 6px;
+}
+
+.dashboard .element-17 {
+  background-image: url(../../../static/img/trazado-1412.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 267px;
+  position: absolute;
+  top: 31px;
+  width: 7px;
+}
+
+.dashboard .element-18 {
+  background-image: url(../../../static/img/trazado-1413.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 317px;
+  position: absolute;
+  top: 31px;
+  width: 7px;
+}
+
+.dashboard .element-19 {
+  background-image: url(../../../static/img/trazado-1414.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 315px;
+  position: absolute;
+  top: 65px;
+  width: 11px;
+}
+
+.dashboard .overlap-89 {
+  background-image: url(../../../static/img/rectangle-2-9.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 30px;
+  left: 246px;
+  position: absolute;
+  top: 55px;
+  width: 49px;
+}
+
+.dashboard .element-20 {
+  background-image: url(../../../static/img/trazado-1419.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 20px;
+  position: relative;
+  top: 10px;
+  width: 8px;
+}
+
+.dashboard .overlap-90 {
+  background-image: url(../../../static/img/rectangle-2-copy.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 30px;
+  left: 0;
+  position: absolute;
+  top: 157px;
+  width: 49px;
+}
+
+.dashboard .element-21 {
+  background-image: url(../../../static/img/trazado-1428.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 18px;
+  position: relative;
+  top: 11px;
+  width: 13px;
+}
+
+.dashboard .element-22 {
+  background-image: url(../../../static/img/trazado-1415.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 314px;
+  position: absolute;
+  top: 99px;
+  width: 11px;
+}
+
+.dashboard .element-23 {
+  background-image: url(../../../static/img/trazado-1416.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 265px;
+  position: absolute;
+  top: 99px;
+  width: 12px;
+}
+
+.dashboard .element-24 {
+  background-image: url(../../../static/img/trazado-1417.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 216px;
+  position: absolute;
+  top: 98px;
+  width: 11px;
+}
+
+.dashboard .element-25 {
+  background-image: url(../../../static/img/trazado-1418.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 216px;
+  position: absolute;
+  top: 65px;
+  width: 11px;
+}
+
+.dashboard .element-26 {
+  background-image: url(../../../static/img/trazado-1420.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 169px;
+  position: absolute;
+  top: 65px;
+  width: 6px;
+}
+
+.dashboard .element-27 {
+  background-image: url(../../../static/img/trazado-1421.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 167px;
+  position: absolute;
+  top: 99px;
+  width: 11px;
+}
+
+.dashboard .element-28 {
+  background-image: url(../../../static/img/trazado-1422.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 118px;
+  position: absolute;
+  top: 98px;
+  width: 11px;
+}
+
+.dashboard .element-29 {
+  background-image: url(../../../static/img/trazado-1423.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 120px;
+  position: absolute;
+  top: 64px;
+  width: 7px;
+}
+
+.dashboard .element-30 {
+  background-image: url(../../../static/img/trazado-1424.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 71px;
+  position: absolute;
+  top: 64px;
+  width: 6px;
+}
+
+.dashboard .element-31 {
+  background-image: url(../../../static/img/trazado-1425.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 68px;
+  position: absolute;
+  top: 99px;
+  width: 11px;
+}
+
+.dashboard .element-32 {
+  background-image: url(../../../static/img/trazado-1426.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 20px;
+  position: absolute;
+  top: 99px;
+  width: 11px;
+}
+
+.dashboard .element-33 {
+  background-image: url(../../../static/img/trazado-1427.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 18px;
+  position: absolute;
+  top: 133px;
+  width: 13px;
+}
+
+.dashboard .element-34 {
+  background-image: url(../../../static/img/trazado-1429.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 67px;
+  position: absolute;
+  top: 167px;
+  width: 14px;
+}
+
+.dashboard .element-35 {
+  background-image: url(../../../static/img/trazado-1430.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 117px;
+  position: absolute;
+  top: 167px;
+  width: 14px;
+}
+
+.dashboard .element-36 {
+  background-image: url(../../../static/img/trazado-1431.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 166px;
+  position: absolute;
+  top: 167px;
+  width: 14px;
+}
+
+.dashboard .element-37 {
+  background-image: url(../../../static/img/trazado-1432.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 220px;
+  position: absolute;
+  top: 167px;
+  width: 3px;
+}
+
+.dashboard .element-38 {
+  background-image: url(../../../static/img/trazado-1433.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 268px;
+  position: absolute;
+  top: 167px;
+  width: 6px;
+}
+
+.dashboard .element-39 {
+  background-image: url(../../../static/img/trazado-1434.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 317px;
+  position: absolute;
+  top: 167px;
+  width: 6px;
+}
+
+.dashboard .element-40 {
+  background-image: url(../../../static/img/trazado-1435.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 69px;
+  position: absolute;
+  top: 133px;
+  width: 10px;
+}
+
+.dashboard .element-41 {
+  background-image: url(../../../static/img/trazado-1436.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 117px;
+  position: absolute;
+  top: 133px;
+  width: 13px;
+}
+
+.dashboard .element-42 {
+  background-image: url(../../../static/img/trazado-1437.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 166px;
+  position: absolute;
+  top: 132px;
+  width: 14px;
+}
+
+.dashboard .element-43 {
+  background-image: url(../../../static/img/trazado-1438.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 215px;
+  position: absolute;
+  top: 133px;
+  width: 14px;
+}
+
+.dashboard .element-44 {
+  background-image: url(../../../static/img/trazado-1439.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 264px;
+  position: absolute;
+  top: 133px;
+  width: 14px;
+}
+
+.dashboard .element-45 {
+  background-image: url(../../../static/img/trazado-1440.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 313px;
+  position: absolute;
+  top: 133px;
+  width: 13px;
+}
+
+.dashboard .element-46 {
+  background-image: url(../../../static/img/trazado-1441.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 22px;
+  position: absolute;
+  top: 64px;
+  width: 6px;
+}
+
+.dashboard .tue {
+  background-image: url(../../../static/img/trazado-1442.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 64px;
+  position: absolute;
+  top: 0;
+  width: 19px;
+}
+
+.dashboard .wed {
+  background-image: url(../../../static/img/trazado-1443.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 110px;
+  position: absolute;
+  top: 0;
+  width: 24px;
+}
+
+.dashboard .thu {
+  background-image: url(../../../static/img/trazado-1444.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 162px;
+  position: absolute;
+  top: 0;
+  width: 20px;
+}
+
+.dashboard .fri {
+  background-image: url(../../../static/img/trazado-1445.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 215px;
+  position: absolute;
+  top: 0;
+  width: 13px;
+}
+
+.dashboard .sat {
+  background-image: url(../../../static/img/trazado-1446.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 262px;
+  position: absolute;
+  top: 0;
+  width: 18px;
+}
+
+.dashboard .sun-4 {
+  background-image: url(../../../static/img/trazado-1447.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 9px;
+  left: 309px;
+  position: absolute;
+  top: 0;
+  width: 20px;
+}
+
+.dashboard .november {
+  background-image: url(../../../static/img/trazado-1448.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 12px;
+  left: 134px;
+  position: absolute;
+  top: 100px;
+  width: 124px;
+}
+
+.dashboard .overlap-91 {
+  height: 510px;
+  left: 299px;
+  position: absolute;
+  top: -2px;
+  width: 1621px;
+}
+
+.dashboard .overlap-92 {
+  height: 510px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1621px;
+}
+
+.dashboard .trazado-52 {
+  height: 378px;
+  left: 1252px;
+  object-fit: cover;
+  position: absolute;
+  top: 132px;
+  width: 260px;
+}
+
+.dashboard .text-wrapper-233 {
+  color: #59626a;
+  font-family: "Open Sans", Helvetica;
+  font-size: 33px;
+  font-weight: 400;
+  left: 33px;
+  letter-spacing: 0;
+  line-height: 214px;
+  position: absolute;
+  top: 155px;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-234 {
+  color: #168eea;
+  font-family: "Open Sans", Helvetica;
+  font-size: 24px;
+  font-weight: 500;
+  left: 33px;
+  letter-spacing: 0;
+  line-height: 214px;
+  position: absolute;
+  top: 113px;
+  white-space: nowrap;
+}
+
+.dashboard .consulta-tu-estado {
+  color: #168eea;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  left: 33px;
+  letter-spacing: 0;
+  line-height: 22px;
+  position: absolute;
+  top: 290px;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-235 {
+  color: #8f9198;
+  font-family: "Open Sans", Helvetica;
+  font-weight: 400;
+}
+
+.dashboard .text-wrapper-236 {
+  font-family: "Open Sans", Helvetica;
+  font-weight: 700;
+}
+
+.dashboard .enmascarar-grupo-2 {
+  height: 378px;
+  left: 1252px;
+  opacity: 0.05;
+  overflow: hidden;
+  position: absolute;
+  top: 132px;
+  width: 260px;
+}
+
+.dashboard .grupo-43 {
+  height: 472px;
+  left: -126px;
+  object-fit: cover;
+  position: absolute;
+  top: -59px;
+  width: 472px;
+}
+
+.dashboard .text-wrapper-237 {
+  color: #ffffff;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 1282px;
+  letter-spacing: 0;
+  line-height: 65px;
+  position: absolute;
+  top: 388px;
+  white-space: nowrap;
+}
+
+.dashboard .elipse-7 {
+  border-radius: 20px;
+  height: 58px;
+  left: 1273px;
+  object-fit: cover;
+  position: absolute;
+  top: 431px;
+  width: 58px;
+}
+
+.dashboard .enmascarar-grupo-wrapper {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0px 3px 6px #00000029;
+  height: 40px;
+  left: 1310px;
+  position: absolute;
+  top: 437px;
+  width: 40px;
+}
+
+.dashboard .enmascarar-grupo-3 {
+  height: 36px;
+  left: 2px;
+  object-fit: cover;
+  position: absolute;
+  top: 2px;
+  width: 36px;
+}
+
+.dashboard .grupo-44 {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0px 3px 6px #00000029;
+  height: 40px;
+  left: 1337px;
+  position: absolute;
+  top: 437px;
+  width: 40px;
+}
+
+.dashboard .grupo-45 {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0px 3px 6px #00000029;
+  height: 40px;
+  left: 1365px;
+  position: absolute;
+  top: 437px;
+  width: 40px;
+}
+
+.dashboard .grupo-46 {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0px 3px 6px #00000029;
+  height: 40px;
+  left: 1392px;
+  position: absolute;
+  top: 437px;
+  width: 40px;
+}
+
+.dashboard .text-wrapper-238 {
+  color: #168eea;
+  font-family: "Avenir-Heavy", Helvetica;
+  font-size: 13px;
+  font-weight: 400;
+  left: 12px;
+  letter-spacing: 0;
+  line-height: 105px;
+  position: absolute;
+  top: -34px;
+  white-space: nowrap;
+}
+
+.dashboard .rectngulo-39 {
+  background-color: #6b3e9a;
+  border-radius: 10px;
+  height: 50px;
+  left: 1277px;
+  position: absolute;
+  top: 166px;
+  width: 50px;
+}
+
+.dashboard .rectngulo-40 {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 378px;
+  left: 488px;
+  position: absolute;
+  top: 132px;
+  width: 338px;
+}
+
+.dashboard .text-wrapper-239 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 300;
+  left: 519px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 294px;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-240 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 22px;
+  font-weight: 400;
+  left: 519px;
+  letter-spacing: 0;
+  line-height: 22px;
+  position: absolute;
+  top: 233px;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-241 {
+  color: #ffffff;
+  font-family: "Open Sans", Helvetica;
+  font-size: 22px;
+  font-weight: 400;
+  left: 1277px;
+  letter-spacing: 0;
+  line-height: 22px;
+  position: absolute;
+  top: 346px;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-242 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 26px;
+  font-weight: 600;
+  left: 519px;
+  letter-spacing: 0;
+  line-height: 26px;
+  position: absolute;
+  top: 260px;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-243 {
+  color: #ffffff;
+  font-family: "Open Sans", Helvetica;
+  font-size: 26px;
+  font-weight: 600;
+  left: 1277px;
+  letter-spacing: 0;
+  line-height: 26px;
+  position: absolute;
+  top: 372px;
+  white-space: nowrap;
+}
+
+.dashboard .rectngulo-41 {
+  background-color: #eeeeee;
+  border-radius: 10px;
+  height: 50px;
+  left: 519px;
+  position: absolute;
+  top: 166px;
+  width: 50px;
+}
+
+.dashboard .rectangle-11 {
+  height: 179px;
+  left: 842px;
+  object-fit: cover;
+  position: absolute;
+  top: 132px;
+  width: 393px;
+}
+
+.dashboard .trazado-wrapper {
+  background-image: url(../../../static/img/trazado-3762-1.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 48px;
+  left: 1151px;
+  position: absolute;
+  top: 164px;
+  width: 48px;
+}
+
+.dashboard .trazado-53 {
+  height: 48px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 48px;
+}
+
+.dashboard .text-wrapper-244 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 866px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  top: 158px;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-245 {
+  color: #168eea;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  left: 867px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 190px;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-246 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 867px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 220px;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-247 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 867px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 250px;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-248 {
+  color: #168eea;
+  font-family: "Open Sans", Helvetica;
+  font-size: 12px;
+  font-weight: 700;
+  left: 519px;
+  letter-spacing: 0;
+  line-height: 12px;
+  position: absolute;
+  top: 394px;
+  white-space: nowrap;
+}
+
+.dashboard .trazado-54 {
+  height: 21px;
+  left: 1294px;
+  object-fit: cover;
+  position: absolute;
+  top: 181px;
+  width: 16px;
+}
+
+.dashboard .grupo-47 {
+  height: 298px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1621px;
+}
+
+.dashboard .overlap-93 {
+  height: 298px;
+  position: relative;
+}
+
+.dashboard .rectngulo-42 {
+  background-color: #ffffff;
+  box-shadow: 0px 3px 6px #00000008;
+  height: 100px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1621px;
+}
+
+.dashboard .componente-21 {
+  height: 45px;
+  left: 1321px;
+  position: absolute;
+  top: 28px;
+  width: 45px;
+}
+
+.dashboard .grupo-48 {
+  height: 45px;
+}
+
+.dashboard .sun-5 {
+  height: 20px;
+  left: 13px;
+  position: relative;
+  top: 13px;
+  width: 20px;
+}
+
+.dashboard .overlap-group-22 {
+  height: 17px;
+  left: 2px;
+  position: absolute;
+  top: 2px;
+  width: 17px;
+}
+
+.dashboard .elipse-8 {
+  border: 2px solid;
+  border-color: #8a8f9c;
+  border-radius: 4px;
+  height: 10px;
+  left: 3px;
+  position: absolute;
+  top: 3px;
+  width: 10px;
+}
+
+.dashboard .trazado-55 {
+  height: 4px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 4px;
+}
+
+.dashboard .trazado-56 {
+  height: 4px;
+  left: 13px;
+  object-fit: cover;
+  position: absolute;
+  top: 13px;
+  width: 4px;
+}
+
+.dashboard .trazado-57 {
+  height: 4px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 13px;
+  width: 4px;
+}
+
+.dashboard .trazado-58 {
+  height: 4px;
+  left: 13px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 4px;
+}
+
+.dashboard .trazado-59 {
+  height: 4px;
+  left: 9px;
+  object-fit: cover;
+  position: absolute;
+  top: -1px;
+  width: 2px;
+}
+
+.dashboard .trazado-60 {
+  height: 4px;
+  left: 9px;
+  object-fit: cover;
+  position: absolute;
+  top: 17px;
+  width: 2px;
+}
+
+.dashboard .trazado-61 {
+  height: 2px;
+  left: -1px;
+  object-fit: cover;
+  position: absolute;
+  top: 9px;
+  width: 4px;
+}
+
+.dashboard .trazado-62 {
+  height: 2px;
+  left: 17px;
+  object-fit: cover;
+  position: absolute;
+  top: 9px;
+  width: 4px;
+}
+
+.dashboard .componente-22 {
+  height: 45px;
+  left: 1391px;
+  position: absolute;
+  top: 28px;
+  width: 45px;
+}
+
+.dashboard .grupo-49 {
+  height: 45px;
+  position: relative;
+}
+
+.dashboard .oval-11 {
+  height: 6px;
+  left: 33px;
+  object-fit: cover;
+  position: absolute;
+  top: 4px;
+  width: 6px;
+}
+
+.dashboard .bell-ring-4 {
+  height: 20px;
+  left: 12px;
+  position: absolute;
+  top: 12px;
+  width: 20px;
+}
+
+.dashboard .overlap-group-23 {
+  height: 17px;
+  left: -1px;
+  position: absolute;
+  top: -1px;
+  width: 22px;
+}
+
+.dashboard .trazado-63 {
+  height: 17px;
+  left: 1px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 20px;
+}
+
+.dashboard .trazado-64 {
+  height: 8px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 4px;
+}
+
+.dashboard .trazado-65 {
+  height: 8px;
+  left: 18px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 4px;
+}
+
+.dashboard .trazado-66 {
+  height: 3px;
+  left: 7px;
+  object-fit: cover;
+  position: absolute;
+  top: 18px;
+  width: 6px;
+}
+
+.dashboard .empresa-per-IX {
+  color: #168eea;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  left: 35px;
+  letter-spacing: 0;
+  line-height: 22px;
+  position: absolute;
+  top: 40px;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-249 {
+  font-family: "Open Sans", Helvetica;
+  font-weight: 400;
+}
+
+.dashboard .text-wrapper-250 {
+  font-family: "Open Sans", Helvetica;
+  font-weight: 600;
+}
+
+.dashboard .chevron-right-16 {
+  height: 7px;
+  left: 174px;
+  object-fit: cover;
+  position: absolute;
+  top: 50px;
+  width: 12px;
+}
+
+.dashboard .componente-23 {
+  height: 152px;
+  left: 1250px;
+  position: absolute;
+  top: 27px;
+  width: 144px;
+}
+
+.dashboard .grupo-50 {
+  height: 152px;
+  position: relative;
+}
+
+.dashboard .rectngulo-43 {
+  border-radius: 2px;
+  height: 32px;
+  left: 7px;
+  object-fit: cover;
+  position: absolute;
+  top: 7px;
+  width: 32px;
+}
+
+.dashboard .componente-24 {
+  height: 274px;
+  left: 1218px;
+  position: absolute;
+  top: 24px;
+  width: 302px;
+}
+
+.dashboard .grupo-51 {
+  background-color: #eff6ff;
+  background-image: url(../../../static/img/enmascarar-grupo-2-7.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  border-radius: 24px;
+  height: 48px;
+  left: 251px;
+  position: relative;
+  width: 48px;
+}
+
+.dashboard .trazado-67 {
+  height: 18px;
+  left: 534px;
+  object-fit: cover;
+  position: absolute;
+  top: 182px;
+  width: 20px;
+}
+
+.dashboard .visualiza-el {
+  color: #8f9198;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 519px;
+  letter-spacing: 0;
+  line-height: 24px;
+  position: absolute;
+  top: 334px;
+  white-space: nowrap;
+}
+
+.dashboard .overlap-94 {
+  height: 38px;
+  left: 53px;
+  position: absolute;
+  top: 358px;
+  width: 216px;
+}
+
+.dashboard .dispone-de-una {
+  color: #fb516d;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-251 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-weight: 400;
+}
+
+.dashboard .text-wrapper-252 {
+  color: #168eea;
+  font-family: "Open Sans", Helvetica;
+  font-size: 12px;
+  font-weight: 700;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 12px;
+  position: absolute;
+  top: 20px;
+  white-space: nowrap;
+}
+
+.dashboard .overlap-95 {
+  background-image: url(../../../static/img/rectangle-29.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 179px;
+  left: 842px;
+  position: absolute;
+  top: 332px;
+  width: 393px;
+}
+
+.dashboard .text-wrapper-253 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 24px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  top: 26px;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-254 {
+  color: #168eea;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  left: 24px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 59px;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-255 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 24px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 89px;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-256 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 24px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 119px;
+  white-space: nowrap;
+}
+
+.dashboard .trazado-68 {
+  height: 13px;
+  left: 33px;
+  object-fit: cover;
+  position: absolute;
+  top: 358px;
+  width: 13px;
+}
+
+.dashboard .overlap-96 {
+  height: 1462px;
+  left: -6px;
+  position: absolute;
+  top: 0;
+  width: 305px;
+  background: #ffffff;
+}
+
+.dashboard .rectangle-12 {
+  height: 1462px;
+  left: 6px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 299px;
+}
+
+.dashboard .rectangle-13 {
+  background-color: #dbdbdb;
+  height: 1080px;
+  left: 304px;
+  position: absolute;
+  top: 0;
+  width: 1px;
+}
+
+.dashboard .logo-placeholder-5 {
+  height: 118px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 12px;
+  width: 169px;
+}
+
+.dashboard .componente-25 {
+  height: 323px;
+  left: 23px;
+  position: absolute;
+  top: 144px;
+  width: 262px;
+}
+
+.dashboard .overlap-97 {
+  background-image: url(../../../static/img/rectangle-31.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 50px;
+  left: 0;
+  position: absolute;
+  top: 41px;
+  width: 262px;
+}
+
+.dashboard .text-wrapper-257 {
+  color: #3f88cb;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 59px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 16px;
+  white-space: nowrap;
+}
+
+.dashboard .layout-dashboard-4 {
+  height: 18px;
+  left: 19px;
+  position: absolute;
+  top: 16px;
+  width: 18px;
+}
+
+.dashboard .rectngulo-44 {
+  border: 2px solid;
+  border-color: #3f88cb;
+  border-radius: 1px;
+  height: 11px;
+  left: -1px;
+  position: absolute;
+  top: -1px;
+  width: 9px;
+}
+
+.dashboard .rectngulo-45 {
+  border: 2px solid;
+  border-color: #3f88cb;
+  border-radius: 1px;
+  height: 7px;
+  left: 10px;
+  position: absolute;
+  top: -1px;
+  width: 9px;
+}
+
+.dashboard .rectngulo-46 {
+  border: 2px solid;
+  border-color: #3f88cb;
+  border-radius: 1px;
+  height: 11px;
+  left: 10px;
+  position: absolute;
+  top: 8px;
+  width: 9px;
+}
+
+.dashboard .rectngulo-47 {
+  border: 2px solid;
+  border-color: #3f88cb;
+  border-radius: 1px;
+  height: 7px;
+  left: -1px;
+  position: absolute;
+  top: 12px;
+  width: 9px;
+}
+
+.dashboard .text-wrapper-258 {
+  color: #8a8f9c;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 59px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 128px;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-259 {
+  color: #8a8f9c;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 59px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 199px;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-260 {
+  color: #ffffff;
+  font-family: "Open Sans", Helvetica;
+  font-size: 18px;
+  font-weight: 600;
+  left: 6px;
+  letter-spacing: 0;
+  line-height: 18px;
+  position: absolute;
+  top: 3px;
+  white-space: nowrap;
+}
+
+.dashboard .chevron-right-17 {
+  height: 12px;
+  left: 226px;
+  object-fit: cover;
+  position: absolute;
+  top: 203px;
+  width: 7px;
+}
+
+.dashboard .chevron-right-18 {
+  height: 12px;
+  left: 226px;
+  object-fit: cover;
+  position: absolute;
+  top: 132px;
+  width: 7px;
+}
+
+.dashboard .wallet-4 {
+  height: 18px;
+  left: 19px;
+  position: absolute;
+  top: 129px;
+  width: 19px;
+}
+
+.dashboard .overlap-group-24 {
+  height: 20px;
+  left: -1px;
+  position: relative;
+  top: -1px;
+  width: 21px;
+}
+
+.dashboard .trazado-69 {
+  height: 15px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 21px;
+}
+
+.dashboard .trazado-70 {
+  height: 18px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 2px;
+  width: 20px;
+}
+
+.dashboard .overlap-98 {
+  height: 21px;
+  left: 19px;
+  position: absolute;
+  top: 195px;
+  width: 18px;
+}
+
+.dashboard .square-user-round-4 {
+  height: 18px;
+  left: 0;
+  position: absolute;
+  top: 3px;
+  width: 18px;
+}
+
+.dashboard .overlap-99 {
+  border-radius: 2px;
+  height: 20px;
+  left: -1px;
+  position: relative;
+  top: -1px;
+  width: 20px;
+}
+
+.dashboard .trazado-71 {
+  height: 8px;
+  left: 3px;
+  object-fit: cover;
+  position: absolute;
+  top: 12px;
+  width: 14px;
+}
+
+.dashboard .elipse-9 {
+  border: 2px solid;
+  border-color: #8a8f9c;
+  border-radius: 4px;
+  height: 10px;
+  left: 5px;
+  position: absolute;
+  top: 4px;
+  width: 10px;
+}
+
+.dashboard .rectngulo-48 {
+  border: 2px solid;
+  border-color: #8a8f9c;
+  border-radius: 2px;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 20px;
+}
+
+.dashboard .oval-12 {
+  height: 4px;
+  left: 6px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 4px;
+}
+
+.dashboard .oval-13 {
+  height: 4px;
+  left: 25px;
+  object-fit: cover;
+  position: absolute;
+  top: 313px;
+  width: 4px;
+}
+
+.dashboard .overlap-100 {
+  background-image: url(../../../static/img/rectangle-27.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 192px;
+  left: 1419px;
+  position: absolute;
+  top: 540px;
+  width: 392px;
+}
+
+.dashboard .rectangle-14 {
+  background-image: url(../../../static/img/trazado-3762-1.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 48px;
+  left: 308px;
+  position: absolute;
+  top: 32px;
+  width: 48px;
+}
+
+.dashboard .text-wrapper-261 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 23px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  top: 26px;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-262 {
+  color: #168eea;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  left: 24px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 58px;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-263 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 24px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 88px;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-264 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 24px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 118px;
+  white-space: nowrap;
+}
+
+.dashboard .overlap-101 {
+  background-image: url(../../../static/img/rectangle-30.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 192px;
+  left: 1419px;
+  position: absolute;
+  top: 742px;
+  width: 392px;
+}
+
+.dashboard .text-wrapper-265 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 23px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  top: 28px;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-266 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  left: 24px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 70px;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-267 {
+  color: #168eea;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 224px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 70px;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-268 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  left: 24px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 106px;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-269 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  left: 24px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 142px;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-270 {
+  color: #168eea;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 224px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 106px;
+  white-space: nowrap;
+}
+
+.dashboard .text-wrapper-271 {
+  color: #168eea;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 224px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 142px;
+  white-space: nowrap;
+}

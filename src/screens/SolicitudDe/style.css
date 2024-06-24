@@ -1,0 +1,294 @@
+.solicitud-de {
+  background-color: #f1f5f9;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.solicitud-de .overlap-group-wrapper {
+  background-color: #f1f5f9;
+  height: 1080px;
+  overflow: hidden;
+  width: 1920px;
+}
+
+.solicitud-de .overlap-group {
+  height: 1080px;
+  left: -6px;
+  position: relative;
+  width: 1668px;
+}
+
+.solicitud-de .rectngulo {
+  background-color: #562f7f;
+  height: 1080px;
+  left: 6px;
+  position: absolute;
+  top: 0;
+  width: 1425px;
+}
+
+.solicitud-de .b-preview {
+  background-image: url(../../../static/img/combined-shape-1.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 15px;
+  left: 1582px;
+  position: absolute;
+  top: 498px;
+  width: 17px;
+}
+
+.solicitud-de .div {
+  background-image: url(../../../static/img/combined-shape-1.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 15px;
+  left: 1582px;
+  position: absolute;
+  top: 592px;
+  width: 17px;
+}
+
+.solicitud-de .fondo {
+  height: 1071px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 1437px;
+}
+
+.solicitud-de .rectngulo-2 {
+  background-color: #562f7f;
+  height: 1080px;
+  left: 6px;
+  opacity: 0.03;
+  position: absolute;
+  top: 0;
+  width: 1425px;
+}
+
+.solicitud-de .rectngulo-3 {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 872px;
+  left: 1154px;
+  position: absolute;
+  top: 167px;
+  width: 514px;
+}
+
+.solicitud-de .text-wrapper {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 24px;
+  font-weight: 600;
+  left: 1204px;
+  letter-spacing: 0;
+  line-height: 24px;
+  position: absolute;
+  top: 323px;
+  white-space: nowrap;
+}
+
+.solicitud-de .text-wrapper-2 {
+  color: #59626a;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 600;
+  left: 1204px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 454px;
+  white-space: nowrap;
+}
+
+.solicitud-de .rectngulo-4 {
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #f0f0f0;
+  border-radius: 6px;
+  box-shadow: 0px 3px 6px #00000005;
+  height: 48px;
+  left: 1204px;
+  position: absolute;
+  top: 480px;
+  width: 422px;
+}
+
+.solicitud-de .trazado {
+  height: 66px;
+  left: 1195px;
+  object-fit: cover;
+  position: absolute;
+  top: 926px;
+  width: 440px;
+}
+
+.solicitud-de .text-wrapper-3 {
+  color: #ffffff;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 600;
+  left: 1383px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 948px;
+  white-space: nowrap;
+}
+
+.solicitud-de .rectngulo-5 {
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #f0f0f0;
+  border-radius: 6px;
+  box-shadow: 0px 3px 6px #00000005;
+  height: 48px;
+  left: 1204px;
+  position: absolute;
+  top: 577px;
+  width: 422px;
+}
+
+.solicitud-de .correo-electrnico {
+  background-color: transparent;
+  border: 0;
+  color: #95989a;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  height: 21px;
+  left: 1218px;
+  letter-spacing: 0;
+  line-height: 14px;
+  padding: 0;
+  position: absolute;
+  top: 495px;
+  white-space: nowrap;
+  width: 116px;
+}
+
+.solicitud-de .input {
+  background-color: transparent;
+  border: 0;
+  color: #95989a;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  height: 21px;
+  left: 1218px;
+  letter-spacing: 0;
+  line-height: 14px;
+  padding: 0;
+  position: absolute;
+  top: 592px;
+  white-space: nowrap;
+  width: 84px;
+}
+
+.solicitud-de .text-wrapper-4 {
+  color: #59626a;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 600;
+  left: 1204px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 550px;
+  white-space: nowrap;
+}
+
+.solicitud-de .logo-placeholder {
+  height: 156px;
+  left: 1160px;
+  object-fit: cover;
+  position: absolute;
+  top: 187px;
+  width: 223px;
+}
+
+.solicitud-de .tu-clave-de-acceso {
+  color: #59626a;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  height: 137px;
+  left: 1204px;
+  letter-spacing: 0;
+  line-height: 22px;
+  position: absolute;
+  top: 763px;
+  width: 388px;
+}
+
+.solicitud-de .span {
+  font-family: "Open Sans", Helvetica;
+  font-weight: 700;
+}
+
+.solicitud-de .text-wrapper-5 {
+  font-family: "Open Sans", Helvetica;
+  font-weight: 400;
+}
+
+.solicitud-de .rectngulo-6 {
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #f0f0f0;
+  border-radius: 6px;
+  box-shadow: 0px 3px 6px #00000005;
+  height: 48px;
+  left: 1201px;
+  position: absolute;
+  top: 664px;
+  width: 422px;
+}
+
+.solicitud-de .input-2 {
+  background-color: transparent;
+  border: 0;
+  color: #95989a;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  height: 21px;
+  left: 1218px;
+  letter-spacing: 0;
+  line-height: 14px;
+  padding: 0;
+  position: absolute;
+  top: 679px;
+  white-space: nowrap;
+  width: 84px;
+}
+
+.solicitud-de .text-wrapper-6 {
+  color: #59626a;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 600;
+  left: 1208px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 644px;
+  white-space: nowrap;
+}
+
+.solicitud-de .p {
+  color: #59626a;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  height: 48px;
+  left: 1204px;
+  letter-spacing: 0;
+  line-height: 22px;
+  position: absolute;
+  top: 364px;
+  width: 370px;
+}

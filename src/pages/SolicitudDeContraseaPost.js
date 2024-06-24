@@ -1,6 +1,4 @@
-import { FunctionComponent } from "react";
-
-const SolicitudDeContraseaPost: FunctionComponent = () => {
+const SolicitudDeContraseaPost = () => {
   return (
     <div className="relative bg-aliceblue-300 w-full h-[1080px] text-left text-sm text-dimgray-100 font-open-sans">
       <img
