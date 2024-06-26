@@ -1,92 +1,63 @@
-import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { FunctionComponent } from "react";
+import Grupo7 from "../components/grupo7";
 
-const Login3 = () => {
-  const navigate = useNavigate();
-
-  const onLogin1ContainerClick = useCallback(() => {
-    navigate("/solicitud-de-2fa-1");
-  }, [navigate]);
-
-  const onIniciarSesionTextClick = useCallback(() => {
-    navigate("/dashboard");
-  }, [navigate]);
-
-  const onTrminosYCondicionesClick = useCallback(() => {
-    navigate("/solicitud-de-contrasea-posterior-a-registro-1");
-  }, [navigate]);
-
+const Login3: FunctionComponent = () => {
   return (
-    <div
-      className="relative bg-aliceblue-300 w-full h-[1080px] cursor-pointer text-left text-sm text-dimgray-100 font-open-sans"
-      onClick={onLogin1ContainerClick}
-    >
+    <div className="relative bg-whitesmoke-300 w-full h-[930px] text-left text-sm text-dimgray-100 font-open-sans">
       <img
-        className="absolute top-[0px] left-[0px] w-[1425px] h-[1080px] object-cover"
+        className="absolute top-[0px] left-[0px] w-[430px] h-[930px]"
         alt=""
-        src="/portal@2x.png"
+        src="/trazado-29742.svg"
       />
-      <div className="absolute top-[0px] left-[0px] bg-darkslateblue-200 w-[1425px] h-[1080px] opacity-[0.03]" />
-      <div className="absolute top-[189px] right-[258px] rounded-3xs bg-white w-[514px] h-[683px]" />
-      <div className="absolute top-[341px] left-[1198px] text-5xl font-semibold text-dimgray-200">
-        ¡Hola!
-      </div>
-      <div className="absolute top-[390px] left-[1198px] leading-[22px] inline-block w-[369px] h-[46px] text-lightslategray-100">
-        <span>{`Ingresa tu correo electrónico y contraseña e inicia sesión para disfrutar de los beneficios de nuestro `}</span>
-        <b className="text-cornflowerblue">PCP</b>
-      </div>
-      <div className="absolute top-[525px] right-[258px] rounded-t-none rounded-b-3xs bg-whitesmoke-400 w-[514px] h-[347px]" />
-      <div className="absolute top-[555px] left-[1198px] font-semibold">
-        Correo electrónico
-      </div>
-      <div className="absolute top-[584px] left-[1198px] shadow-[0px_3px_6px_rgba(0,_0,_0,_0.02)] rounded-md bg-white w-[422px] h-12" />
-      <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[749px] left-[1198px] w-[422px] h-12">
+      <div className="absolute top-[106px] left-[0px] w-[416px] h-[727px]">
+        <div className="absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px] rounded-3xs bg-white text-xs">
+          <img
+            className="absolute top-[11px] left-[0px] w-[199px] h-[139px] object-cover"
+            alt=""
+            src="/logoplaceholder3removebgpreview@2x.png"
+          />
+          <div className="absolute w-[calc(100%_-_77px)] top-[calc(50%_+_94.5px)] left-[40px] leading-[22px] inline-block h-[133px]">
+            <p className="m-0">
+              <b>Tu clave de acceso debe cumplir con estos requisitos:</b>
+            </p>
+            <p className="m-0">- Tener 8 caracteres</p>
+            <p className="m-0">{`- Ser alfanumérica con al menos 1 carácter numérico y un `}</p>
+            <p className="m-0">único carácter especial</p>
+            <p className="m-0">
+              - Tener uno de estos caracteres especiales - / = . $ # *
+            </p>
+            <p className="m-0">- Evita colocar información personal</p>
+          </div>
+        </div>
         <img
-          className="absolute h-[calc(100%_+_18px)] w-[calc(100%_+_18px)] top-[0px] right-[-18px] bottom-[-18px] left-[0px] max-w-full overflow-hidden max-h-full"
+          className="absolute top-[182.16px] left-[calc(50%_+_135.55px)] w-4 h-4"
           alt=""
-          src="/trazado-25001.svg"
+          src="/trazado-397.svg"
         />
-      </button>
-      <div
-        className="absolute top-[761px] left-[1355px] text-base font-semibold text-white cursor-pointer"
-        onClick={onIniciarSesionTextClick}
-      >
-        Iniciar sesion
+        <img
+          className="absolute top-[182.16px] left-[calc(50%_+_122.55px)] w-4 h-4"
+          alt=""
+          src="/trazado-3971.svg"
+        />
+        <div className="absolute top-[calc(50%_-_227.5px)] left-[39px] text-5xl font-semibold text-dimgray-200">
+          Configuración de contraseña
+        </div>
+        <Grupo7 />
+        <div className="absolute w-[calc(100%_-_61px)] right-[22px] bottom-[44px] left-[39px] h-12 text-white">
+          <img
+            className="absolute h-[calc(100%_+_18px)] w-[calc(100%_+_18px)] top-[0px] right-[-18px] bottom-[-18px] left-[0px] max-w-full overflow-hidden max-h-full"
+            alt=""
+            src="/componente-20--2.svg"
+          />
+          <div className="absolute top-[calc(50%_-_10px)] left-[calc(50%_-_22.5px)] font-semibold">
+            Enviar
+          </div>
+        </div>
+        <div className="absolute w-[calc(100%_-_60px)] top-[calc(50%_-_182.5px)] left-[39px] leading-[22px] inline-block h-[63px]">
+          <span>{`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu finibus eros, quis sodales velit. Curabitur eu `}</span>
+          <b className="text-mediumblue">Ex...…….@gmail.com</b>
+        </div>
       </div>
-      <div className="absolute top-[681px] left-[1198px] shadow-[0px_3px_6px_rgba(0,_0,_0,_0.02)] rounded-md bg-white w-[422px] h-12" />
-      <input
-        className="[border:none] [outline:none] font-open-sans text-sm bg-[transparent] absolute top-[599px] left-[1212px] text-darkgray-100 text-left"
-        placeholder="Correo electronico"
-        type="email"
-        maxLength={50}
-      />
-      <input
-        className="[border:none] [outline:none] font-open-sans text-sm bg-[transparent] absolute top-[696px] left-[1212px] text-darkgray-100 text-left"
-        placeholder="Contraseña"
-        type="password"
-      />
-      <div className="absolute top-[653px] left-[1483px] text-xs font-semibold text-cornflowerblue">
-        Recuperar contraseña?
-      </div>
-      <div className="absolute top-[652px] left-[1198px] font-semibold">
-        Contraseña
-      </div>
-      <div
-        className="absolute top-[466px] left-[1212px] text-cornflowerblue cursor-pointer"
-        onClick={onTrminosYCondicionesClick}
-      >
-        Términos y Condiciones de uso
-      </div>
-      <img
-        className="absolute top-[470px] left-[1198px] w-[7.3px] h-3"
-        alt=""
-        src="/chevronright6.svg"
-      />
-      <img
-        className="absolute top-[225px] left-[1193px] w-20 h-[94px] object-cover"
-        alt=""
-        src="/logo-pit@2x.png"
-      />
     </div>
   );
 };

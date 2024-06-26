@@ -1,1 +1,0 @@
-export { ElementRecuperar } from "./ElementRecuperar";

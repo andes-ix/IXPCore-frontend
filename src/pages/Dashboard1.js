@@ -1,7 +1,10 @@
-import { useCallback } from "react";
+import { FunctionComponent, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import Componente5 from "../components/componente5";
+import Grupo8 from "../components/grupo8";
+import Componente3 from "../components/componente3";
 
-const Dashboard1 = () => {
+const Dashboard1: FunctionComponent = () => {
   const navigate = useNavigate();
 
   const onInformacinDePerfilClick = useCallback(() => {
@@ -19,12 +22,12 @@ const Dashboard1 = () => {
       <img
         className="absolute top-[28px] left-[203px] w-[45px] h-[45px]"
         alt=""
-        src="/componente-22--2.svg"
+        src="/componente-22--7.svg"
       />
       <img
         className="absolute top-[28px] left-[273px] w-[45px] h-[45px]"
         alt=""
-        src="/componente-22--3.svg"
+        src="/componente-22--8.svg"
       />
       <div className="absolute top-[126px] left-[25px] text-base leading-[22px] text-cornflowerblue">
         <span>{`Empresa: `}</span>
@@ -33,48 +36,9 @@ const Dashboard1 = () => {
       <img
         className="absolute top-[135.36px] left-[163.64px] w-3 h-[7.3px]"
         alt=""
-        src="/chevronright.svg"
+        src="/chevronright4.svg"
       />
-      <div className="absolute top-[24px] right-[28px] w-[302px] h-[273.7px]">
-        <img
-          className="absolute top-[0px] right-[3px] w-12 h-12 object-cover"
-          alt=""
-          src="/grupo-37691@2x.png"
-        />
-        <div className="absolute h-[calc(100%_-_59.7px)] w-full top-[59.7px] right-[0px] bottom-[0px] left-[0px] shadow-[0px_3px_6px_rgba(0,_0,_0,_0.13)] rounded-3xs bg-white opacity-[0]">
-          <div className="absolute top-[28.3px] left-[calc(50%_-_64.5px)] text-base font-semibold">
-            Juan Hernandez
-          </div>
-          <div className="absolute top-[calc(50%_-_56.7px)] left-[calc(50%_-_63.5px)] leading-[22px] font-light text-dimgray-100 inline-block w-[75px] h-5">
-            Supervisor
-          </div>
-          <div
-            className="absolute top-[calc(50%_-_5px)] left-[calc(50%_-_91px)] text-lightslategray-100 cursor-pointer"
-            onClick={onInformacinDePerfilClick}
-          >
-            Información de perfil
-          </div>
-          <div className="absolute bottom-[30px] left-[calc(50%_-_91px)] font-semibold text-steelblue-100">
-            Cerrar sesión
-          </div>
-          <div className="absolute w-[calc(100%_+_1px)] top-[calc(50%_+_38.8px)] right-[0px] left-[-1px] box-border h-0.5 border-t-[1px] border-solid border-whitesmoke-600" />
-          <img
-            className="absolute top-[22.3px] left-[26px] w-12 h-12 object-cover"
-            alt=""
-            src="/grupo-37691@2x.png"
-          />
-          <img
-            className="absolute top-[calc(50%_-_7.7px)] left-[29px] w-4 h-5"
-            alt=""
-            src="/user.svg"
-          />
-          <img
-            className="absolute bottom-[27.7px] left-[27px] w-5 h-5"
-            alt=""
-            src="/logout.svg"
-          />
-        </div>
-      </div>
+      <Componente5 onInformacinDePerfilClick={onInformacinDePerfilClick} />
       <img
         className="absolute top-[35px] left-[19px] w-[30px] h-[30px] object-cover cursor-pointer"
         alt=""
@@ -128,12 +92,12 @@ const Dashboard1 = () => {
       <img
         className="absolute top-[761px] left-[25px] w-[377px] h-[378px]"
         alt=""
-        src="/trazado-29741.svg"
+        src="/trazado-297411.svg"
       />
       <img
         className="absolute top-[761px] left-[25px] w-[377px] h-[378px] opacity-[0.05]"
         alt=""
-        src="/enmascarar-grupo-34.svg"
+        src="/enmascarar-grupo-341.svg"
       />
       <div className="absolute top-[1040px] left-[55px] text-white">
         Agregados recientemente
@@ -189,70 +153,21 @@ const Dashboard1 = () => {
         alt=""
         src="/november2023.svg"
       />
-      <div className="absolute top-[1550px] left-[78px] w-[261px] h-[279px]">
-        <div className="absolute top-[0px] right-[-1px] font-light">
-          <p className="m-0">{`[SERV-0010] Puerta a Conexión `}</p>
-          <p className="m-0">10Gbps - Pago mensual</p>
-        </div>
-        <div className="absolute top-[calc(50%_-_63.5px)] right-[-1px] font-light">
-          <p className="m-0">{`[SERV-0010] Puerta a Conexión `}</p>
-          <p className="m-0">10Gbps - Pago mensual</p>
-        </div>
-        <div className="absolute top-[calc(50%_+_11.5px)] right-[-1px] font-light">
-          <p className="m-0">{`[SERV-0010] Puerta a Conexión `}</p>
-          <p className="m-0">10Gbps - Pago mensual</p>
-        </div>
-        <div className="absolute right-[-1px] bottom-[18px] font-light">
-          <p className="m-0">{`[SERV-0010] Puerta a Conexión `}</p>
-          <p className="m-0">10Gbps - Pago mensual</p>
-        </div>
-        <b className="absolute top-[39px] left-[calc(50%_-_69.5px)] text-xs">
-          Finanzas PIT
-        </b>
-        <b className="absolute top-[calc(50%_-_24.5px)] left-[calc(50%_-_69.5px)] text-xs">
-          Finanzas PIT
-        </b>
-        <b className="absolute top-[calc(50%_+_50.5px)] left-[calc(50%_-_69.5px)] text-xs">
-          Finanzas PIT
-        </b>
-        <b className="absolute bottom-[0px] left-[calc(50%_-_69.5px)] text-xs">
-          Finanzas PIT
-        </b>
-        <img
-          className="absolute top-[2px] left-[0px] w-12 h-[47px]"
-          alt=""
-          src="/group10.svg"
-        />
-        <img
-          className="absolute top-[calc(50%_-_60.5px)] left-[0px] w-12 h-12"
-          alt=""
-          src="/group11.svg"
-        />
-        <img
-          className="absolute top-[calc(50%_+_11.5px)] left-[0px] w-12 h-12"
-          alt=""
-          src="/group12.svg"
-        />
-        <img
-          className="absolute bottom-[6px] left-[0px] w-12 h-12"
-          alt=""
-          src="/group13.svg"
-        />
-      </div>
+      <Grupo8 />
       <img
         className="absolute bottom-[303px] left-[25px] w-[377px] h-48"
         alt=""
-        src="/rectangle9.svg"
+        src="/rectangle13.svg"
       />
       <img
         className="absolute right-[64px] bottom-[415px] w-12 h-12"
         alt=""
-        src="/rectangle21.svg"
+        src="/rectangle23.svg"
       />
       <img
         className="absolute bottom-[101px] left-[25px] w-[377px] h-48"
         alt=""
-        src="/rectangle10.svg"
+        src="/rectangle14.svg"
       />
       <div className="absolute bottom-[445px] left-[48px] text-xl">
         Perfil de usuario
@@ -277,33 +192,7 @@ const Dashboard1 = () => {
       </div>
       <div className="absolute bottom-[390px] left-[49px]">Example@pit.net</div>
       <div className="absolute bottom-[360px] left-[49px]">(0) 053 555 555</div>
-      <div className="absolute top-[27px] left-[132px] w-36 h-[151.7px] text-steelblue-100">
-        <div className="absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px]">
-          <div className="absolute h-[calc(100%_-_106.7px)] w-[calc(100%_-_99px)] top-[0px] right-[99px] bottom-[106.7px] left-[0px] rounded-sm bg-aliceblue-100 opacity-[0]" />
-          <img
-            className="absolute h-[calc(100%_-_119.7px)] w-[calc(100%_-_112px)] top-[7px] right-[105px] bottom-[112.7px] left-[7px] rounded-sm max-w-full overflow-hidden max-h-full object-cover"
-            alt=""
-            src="/rectngulo-17@2x.png"
-          />
-          <div className="absolute h-[calc(100%_-_51.7px)] w-[calc(100%_-_7px)] top-[51.7px] right-[0px] bottom-[0px] left-[7px] shadow-[0px_3px_6px_rgba(0,_0,_0,_0.13)] rounded-3xs bg-white opacity-[0]" />
-          <div className="absolute top-[calc(50%_-_2.85px)] left-[calc(50%_-_14.5px)] opacity-[0]">
-            Ingles
-          </div>
-          <div className="absolute top-[calc(50%_+_37.85px)] left-[calc(50%_-_16px)] text-lightslategray-100 opacity-[0]">
-            Español
-          </div>
-          <img
-            className="absolute top-[calc(50%_-_2.85px)] left-[23px] rounded-[50%] w-5 h-5 opacity-[0]"
-            alt=""
-            src="/elipse-369.svg"
-          />
-          <img
-            className="absolute top-[calc(50%_+_37.15px)] left-[23px] rounded-[50%] w-5 h-5 opacity-[0]"
-            alt=""
-            src="/elipse-369.svg"
-          />
-        </div>
-      </div>
+      <Componente3 propRight="unset" propLeft="132px" />
     </div>
   );
 };
