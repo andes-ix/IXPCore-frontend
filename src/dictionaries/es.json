@@ -1,0 +1,113 @@
+{
+  "Login": {
+    "title": "¡Hola!",
+    "subtitle": "Ingresa tu correo electrónico y contraseña e inicia sesión para disfrutar de los beneficios de nuestro",
+    "terms": "Términos y Condiciones de uso",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "forgotPassword": "Recuperar contraseña?",
+    "buttonTitle": "Iniciar sesión",
+    "2FA": {
+      "goBack": "Regresar",
+      "title": "Ingrese el código de su aplicación de autenticación",
+      "label": "Código",
+      "rememberDevice": "Reconocer este dispositivo en el futuro",
+      "buttonTitle": "Enviar"
+    },
+    "PasswordConfiguration": {
+      "title": "Configuración de contraseña",
+      "subtitle": "Ten en cuenta los parámetros que debe cumplir la contraseña de acceso a configurar.",
+      "password": "Contraseña",
+      "confirmPassword": "Confirmar contraseña",
+      "passwordRequirementsTitle": "Tu clave de acceso debe cumplir con estos requisitos:",
+      "passwordRequirements": "Tener 8 caracteres|Ser alfanumérica con al menos 1 caracter numérico y un único caracter especial|Tener uno de estos caracteres especiales - / = . $ # *|Evita colocar información personal",
+      "buttonTitle": "Guardar"
+    }
+  },
+  "Navbar": {
+    "dashboard": "Dashboard",
+    "services": "Servicios",
+    "account": "Cuenta",
+    "accountOption1": "Estado de cuenta",
+    "users": "Usuarios",
+    "usersOption1": "Listado de usuarios",
+    "Modal": {
+      "profileIfo": "Información de perfil",
+      "logout": "Cerrar sesión"
+    }
+  },
+  "Header": {
+    "enterprise": "Empresa:"
+  },
+  "Dashboard": {
+    "Elements": {
+      "Welcome": {
+        "title": "¡Bienvenido",
+        "subtitle": "Consulta tu estado de cuenta y detalle de tus servicios facturados fácilmente desde nuestro <span>PCP</span>",
+        "pendingStatus": "Dispone de una factura <span>pendiente</span>",
+        "viewDetails": "Ver detalle"
+      },
+      "Balance": {
+        "conversionType": "Valor presentado en base (Sol)",
+        "viewBilling": "Visualiza el desglose de tus pagos y facturas.",
+        "goAccountStatus": "Ir a estado de cuenta"
+      },
+      "NOC": {
+        "contactInfo": "Información de contacto"
+      },
+      "Billing": {
+        "title": "Facturación",
+        "contactInfo": "Información de contacto"
+      },
+      "Profile": {
+        "title": "Perfil de usuario"
+      },
+      "TotalUsers": {
+        "title": "Total usuarios",
+        "recentUsers": "Agregados recientemente"
+      },
+      "LatestCharges": {
+        "title": "Últimos cargos",
+        "billingNumber": "Factura N°",
+        "amount": "Monto",
+        "dateOfIssue": "Emisión"
+      },
+      "NextPayments": {
+        "title": "Próximos pagos",
+        "Notification": {
+          "title": "Notificación",
+          "alert": "Tu factura tiene un vencimiento de",
+          "info": "Evita cortes en tus servicios"
+        }
+      }
+    }
+  },
+  "Users": {
+    "UsersList": {
+      "Table": {
+        "title": "Listado de usuarios",
+        "subtitle": "Listado de usuarios habilitados dentro del sistema.",
+        "search": "Buscar usuario",
+        "addUser": "Agregar usuario",
+        "column1": "ID usuario",
+        "column2": "Nombre completo",
+        "column3": "Teléfono",
+        "column4": "Correo electrónico",
+        "column5": "Cargo",
+        "column6": "Operación"
+      }
+    },
+    "AddUser": {
+      "title": "Agregar usuario",
+      "idUser": "ID Usuario",
+      "fullName": "Nombre completo",
+      "country": "País",
+      "email": "Correo electrónico",
+      "charge": "Cargo",
+      "role": "Rol",
+      "permissions": "Permisos y accesos",
+      "cancel": "Cancelar",
+      "save": "Guardar"
+    }
+  }
+}

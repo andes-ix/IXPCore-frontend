@@ -1,0 +1,74 @@
+.sectionContainer {
+  max-width: 45rem;
+  margin-left: -22.5rem;
+  margin-right: 1.6rem;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 3.5rem;
+  font-size: $sizeS;
+
+  @media (width < 800px) {
+    margin: 1.6rem;
+  }
+
+  h1 {
+    font-size: $sizeXL;
+    color: $colorGrayDark;
+    margin: 1.6rem 0;
+    font-weight: 600;
+  }
+
+  h2 {
+    margin-bottom: 2.5rem;
+  }
+
+  form {
+    article:not(.passwordRequirements) {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+
+      label {
+        font-weight: 600;
+      }
+
+      input {
+        padding: 1.5rem;
+        border-radius: 6px;
+        border: 1px solid #F0F0F0;
+
+        &::placeholder {
+          color: #95989a;
+        }
+      }
+    }
+
+    .passwordRequirements {
+      margin-bottom: 4.7rem;
+
+      h3 {
+        font-weight: bold;
+        margin-bottom: 0.22rem;
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0.22rem;
+        list-style-type: "- ";
+      }
+    }
+
+    button {
+      color: #ffffff;
+      font-weight: 600;
+      background: $colorBluePrimary;
+      padding: 1.2rem;
+      font-size: $sizeM;
+      border-radius: 6px;
+      border: none;
+      width: 100%;
+    }
+  }
+}

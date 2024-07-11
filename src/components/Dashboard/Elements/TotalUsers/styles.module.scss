@@ -1,0 +1,67 @@
+.sectionContainer {
+  background-color: $colorPurple;
+  border-radius: 22px;
+  height: 100%;
+  padding: 3.4rem 2.5rem;
+  background-image: url("/img/dashboard/plot.svg");
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .iconUser {
+    width: 50px;
+    height: 50px;
+    background-color: #6b3e9a;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+  }
+
+  .infoContainer {
+    h3 {
+      font-size: $sizeL;
+      color: #fff;
+    }
+
+    h2 {
+      font-size: $sizeXL;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    h4 {
+      font-size: $sizeS;
+      color: #fff;
+      margin: 0.7rem 0;
+    }
+
+    .recentUsersContainer {
+      display: flex;
+
+      img {
+        border-radius: 100%;
+        border: 3px solid #fff;
+        width: 40px;
+        height: 40px;
+        background: #fff;
+
+        &:not(:first-child) {
+          margin-left: -15px;
+        }
+      }
+
+      div {
+        margin-left: -15px;
+        width: 40px;
+        height: 40px;
+        background: #fff;
+        border-radius: 100%;
+        display: grid;
+        place-items: center;
+        font-size: $sizeS;
+        color: $colorBlueAccent;
+        font-weight: 600;
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+<svg id="Componente_22_26" data-name="Componente 22 – 26" xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45">
+  <g id="Grupo_37690" data-name="Grupo 37690" transform="translate(-1602 -30)">
+    <rect id="Rectángulo_6350" data-name="Rectángulo 6350" width="45" height="45" rx="2" transform="translate(1602 30)" fill="#eff6ff" opacity="0"/>
+    <g id="bell-ring" transform="translate(1612.5 40.497)">
+      <path id="Trazado_2510" data-name="Trazado 2510" d="M6,8A6,6,0,0,1,18,8c0,7,3,9,3,9H3s3-2,3-9" fill="none" stroke="#8a8f9c" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <path id="Trazado_2511" data-name="Trazado 2511" d="M10.3,21a1.94,1.94,0,0,0,3.4,0" fill="none" stroke="#8a8f9c" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <path id="Trazado_2512" data-name="Trazado 2512" d="M4,2A10.283,10.283,0,0,0,2,8" fill="none" stroke="#8a8f9c" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <path id="Trazado_2513" data-name="Trazado 2513" d="M22,8a10.283,10.283,0,0,0-2-6" fill="none" stroke="#8a8f9c" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

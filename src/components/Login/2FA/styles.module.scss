@@ -1,0 +1,98 @@
+.sectionContainer {
+  max-width: 45rem;
+  margin-left: -22.5rem;
+  margin-right: 1.6rem;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 4rem;
+
+  @media (width < 800px) {
+    margin: 1.6rem;
+  }
+
+  > button {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    gap: 0.67rem;
+    font-size: $sizeS;
+    color: $colorBlueAccent;
+    margin: 2rem 0 1rem;
+  }
+
+  h1 {
+    font-size: $sizeXL;
+    font-weight: 600;
+    color: $colorGrayDark;
+    margin-bottom: 3rem;
+  }
+
+  form {
+    .codeInputContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      font-size: $sizeS;
+      margin-bottom: 3rem;
+
+      label {
+        font-weight: 600;
+      }
+
+      input {
+        border: 1px solid #f0f0f0;
+        border-radius: 6px;
+        padding: 1.5rem;
+
+        &::placeholder {
+          color: #95989a;
+        }
+      }
+    }
+
+    .rememberDeviceContainer {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: #6e6893;
+      margin-bottom: 7.7rem;
+
+      input {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 5px;
+        appearance: none;
+        border: 2px solid #e0e1e1;
+        position: relative;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+
+        &::after {
+          content: "";
+          width: 1.2rem;
+          height: 1.2rem;
+          border-radius: 2px;
+          background-color: $colorBlueAccent;
+          display: none;
+        }
+
+        &:checked::after {
+          display: block;
+        }
+      }
+    }
+
+    button {
+      color: #ffffff;
+      font-weight: 600;
+      background: $colorBluePrimary;
+      padding: 1.2rem;
+      font-size: $sizeM;
+      border-radius: 6px;
+      border: none;
+      width: 100%;
+    }
+  }
+}

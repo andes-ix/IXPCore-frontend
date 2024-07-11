@@ -1,0 +1,48 @@
+.sectionContainer {
+  background: #fff;
+  border-radius: 10px;
+  padding: 3rem;
+  height: 100%;
+  min-width: 250px;
+
+  .balanceImage {
+    background: #eeeeee;
+    border-radius: 10px;
+    width: 5rem;
+    height: 5rem;
+    display: grid;
+    place-items: center;
+  }
+
+  .balanceContainer {
+    margin: 1.3rem 0 2.5rem;
+
+    h3 {
+      font-size: $sizeL;
+      font-weight: 600;
+    }
+
+    h5 {
+      font-size: $sizeTiny;
+      font-weight: lighter;
+    }
+  }
+
+  .viewBilling {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: $sizeS;
+
+    p {
+      color: #8f9198;
+    }
+
+    a {
+      color: $colorBlueAccent;
+      font-size: $sizeTiny;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+}

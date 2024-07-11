@@ -1,0 +1,19 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10rem;
+  width: 100%;
+  padding: 3rem;
+  gap: 3rem;
+
+  @media (width <= 915px) {
+    padding: 1.6rem;
+  }
+
+  .entrepriseNameContainer {
+    display: none;
+    @media (width <= 915px) {
+      display: flex;
+    }
+  }
+}

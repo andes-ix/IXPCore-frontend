@@ -1,0 +1,13 @@
+.layoutContainer {
+  display: flex;
+
+  .pageContainer {
+    width: calc(100vw - 30rem);
+    margin-left: 30rem;
+
+    @media (width <= 915px) {
+      width: 100vw;
+      margin-left: 0;
+    }
+  }
+}

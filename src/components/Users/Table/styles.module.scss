@@ -1,0 +1,98 @@
+.tableContainer {
+  min-height: 490px;
+  background: #fff;
+
+  @media (width < 1400px) {
+    overflow-x: auto;
+  }
+
+  .rowModal {
+    position: absolute;
+    background: #fff;
+    bottom: -85px;
+    left: -95px;
+    box-shadow: 0px 7px 10px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+    gap: 1.5rem;
+    z-index: 2;
+
+    &.latestModals {
+      bottom: 15px;
+    }
+
+    button {
+      color: $colorGrayLight;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+    }
+  }
+
+  table {
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+
+    th,
+    td {
+      padding: 1rem;
+      text-align: left;
+      width: 150px;
+    }
+
+    .evenRow {
+      background: #fff;
+    }
+
+    thead tr {
+      font-weight: bold;
+      color: $colorGrayLight;
+    }
+
+    thead,
+    .oddRow {
+      background: #f7fafc;
+    }
+
+    .userName {
+      color: #2b80ff;
+      font-weight: bold;
+    }
+
+    .textCenter {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+    }
+
+    td {
+      color: #172b4d;
+
+      &:first-child {
+        font-size: $sizeS;
+      }
+    }
+
+    .tdButton {
+      position: relative;
+      > button {
+        background: $colorBlueAccent;
+        color: #fff;
+        font-weight: bold;
+        border: none;
+        min-height: 2.5rem;
+        min-width: 2.5rem;
+        max-height: 2.5rem;
+        max-width: 2.5rem;
+        border-radius: 3px;
+        display: grid;
+        place-items: center;
+      }
+    }
+  }
+}

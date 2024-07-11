@@ -1,0 +1,29 @@
+.sectionContainer {
+  background: #fff;
+  border-radius: 10px;
+  padding: 2.3rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  color: $colorGrayDark;
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+    font-size: $sizeTiny;
+
+    h3 {
+      font-weight: bold;
+    }
+
+    div {
+      min-width: 20%;
+
+      p {
+        color: $colorBlueAccent;
+      }
+    }
+  }
+}

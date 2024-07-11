@@ -1,1 +1,0 @@
-export { SolicitudDeCdigo } from "./SolicitudDeCdigo";

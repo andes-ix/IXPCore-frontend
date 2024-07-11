@@ -1,0 +1,54 @@
+.sectionContainer {
+  display: flex;
+
+  @media (width < 1400px) {
+    flex-direction: column;
+  }
+
+  .titleAndCalendarContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (width < 1400px) {
+      width: 100%;
+    }
+
+    h2 {
+      color: $colorGrayDark;
+      width: 100%;
+    }
+  }
+
+  .flexContainer {
+    background: #fff;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    gap: 3rem;
+    max-width: 620px;
+    padding: 3rem;
+    padding-right: 2rem;
+    display: flex;
+
+    @media (width < 1400px) {
+      flex-direction: column;
+      border-radius: 10px;
+      align-items: center;
+      justify-content: center;
+      max-width: 100%;
+      padding-right: 3rem;
+    }
+
+    .paymentsContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 2.4rem;
+      justify-content: center;
+      width: 60%;
+
+      @media (width < 1400px) {
+        width: auto;
+      }
+    }
+  }
+}

@@ -1,1 +1,0 @@
-export { SolicitudDe } from "./screens/SolicitudDe/SolicitudDe";

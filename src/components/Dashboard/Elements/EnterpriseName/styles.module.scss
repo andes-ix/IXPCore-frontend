@@ -1,0 +1,20 @@
+.buttonContainer {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  color: $colorBlueAccent;
+  gap: 0.5rem;
+  max-width: 300px;
+  text-align: left;
+
+  span {
+    font-weight: 600;
+    color: $colorBlueAccent;
+  }
+
+  > img {
+    transform: rotate(90deg);
+    margin-left: 0.5rem;
+  }
+}

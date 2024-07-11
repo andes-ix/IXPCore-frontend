@@ -1,0 +1,13 @@
+.desktopContainer {
+  display: none;
+  @media (width >= 1400px) {
+    display: flex;
+  }
+}
+
+.mobileContainer {
+  display: none;
+  @media (width < 1400px) {
+    display: flex;
+  }
+}

@@ -1,1 +1,0 @@
-export { SolicitudDeCdigoScreen } from "./SolicitudDeCdigoScreen";

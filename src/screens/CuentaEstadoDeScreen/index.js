@@ -1,1 +1,0 @@
-export { CuentaEstadoDeScreen } from "./CuentaEstadoDeScreen";

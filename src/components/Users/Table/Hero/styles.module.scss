@@ -1,0 +1,72 @@
+.sectionContainer {
+  background: #fff;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  padding: 3rem;
+
+  h2 {
+    font-size: $sizeXL;
+    color: $colorGrayDark;
+  }
+
+  h3 {
+    font-size: $sizeS;
+    color: $colorGrayMedium;
+    margin: 1rem 0 2rem;
+  }
+
+  .searchAndAddSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (width < 915px) {
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .searchContainer {
+      position: relative;
+      @media (width < 915px) {
+        width: 100%;
+      }
+
+      input {
+        padding: 1.3rem;
+        padding-left: 4.2rem;
+        border-radius: 6px;
+        border: 1px solid #f0f0f0;
+        width: 100%;
+        max-width: 380px;
+        font-size: $sizeS;
+        color: #838eab;
+        box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.1);
+
+        &::placeholder {
+          color: #838eab;
+        }
+      }
+
+      img {
+        position: absolute;
+        top: 50%;
+        transform: translate(1.3rem, -50%);
+      }
+    }
+
+    .addUserContainer {
+      @media (width < 915px) {
+        width: 100%;
+      }
+
+      button {
+        font-weight: 600;
+        border-radius: 6px;
+        padding: 1.3rem 2.4rem;
+        background: $colorBlueAccent;
+        color: #fff;
+        border: none;
+      }
+    }
+  }
+}

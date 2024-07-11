@@ -1,0 +1,48 @@
+.articleContainer {
+  background: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3rem 2rem 6rem;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  @media (width < 1400px) {
+    display: none;
+  }
+
+  .iconContainer {
+    background: #fff;
+    border-radius: 10px;
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+  }
+
+  .contentContainer {
+    h2 {
+      color: $colorGrayMedium;
+      font-weight: bold;
+    }
+
+    p {
+      color: #8f9198;
+      margin: 1.2rem 0 0.6rem;
+      font-size: $sizeS;
+    }
+
+    strong {
+      color: $colorBlueAccent;
+      font-weight: 600;
+      font-size: $sizeXL;
+    }
+
+    h6 {
+      font-weight: bold;
+      font-size: $sizeTiny;
+      margin-top: 0.8rem;
+      color: #8f9198;
+    }
+  }
+}

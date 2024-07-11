@@ -1,0 +1,57 @@
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+
+  .date {
+    font-size: $sizeL;
+    color: $colorBlueAccent;
+  }
+
+  h1 {
+    font-size: $sizeXL;
+  }
+
+  .subtitle {
+    color: #8f9198;
+    font-size: $sizeS;
+
+    span {
+      color: $colorBlueAccent;
+      font-weight: bold;
+    }
+  }
+
+  .billingStatus {
+    color: $colorGrayDark;
+    margin-top: 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    font-size: $sizeS;
+
+    img {
+      margin-top: 0.3rem;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      span {
+        color: $colorRed;
+        font-weight: bold;
+      }
+    }
+
+    button {
+      background: none;
+      border: none;
+      color: $colorBlueAccent;
+      font-weight: bold;
+      font-size: $sizeTiny;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+.sectionContainer {
+  background: #fff;
+  border-radius: 10px;
+  padding: 2.3rem;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  img {
+    width: 48px;
+    height: 48px;
+  }
+
+  h2 {
+    color: $colorGrayDark;
+    margin-bottom: 0.6rem;
+  }
+
+  article {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    font-size: $sizeTiny;
+
+    button {
+      background: none;
+      border: none;
+      color: $colorBlueAccent;
+      font-weight: bold;
+    }
+  }
+}
