@@ -1,0 +1,122 @@
+.solicitud-de-cdigo {
+  background-color: #00000073;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.solicitud-de-cdigo .grupo-wrapper-2 {
+  background-color: #00000073;
+  height: 1074px;
+  width: 1920px;
+}
+
+.solicitud-de-cdigo .grupo-13 {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 375px;
+  left: 703px;
+  position: relative;
+  top: 343px;
+  width: 514px;
+}
+
+.solicitud-de-cdigo .text-wrapper-57 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 600;
+  left: 40px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 128px;
+  white-space: nowrap;
+}
+
+.solicitud-de-cdigo .text-wrapper-58 {
+  color: #59626a;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 600;
+  left: 40px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 160px;
+  white-space: nowrap;
+}
+
+.solicitud-de-cdigo .overlap-group-8 {
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #f0f0f0;
+  border-radius: 6px;
+  box-shadow: 0px 3px 6px #00000005;
+  height: 48px;
+  left: 40px;
+  position: absolute;
+  top: 187px;
+  width: 422px;
+}
+
+.solicitud-de-cdigo .text-wrapper-59 {
+  color: #95989a;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 13px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 16px;
+  white-space: nowrap;
+}
+
+.solicitud-de-cdigo .overlap-16 {
+  background-color: #3f88cb;
+  border-radius: 6px;
+  box-shadow: 0px 3px 6px #00000005;
+  height: 48px;
+  left: 40px;
+  position: absolute;
+  top: 274px;
+  width: 422px;
+}
+
+.solicitud-de-cdigo .text-wrapper-60 {
+  color: #ffffff;
+  display: block;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 600;
+  left: 179px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 15px;
+  white-space: nowrap;
+}
+
+.solicitud-de-cdigo .lnea-7 {
+  height: 2px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 94px;
+  width: 514px;
+}
+
+.solicitud-de-cdigo .text-wrapper-61 {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  left: 40px;
+  letter-spacing: 0;
+  line-height: 24px;
+  position: absolute;
+  top: 42px;
+  white-space: nowrap;
+}

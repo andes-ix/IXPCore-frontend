@@ -1,869 +1,446 @@
-import { FunctionComponent, useState, useCallback } from "react";
-import DetalleDePago from "../components/DetalleDePago";
-import PortalPopup from "../components/portal-popup";
+import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import Componente5 from "../components/componente5";
-import Componente3 from "../components/componente3";
-import Componente4 from "../components/componente4";
 
-const Dashboard2: FunctionComponent = () => {
-  const [isDetalleDePagoOpen, setDetalleDePagoOpen] = useState(false);
+const Dashboard2 = () => {
   const navigate = useNavigate();
 
-  const openDetalleDePago = useCallback(() => {
-    setDetalleDePagoOpen(true);
-  }, []);
-
-  const closeDetalleDePago = useCallback(() => {
-    setDetalleDePagoOpen(false);
-  }, []);
-
-  const onInformacinDePerfilClick = useCallback(() => {
-    navigate("/perfil-de-usuario-14");
+  const onIrAEstadoClick = useCallback(() => {
+    navigate("/cuenta");
   }, [navigate]);
 
-  const onImagen151IconClick = useCallback(() => {
-    navigate("/usuarios-gestin-de-usuarios-2");
+  const onInformacinDePerfilClick = useCallback(() => {
+    navigate("/perfil-de-usuario-9");
   }, [navigate]);
 
   return (
-    <>
-      <div className="relative bg-aliceblue-300 w-full h-[1874px] text-left text-sm text-dimgray-200 font-open-sans">
+    <div className="relative bg-aliceblue-300 w-full h-[1080px] text-left text-sm text-dimgray-200 font-open-sans">
+      <div className="absolute bottom-[141px] left-[332px] rounded-3xs bg-white w-[1057px] h-[399px]" />
+      <div className="absolute bottom-[141px] left-[1048px] rounded-tl-none rounded-tr-3xs rounded-br-3xs rounded-bl-none bg-whitesmoke-200 w-[341px] h-[399px]" />
+      <img
+        className="absolute top-[130px] right-[109px] w-[260px] h-[378px]"
+        alt=""
+        src="/trazado-297411.svg"
+      />
+      <img
+        className="absolute top-[0px] left-[0px] w-[299px] h-[1462px]"
+        alt=""
+        src="/rectangle22.svg"
+      />
+      <div className="absolute top-[0px] left-[298px] bg-gainsboro w-px h-[1080px]" />
+      <div className="absolute top-[144px] left-[17.17px] w-[261.9px] h-[322.7px] text-base text-lightslategray-100">
         <img
-          className="absolute top-[266.13px] left-[25px] w-[376.5px] h-[371.2px]"
+          className="absolute w-full top-[41px] right-[0px] left-[0px] max-w-full overflow-hidden h-[49.7px]"
           alt=""
-          src="/rectangle25.svg"
+          src="/rectangle11.svg"
         />
-        <div className="absolute top-[0px] left-[0px] shadow-[0px_3px_6px_rgba(0,_0,_0,_0.03)] bg-white w-[430px] h-[100px]" />
-        <img
-          className="absolute top-[28px] left-[203px] w-[45px] h-[45px]"
-          alt=""
-          src="/componente-22--7.svg"
-        />
-        <img
-          className="absolute top-[28px] left-[273px] w-[45px] h-[45px]"
-          alt=""
-          src="/componente-22--8.svg"
-        />
-        <div className="absolute top-[126px] left-[25px] text-base leading-[22px] text-cornflowerblue">
-          <span>{`Empresa: `}</span>
-          <span className="font-semibold">Perú IX</span>
+        <div className="absolute top-[calc(50%_-_106.65px)] left-[calc(50%_-_72.12px)] text-steelblue-100">
+          Dashboard
         </div>
-        <img
-          className="absolute top-[135.36px] left-[163.64px] w-3 h-[7.3px]"
-          alt=""
-          src="/chevronright4.svg"
-        />
-        <Componente5 onInformacinDePerfilClick={onInformacinDePerfilClick} />
-        <img
-          className="absolute top-[35px] left-[19px] w-[30px] h-[30px] object-cover cursor-pointer"
-          alt=""
-          src="/imagen-151@2x.png"
-          onClick={onImagen151IconClick}
-        />
-        <Componente3 propRight="unset" propLeft="132px" />
-        <div className="absolute top-[177px] left-[25px] text-5xl">
-          Estado de cuenta
+        <div className="absolute top-[calc(50%_+_24.35px)] left-[calc(50%_-_72.12px)]">
+          Cuenta
         </div>
-        <b className="absolute top-[213px] left-[26px] text-lg text-cornflowerblue">
-          Cliente #TW1500001
-        </b>
-        <img
-          className="absolute top-[388.13px] left-[45px] w-[55px] h-10"
-          alt=""
-          src="/rectangle31.svg"
-        />
-        <img
-          className="absolute top-[388.13px] left-[100px] w-[38.2px] h-10"
-          alt=""
-          src="/rectangle3copy.svg"
-        />
-        <div className="absolute top-[325.13px] left-[176px] font-light">
-          / Mes
+        <div className="absolute top-[calc(50%_-_38.65px)] left-[calc(50%_-_72.12px)]">
+          Servicios
         </div>
-        <div className="absolute top-[398.13px] left-[59px] font-light text-white">
-          18%
+        <div className="absolute top-[calc(50%_+_95.35px)] left-[calc(50%_-_72.12px)]">
+          Usuarios
         </div>
-        <div className="absolute top-[398.13px] left-[105px] font-light text-white">
-          10%
+        <div className="absolute bottom-[0px] left-[calc(50%_-_72.12px)] text-sm text-white opacity-[0]">
+          Listado de usuarios
         </div>
-        <div className="absolute top-[351.13px] left-[45px] text-xs font-light">
-          Valor presentado en base (Sol)
+        <div className="absolute top-[calc(50%_+_84.35px)] left-[calc(50%_-_72.12px)] text-sm text-white opacity-[0]">
+          Listado de usuarios
         </div>
-        <div className="absolute top-[437.13px] left-[45px] text-xs font-light">
-          Desglose general del valor representado en el balance
-        </div>
-        <div className="absolute top-[290.13px] left-[45px] text-xl">
-          Balance
-        </div>
-        <div className="absolute top-[315.13px] left-[45px] text-5xl font-semibold">
-          S/. 3127,00
+        <div className="absolute top-[0px] left-[5.83px] text-lg font-semibold text-white">
+          Menu
         </div>
         <img
-          className="absolute top-[388.13px] right-[46.46px] w-[245.3px] h-10"
+          className="absolute top-[calc(50%_+_101.65px)] right-[28.77px] w-[7.3px] h-3"
           alt=""
-          src="/rectangle3copy3.svg"
+          src="/chevronright5.svg"
         />
-        <div className="absolute top-[398.13px] left-[242px] font-light text-white">
-          72%
+        <img
+          className="absolute top-[calc(50%_+_30.65px)] right-[28.77px] w-[7.3px] h-3"
+          alt=""
+          src="/chevronright5.svg"
+        />
+        <img
+          className="absolute top-[calc(50%_-_32.35px)] right-[28.77px] w-[7.3px] h-3"
+          alt=""
+          src="/chevronright5.svg"
+        />
+        <div className="absolute top-[calc(50%_-_104.35px)] left-[18.83px] w-[18px] h-[18px]">
+          <div className="absolute top-[-2px] left-[-2px] rounded-12xs box-border w-[9px] h-[11px] border-[2px] border-solid border-steelblue-100" />
+          <div className="absolute top-[-2px] right-[0px] rounded-12xs box-border w-[9px] h-[7px] border-[2px] border-solid border-steelblue-100" />
+          <div className="absolute right-[0px] bottom-[0px] rounded-12xs box-border w-[9px] h-[11px] border-[2px] border-solid border-steelblue-100" />
+          <div className="absolute bottom-[0px] left-[-2px] rounded-12xs box-border w-[9px] h-[7px] border-[2px] border-solid border-steelblue-100" />
         </div>
-        <div className="absolute top-[565px] left-[45px] font-semibold">
-          Fecha de vencimiento
-        </div>
-        <b className="absolute top-[565px] right-[63px] text-cornflowerblue">
-          05 de Abril 2024
-        </b>
-        <div className="absolute top-[488px] left-[45px] font-semibold">
-          Detracción pendiente
-        </div>
-        <b className="absolute top-[488px] left-[257px] text-cornflowerblue">
-          S/. 1127,00
-        </b>
-        <div className="absolute top-[528px] left-[45px] font-semibold">
-          Total abonado
-        </div>
-        <b className="absolute top-[528px] left-[257px] text-cornflowerblue">
-          S/. 53127,00
-        </b>
-        <div className="absolute top-[298px] right-[46px] shadow-[0px_3px_6px_rgba(0,_0,_0,_0.02)] rounded-md bg-cornflowerblue w-[54px] h-12">
+        <img
+          className="absolute top-[calc(50%_+_27.65px)] left-[18.83px] w-[21px] h-5"
+          alt=""
+          src="/wallet.svg"
+        />
+        <div className="absolute top-[calc(50%_+_94.65px)] left-[16.83px] rounded-sm box-border w-5 h-5 border-[2px] border-solid border-lightslategray-100">
           <img
-            className="absolute top-[calc(50%_-_9px)] left-[calc(50%_-_9px)] w-5 h-5"
+            className="absolute w-[calc(100%_-_4px)] right-[2px] bottom-[-1px] left-[2px] max-w-full overflow-hidden h-2"
             alt=""
-            src="/download1.svg"
+            src="/trazado-2499.svg"
+          />
+          <img
+            className="absolute top-[calc(50%_-_6px)] left-[calc(50%_-_5px)] rounded-[50%] w-2.5 h-2.5"
+            alt=""
+            src="/elipse-366.svg"
           />
         </div>
-        <div className="absolute bottom-[69.01px] left-[19px] w-[2950px] h-[1141.2px] text-dimgray-100">
-          <img
-            className="absolute h-full top-[0px] bottom-[0px] left-[0px] max-h-full w-[376.5px]"
-            alt=""
-            src="/rectangle15.svg"
-          />
-          <div className="absolute top-[33.87px] left-[19px] text-xl text-dimgray-200">
-            Últimos movimientos
-          </div>
-          <div className="absolute top-[128.87px] left-[19px] shadow-[0px_3px_6px_rgba(0,_0,_0,_0.02)] rounded-md bg-white box-border w-[226.1px] h-12 text-lightslategray-200 border-[1px] border-solid border-whitesmoke-500">
-            <div className="absolute top-[calc(50%_-_9px)] left-[14px]">
-              13 Mar, 2024 to 21 Mar, 2024
-            </div>
-          </div>
-          <div className="absolute top-[70.87px] left-[19px] text-xs leading-[22px] inline-block w-[304px] h-[39px]">{`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu finibus eros, quis sodales velit. `}</div>
-          <div className="absolute w-[calc(100%_-_0.5px)] right-[0px] bottom-[107.2px] left-[0.5px] h-[837px] text-base text-darkslategray">
-            <div className="absolute h-[calc(100%_-_78px)] w-full top-[78.01px] right-[0px] bottom-[-0.01px] left-[0px]">
-              <div className="absolute h-[calc(100%_-_3px)] top-[0px] bottom-[3px] left-[calc(50%_+_41.75px)] w-[1433px] opacity-[0]">
-                <div className="absolute w-full top-[55px] right-[0px] left-[0px] bg-white h-[70px]" />
-                <div className="absolute w-full top-[calc(50%_-_43px)] right-[0px] left-[0px] bg-white h-[70px]" />
-                <div className="absolute w-full top-[calc(50%_+_98px)] right-[0px] left-[0px] bg-white h-[70px]" />
-                <div className="absolute w-full right-[0px] bottom-[70px] left-[0px] bg-white h-[70px]" />
-                <div className="absolute w-full top-[calc(50%_-_253px)] right-[0px] left-[0px] bg-whitesmoke-100 h-[70px]" />
-                <div className="absolute w-full top-[calc(50%_+_28px)] right-[0px] left-[0px] bg-whitesmoke-100 h-[70px]" />
-                <div className="absolute w-full top-[calc(50%_+_168px)] right-[0px] left-[0px] bg-whitesmoke-100 h-[70px]" />
-                <div className="absolute w-full right-[0px] bottom-[0px] left-[0px] bg-whitesmoke-100 h-[70px]" />
-                <div className="absolute w-full top-[calc(50%_-_183px)] right-[0px] left-[0px] bg-white h-[70px]" />
-                <div className="absolute w-full top-[calc(50%_-_113px)] right-[0px] left-[0px] bg-whitesmoke-100 h-[70px]" />
-                <div className="absolute w-full top-[0px] right-[0px] left-[0px] bg-aliceblue-300 h-[55px]" />
-                <b className="absolute top-[15px] left-[217.82px] leading-[13px] text-lightslategray-100">
-                  Emision
-                </b>
-                <b className="absolute top-[14px] left-[calc(50%_+_29.32px)] leading-[13px] text-lightslategray-100">
-                  Vencimiento
-                </b>
-                <b className="absolute top-[15px] left-[calc(50%_-_353.5px)] leading-[13px] text-lightslategray-100">
-                  Descipcion
-                </b>
-                <b className="absolute top-[14px] left-[calc(50%_+_197.2px)] leading-[13px] text-lightslategray-100">
-                  Total
-                </b>
-                <b className="absolute top-[14px] left-[calc(50%_+_327.2px)] leading-[13px] text-lightslategray-100">
-                  Estado de pago
-                </b>
-                <b className="absolute top-[14px] right-[130.3px] leading-[13px] text-lightslategray-100">
-                  Estado
-                </b>
-                <b className="absolute top-[15px] left-[43px] leading-[13px] text-lightslategray-100">
-                  Numero
-                </b>
-                <b className="absolute top-[78px] left-[44px] text-sm text-cornflowerblue">
-                  F 001-00001753
-                </b>
-                <b className="absolute top-[calc(50%_-_19px)] left-[44px] text-sm text-cornflowerblue">
-                  F 001-00001753
-                </b>
-                <b className="absolute top-[calc(50%_+_123px)] left-[44px] text-sm text-cornflowerblue">
-                  F 001-00001753
-                </b>
-                <b className="absolute bottom-[96px] left-[44px] text-sm text-cornflowerblue">
-                  F 001-00001753
-                </b>
-                <div className="absolute top-[78px] left-[calc(50%_+_196.72px)]">
-                  3127,00
-                </div>
-                <div className="absolute top-[78px] right-[111.78px]">
-                  Publicado
-                </div>
-                <div className="absolute top-[calc(50%_-_15px)] left-[calc(50%_+_196.72px)]">
-                  3127,00
-                </div>
-                <div className="absolute top-[calc(50%_-_15px)] right-[111.78px]">
-                  Publicado
-                </div>
-                <div className="absolute top-[calc(50%_+_123px)] left-[calc(50%_+_196.72px)]">
-                  3127,00
-                </div>
-                <div className="absolute top-[calc(50%_+_123px)] right-[111.78px]">
-                  Publicado
-                </div>
-                <div className="absolute bottom-[93px] left-[calc(50%_+_196.72px)]">
-                  3127,00
-                </div>
-                <div className="absolute right-[107.78px] bottom-[93px]">{`Publicado `}</div>
-                <div className="absolute top-[82px] left-[calc(50%_-_498.68px)]">
-                  2013-08-11
-                </div>
-                <div className="absolute top-[81px] left-[calc(50%_+_29.32px)]">
-                  2013-08-11
-                </div>
-                <div className="absolute top-[67px] left-[calc(50%_-_353.5px)]">
-                  <p className="m-0">{`Lorem ipsum dolor sit amet, consectetur `}</p>
-                  <p className="m-0">adipiscing elit. Cras eu finibus eros.</p>
-                </div>
-                <div className="absolute top-[calc(50%_-_29px)] left-[calc(50%_-_353.5px)]">
-                  <p className="m-0">{`Lorem ipsum dolor sit amet, consectetur `}</p>
-                  <p className="m-0">adipiscing elit. Cras eu finibus eros.</p>
-                </div>
-                <div className="absolute top-[calc(50%_-_170px)] left-[calc(50%_-_353.5px)]">
-                  <p className="m-0">{`Lorem ipsum dolor sit amet, consectetur `}</p>
-                  <p className="m-0">adipiscing elit. Cras eu finibus eros.</p>
-                </div>
-                <div className="absolute top-[calc(50%_+_112px)] left-[calc(50%_-_353.5px)]">
-                  <p className="m-0">{`Lorem ipsum dolor sit amet, consectetur `}</p>
-                  <p className="m-0">adipiscing elit. Cras eu finibus eros.</p>
-                </div>
-                <div className="absolute bottom-[82px] left-[calc(50%_-_353.5px)]">
-                  <p className="m-0">{`Lorem ipsum dolor sit amet, consectetur `}</p>
-                  <p className="m-0">adipiscing elit. Cras eu finibus eros.</p>
-                </div>
-                <div className="absolute top-[calc(50%_-_242px)] left-[calc(50%_-_353.5px)]">
-                  <p className="m-0">{`Lorem ipsum dolor sit amet, consectetur `}</p>
-                  <p className="m-0">adipiscing elit. Cras eu finibus eros.</p>
-                </div>
-                <div className="absolute top-[calc(50%_+_40px)] left-[calc(50%_-_353.5px)]">
-                  <p className="m-0">{`Lorem ipsum dolor sit amet, consectetur `}</p>
-                  <p className="m-0">adipiscing elit. Cras eu finibus eros.</p>
-                </div>
-                <div className="absolute top-[calc(50%_-_101px)] left-[calc(50%_-_353.5px)]">
-                  <p className="m-0">{`Lorem ipsum dolor sit amet, consectetur `}</p>
-                  <p className="m-0">adipiscing elit. Cras eu finibus eros.</p>
-                </div>
-                <div className="absolute top-[calc(50%_+_181px)] left-[calc(50%_-_353.5px)]">
-                  <p className="m-0">{`Lorem ipsum dolor sit amet, consectetur `}</p>
-                  <p className="m-0">adipiscing elit. Cras eu finibus eros.</p>
-                </div>
-                <div className="absolute bottom-[13px] left-[calc(50%_-_353.5px)]">
-                  <p className="m-0">{`Lorem ipsum dolor sit amet, consectetur `}</p>
-                  <p className="m-0">adipiscing elit. Cras eu finibus eros.</p>
-                </div>
-                <div className="absolute top-[calc(50%_-_14px)] left-[calc(50%_-_498.68px)]">
-                  2013-08-11
-                </div>
-                <div className="absolute top-[calc(50%_-_15px)] left-[calc(50%_+_29.32px)]">
-                  2013-08-11
-                </div>
-                <div className="absolute top-[calc(50%_+_125px)] left-[calc(50%_-_498.68px)]">
-                  2013-08-11
-                </div>
-                <div className="absolute top-[calc(50%_+_124px)] left-[calc(50%_+_29.32px)]">
-                  2013-08-11
-                </div>
-                <div className="absolute bottom-[91px] left-[calc(50%_-_498.68px)]">
-                  2013-08-11
-                </div>
-                <div className="absolute bottom-[92px] left-[calc(50%_+_29.32px)]">
-                  2013-08-11
-                </div>
-                <b className="absolute top-[calc(50%_-_228px)] left-[44px] text-sm text-cornflowerblue">
-                  F 001-00001753
-                </b>
-                <b className="absolute top-[calc(50%_+_54px)] left-[44px] text-sm text-cornflowerblue">
-                  F 001-00001753
-                </b>
-                <b className="absolute top-[calc(50%_+_193px)] left-[44px] text-sm text-cornflowerblue">
-                  F 001-00001753
-                </b>
-                <b className="absolute bottom-[26px] left-[44px] text-sm text-cornflowerblue">
-                  F 001-00001753
-                </b>
-                <div className="absolute top-[calc(50%_-_231px)] left-[calc(50%_+_196.72px)]">
-                  3127,00
-                </div>
-                <div className="absolute top-[calc(50%_-_231px)] right-[106.78px]">
-                  Cancelado
-                </div>
-                <div className="absolute top-[calc(50%_+_54px)] left-[calc(50%_+_196.72px)]">
-                  3127,00
-                </div>
-                <div className="absolute top-[calc(50%_+_54px)] right-[111.78px]">
-                  Publicado
-                </div>
-                <div className="absolute top-[calc(50%_+_185px)] left-[calc(50%_+_196.72px)]">
-                  3127,00
-                </div>
-                <div className="absolute top-[calc(50%_+_185px)] right-[111.78px]">
-                  Publicado
-                </div>
-                <div className="absolute bottom-[31px] left-[calc(50%_+_196.72px)]">
-                  3127,00
-                </div>
-                <div className="absolute right-[111.78px] bottom-[31px]">
-                  Publicado
-                </div>
-                <div className="absolute top-[calc(50%_-_227px)] left-[calc(50%_-_498.68px)]">
-                  2013-08-11
-                </div>
-                <div className="absolute top-[calc(50%_-_228px)] left-[calc(50%_+_29.32px)]">
-                  2013-08-11
-                </div>
-                <div className="absolute top-[calc(50%_+_55px)] left-[calc(50%_-_498.68px)]">
-                  2013-08-11
-                </div>
-                <div className="absolute top-[calc(50%_+_54px)] left-[calc(50%_+_29.32px)]">
-                  2013-08-11
-                </div>
-                <div className="absolute top-[calc(50%_+_192px)] left-[calc(50%_-_498.68px)]">
-                  2013-08-11
-                </div>
-                <div className="absolute top-[calc(50%_+_191px)] left-[calc(50%_+_29.32px)]">
-                  2013-08-11
-                </div>
-                <div className="absolute bottom-[24px] left-[calc(50%_-_498.68px)]">
-                  2013-08-11
-                </div>
-                <div className="absolute bottom-[25px] left-[calc(50%_+_29.32px)]">
-                  2013-08-11
-                </div>
-                <b className="absolute top-[calc(50%_-_157px)] left-[44px] text-sm text-cornflowerblue">
-                  F 001-00001753
-                </b>
-                <div className="absolute top-[calc(50%_-_157px)] left-[calc(50%_+_196.72px)]">
-                  3127,00
-                </div>
-                <div className="absolute top-[calc(50%_-_157px)] right-[106.78px]">
-                  Cancelado
-                </div>
-                <div className="absolute top-[calc(50%_-_155px)] left-[calc(50%_-_498.68px)]">
-                  2013-08-11
-                </div>
-                <div className="absolute top-[calc(50%_-_156px)] left-[calc(50%_+_29.32px)]">
-                  2013-08-11
-                </div>
-                <b className="absolute top-[calc(50%_-_87px)] left-[44px] text-sm text-cornflowerblue">
-                  F 001-00001753
-                </b>
-                <div className="absolute top-[calc(50%_-_89px)] left-[calc(50%_+_196.72px)]">
-                  3127,00
-                </div>
-                <div className="absolute top-[calc(50%_-_89px)] right-[111.78px]">
-                  Publicado
-                </div>
-                <div className="absolute top-[calc(50%_-_86px)] left-[calc(50%_-_498.68px)]">
-                  2013-08-11
-                </div>
-                <div className="absolute top-[calc(50%_-_87px)] left-[calc(50%_+_29.32px)]">
-                  2013-08-11
-                </div>
-                <div className="absolute top-[78px] left-[calc(50%_+_326.97px)] w-[102.6px] h-[25px] text-sm text-crimson-200">
-                  <img
-                    className="absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px] max-w-full overflow-hidden max-h-full"
-                    alt=""
-                    src="/rectangle3.svg"
-                  />
-                  <div className="absolute top-[2px] right-[8.38px]">
-                    Pendiente
-                  </div>
-                  <img
-                    className="absolute top-[calc(50%_-_2.67px)] left-[10px] w-1.5 h-1.5"
-                    alt=""
-                    src="/oval2.svg"
-                  />
-                </div>
-                <div className="absolute top-[calc(50%_-_232px)] left-[calc(50%_+_326.97px)] w-[102.6px] h-[25px] text-sm text-steelblue-100">
-                  <img
-                    className="absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px] max-w-full overflow-hidden max-h-full"
-                    alt=""
-                    src="/rectangle4.svg"
-                  />
-                  <div className="absolute top-[2px] right-[11.38px]">
-                    Revertido
-                  </div>
-                  <img
-                    className="absolute top-[calc(50%_-_2.67px)] left-[10px] w-1.5 h-1.5"
-                    alt=""
-                    src="/oval3.svg"
-                  />
-                </div>
-                <div className="absolute top-[calc(50%_-_160px)] left-[calc(50%_+_326.97px)] w-[102.6px] h-[25px] text-sm text-steelblue-100">
-                  <img
-                    className="absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px] max-w-full overflow-hidden max-h-full"
-                    alt=""
-                    src="/rectangle4.svg"
-                  />
-                  <div className="absolute top-[2px] right-[11.38px]">
-                    Revertido
-                  </div>
-                  <img
-                    className="absolute top-[calc(50%_-_2.67px)] left-[10px] w-1.5 h-1.5"
-                    alt=""
-                    src="/oval3.svg"
-                  />
-                </div>
-                <div className="absolute top-[calc(50%_-_91px)] left-[calc(50%_+_326.97px)] w-[84.2px] h-[25px] text-sm text-goldenrod">
-                  <img
-                    className="absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px] max-w-full overflow-hidden max-h-full"
-                    alt=""
-                    src="/rectangle5.svg"
-                  />
-                  <div className="absolute top-[2px] left-[calc(50%_-_14.88px)]">
-                    Parcial
-                  </div>
-                  <img
-                    className="absolute top-[calc(50%_-_2.67px)] left-[10px] w-1.5 h-1.5"
-                    alt=""
-                    src="/oval4.svg"
-                  />
-                </div>
-                <div className="absolute top-[calc(50%_+_55px)] left-[calc(50%_+_326.97px)] w-[84.2px] h-[25px] text-sm text-goldenrod">
-                  <img
-                    className="absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px] max-w-full overflow-hidden max-h-full"
-                    alt=""
-                    src="/rectangle5.svg"
-                  />
-                  <div className="absolute top-[2px] left-[calc(50%_-_14.88px)]">
-                    Parcial
-                  </div>
-                  <img
-                    className="absolute top-[calc(50%_-_2.67px)] left-[10px] w-1.5 h-1.5"
-                    alt=""
-                    src="/oval4.svg"
-                  />
-                </div>
-                <div className="absolute top-[calc(50%_-_20px)] left-[calc(50%_+_326.97px)] w-[87.5px] h-[25px] text-sm text-lightseagreen">
-                  <img
-                    className="absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px] max-w-full overflow-hidden max-h-full"
-                    alt=""
-                    src="/rectangle6.svg"
-                  />
-                  <div className="absolute top-[2px] right-[10.28px]">
-                    Pagado
-                  </div>
-                  <img
-                    className="absolute top-[calc(50%_-_2.67px)] left-[10px] w-1.5 h-1.5"
-                    alt=""
-                    src="/oval5.svg"
-                  />
-                </div>
-                <div className="absolute top-[calc(50%_+_122px)] left-[calc(50%_+_326.97px)] w-[87.5px] h-[25px] text-sm text-lightseagreen">
-                  <img
-                    className="absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px] max-w-full overflow-hidden max-h-full"
-                    alt=""
-                    src="/rectangle6.svg"
-                  />
-                  <div className="absolute top-[2px] right-[10.28px]">
-                    Pagado
-                  </div>
-                  <img
-                    className="absolute top-[calc(50%_-_2.67px)] left-[10px] w-1.5 h-1.5"
-                    alt=""
-                    src="/oval5.svg"
-                  />
-                </div>
-                <div className="absolute top-[calc(50%_+_188px)] left-[calc(50%_+_326.97px)] w-[87.5px] h-[25px] text-sm text-lightseagreen">
-                  <img
-                    className="absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px] max-w-full overflow-hidden max-h-full"
-                    alt=""
-                    src="/rectangle6.svg"
-                  />
-                  <div className="absolute top-[2px] right-[10.28px]">
-                    Pagado
-                  </div>
-                  <img
-                    className="absolute top-[calc(50%_-_2.67px)] left-[10px] w-1.5 h-1.5"
-                    alt=""
-                    src="/oval5.svg"
-                  />
-                </div>
-                <div className="absolute bottom-[91px] left-[calc(50%_+_326.97px)] w-[87.5px] h-[25px] text-sm text-lightseagreen">
-                  <img
-                    className="absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px] max-w-full overflow-hidden max-h-full"
-                    alt=""
-                    src="/rectangle6.svg"
-                  />
-                  <div className="absolute top-[2px] right-[10.28px]">
-                    Pagado
-                  </div>
-                  <img
-                    className="absolute top-[calc(50%_-_2.67px)] left-[10px] w-1.5 h-1.5"
-                    alt=""
-                    src="/oval5.svg"
-                  />
-                </div>
-                <div className="absolute bottom-[25px] left-[calc(50%_+_326.97px)] w-[87.5px] h-[25px] text-sm text-lightseagreen">
-                  <img
-                    className="absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px] max-w-full overflow-hidden max-h-full"
-                    alt=""
-                    src="/rectangle6.svg"
-                  />
-                  <div className="absolute top-[2px] right-[10.28px]">
-                    Pagado
-                  </div>
-                  <img
-                    className="absolute top-[calc(50%_-_2.67px)] left-[10px] w-1.5 h-1.5"
-                    alt=""
-                    src="/oval5.svg"
-                  />
-                </div>
-              </div>
-              <div className="absolute h-[calc(100%_-_3px)] top-[3px] bottom-[0px] left-[0px] w-[377.1px] overflow-auto mix-blend-normal">
-                <div className="absolute h-full top-[0px] right-[-1101px] bottom-[0px] w-[1478.1px]">
-                  <div className="absolute w-full top-[55px] right-[0px] left-[0px] bg-white h-[70px]" />
-                  <div className="absolute w-full top-[calc(50%_-_43px)] right-[0px] left-[0px] bg-white h-[70px]" />
-                  <div className="absolute w-full top-[calc(50%_+_98px)] right-[0px] left-[0px] bg-white h-[70px]" />
-                  <div className="absolute w-full right-[0px] bottom-[70px] left-[0px] bg-white h-[70px]" />
-                  <div className="absolute w-full top-[calc(50%_-_253px)] right-[0px] left-[0px] bg-whitesmoke-100 h-[70px]" />
-                  <div className="absolute w-full top-[calc(50%_+_28px)] right-[0px] left-[0px] bg-whitesmoke-100 h-[70px]" />
-                  <div className="absolute w-full top-[calc(50%_+_168px)] right-[0px] left-[0px] bg-whitesmoke-100 h-[70px]" />
-                  <div className="absolute w-full right-[0px] bottom-[0px] left-[0px] bg-whitesmoke-100 h-[70px]" />
-                  <div className="absolute w-full top-[calc(50%_-_183px)] right-[0px] left-[0px] bg-white h-[70px]" />
-                  <div className="absolute w-full top-[calc(50%_-_113px)] right-[0px] left-[0px] bg-whitesmoke-100 h-[70px]" />
-                  <div className="absolute w-full top-[0px] right-[0px] left-[0px] bg-aliceblue-300 h-[55px]" />
-                  <b className="absolute top-[14px] left-[calc(50%_-_472.85px)] leading-[13px] text-lightslategray-100">
-                    Fecha
-                  </b>
-                  <b className="absolute top-[14px] left-[calc(50%_-_227.08px)] leading-[13px] text-lightslategray-100">
-                    Banco
-                  </b>
-                  <b className="absolute top-[14px] left-[calc(50%_+_227.99px)] leading-[13px] text-lightslategray-100">
-                    Total
-                  </b>
-                  <b className="absolute top-[14px] right-[159.31px] leading-[13px] text-lightslategray-100">
-                    Status
-                  </b>
-                  <b className="absolute top-[15px] left-[43px] leading-[13px] text-lightslategray-100">
-                    Numero
-                  </b>
-                  <b
-                    className="absolute top-[78px] left-[44px] text-sm text-cornflowerblue cursor-pointer"
-                    onClick={openDetalleDePago}
-                  >
-                    00076
-                  </b>
-                  <b className="absolute top-[calc(50%_-_19px)] left-[44px] text-sm text-cornflowerblue">
-                    00076
-                  </b>
-                  <b className="absolute top-[calc(50%_+_123px)] left-[44px] text-sm text-cornflowerblue">
-                    00076
-                  </b>
-                  <b className="absolute bottom-[96px] left-[44px] text-sm text-cornflowerblue">
-                    00076
-                  </b>
-                  <div className="absolute top-[78px] left-[calc(50%_+_227.9px)]">
-                    3127,00
-                  </div>
-                  <div className="absolute top-[calc(50%_-_15px)] left-[calc(50%_+_227.9px)]">
-                    3127,00
-                  </div>
-                  <div className="absolute top-[calc(50%_+_123px)] left-[calc(50%_+_227.9px)]">
-                    3127,00
-                  </div>
-                  <div className="absolute bottom-[93px] left-[calc(50%_+_227.9px)]">
-                    3127,00
-                  </div>
-                  <div className="absolute top-[81px] left-[calc(50%_-_472.62px)]">
-                    2013-08-11
-                  </div>
-                  <div className="absolute top-[81px] left-[calc(50%_-_225.17px)]">
-                    Banco de la Nación - Soles
-                  </div>
-                  <div className="absolute top-[calc(50%_-_15px)] left-[calc(50%_-_472.62px)]">
-                    2013-08-11
-                  </div>
-                  <div className="absolute top-[calc(50%_-_15px)] left-[calc(50%_-_225.17px)]">
-                    Banco de la Nación - Soles
-                  </div>
-                  <div className="absolute top-[calc(50%_+_124px)] left-[calc(50%_-_472.62px)]">
-                    2013-08-11
-                  </div>
-                  <div className="absolute top-[calc(50%_+_124px)] left-[calc(50%_-_225.17px)]">
-                    Banco de la Nación - Soles
-                  </div>
-                  <div className="absolute bottom-[92px] left-[calc(50%_-_472.62px)]">
-                    2013-08-11
-                  </div>
-                  <div className="absolute bottom-[92px] left-[calc(50%_-_225.17px)]">
-                    Banco de la Nación - Soles
-                  </div>
-                  <b className="absolute top-[calc(50%_-_228px)] left-[44px] text-sm text-cornflowerblue">
-                    00076
-                  </b>
-                  <b className="absolute top-[calc(50%_+_54px)] left-[44px] text-sm text-cornflowerblue">
-                    00076
-                  </b>
-                  <b className="absolute top-[calc(50%_+_193px)] left-[44px] text-sm text-cornflowerblue">
-                    00076
-                  </b>
-                  <b className="absolute bottom-[26px] left-[44px] text-sm text-cornflowerblue">
-                    00076
-                  </b>
-                  <div className="absolute top-[calc(50%_-_231px)] left-[calc(50%_+_227.9px)]">
-                    3127,00
-                  </div>
-                  <div className="absolute top-[calc(50%_+_54px)] left-[calc(50%_+_227.9px)]">
-                    3127,00
-                  </div>
-                  <div className="absolute top-[calc(50%_+_185px)] left-[calc(50%_+_227.9px)]">
-                    3127,00
-                  </div>
-                  <div className="absolute bottom-[31px] left-[calc(50%_+_227.9px)]">
-                    3127,00
-                  </div>
-                  <div className="absolute top-[calc(50%_-_228px)] left-[calc(50%_-_472.62px)]">
-                    2013-08-11
-                  </div>
-                  <div className="absolute top-[calc(50%_-_228px)] left-[calc(50%_-_225.17px)]">
-                    Banco de la Nación - Soles
-                  </div>
-                  <div className="absolute top-[calc(50%_+_54px)] left-[calc(50%_-_472.62px)]">
-                    2013-08-11
-                  </div>
-                  <div className="absolute top-[calc(50%_+_54px)] left-[calc(50%_-_225.17px)]">
-                    Banco de la Nación - Soles
-                  </div>
-                  <div className="absolute top-[calc(50%_+_191px)] left-[calc(50%_-_472.62px)]">
-                    2013-08-11
-                  </div>
-                  <div className="absolute top-[calc(50%_+_191px)] left-[calc(50%_-_225.17px)]">
-                    Banco de la Nación - Soles
-                  </div>
-                  <div className="absolute bottom-[25px] left-[calc(50%_-_472.62px)]">
-                    2013-08-11
-                  </div>
-                  <div className="absolute bottom-[25px] left-[calc(50%_-_225.17px)]">
-                    Banco de la Nación - Soles
-                  </div>
-                  <b className="absolute top-[calc(50%_-_157px)] left-[44px] text-sm text-cornflowerblue">
-                    00076
-                  </b>
-                  <div className="absolute top-[calc(50%_-_157px)] left-[calc(50%_+_227.9px)]">
-                    3127,00
-                  </div>
-                  <div className="absolute top-[calc(50%_-_156px)] left-[calc(50%_-_472.62px)]">
-                    2013-08-11
-                  </div>
-                  <div className="absolute top-[calc(50%_-_156px)] left-[calc(50%_-_225.17px)]">
-                    Banco de la Nación - Soles
-                  </div>
-                  <b className="absolute top-[calc(50%_-_87px)] left-[44px] text-sm text-cornflowerblue">
-                    00076
-                  </b>
-                  <div className="absolute top-[calc(50%_-_89px)] left-[calc(50%_+_227.9px)]">
-                    3127,00
-                  </div>
-                  <div className="absolute top-[calc(50%_-_87px)] left-[calc(50%_-_472.62px)]">
-                    2013-08-11
-                  </div>
-                  <div className="absolute top-[calc(50%_-_87px)] left-[calc(50%_-_225.17px)]">
-                    Banco de la Nación - Soles
-                  </div>
-                  <div className="absolute top-[calc(50%_-_230.5px)] right-[115.01px] w-[96.3px] h-[25px] text-sm text-lightseagreen">
-                    <img
-                      className="absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px] max-w-full overflow-hidden max-h-full"
-                      alt=""
-                      src="/rectangle7.svg"
-                    />
-                    <div className="absolute top-[2px] right-[9.08px]">
-                      Asociado
-                    </div>
-                    <img
-                      className="absolute top-[calc(50%_-_2.67px)] left-[10px] w-1.5 h-1.5"
-                      alt=""
-                      src="/oval5.svg"
-                    />
-                  </div>
-                  <div className="absolute top-[calc(50%_+_54.5px)] right-[115.01px] w-[96.3px] h-[25px] text-sm text-lightseagreen">
-                    <img
-                      className="absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px] max-w-full overflow-hidden max-h-full"
-                      alt=""
-                      src="/rectangle7.svg"
-                    />
-                    <div className="absolute top-[2px] right-[9.08px]">
-                      Asociado
-                    </div>
-                    <img
-                      className="absolute top-[calc(50%_-_2.67px)] left-[10px] w-1.5 h-1.5"
-                      alt=""
-                      src="/oval5.svg"
-                    />
-                  </div>
-                  <div className="absolute top-[calc(50%_-_88.5px)] right-[115.01px] w-[96.3px] h-[25px] text-sm text-lightseagreen">
-                    <img
-                      className="absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px] max-w-full overflow-hidden max-h-full"
-                      alt=""
-                      src="/rectangle7.svg"
-                    />
-                    <div className="absolute top-[2px] right-[9.08px]">
-                      Asociado
-                    </div>
-                    <img
-                      className="absolute top-[calc(50%_-_2.67px)] left-[10px] w-1.5 h-1.5"
-                      alt=""
-                      src="/oval5.svg"
-                    />
-                  </div>
-                  <div className="absolute top-[calc(50%_+_196.5px)] right-[115.01px] w-[96.3px] h-[25px] text-sm text-lightseagreen">
-                    <img
-                      className="absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px] max-w-full overflow-hidden max-h-full"
-                      alt=""
-                      src="/rectangle7.svg"
-                    />
-                    <div className="absolute top-[2px] right-[9.08px]">
-                      Asociado
-                    </div>
-                    <img
-                      className="absolute top-[calc(50%_-_2.67px)] left-[10px] w-1.5 h-1.5"
-                      alt=""
-                      src="/oval5.svg"
-                    />
-                  </div>
-                  <div className="absolute top-[calc(50%_-_160.5px)] right-[115.01px] w-[96.3px] h-[25px] text-sm text-lightseagreen">
-                    <img
-                      className="absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px] max-w-full overflow-hidden max-h-full"
-                      alt=""
-                      src="/rectangle7.svg"
-                    />
-                    <div className="absolute top-[2px] right-[9.08px]">
-                      Asociado
-                    </div>
-                    <img
-                      className="absolute top-[calc(50%_-_2.67px)] left-[10px] w-1.5 h-1.5"
-                      alt=""
-                      src="/oval5.svg"
-                    />
-                  </div>
-                  <div className="absolute top-[calc(50%_+_124.5px)] right-[115.01px] w-[96.3px] h-[25px] text-sm text-lightseagreen">
-                    <img
-                      className="absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px] max-w-full overflow-hidden max-h-full"
-                      alt=""
-                      src="/rectangle7.svg"
-                    />
-                    <div className="absolute top-[2px] right-[9.08px]">
-                      Asociado
-                    </div>
-                    <img
-                      className="absolute top-[calc(50%_-_2.67px)] left-[10px] w-1.5 h-1.5"
-                      alt=""
-                      src="/oval5.svg"
-                    />
-                  </div>
-                  <div className="absolute top-[calc(50%_-_18.5px)] right-[115.01px] w-[96.3px] h-[25px] text-sm text-lightseagreen">
-                    <img
-                      className="absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px] max-w-full overflow-hidden max-h-full"
-                      alt=""
-                      src="/rectangle7.svg"
-                    />
-                    <div className="absolute top-[2px] right-[9.08px]">
-                      Asociado
-                    </div>
-                    <img
-                      className="absolute top-[calc(50%_-_2.67px)] left-[10px] w-1.5 h-1.5"
-                      alt=""
-                      src="/oval5.svg"
-                    />
-                  </div>
-                  <div className="absolute right-[115.01px] bottom-[86.5px] w-[96.3px] h-[25px] text-sm text-lightseagreen">
-                    <img
-                      className="absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px] max-w-full overflow-hidden max-h-full"
-                      alt=""
-                      src="/rectangle7.svg"
-                    />
-                    <div className="absolute top-[2px] right-[9.08px]">
-                      Asociado
-                    </div>
-                    <img
-                      className="absolute top-[calc(50%_-_2.67px)] left-[10px] w-1.5 h-1.5"
-                      alt=""
-                      src="/oval5.svg"
-                    />
-                  </div>
-                  <div className="absolute right-[115.01px] bottom-[26.5px] w-[96.3px] h-[25px] text-sm text-lightseagreen">
-                    <img
-                      className="absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px] max-w-full overflow-hidden max-h-full"
-                      alt=""
-                      src="/rectangle7.svg"
-                    />
-                    <div className="absolute top-[2px] right-[9.08px]">
-                      Asociado
-                    </div>
-                    <img
-                      className="absolute top-[calc(50%_-_2.67px)] left-[10px] w-1.5 h-1.5"
-                      alt=""
-                      src="/oval5.svg"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="absolute top-[74px] right-[1578.33px] w-[108.2px] h-[25px] text-sm text-crimson-200">
-                <img
-                  className="absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px] max-w-full overflow-hidden max-h-full"
-                  alt=""
-                  src="/rectangle8.svg"
-                />
-                <div className="absolute top-[2px] right-[9.98px]">
-                  Sin asociar
-                </div>
-                <img
-                  className="absolute top-[calc(50%_-_2.67px)] left-[10px] w-1.5 h-1.5"
-                  alt=""
-                  src="/oval2.svg"
-                />
-              </div>
-            </div>
-            <div className="absolute top-[0px] left-[calc(50%_-_1445.25px)] w-[274.9px] h-12 text-cornflowerblue">
-              <div className="absolute h-full top-[0px] bottom-[0px] left-[0px] shadow-[0px_3px_6px_rgba(0,_0,_0,_0.02)] rounded-md bg-white box-border w-[86.9px] border-[1px] border-solid border-cornflowerblue">
-                <div className="absolute top-[calc(50%_-_11px)] left-[calc(50%_-_29.51px)]">
-                  General
-                </div>
-              </div>
-              <div className="absolute h-full top-[0px] bottom-[0px] left-[calc(50%_-_43.45px)] shadow-[0px_3px_6px_rgba(0,_0,_0,_0.02)] rounded-md bg-white box-border w-[86.9px] border-[1px] border-solid border-cornflowerblue">
-                <div className="absolute top-[calc(50%_-_11px)] left-[calc(50%_-_31.51px)]">
-                  Facturas
-                </div>
-              </div>
-              <div className="absolute h-full top-[0px] right-[0px] bottom-[0px] shadow-[0px_3px_6px_rgba(0,_0,_0,_0.02)] rounded-md bg-cornflowerblue box-border w-[86.9px] text-white border-[1px] border-solid border-cornflowerblue">
-                <div className="absolute top-[calc(50%_-_11px)] left-[calc(50%_-_23px)]">
-                  Pagos
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="absolute bottom-[52.2px] left-[74.25px] leading-[22px] inline-block w-[229px] h-8">
-            Mostrando 10 de 200 resultados
-          </div>
-          <img
-            className="absolute bottom-[20.1px] left-[40px] w-[280px] h-[32.1px]"
-            alt=""
-            src="/next1.svg"
-          />
-          <Componente4 propTop="129px" propLeft="254px" />
+        <img
+          className="absolute bottom-[5.7px] left-[24.83px] w-1 h-1 opacity-[0]"
+          alt=""
+          src="/oval4.svg"
+        />
+        <img
+          className="absolute top-[calc(50%_+_33.65px)] left-[24.83px] w-1 h-1 opacity-[0]"
+          alt=""
+          src="/oval4.svg"
+        />
+        <img
+          className="absolute top-[calc(50%_-_37.26px)] right-[225.07px] w-[19px] h-[19.2px]"
+          alt=""
+          src="/trazado-30234.svg"
+        />
+      </div>
+      <div className="absolute top-[239px] left-[332px] text-[33px] text-dimgray-100">
+        ¡Bienvenido Salvador!
+      </div>
+      <div className="absolute top-[202px] left-[332px] text-5xl font-medium text-cornflowerblue">
+        08 de Abril 2024
+      </div>
+      <div className="absolute top-[289px] left-[332px] text-base leading-[22px] text-gray-100">
+        <p className="m-0">{`Consulta tu estado de cuenta y detalle de tus `}</p>
+        <p className="m-0">
+          <span>{`servicios facturados fácilmente desde nuestro `}</span>
+          <b className="font-open-sans text-cornflowerblue">PCP</b>
+        </p>
+      </div>
+      <img
+        className="absolute top-[130px] right-[109px] w-[260px] h-[378px] opacity-[0.05]"
+        alt=""
+        src="/enmascarar-grupo-341.svg"
+      />
+      <div className="absolute top-[409px] right-[170px] text-white">
+        Agregados recientemente
+      </div>
+      <img
+        className="absolute top-[435px] right-[281px] rounded-[50%] w-[58px] h-[58px] object-cover"
+        alt=""
+        src="/elipse-462@2x.png"
+      />
+      <img
+        className="absolute top-[435px] right-[253px] w-[58px] h-[58px] object-cover"
+        alt=""
+        src="/grupo-1675@2x.png"
+      />
+      <img
+        className="absolute top-[435px] right-[226px] w-[58px] h-[58px] object-cover"
+        alt=""
+        src="/grupo-1674@2x.png"
+      />
+      <img
+        className="absolute top-[435px] right-[198px] w-[58px] h-[58px] object-cover"
+        alt=""
+        src="/grupo-1676@2x.png"
+      />
+      <div className="absolute top-[435px] right-[189px] w-10 h-10 text-smi text-cornflowerblue font-avenir">
+        <img
+          className="absolute h-[calc(100%_+_18px)] w-[calc(100%_+_18px)] top-[0px] right-[-18px] bottom-[-18px] left-[0px] rounded-[50%] max-w-full overflow-hidden max-h-full"
+          alt=""
+          src="/elipse-470.svg"
+        />
+        <div className="absolute top-[calc(50%_-_10px)] left-[calc(50%_-_8px)] font-extrabold">
+          +3
         </div>
       </div>
-      {isDetalleDePagoOpen && (
-        <PortalPopup
-          overlayColor="rgba(113, 113, 113, 0.3)"
-          placement="Centered"
-          onOutsideClick={closeDetalleDePago}
-        >
-          <DetalleDePago onClose={closeDetalleDePago} />
-        </PortalPopup>
-      )}
-    </>
+      <div className="absolute top-[164px] right-[294px] rounded-3xs bg-darkslateblue-100 w-[50px] h-[50px]" />
+      <div className="absolute top-[130px] left-[787px] rounded-3xs bg-white w-[338px] h-[378px]" />
+      <div className="absolute top-[289px] left-[818px] font-light">
+        Valor presentado en base (Sol)
+      </div>
+      <div className="absolute top-[596px] left-[804px] font-light">
+        <p className="m-0">{`[SERV-0010] Puerta a Conexión `}</p>
+        <p className="m-0">10Gbps - Pago mensual</p>
+      </div>
+      <div className="absolute top-[672px] left-[804px] font-light">
+        <p className="m-0">{`[SERV-0010] Puerta a Conexión `}</p>
+        <p className="m-0">10Gbps - Pago mensual</p>
+      </div>
+      <div className="absolute top-[747px] left-[804px] font-light">
+        <p className="m-0">{`[SERV-0010] Puerta a Conexión `}</p>
+        <p className="m-0">10Gbps - Pago mensual</p>
+      </div>
+      <div className="absolute top-[819px] left-[804px] font-light">
+        <p className="m-0">{`[SERV-0010] Puerta a Conexión `}</p>
+        <p className="m-0">10Gbps - Pago mensual</p>
+      </div>
+      <b className="absolute top-[635px] left-[804px] text-xs">Finanzas PIT</b>
+      <div className="absolute top-[353px] left-[352px]">
+        <span>{`Dispone de una factura `}</span>
+        <b className="text-crimson-100">pendiente</b>
+      </div>
+      <b className="absolute top-[711px] left-[804px] text-xs">Finanzas PIT</b>
+      <b className="absolute top-[786px] left-[804px] text-xs">Finanzas PIT</b>
+      <b className="absolute top-[858px] left-[804px] text-xs">Finanzas PIT</b>
+      <div className="absolute top-[227px] left-[818px] text-3xl">Balance</div>
+      <div className="absolute top-[574px] left-[364px] text-3xl">
+        Próximos pagos
+      </div>
+      <div className="absolute top-[340px] right-[198px] text-3xl text-white">
+        Total usuarios
+      </div>
+      <div className="absolute top-[253px] left-[818px] text-7xl font-semibold">
+        S/. 3127,00
+      </div>
+      <div className="absolute top-[804px] left-[1087px] text-9xl font-semibold text-cornflowerblue">
+        15 días
+      </div>
+      <div className="absolute top-[366px] right-[284px] text-7xl font-semibold text-white">
+        1200
+      </div>
+      <div className="absolute top-[164px] left-[818px] rounded-3xs bg-whitesmoke-600 w-[50px] h-[50px]" />
+      <img
+        className="absolute top-[598px] left-[743px] w-12 h-[47px]"
+        alt=""
+        src="/group10.svg"
+      />
+      <img
+        className="absolute top-[675px] left-[743px] w-12 h-12"
+        alt=""
+        src="/group11.svg"
+      />
+      <img
+        className="absolute top-[747px] left-[743px] w-12 h-12"
+        alt=""
+        src="/group12.svg"
+      />
+      <img
+        className="absolute top-[821px] left-[743px] w-12 h-12"
+        alt=""
+        src="/group13.svg"
+      />
+      <img
+        className="absolute top-[678.48px] left-[356px] w-[329.1px] h-[186.5px]"
+        alt=""
+        src="/group.svg"
+      />
+      <img
+        className="absolute top-[640.31px] left-[466.46px] w-[123.7px] h-[12.1px]"
+        alt=""
+        src="/november2023.svg"
+      />
+      <img
+        className="absolute top-[540px] right-[109px] w-[392px] h-48"
+        alt=""
+        src="/rectangle13.svg"
+      />
+      <img
+        className="absolute top-[129.5px] left-[1141.5px] w-[393px] h-[179px]"
+        alt=""
+        src="/rectangle14.svg"
+      />
+      <img
+        className="absolute top-[329.79px] left-[1141.5px] w-[393px] h-[178.7px]"
+        alt=""
+        src="/rectangle15.svg"
+      />
+      <img
+        className="absolute top-[572px] right-[145px] w-12 h-12"
+        alt=""
+        src="/rectangle21.svg"
+      />
+      <img
+        className="absolute top-[162px] left-[1450px] w-12 h-12"
+        alt=""
+        src="/rectangle23.svg"
+      />
+      <img
+        className="absolute right-[109px] bottom-[146px] w-[392px] h-48"
+        alt=""
+        src="/rectangle16.svg"
+      />
+      <div className="absolute top-[563px] left-[1442px] text-xl">
+        Perfil de usuario
+      </div>
+      <div className="absolute top-[153px] left-[1165px] text-xl">NOC</div>
+      <div className="absolute top-[353px] left-[1165px] text-xl">
+        Facturación
+      </div>
+      <div className="absolute top-[767px] left-[1442px] text-xl">
+        Últimos cargos
+      </div>
+      <b className="absolute top-[596px] left-[1442px] text-cornflowerblue">
+        Juan Hernandez
+      </b>
+      <b className="absolute top-[186px] left-[1166px] text-cornflowerblue">
+        Información de contácto
+      </b>
+      <b className="absolute top-[386px] left-[1166px] text-cornflowerblue">
+        Información de contácto
+      </b>
+      <b className="absolute top-[810px] left-[1443px]">Factura N°</b>
+      <div className="absolute top-[810px] right-[173px] text-cornflowerblue">
+        F 001-00001753
+      </div>
+      <b className="absolute top-[845px] left-[1443px]">Monto</b>
+      <b className="absolute bottom-[180px] left-[1443px]">Emisión</b>
+      <div className="absolute top-[845px] right-[209px] text-cornflowerblue">
+        $ 3.127,00
+      </div>
+      <div className="absolute right-[202px] bottom-[180px] text-cornflowerblue">
+        10/03/2024
+      </div>
+      <div className="absolute top-[626px] left-[1443px]">Example@pit.net</div>
+      <div className="absolute top-[216px] left-[1166px]">Example@pit.net</div>
+      <div className="absolute top-[416px] left-[1166px]">Example@pit.net</div>
+      <div className="absolute top-[656px] left-[1443px]">(0) 053 555 555</div>
+      <div className="absolute top-[246px] left-[1166px]">(0) 053 555 555</div>
+      <div className="absolute top-[446px] left-[1166px]">(0) 053 555 555</div>
+      <b className="absolute top-[715px] left-[1089px] text-xl text-dimgray-100">
+        Notificación
+      </b>
+      <div className="absolute top-[754px] left-[1089px] text-base leading-[22px] text-gray-100">
+        <p className="m-0">{`Tu factura tiene un `}</p>
+        <p className="m-0">vencimiento de</p>
+      </div>
+      <b className="absolute top-[850px] left-[1089px] text-gray-100">
+        Evita cortes en tus servicios
+      </b>
+      <img
+        className="absolute top-[356.24px] left-[332px] w-[12.9px] h-[12.5px]"
+        alt=""
+        src="/trazado-29744.svg"
+      />
+      <b className="absolute top-[373px] left-[352px] text-xs text-cornflowerblue">
+        Ver detalle
+      </b>
+      <b
+        className="absolute top-[390px] left-[818px] text-xs text-cornflowerblue cursor-pointer"
+        onClick={onIrAEstadoClick}
+      >
+        Ir a estado de cuenta
+      </b>
+      <img
+        className="absolute top-[179px] right-[311px] w-4 h-[21px]"
+        alt=""
+        src="/trazado-29746.svg"
+      />
+      <div className="absolute top-[-2px] right-[0px] w-[1621px] h-[297.7px] text-base text-cornflowerblue">
+        <div className="absolute w-full top-[0px] right-[0px] left-[0px] shadow-[0px_3px_6px_rgba(0,_0,_0,_0.03)] bg-white h-[100px]" />
+        <img
+          className="absolute top-[28px] right-[255px] w-[45px] h-[45px]"
+          alt=""
+          src="/componente-22--2.svg"
+        />
+        <img
+          className="absolute top-[28px] right-[185px] w-[45px] h-[45px]"
+          alt=""
+          src="/componente-22--3.svg"
+        />
+        <div className="absolute top-[41px] left-[35px] leading-[22px]">
+          <span>{`Empresa: `}</span>
+          <span className="font-semibold">Fiber d</span>
+        </div>
+        <img
+          className="absolute top-[49.36px] left-[210.64px] w-3 h-[7.3px]"
+          alt=""
+          src="/chevronright.svg"
+        />
+        <div className="absolute top-[27px] right-[227px] w-36 h-[151.7px] text-sm text-steelblue-100">
+          <div className="absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px]">
+            <div className="absolute h-[calc(100%_-_106.7px)] w-[calc(100%_-_99px)] top-[0px] right-[99px] bottom-[106.7px] left-[0px] rounded-sm bg-aliceblue-100 opacity-[0]" />
+            <img
+              className="absolute h-[calc(100%_-_119.7px)] w-[calc(100%_-_112px)] top-[7px] right-[105px] bottom-[112.7px] left-[7px] rounded-sm max-w-full overflow-hidden max-h-full object-cover"
+              alt=""
+              src="/rectngulo-17@2x.png"
+            />
+            <div className="absolute h-[calc(100%_-_51.7px)] w-[calc(100%_-_7px)] top-[51.7px] right-[0px] bottom-[0px] left-[7px] shadow-[0px_3px_6px_rgba(0,_0,_0,_0.13)] rounded-3xs bg-white opacity-[0]" />
+            <div className="absolute top-[calc(50%_-_2.85px)] left-[calc(50%_-_14.5px)] opacity-[0]">
+              Ingles
+            </div>
+            <div className="absolute top-[calc(50%_+_37.85px)] left-[calc(50%_-_16px)] text-lightslategray-100 opacity-[0]">
+              Español
+            </div>
+            <img
+              className="absolute top-[calc(50%_-_2.85px)] left-[23px] rounded-[50%] w-5 h-5 opacity-[0]"
+              alt=""
+              src="/elipse-369.svg"
+            />
+            <img
+              className="absolute top-[calc(50%_+_37.15px)] left-[23px] rounded-[50%] w-5 h-5 opacity-[0]"
+              alt=""
+              src="/elipse-369.svg"
+            />
+          </div>
+        </div>
+        <section className="absolute h-[calc(100%_-_24px)] top-[24px] right-[101px] bottom-[0px] w-[302px] text-left text-sm text-dimgray-200 font-open-sans">
+          <img
+            className="absolute top-[0px] right-[3px] w-12 h-12 object-cover"
+            alt=""
+            src="/grupo-37691@2x.png"
+          />
+          <div className="absolute h-[calc(100%_-_59.7px)] w-full top-[59.7px] right-[0px] bottom-[0px] left-[0px] shadow-[0px_3px_6px_rgba(0,_0,_0,_0.13)] rounded-3xs bg-white opacity-[0]">
+            <div className="absolute top-[28.3px] left-[calc(50%_-_64.5px)] text-base font-semibold">
+              Juan Hernandez
+            </div>
+            <div className="absolute top-[calc(50%_-_56.7px)] left-[calc(50%_-_63.5px)] leading-[22px] font-light text-dimgray-100 inline-block w-[75px] h-5">
+              Supervisor
+            </div>
+            <div
+              className="absolute top-[calc(50%_-_5px)] left-[calc(50%_-_91px)] text-lightslategray-100 cursor-pointer"
+              onClick={onInformacinDePerfilClick}
+            >
+              Información de perfil
+            </div>
+            <div className="absolute bottom-[30px] left-[calc(50%_-_91px)] font-semibold text-steelblue-100">
+              Cerrar sesión
+            </div>
+            <div className="absolute w-[calc(100%_+_1px)] top-[calc(50%_+_38.8px)] right-[0px] left-[-1px] box-border h-0.5 border-t-[1px] border-solid border-whitesmoke-600" />
+            <img
+              className="absolute top-[22.3px] left-[26px] w-12 h-12 object-cover"
+              alt=""
+              src="/grupo-37691@2x.png"
+            />
+            <img
+              className="absolute top-[calc(50%_-_7.7px)] left-[29px] w-4 h-5"
+              alt=""
+              src="/user.svg"
+            />
+            <img
+              className="absolute bottom-[27.7px] left-[27px] w-5 h-5"
+              alt=""
+              src="/logout.svg"
+            />
+          </div>
+        </section>
+      </div>
+      <img
+        className="absolute top-[180px] left-[833px] w-5 h-[18px]"
+        alt=""
+        src="/trazado-29747.svg"
+      />
+      <div className="absolute top-[333px] left-[818px] text-base leading-[24px] text-gray-100">
+        <p className="m-0">{`Visualiza el desglose de tus `}</p>
+        <p className="m-0">pagos y facturas.</p>
+      </div>
+      <div className="absolute top-[573px] left-[1089px] rounded-3xs bg-white w-[50px] h-[50px]" />
+      <img
+        className="absolute top-[588.7px] left-[1105px] w-[18.7px] h-[18px]"
+        alt=""
+        src="/trazado-29748.svg"
+      />
+      <img
+        className="absolute top-[25px] left-[17px] w-[72px] h-[84px] object-cover"
+        alt=""
+        src="/logo-pit@2x.png"
+      />
+    </div>
   );
 };
 

@@ -1,0 +1,225 @@
+.element {
+  background-color: #f1f5f9;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.element .overlap-group-wrapper {
+  background-color: #f1f5f9;
+  height: 1080px;
+  width: 1920px;
+}
+
+.element .overlap-group {
+  height: 1080px;
+  position: relative;
+  width: 1662px;
+}
+
+.element .portal {
+  height: 1080px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 1425px;
+}
+
+.element .rectngulo {
+  background-color: #562f7f;
+  height: 1080px;
+  left: 0;
+  opacity: 0.03;
+  position: absolute;
+  top: 0;
+  width: 1425px;
+}
+
+.element .div {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 683px;
+  left: 1148px;
+  position: absolute;
+  top: 189px;
+  width: 514px;
+}
+
+.element .text-wrapper {
+  color: #51626e;
+  font-family: "Open Sans", Helvetica;
+  font-size: 24px;
+  font-weight: 600;
+  left: 1198px;
+  letter-spacing: 0;
+  line-height: 24px;
+  position: absolute;
+  top: 345px;
+  white-space: nowrap;
+}
+
+.element .ingresa-tu-correo {
+  color: #8a8f9c;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  height: 48px;
+  left: 1198px;
+  letter-spacing: 0;
+  line-height: 22px;
+  position: absolute;
+  top: 386px;
+  width: 370px;
+}
+
+.element .rectngulo-2 {
+  background-color: #f5f6f7;
+  border-radius: 0px 0px 10px 10px;
+  height: 347px;
+  left: 1148px;
+  position: absolute;
+  top: 525px;
+  width: 514px;
+}
+
+.element .text-wrapper-2 {
+  color: #59626a;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 600;
+  left: 1198px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 558px;
+  white-space: nowrap;
+}
+
+.element .rectngulo-3 {
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0px 3px 6px #00000005;
+  height: 48px;
+  left: 1198px;
+  position: absolute;
+  top: 584px;
+  width: 422px;
+}
+
+.element .componente {
+  height: 48px;
+  left: 1198px;
+  position: absolute;
+  top: 749px;
+  width: 422px;
+}
+
+.element .trazado {
+  height: 66px;
+  left: -9px;
+  object-fit: cover;
+  position: absolute;
+  top: -6px;
+  width: 440px;
+}
+
+.element .text-wrapper-3 {
+  color: #ffffff;
+  font-family: "Open Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 600;
+  left: 1355px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 764px;
+  white-space: nowrap;
+  background-color: #3f88cb;
+  border: 0px;
+  cursor:pointer;
+}
+
+.element .rectngulo-4 {
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0px 3px 6px #00000005;
+  height: 48px;
+  left: 1198px;
+  position: absolute;
+  top: 681px;
+  width: 422px;
+}
+
+.element .correo-electronico {
+  background-color: transparent;
+  border: 0;
+  color: #95989a;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  height: 21px;
+  left: 1212px;
+  letter-spacing: 0;
+  line-height: 14px;
+  padding: 0;
+  position: absolute;
+  top: 599px;
+  white-space: nowrap;
+  width: 116px;
+}
+
+.element .codigo-de {
+  background-color: transparent;
+  border: 0;
+  color: #95989a;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  height: 21px;
+  left: 1212px;
+  letter-spacing: 0;
+  line-height: 14px;
+  padding: 0;
+  position: absolute;
+  top: 696px;
+  white-space: nowrap;
+  width: 155px;
+  border:0px!important;
+  width: 200px!important;
+  outline: none!important;
+}
+
+.element .text-wrapper-4 {
+  color: #59626a;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 600;
+  left: 1198px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 654px;
+  white-space: nowrap;
+}
+
+.element .logo-placeholder {
+  height: 132px;
+  left: 1171px;
+  object-fit: cover;
+  position: absolute;
+  top: 209px;
+  width: 189px;
+}
+
+.correo-electronico,
+.codigo-de {
+  color: black; /* Asegúrate de que el color del texto sea visible */
+  background-color: white; /* Asegúrate de que el color de fondo sea diferente del texto */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
