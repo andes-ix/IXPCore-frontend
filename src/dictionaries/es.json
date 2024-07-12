@@ -102,9 +102,11 @@
       "idUser": "ID Usuario",
       "fullName": "Nombre completo",
       "country": "País",
+      "countryPlaceholder": "Selecciona un país",
       "email": "Correo electrónico",
       "charge": "Cargo",
       "role": "Rol",
+      "rolePlaceholder": "Selecciona un rol",
       "permissions": "Permisos y accesos",
       "cancel": "Cancelar",
       "save": "Guardar"

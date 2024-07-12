@@ -1,10 +1,17 @@
 import { useTranslations } from "next-intl";
 import styles from "./styles.module.scss";
 import Image from "next/image";
-import { Link } from "src/navigation";
+import { Link, useRouter } from "src/navigation";
 
 const ModalUserSettings = () => {
   const t = useTranslations("Navbar.Modal");
+  const router = useRouter();
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+
+    router.replace("/login");
+  };
 
   return (
     <section className={styles.sectionContainer}>
@@ -27,7 +34,7 @@ const ModalUserSettings = () => {
         {t("profileIfo")}
       </Link>
 
-      <Link href="#" className={styles.logout}>
+      <button className={styles.logout} onClick={handleLogout}>
         <Image
           src={"/img/header/logout-icon.svg"}
           alt="User"
@@ -35,7 +42,7 @@ const ModalUserSettings = () => {
           height={18}
         />
         {t("logout")}
-      </Link>
+      </button>
     </section>
   );
 };

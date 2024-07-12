@@ -24,6 +24,9 @@
       "@dictionaries/*": ["src/app/dictionaries/*"],
       "@components/*": ["src/components/*"],
       "@store/*": ["src/store/*"],
+      "@constants/*": ["src/constants/*"],
+      "@services/*": ["src/services/*"],
+      "@hooks/*": ["src/hooks/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

@@ -1,10 +1,15 @@
+"use client"
+
 import Image from "next/image";
 import styles from "./styles.module.scss";
 import Chevron from "@img/login/Chevron";
 import { useTranslations } from "next-intl";
+import useSession from "@hooks/useSession";
 
 const Login2FA = () => {
   const t = useTranslations("Login.2FA");
+
+  useSession();
 
   return (
     <section className={styles.sectionContainer}>

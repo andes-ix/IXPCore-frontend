@@ -49,7 +49,7 @@ button {
   cursor: pointer;
 }
 
-input:not([type="checkbox"]):focus {
+input:not([type="checkbox"]):focus, select:focus {
   outline: none;
   outline: 1px solid $colorBlueAccent;
 }

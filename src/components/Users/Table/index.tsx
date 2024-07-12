@@ -270,12 +270,16 @@ const UserListTable = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [showModalUserOptions, setShowModalUserOptions] = useState("");
   const [showModalAddUser, setShowModalAddUser] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const usersPerPage = 10;
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
-  const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
-  const totalPages = Math.ceil(users.length / usersPerPage);
+
+  const filteredUsers = users.filter((user) =>user.name.toLowerCase().includes(searchTerm.toLowerCase()));
+
+  const currentUsers = filteredUsers.slice(indexOfFirstUser, indexOfLastUser);
+  const totalPages = Math.ceil(filteredUsers.length / usersPerPage);
 
   const t = useTranslations("Users.UsersList.Table");
 
@@ -293,7 +297,10 @@ const UserListTable = () => {
 
   return (
     <div>
-      <UserListTableHero setShowModalAddUser={setShowModalAddUser} />
+      <UserListTableHero
+        setShowModalAddUser={setShowModalAddUser}
+        setSearchTerm={setSearchTerm}
+      />
 
       <section className={styles.tableContainer}>
         <table>

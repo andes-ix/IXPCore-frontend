@@ -6,7 +6,7 @@ import { useUtilStore } from "@store/util";
 import EnterpriseNameElement from "@components/Dashboard/Elements/EnterpriseName";
 import ModalUserSettings from "./ModalUserSettings";
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname } from "src/navigation";
 
 const DashboardHeader = () => {
   const [isOpenModalUser, setIsOpenModalUser] = useState(false);

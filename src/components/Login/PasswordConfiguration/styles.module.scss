@@ -12,7 +12,7 @@
   }
 
   h1 {
-    font-size: $sizeXL;
+    font-size: $sizeL;
     color: $colorGrayDark;
     margin: 1.6rem 0;
     font-weight: 600;
@@ -33,13 +33,34 @@
         font-weight: 600;
       }
 
-      input {
-        padding: 1.5rem;
-        border-radius: 6px;
-        border: 1px solid #F0F0F0;
+      div {
+        width: 100%;
+        position: relative;
 
-        &::placeholder {
-          color: #95989a;
+        input {
+          width: 100%;
+          padding: 1.5rem;
+          border-radius: 6px;
+          border: 1px solid #f0f0f0;
+
+          &::placeholder {
+            color: #95989a;
+          }
+        }
+
+        button {
+          border: none;
+          background: none;
+          img {
+            filter: invert(90%) sepia(21%) saturate(344%) hue-rotate(198deg)
+              brightness(89%) contrast(90%);
+
+            transform: scaleX(-1);
+
+            position: absolute;
+            top: 1.6rem;
+            right: 1.6rem;
+          }
         }
       }
     }
@@ -60,7 +81,7 @@
       }
     }
 
-    button {
+    > button {
       color: #ffffff;
       font-weight: 600;
       background: $colorBluePrimary;
