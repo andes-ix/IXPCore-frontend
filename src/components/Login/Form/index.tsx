@@ -15,6 +15,7 @@ import { toast, Toaster } from "sonner";
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const { setUser } = useUserStore((state) => state);
   const router = useRouter();
 
@@ -24,6 +25,10 @@ const LoginForm = () => {
 
   const handleChangeEmail = (value: string) => {
     const NO_WHITESPACES = /^[^\s]*$/;
+
+    if (error) {
+      setError("");
+    }
 
     if (!NO_WHITESPACES.test(value)) return;
 
@@ -42,17 +47,19 @@ const LoginForm = () => {
     const VALIDATE_EMAIL_FORMAT =
       /^[a-zA-Z0-9._+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
-    if (!VALIDATE_EMAIL_FORMAT.test(email)) return;
+    if (!VALIDATE_EMAIL_FORMAT.test(email)) {
+      return setError("Ingresa un email válido");
+    }
 
     const response = await login({ email, password });
 
     if (response.error) {
       return toast.error(response.error);
     }
-    
+
     setUser(response);
 
-    localStorage.setItem("user", JSON.stringify(response));  
+    localStorage.setItem("user", JSON.stringify(response));
 
     router.replace("/dashboard");
   };
@@ -83,6 +90,7 @@ const LoginForm = () => {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">{t("email")}</label>
+
           <input
             type="text"
             name="email"
@@ -90,6 +98,8 @@ const LoginForm = () => {
             value={email}
             onChange={(e) => handleChangeEmail(e.target.value)}
           />
+
+          {error && <p className={styles.error}>{error}</p>}
         </div>
 
         <div>

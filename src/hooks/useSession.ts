@@ -9,6 +9,8 @@ const useSession = () => {
   const router = useRouter();
   const pathname = usePathname();
 
+  const unauthRoutes = ["/login", "/change-password", "/2fa"];
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       const user = localStorage.getItem("user");
@@ -16,16 +18,15 @@ const useSession = () => {
       if (user) {
         setUser(JSON.parse(user));
 
-        if (
-          pathname === "/login" ||
-          pathname === "/change-password" ||
-          pathname === "/2fa"
-        ) {
+        if (unauthRoutes.includes(pathname)) {
           router.replace("/dashboard");
         }
       }
 
       if (!user) {
+        if (unauthRoutes.includes(pathname)) {
+          return;
+        }
         router.replace("/login");
       }
     }

@@ -1,10 +1,11 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import styles from "./styles.module.scss";
 import Chevron from "@img/login/Chevron";
 import { useTranslations } from "next-intl";
 import useSession from "@hooks/useSession";
+import { Link } from "src/navigation";
 
 const Login2FA = () => {
   const t = useTranslations("Login.2FA");
@@ -15,10 +16,10 @@ const Login2FA = () => {
     <section className={styles.sectionContainer}>
       <Image src={"/img/logo.webp"} alt="Logo de PIT" width={80} height={94} />
 
-      <button>
+      <Link href={"/login"}>
         <Chevron style={{ transform: "rotate(180deg)" }} />
         {t("goBack")}
-      </button>
+      </Link>
 
       <h1>{t("title")}</h1>
 

@@ -48,6 +48,12 @@
           }
         }
 
+        .error {
+          color: $colorRed;
+          position: absolute;
+          font-size: $sizeTiny;
+        }
+
         button {
           border: none;
           background: none;
@@ -90,6 +96,34 @@
       border-radius: 6px;
       border: none;
       width: 100%;
+    }
+  }
+}
+
+.successAlert {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: 800px;
+
+  .containerImg {
+    background: #b7ffdd;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  h3 {
+    color: $colorGrayDark;
+    font-weight: bold;
+  }
+
+  p {
+    color: #008446;
+
+    span {
+      color: #008446;
+      font-weight: bold;
+      text-wrap: nowrap;
     }
   }
 }

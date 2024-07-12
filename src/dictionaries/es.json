@@ -21,7 +21,13 @@
       "confirmPassword": "Confirmar contraseña",
       "passwordRequirementsTitle": "Tu clave de acceso debe cumplir con estos requisitos:",
       "passwordRequirements": "Tener 8 caracteres|Ser alfanumérica con al menos 1 caracter numérico y un único caracter especial|Tener uno de estos caracteres especiales - / = . $ # *|Evita colocar información personal",
-      "buttonTitle": "Guardar"
+      "buttonTitle": "Guardar",
+      "RequestEmail": {
+        "goBack": "Regresar",
+        "title": "Ingrese su Correo Electrónico",
+        "label": "Correo Electrónico",
+        "buttonTitle": "Enviar"
+      }
     }
   },
   "Navbar": {
