@@ -1,13 +1,14 @@
-import { getLocale } from "next-intl/server";
 import CustomCalendar from "./Calendar";
 import styles from "./styles.module.scss";
 import Payment from "./Payment";
 import Notification from "./Notification";
 import { useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
 
-const NextPayments = async () => {
+const NextPayments = () => {
+  const locale = (usePathname().split("/")[1] || "es") as "en" | "es";
+
   const t = useTranslations("Dashboard.Elements.NextPayments");
-  const locale = (await getLocale()) as "es" | "en";
 
   const nextPayments = [
     {
