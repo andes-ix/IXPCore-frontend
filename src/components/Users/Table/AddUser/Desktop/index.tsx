@@ -105,7 +105,7 @@ const FormAddUserDesktop = (params: IProps) => {
             <label>ㅤ</label>
 
             <PhoneInput
-              defaultCountry={"ar"}
+              defaultCountry={"pe"}
               value={inputValue.phone}
               onChange={handleChangePhone}
               className={styles.phoneInput}

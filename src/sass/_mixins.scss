@@ -1,0 +1,8 @@
+@mixin blueButton() {
+  color: #fff;
+  padding: 1rem 2rem;
+  background: $colorBlueAccent;
+  border-radius: 6px;
+  border: none;
+  max-width: max-content;
+}

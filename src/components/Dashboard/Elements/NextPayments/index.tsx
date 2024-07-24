@@ -6,9 +6,8 @@ import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 
 const NextPayments = () => {
-  const locale = (usePathname().split("/")[1] || "es") as "en" | "es";
-
   const t = useTranslations("Dashboard.Elements.NextPayments");
+  const locale = (usePathname().split("/")[1] || "es") as "en" | "es";
 
   const nextPayments = [
     {

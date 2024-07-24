@@ -1,0 +1,258 @@
+[
+  {
+    "number": "F 001-00001753",
+    "date": "2013-08-11",
+    "description": "Factura F 001-00001753",
+    "charge": "3127,00",
+    "payment": "",
+    "balance": "-3127,00"
+  },
+  {
+    "number": "F 001-00001754",
+    "date": "2013-08-12",
+    "description": "Factura F 001-00001754",
+    "charge": "4520,00",
+    "payment": "",
+    "balance": "-4520,00"
+  },
+  {
+    "number": "P 001-00001755",
+    "date": "2013-08-13",
+    "description": "Pago P 001-00001755",
+    "charge": "",
+    "payment": "3000,00",
+    "balance": "3000,00"
+  },
+  {
+    "number": "F 001-00001756",
+    "date": "2013-08-14",
+    "description": "Factura F 001-00001756",
+    "charge": "2100,00",
+    "payment": "",
+    "balance": "-2100,00"
+  },
+  {
+    "number": "P 001-00001757",
+    "date": "2013-08-15",
+    "description": "Pago P 001-00001757",
+    "charge": "",
+    "payment": "1500,00",
+    "balance": "1500,00"
+  },
+  {
+    "number": "F 001-00001758",
+    "date": "2013-08-16",
+    "description": "Factura F 001-00001758",
+    "charge": "1780,00",
+    "payment": "",
+    "balance": "-1780,00"
+  },
+  {
+    "number": "P 001-00001759",
+    "date": "2013-08-17",
+    "description": "Pago P 001-00001759",
+    "charge": "",
+    "payment": "2500,00",
+    "balance": "2500,00"
+  },
+  {
+    "number": "F 001-00001760",
+    "date": "2013-08-18",
+    "description": "Factura F 001-00001760",
+    "charge": "3200,00",
+    "payment": "",
+    "balance": "-3200,00"
+  },
+  {
+    "number": "P 001-00001761",
+    "date": "2013-08-19",
+    "description": "Pago P 001-00001761",
+    "charge": "",
+    "payment": "4100,00",
+    "balance": "4100,00"
+  },
+  {
+    "number": "F 001-00001762",
+    "date": "2013-08-20",
+    "description": "Factura F 001-00001762",
+    "charge": "5000,00",
+    "payment": "",
+    "balance": "-5000,00"
+  },
+  {
+    "number": "P 001-00001763",
+    "date": "2013-08-21",
+    "description": "Pago P 001-00001763",
+    "charge": "",
+    "payment": "4700,00",
+    "balance": "4700,00"
+  },
+  {
+    "number": "F 001-00001764",
+    "date": "2013-08-22",
+    "description": "Factura F 001-00001764",
+    "charge": "2750,00",
+    "payment": "",
+    "balance": "-2750,00"
+  },
+  {
+    "number": "P 001-00001765",
+    "date": "2013-08-23",
+    "description": "Pago P 001-00001765",
+    "charge": "",
+    "payment": "3300,00",
+    "balance": "3300,00"
+  },
+  {
+    "number": "F 001-00001766",
+    "date": "2013-08-24",
+    "description": "Factura F 001-00001766",
+    "charge": "6200,00",
+    "payment": "",
+    "balance": "-6200,00"
+  },
+  {
+    "number": "P 001-00001767",
+    "date": "2013-08-25",
+    "description": "Pago P 001-00001767",
+    "charge": "",
+    "payment": "2900,00",
+    "balance": "2900,00"
+  },
+  {
+    "number": "F 001-00001768",
+    "date": "2013-08-26",
+    "description": "Factura F 001-00001768",
+    "charge": "3100,00",
+    "payment": "",
+    "balance": "-3100,00"
+  },
+  {
+    "number": "P 001-00001769",
+    "date": "2013-08-27",
+    "description": "Pago P 001-00001769",
+    "charge": "",
+    "payment": "3700,00",
+    "balance": "3700,00"
+  },
+  {
+    "number": "F 001-00001770",
+    "date": "2013-08-28",
+    "description": "Factura F 001-00001770",
+    "charge": "4500,00",
+    "payment": "",
+    "balance": "-4500,00"
+  },
+  {
+    "number": "P 001-00001771",
+    "date": "2013-08-29",
+    "description": "Pago P 001-00001771",
+    "charge": "",
+    "payment": "3500,00",
+    "balance": "3500,00"
+  },
+  {
+    "number": "F 001-00001772",
+    "date": "2013-08-30",
+    "description": "Factura F 001-00001772",
+    "charge": "4100,00",
+    "payment": "",
+    "balance": "-4100,00"
+  },
+  {
+    "number": "P 001-00001773",
+    "date": "2013-08-31",
+    "description": "Pago P 001-00001773",
+    "charge": "",
+    "payment": "4900,00",
+    "balance": "4900,00"
+  },
+  {
+    "number": "F 001-00001774",
+    "date": "2013-09-01",
+    "description": "Factura F 001-00001774",
+    "charge": "3800,00",
+    "payment": "",
+    "balance": "-3800,00"
+  },
+  {
+    "number": "P 001-00001775",
+    "date": "2013-09-02",
+    "description": "Pago P 001-00001775",
+    "charge": "",
+    "payment": "3600,00",
+    "balance": "3600,00"
+  },
+  {
+    "number": "F 001-00001776",
+    "date": "2013-09-03",
+    "description": "Factura F 001-00001776",
+    "charge": "4200,00",
+    "payment": "",
+    "balance": "-4200,00"
+  },
+  {
+    "number": "P 001-00001777",
+    "date": "2013-09-04",
+    "description": "Pago P 001-00001777",
+    "charge": "",
+    "payment": "3400,00",
+    "balance": "3400,00"
+  },
+  {
+    "number": "F 001-00001778",
+    "date": "2013-09-05",
+    "description": "Factura F 001-00001778",
+    "charge": "4100,00",
+    "payment": "",
+    "balance": "-4100,00"
+  },
+  {
+    "number": "P 001-00001779",
+    "date": "2013-09-06",
+    "description": "Pago P 001-00001779",
+    "charge": "",
+    "payment": "3200,00",
+    "balance": "3200,00"
+  },
+  {
+    "number": "F 001-00001780",
+    "date": "2013-09-07",
+    "description": "Factura F 001-00001780",
+    "charge": "3900,00",
+    "payment": "",
+    "balance": "-3900,00"
+  },
+  {
+    "number": "P 001-00001781",
+    "date": "2013-09-08",
+    "description": "Pago P 001-00001781",
+    "charge": "",
+    "payment": "4100,00",
+    "balance": "4100,00"
+  },
+  {
+    "number": "F 001-00001782",
+    "date": "2013-09-09",
+    "description": "Factura F 001-00001782",
+    "charge": "4700,00",
+    "payment": "",
+    "balance": "-4700,00"
+  },
+  {
+    "number": "P 001-00001783",
+    "date": "2013-09-10",
+    "description": "Pago P 001-00001783",
+    "charge": "",
+    "payment": "2900,00",
+    "balance": "2900,00"
+  },
+  {
+    "number": "F 001-00001784",
+    "date": "2013-09-11",
+    "description": "Factura F 001-00001784",
+    "charge": "5300,00",
+    "payment": "",
+    "balance": "-5300,00"
+  }
+]

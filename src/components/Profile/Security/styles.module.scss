@@ -1,0 +1,60 @@
+.titleContainer {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  div {
+    display: grid;
+    place-items: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 3px;
+    background: #fff;
+  }
+
+  h2 {
+    font-size: $sizeL;
+  }
+}
+
+.subtitleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .subtitle {
+    font-weight: 600;
+    color: $colorGrayDark;
+    margin: 2.5rem 0 0.7rem;
+
+    @media (width <= 680px) {
+      font-size: $sizeS;
+    }
+  }
+
+  .caption {
+    font-size: $sizeS;
+    margin-bottom: 2rem;
+
+    @media (width <= 680px) {
+      font-size: $sizeTiny;
+    }
+  }
+
+  p {
+    background: #33e692;
+    color: #fff;
+    border-radius: 100px;
+    font-weight: 600;
+    min-height: 4rem;
+    min-width: 12rem;
+    display: grid;
+    place-items: center;
+
+    @media (width <= 680px) {
+      font-size: $sizeS;
+      min-height: 3.5rem;
+      min-width: 10rem;
+    }
+  }
+}

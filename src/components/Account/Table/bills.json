@@ -1,0 +1,226 @@
+[
+  {
+    "number": "F 001-00001753",
+    "emission": "2013-08-11",
+    "description": "Compra de equipos de informática.",
+    "dueDate": "2013-08-11",
+    "total": "3127,00",
+    "status": "Pendiente"
+  },
+  {
+    "number": "F 001-00001754",
+    "emission": "2014-01-12",
+    "description": "Pago de servicios públicos",
+    "dueDate": "2014-02-11",
+    "total": "2500,00",
+    "status": "Pagado"
+  },
+  {
+    "number": "F 001-00001755",
+    "emission": "2014-03-15",
+    "description": "Compra de insumos de oficina",
+    "dueDate": "2014-04-14",
+    "total": "1800,00",
+    "status": "Revertido"
+  },
+  {
+    "number": "F 001-00001756",
+    "emission": "2014-05-18",
+    "description": "Mantenimiento de equipos",
+    "dueDate": "2014-06-17",
+    "total": "3000,00",
+    "status": "Parcial"
+  },
+  {
+    "number": "F 001-00001757",
+    "emission": "2014-07-20",
+    "description": "Compra de material de limpieza",
+    "dueDate": "2014-08-19",
+    "total": "1500,00",
+    "status": "Pendiente"
+  },
+  {
+    "number": "F 001-00001758",
+    "emission": "2014-09-22",
+    "description": "Servicios de consultoría",
+    "dueDate": "2014-10-21",
+    "total": "5000,00",
+    "status": "Pagado"
+  },
+  {
+    "number": "F 001-00001759",
+    "emission": "2014-11-24",
+    "description": "Compra de software",
+    "dueDate": "2014-12-23",
+    "total": "4500,00",
+    "status": "Revertido"
+  },
+  {
+    "number": "F 001-00001760",
+    "emission": "2015-01-26",
+    "description": "Alquiler de local",
+    "dueDate": "2015-02-25",
+    "total": "4000,00",
+    "status": "Parcial"
+  },
+  {
+    "number": "F 001-00001761",
+    "emission": "2015-03-28",
+    "description": "Pago de servicios de internet",
+    "dueDate": "2015-04-27",
+    "total": "300,00",
+    "status": "Pendiente"
+  },
+  {
+    "number": "F 001-00001762",
+    "emission": "2015-05-30",
+    "description": "Compra de mobiliario",
+    "dueDate": "2015-06-29",
+    "total": "7000,00",
+    "status": "Pagado"
+  },
+  {
+    "number": "F 001-00001763",
+    "emission": "2015-07-02",
+    "description": "Gastos de representación",
+    "dueDate": "2015-08-01",
+    "total": "3200,00",
+    "status": "Revertido"
+  },
+  {
+    "number": "F 001-00001764",
+    "emission": "2015-09-04",
+    "description": "Servicios de publicidad",
+    "dueDate": "2015-10-03",
+    "total": "6000,00",
+    "status": "Parcial"
+  },
+  {
+    "number": "F 001-00001765",
+    "emission": "2015-11-06",
+    "description": "Compra de hardware",
+    "dueDate": "2015-12-05",
+    "total": "8000,00",
+    "status": "Pendiente"
+  },
+  {
+    "number": "F 001-00001766",
+    "emission": "2016-01-08",
+    "description": "Servicios de mantenimiento",
+    "dueDate": "2016-02-07",
+    "total": "2800,00",
+    "status": "Pagado"
+  },
+  {
+    "number": "F 001-00001767",
+    "emission": "2016-03-10",
+    "description": "Servicios legales",
+    "dueDate": "2016-04-09",
+    "total": "5200,00",
+    "status": "Revertido"
+  },
+  {
+    "number": "F 001-00001768",
+    "emission": "2016-05-12",
+    "description": "Pago de licencias de software",
+    "dueDate": "2016-06-11",
+    "total": "7500,00",
+    "status": "Parcial"
+  },
+  {
+    "number": "F 001-00001769",
+    "emission": "2016-07-14",
+    "description": "Compra de equipos de seguridad",
+    "dueDate": "2016-08-13",
+    "total": "4500,00",
+    "status": "Pendiente"
+  },
+  {
+    "number": "F 001-00001770",
+    "emission": "2016-09-16",
+    "description": "Gastos de transporte",
+    "dueDate": "2016-10-15",
+    "total": "2200,00",
+    "status": "Pagado"
+  },
+  {
+    "number": "F 001-00001771",
+    "emission": "2016-11-18",
+    "description": "Servicios de auditoría",
+    "dueDate": "2016-12-17",
+    "total": "9000,00",
+    "status": "Revertido"
+  },
+  {
+    "number": "F 001-00001772",
+    "emission": "2017-01-20",
+    "description": "Compra de material de oficina",
+    "dueDate": "2017-02-19",
+    "total": "1700,00",
+    "status": "Parcial"
+  },
+  {
+    "number": "F 001-00001773",
+    "emission": "2017-03-22",
+    "description": "Servicios de capacitación",
+    "dueDate": "2017-04-21",
+    "total": "6200,00",
+    "status": "Pendiente"
+  },
+  {
+    "number": "F 001-00001774",
+    "emission": "2017-05-24",
+    "description": "Compra de equipos de informática",
+    "dueDate": "2017-06-23",
+    "total": "10200,00",
+    "status": "Pagado"
+  },
+  {
+    "number": "F 001-00001775",
+    "emission": "2017-07-26",
+    "description": "Servicios de limpieza",
+    "dueDate": "2017-08-25",
+    "total": "3300,00",
+    "status": "Revertido"
+  },
+  {
+    "number": "F 001-00001776",
+    "emission": "2017-09-28",
+    "description": "Gastos de viajes",
+    "dueDate": "2017-10-27",
+    "total": "4800,00",
+    "status": "Parcial"
+  },
+  {
+    "number": "F 001-00001777",
+    "emission": "2017-11-30",
+    "description": "Compra de suministros de cafetería",
+    "dueDate": "2017-12-29",
+    "total": "800,00",
+    "status": "Pendiente"
+  },
+  {
+    "number": "F 001-00001778",
+    "emission": "2018-01-01",
+    "description": "Servicios de seguridad",
+    "dueDate": "2018-01-30",
+    "total": "3700,00",
+    "status": "Pagado"
+  },
+  {
+    "number": "F 001-00001779",
+    "emission": "2018-03-03",
+    "description": "Mantenimiento de infraestructura",
+    "dueDate": "2018-04-01",
+    "total": "9200,00",
+    "status": "Revertido"
+  },
+  {
+    "number": "F 001-00001780",
+    "emission": "2018-05-05",
+    "description": "Consultoría en sistemas",
+    "dueDate": "2018-06-04",
+    "total": "6900,00",
+    "status": "Parcial"
+  }
+]

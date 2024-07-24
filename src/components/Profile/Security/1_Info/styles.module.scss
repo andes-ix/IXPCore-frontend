@@ -1,0 +1,36 @@
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  article {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+
+    div {
+      border-radius: 100%;
+      background: $colorYellow;
+      font-size: $sizeXL;
+      color: #fff;
+      font-weight: 600;
+      display: grid;
+      place-items: center;
+      min-width: 3.5rem;
+      min-height: 3.5rem;
+      max-width: 3.5rem;
+      max-height: 3.5rem;
+    }
+
+    p {
+      font-size: $sizeS;
+    }
+  }
+  button {
+    @include blueButton();
+
+    @media (width <= 680px) {
+      min-width: 100%;
+    }
+  }
+}

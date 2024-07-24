@@ -1,0 +1,55 @@
+.sectionContainer {
+  display: flex;
+  background: #fff;
+  border-radius: 6px;
+  padding: 2rem;
+  justify-content: space-between;
+
+  .titleContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    justify-content: center;
+
+    h3 {
+      font-size: $sizeL;
+    }
+
+    h2 {
+      font-size: $sizeXXL;
+      font-weight: 600;
+
+      span {
+        font-size: $sizeTiny;
+        font-weight: lighter;
+      }
+    }
+
+    p {
+      font-weight: lighter;
+      font-size: $sizeS;
+    }
+  }
+
+  .infoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+
+    div {
+      display: flex;
+      justify-content: space-between;
+      gap: 4rem;
+
+      p {
+        font-weight: 600;
+      }
+
+      h4 {
+        font-weight: bold;
+        color: $colorBlueAccent;
+      }
+    }
+  }
+}

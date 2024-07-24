@@ -72,7 +72,7 @@ const FormAddUserMobile = (params: IProps) => {
 
         <div>
           <PhoneInput
-            defaultCountry={"ar"}
+            defaultCountry={"pe"}
             value={inputValue.phone}
             onChange={handleChangePhone}
             className={styles.phoneInput}

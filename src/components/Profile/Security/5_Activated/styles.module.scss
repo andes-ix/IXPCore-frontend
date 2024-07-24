@@ -1,0 +1,20 @@
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-top: 1px solid #f0ecf4;
+  padding-top: 2rem;
+
+  * {
+    font-size: $sizeTiny;
+  }
+
+  button {
+    @include blueButton();
+    background: $colorRed;
+
+    @media (width <= 680px) {
+      min-width: 100%;
+    }
+  }
+}

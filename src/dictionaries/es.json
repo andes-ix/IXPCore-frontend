@@ -38,7 +38,7 @@
     "users": "Usuarios",
     "usersOption1": "Listado de usuarios",
     "Modal": {
-      "profileIfo": "Información de perfil",
+      "profileInfo": "Información de perfil",
       "logout": "Cerrar sesión"
     }
   },
@@ -116,6 +116,105 @@
       "permissions": "Permisos y accesos",
       "cancel": "Cancelar",
       "save": "Guardar"
+    }
+  },
+  "Account": {
+    "client": "Cliente",
+    "Balance": {
+      "conversionType": "Valor presentado en base (Sol)",
+      "pendingDeduction": "Detracción pendiente",
+      "totalDebt": "Total deuda",
+      "dueDate": "Fecha de vencimiento",
+      "month": "Mes",
+      "breakdown": "Desglose general del valor representado en el balance"
+    },
+    "Table": {
+      "title": "Últimos movimientos",
+      "subtitle": "Visualiza el detalle de tus facturas y pagos",
+      "download": "Descargar información",
+      "generalButton": "General",
+      "billsButton": "Facturas",
+      "paymentsButton": "Pagos",
+      "General": {
+        "column1": "Número",
+        "column2": "Fecha",
+        "column3": "Descripción",
+        "column4": "Cargo",
+        "column5": "Abono",
+        "column6": "Saldo"
+      },
+      "Bill": {
+        "column1": "Número",
+        "column2": "Emisión",
+        "column3": "Descripción",
+        "column4": "Vencimiento",
+        "column5": "Total",
+        "column6": "Estado de pago"
+      },
+      "Payments": {
+        "column1": "Número",
+        "column2": "Fecha",
+        "column3": "Banco",
+        "column4": "Total",
+        "column5": "Status"
+      }
+    }
+  },
+  "Profile": {
+    "title": "Información de perfil",
+    "subtitle": "Revise y actualice los detalles de su cuenta",
+    "info": "Asegúrese de que estos datos estén actualizados, ya que se utilizarán para información en la facturación de sus servicios",
+    "terms": "Términos y Condiciones de uso",
+    "2fa": "Verificación en dos pasos",
+    "goBack": "Regresar",
+    "InfoSection": {
+      "fullName": "Nombre completo",
+      "email": "Correo electrónico",
+      "country": "País",
+      "charge": "Cargo",
+      "buttonTitle": "Actualizar",
+      "changePassword": "Autogestión de contraseña: Cambio de contraseña",
+      "changePasswordInfo": "Realiza el cambio de tu contraseña de acceso, de manera fácil y rápida.",
+      "countryPlaceholder": "Selecciona un país",
+      "actualPassword": "Contraseña actual",
+      "forgotPassword": "¿Olvidó?",
+      "newPassword": "Nueva contraseña"
+    },
+    "Security": {
+      "title": "Seguridad",
+      "subtitle": "Verificación en dos pasos",
+      "caption": "Protege tu cuenta con la verificación en dos pasos",
+      "activated": "Activado",
+      "Info": {
+        "bullet1": "La verificación en dos pasos es un nivel añadido de seguridad, ya que solicita un código cada vez que inicias sesión en un dispositivo nuevo.",
+        "bullet2": "Tu aplicación de autenticación nos permite añadir un nivel de verificación extra para proteger tu cuenta.",
+        "buttonTitle": "Configurar"
+      },
+      "ValidateEmail": {
+        "title": "Te hemos enviado un código a tu correo electrónico",
+        "subtitle": "Introduce el código de verificación de 6 dígitos que te hemos enviado a ",
+        "placeholder": "Código de 6 dígitos",
+        "buttonTitle": "Enviar",
+        "spamAlert": "Si no ves el correo electrónico en tu buzón, revisa la carpeta de spam."
+      },
+      "Configuration": {
+        "title": "Configura una aplicación de autenticación",
+        "li1": "Instala la aplicación de Google Authenticator en tu dispositivo móvil.",
+        "li2": "Agrega tu cuenta a la aplicación de autenticación a través de la opción para añadir una cuenta nueva.",
+        "li3": "Usa Portal de Pago PIT como nombre de la cuenta y escribe esta clave secreta.",
+        "scanQr": "Escanea el código QR",
+        "useSecretCode": "ó use el código secreto para crear su registro en la aplicación de Google Authenticator",
+        "buttonTitle": "Continuar"
+      },
+      "InsertCode": {
+        "title": "Introduce el código de verificación de 6 dígitos generado por la aplicación de autenticación.",
+        "placeholder": "Introduce el código de 6 dígitos",
+        "buttonTitle": "Verificar"
+      },
+      "Activated": {
+        "info": "Usa los códigos generados por tu aplicación de autenticación para iniciar sesión cada vez que ingreses en un dispositivo no asociado a tu cuenta deusuario.",
+        "buttonTitle": "Desactivar"
+      }
     }
   }
 }

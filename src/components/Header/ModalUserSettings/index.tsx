@@ -24,14 +24,14 @@ const ModalUserSettings = () => {
         </div>
       </article>
 
-      <Link href="#">
+      <Link href="/profile">
         <Image
           src={"/img/header/user-icon.svg"}
           alt="User"
           width={14}
           height={18}
         />
-        {t("profileIfo")}
+        {t("profileInfo")}
       </Link>
 
       <button className={styles.logout} onClick={handleLogout}>

@@ -1,6 +1,7 @@
 .tableContainer {
   min-height: 490px;
   background: #fff;
+  border-radius: 6px;
 
   @media (width < 1400px) {
     overflow-x: auto;
@@ -67,7 +68,11 @@
       background: #f7fafc;
     }
 
-    .userName {
+    .redRow {
+      background: #fef6f7;
+    }
+
+    .movementNumber {
       color: #2b80ff;
       font-weight: bold;
     }
@@ -106,6 +111,63 @@
         display: grid;
         place-items: center;
       }
+    }
+
+    .status {
+      max-width: max-content;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: $sizeS;
+
+      div {
+        width: 6px;
+        height: 6px;
+        border-radius: 100%;
+      }
+
+      &.pending {
+        background: #ffd9d9;
+        color: #ef4444;
+
+        div {
+          background: #ef4444;
+        }
+      }
+
+      &.paid {
+        background: #e0ecec;
+        color: #289484;
+
+        div {
+          background: #289484;
+        }
+      }
+
+      &.reverted {
+        background: #e1eefa;
+        color: #3f88cb;
+
+        div {
+          background: #3f88cb;
+        }
+      }
+
+      &.uncompleted {
+        background: #fff1c3;
+        color: #ebb208;
+
+        div {
+          background: #ebb208;
+        }
+      }
+    }
+
+    .redBalance {
+      color: $colorRed;
+      font-weight: bold;
     }
   }
 }

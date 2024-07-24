@@ -4,8 +4,8 @@ import { useTranslations } from "next-intl";
 import styles from "./styles.module.scss";
 import { useState } from "react";
 import UserListTableHero from "./Hero";
-import UserListTableFooter from "./Footer";
 import ModalAddUser from "./AddUser";
+import GlobalTableFooter from "@components/Table/Footer";
 
 const users = [
   {
@@ -350,7 +350,7 @@ const UserListTable = () => {
         </table>
       </section>
 
-      <UserListTableFooter
+      <GlobalTableFooter
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
         totalPages={totalPages}

@@ -1,0 +1,46 @@
+.sectionContainer {
+  * {
+    font-size: $sizeTiny;
+  }
+
+  h5 {
+    font-weight: 600;
+    margin-bottom: 0.7rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem 0;
+
+    input {
+      border: 1px solid #f0f0f0;
+      border-radius: 6px;
+      padding: 1.5rem;
+      max-width: 250px;
+
+      @media (width <= 680px) {
+        min-width: 100%;
+      }
+
+      &::placeholder {
+        color: #95989a;
+      }
+    }
+
+    button {
+      @include blueButton();
+
+      @media (width <= 680px) {
+        min-width: 100%;
+      }
+    }
+  }
+
+  > p {
+    @media (width <= 680px) {
+      text-align: center;
+    }
+  }
+}

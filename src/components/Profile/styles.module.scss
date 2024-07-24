@@ -1,0 +1,68 @@
+.mainContainer {
+  padding: 3rem;
+  margin-top: 10rem;
+  display: flex;
+  gap: 4rem;
+
+  @media (width <= 1200px) {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  @media (width <= 915px) {
+    padding: 1.6rem;
+  }
+
+  .entrepriseNameContainer {
+    display: none;
+    @media (width <= 915px) {
+      display: flex;
+    }
+  }
+
+  .upperSection {
+    flex: 1.3;
+
+    h1 {
+      font-size: $sizeXL;
+      color: $colorGrayDark;
+    }
+
+    > h2 {
+      color: $colorBlack;
+      margin: 2rem 0 1rem;
+    }
+
+    > p {
+      color: $colorGrayMedium;
+      font-size: $sizeS;
+    }
+
+    > a,
+    > button {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: $colorBlueAccent;
+      text-decoration: none;
+      margin: 2rem 0;
+      font-size: $sizeS;
+      border: none;
+      background: none;
+
+      svg {
+        transition: 0.2s;
+      }
+    }
+
+    .goBackBtn {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  section:not(.upperSection) {
+    flex: 1;
+  }
+}

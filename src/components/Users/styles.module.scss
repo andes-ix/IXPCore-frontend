@@ -42,6 +42,10 @@
       p {
         color: $colorBlueAccent;
       }
+
+      @media (width < 915px) {
+        display: none;
+      }
     }
   }
 }
