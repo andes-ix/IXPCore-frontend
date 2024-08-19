@@ -1,15 +1,17 @@
-import React from "react";
-import { ChevronRight } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { ChevronRight, CheckCircle2 } from "lucide-react";
 import { useFormik as useFormic } from "formik";
 import { Title } from "Common/Components/Title/titleComponent";
 import { Text } from "Common/Components/Text/textComponent";
 import { useNavigate } from "react-router-dom";
-import { BLUE10, GREY100, GREY150 } from "Common/constants/colors";
-import withRouter from "Common/withRouter";
+import { BLUE10, GREY100, GREY150, RED100 } from "Common/constants/colors";
 import { useDispatch, useSelector } from "react-redux";
 import { createSelector } from "reselect";
 import * as Yup from "yup";
 import { loginUser } from "slices/thunk";
+import withRouter from "Common/withRouter";
+import { CustomAlert } from "Common/Components/CustomAlert/customAlert";
+import { AlertTypeEnum } from "Common/constants/alertType.enum";
 
 const SingInForm = (props: any) => {
   const navigate = useNavigate();
@@ -19,6 +21,13 @@ const SingInForm = (props: any) => {
   };
 
   const dispatch = useDispatch<any>();
+  const [showAlert, SetShowAlerts] = useState<boolean>(false);
+  const [msgAlert, SetMsgAlert] = useState<JSX.Element | string>("");
+  const [titleAlert, SetTitleAlert] = useState<JSX.Element | string>("");
+  const handleShowAlert = (event: any) => {
+    SetShowAlerts(!showAlert);
+    return;
+  };
 
   const selectLogin = createSelector(
     (state: any) => state.Register,
@@ -31,6 +40,56 @@ const SingInForm = (props: any) => {
   );
 
   const { user, success, error } = useSelector(selectLogin);
+
+  useEffect(() => {
+    if (error) {
+      const { response } = error;
+      if (response?.status === 400) {
+        SetShowAlerts(true);
+        SetTitleAlert(
+          <Title
+            color={GREY100}
+            bold={"bold"}
+            size={"normal-bg"}
+            text="Correo electrónico o contraseña incorrectos"
+          ></Title>
+        );
+        SetMsgAlert(
+          <p
+            className={`text-[#DC363C] text-base `}
+            style={{
+              fontSize: 12,
+            }}
+          >
+            Por favor, verifica tus datos e inténtalo nuevamente. Si has
+            olvidado tu contraseña, puedes restablecerla haciendo clic en
+            <span className={`text-[#168EEA] text-sm font-semibold `}>
+              <a href="#"> ¿Recuperar contraseña?</a>
+            </span>
+          </p>
+        );
+      }
+      if (response?.status !== 400) {
+        SetShowAlerts(true);
+        SetTitleAlert(
+          <Title
+            color={GREY100}
+            bold={"bold"}
+            size={"normal-bg"}
+            text="Ha ocurrido un problema inesperado o de conexión"
+          ></Title>
+        );
+        SetMsgAlert(
+          <Text
+            color={RED100}
+            text={
+              "Por favor, verifica tu conexión a internet e inténtalo nuevamente. Si el problema persiste, contacta a nuestro soporte técnico."
+            }
+          ></Text>
+        );
+      }
+    }
+  }, [error]);
 
   const validation: any = useFormic({
     // enableReinitialize : use this flag when initial values needs to be changed
@@ -52,6 +111,13 @@ const SingInForm = (props: any) => {
   return (
     <React.Fragment>
       <div className="flex flex-col w-[90%] h-[90%] pt-10 ">
+        <CustomAlert
+          type={AlertTypeEnum.ERROR}
+          show={showAlert}
+          handleShowAlert={handleShowAlert}
+          title={titleAlert}
+          msg={msgAlert}
+        />
         <div className="rounded">
           <div className="bg-white pt-10 pl-10 pr-10 rounded-t-lg">
             <div>
@@ -118,18 +184,17 @@ const SingInForm = (props: any) => {
                     onBlur={validation.handleBlur}
                     value={validation.values.email || ""}
                   />
-                  {validation.touched.password && validation.errors.password ? (
-                    <div
-                      id="password-error"
-                      className="mt-1 text-sm text-red-500"
-                    >
-                      {validation.errors.password}
-                    </div>
-                  ) : null}
-                  {validation.touched.email && validation.errors.email ? (
-                    <div id="email-error" className="mt-1 text-sm text-red-500">
-                      {validation.errors.email}
-                    </div>
+                  {(validation.touched.password &&
+                    validation.errors.password) ||
+                  (validation.touched.email && validation.errors.email) ? (
+                    <>
+                      <div
+                        id="password-error"
+                        className="mt-1 text-sm text-red-500"
+                      >
+                        {validation.errors.password || validation.errors.email}
+                      </div>
+                    </>
                   ) : null}
                 </div>
                 <div className="mb-3">
