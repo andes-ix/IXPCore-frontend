@@ -23,7 +23,7 @@ const PasswordRecover = () => {
         <div className="rounded">
           <div className="bg-white pt-10  pr-10 rounded-t-lg">
             <div className="pl-10">
-              <img src={"/img/logo.webp"} alt="Mundo" width={80} height={94} />
+              <img src={"/img/logo.webp"} alt="PIT" width={80} height={94} />
             </div>
             <div className="">
               <span
@@ -42,7 +42,7 @@ const PasswordRecover = () => {
 
             <div className="pt-2 pl-10 pr-10">
               <Title
-                bold={"bold"}
+                bold={"semi-bold"}
                 size={"medium-sm"}
                 text="Ingrese su correo electrónico registrado en la aplicación"
                 color={GREY100}
