@@ -21,8 +21,11 @@
       ],
      "@services/*": [
         "/services/*"
+      ],
+    "@Commons/*": [
+        "/Common/*"
       ]
-
+      
     },
     "moduleResolution": "node",
     "resolveJsonModule": true,
