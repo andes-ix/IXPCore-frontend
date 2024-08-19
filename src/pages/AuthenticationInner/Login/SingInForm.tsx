@@ -44,7 +44,7 @@ const SingInForm = (props: any) => {
   useEffect(() => {
     if (error) {
       const { response } = error;
-      if (response?.status !== 400) {
+      if (response?.status === 400) {
         SetShowAlerts(true);
         SetTitleAlert(
           <Title
@@ -69,7 +69,7 @@ const SingInForm = (props: any) => {
           </p>
         );
       }
-      if (response?.status === 400) {
+      if (response?.status !== 400) {
         SetShowAlerts(true);
         SetTitleAlert(
           <Title
