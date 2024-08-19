@@ -28,25 +28,25 @@ export const CustomAlert: React.FC<AlertProps> = (props) => {
       id="topModal"
       modal-top="true"
       className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4"
-      dialogClassName="w-screen md:w-[45rem] bg-white shadow rounded-md dark:bg-zink-600 flex flex-col"
+      dialogClassName="w-screen md:w-[40rem] bg-white shadow rounded-md dark:bg-zink-600 flex flex-col"
     >
       <Alert className={className}>
         {type === AlertTypeEnum.SUCCESS ? (
           <CheckCircle2 />
         ) : type === AlertTypeEnum.ERROR ? (
           <div
-            className={`ml-5 w-10 h-10  bg-[${RED10}] flex items-center justify-center rounded-md`}
+            className={`ml-5 w-10 h-10 bg-[#FFE6E6] flex items-center justify-center rounded-md`}
           >
             <AlertCircle width={20} height={20} color={RED100} />
           </div>
         ) : null}
         <a href="#" onClick={handleShowAlert}>
           <Title
-            className={`absolute top-0 right-0 p-3 text-[#FB516D] transition hover:text-[#E0244E] active:text-[#D0133C]`}
+            className={`absolute top-0 right-0 pt-8 pr-8 text-[#FB516D] transition hover:text-[#E0244E] active:text-[#D0133C]`}
             text={"X"}
           ></Title>
         </a>
-        <div className="flex ml-5 pb-4 flex-col gap-1 pt-6 w-[60%]">
+        <div className="flex ml-5 pb-4 flex-col gap-1 pt-4 w-[70%]">
           <div>{title}</div>
 
           <div>{msg}</div>
