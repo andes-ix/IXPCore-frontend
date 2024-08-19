@@ -184,15 +184,13 @@ const SingInForm = (props: any) => {
                     onBlur={validation.handleBlur}
                     value={validation.values.email || ""}
                   />
-                  {(validation.touched.password &&
-                    validation.errors.password) ||
-                  (validation.touched.email && validation.errors.email) ? (
+                  {validation.touched.email && validation.errors.email ? (
                     <>
                       <div
                         id="password-error"
                         className="mt-1 text-sm text-red-500"
                       >
-                        {validation.errors.password || validation.errors.email}
+                        {validation.errors.email}
                       </div>
                     </>
                   ) : null}
@@ -234,13 +232,16 @@ const SingInForm = (props: any) => {
                     onBlur={validation.handleBlur}
                     value={validation.values.password || ""}
                   />
-                  <div
-                    id="password-error"
-                    className="hidden mt-1 text-sm text-red-500"
-                  >
-                    Password must be at least 8 characters long and contain both
-                    letters and numbers.
-                  </div>
+                  {validation.touched.password && validation.errors.password ? (
+                    <>
+                      <div
+                        id="password-error"
+                        className="mt-1 text-sm text-red-500"
+                      >
+                        {validation.errors.password}
+                      </div>
+                    </>
+                  ) : null}
                 </div>
 
                 <div className="mt-10">
