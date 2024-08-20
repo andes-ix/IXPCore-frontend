@@ -2,9 +2,8 @@ import React from "react";
 import Alert from "Common/Components/Alert";
 import Modal from "Common/Components/Modal";
 import { AlertTypeEnum } from "../../constants/alertType.enum";
-import { ChevronRight, CheckCircle2, AlertCircle } from "lucide-react";
-import { RED10, RED100 } from "Common/constants/colors";
-import { Text } from "../Text/textComponent";
+import { CheckCircle2, AlertCircle } from "lucide-react";
+import { RED100 } from "Common/constants/colors";
 import { Title } from "../Title/titleComponent";
 
 interface AlertProps {
@@ -40,7 +39,7 @@ export const CustomAlert: React.FC<AlertProps> = (props) => {
             <AlertCircle width={20} height={20} color={RED100} />
           </div>
         ) : null}
-        <a href="#" onClick={handleShowAlert}>
+        <a href="_" onClick={handleShowAlert}>
           <Title
             className={`absolute top-0 right-0 pt-8 pr-8 text-[#FB516D] transition hover:text-[#E0244E] active:text-[#D0133C]`}
             text={"X"}
