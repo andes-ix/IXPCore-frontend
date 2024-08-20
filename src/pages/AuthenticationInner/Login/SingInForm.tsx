@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ChevronRight, CheckCircle2 } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { useFormik as useFormic } from "formik";
 import { Title } from "Common/Components/Title/titleComponent";
 import { Text } from "Common/Components/Text/textComponent";
@@ -39,7 +39,7 @@ const SingInForm = (props: any) => {
     })
   );
 
-  const { user, success, error } = useSelector(selectLogin);
+  const { user, error } = useSelector(selectLogin);
 
   useEffect(() => {
     if (error) {
@@ -64,7 +64,7 @@ const SingInForm = (props: any) => {
             Por favor, verifica tus datos e inténtalo nuevamente. Si has
             olvidado tu contraseña, puedes restablecerla haciendo clic en
             <span className={`text-[#168EEA] text-sm font-semibold `}>
-              <a href="#"> ¿Recuperar contraseña?</a>
+              <a href="_"> ¿Recuperar contraseña?</a>
             </span>
           </p>
         );
@@ -135,7 +135,7 @@ const SingInForm = (props: any) => {
                 Ingresa tu correo electrónico y contraseña e inicia sesión para
                 disfrutar de los beneficios de nuestro
                 <span className={`text-[#168EEA] text-sm font-semibold `}>
-                  <a href="#"> PCP</a>
+                  <a href="_"> PCP</a>
                 </span>
               </p>
             </div>
