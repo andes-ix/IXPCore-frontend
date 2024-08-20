@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Title } from "Common/Components/Title/titleComponent";
 import { Text } from "Common/Components/Text/textComponent";
 import { GREY10, GREY100, GREY150 } from "Common/constants/colors";
@@ -8,9 +8,20 @@ import { useNavigate } from "react-router-dom";
 
 const PasswordConfig = () => {
   const navigate = useNavigate();
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setCorfimPasswordVisible] = useState(false);
   const [extraLargeModal, setExtraLargeModal] = useState(false);
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
+
+  // Validations state
+  const [validations, setValidations] = useState({
+    hasMinLength: false,
+    hasNumberAndSpecialChar: false,
+    hasAllowedSpecialChar: false,
+    hasNoPersonalInfo: false,
+  });
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -28,6 +39,41 @@ const PasswordConfig = () => {
     "- Tener uno de estos caracteres especiales - / = . $ # * ",
     "- Evita colocar información personal",
   ];
+
+  const handlePasswordChange = (e: any) => {
+    const value = e.target.value;
+    setPassword(value);
+    validatePassword(value);
+  };
+
+  const handleConfirmPasswordChange = (e: any) => {
+    const value = e.target.value;
+    setConfirmPassword(value);
+    validatePassword(value);
+  };
+
+  const validatePassword = (password: string) => {
+    const hasMinLength = password.length >= 8;
+    const hasNumberAndSpecialChar = /(?=.*\d)(?=.*[\W_])/.test(password);
+    const hasAllowedSpecialChar = /[-/=.$#*]/.test(password);
+    const hasNoPersonalInfo = !/(\w+\d+|\d+\w+)/.test(password); // Aquí deberías ajustar la regex para la validación específica
+
+    setValidations({
+      hasMinLength,
+      hasNumberAndSpecialChar,
+      hasAllowedSpecialChar,
+      hasNoPersonalInfo,
+    });
+
+    setIsSubmitDisabled(
+      !(
+        hasMinLength &&
+        hasNumberAndSpecialChar &&
+        hasAllowedSpecialChar &&
+        hasNoPersonalInfo
+      )
+    );
+  };
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
@@ -88,6 +134,8 @@ const PasswordConfig = () => {
                     <input
                       type={passwordVisible ? "text" : "password"}
                       id="password1"
+                      value={password}
+                      onChange={handlePasswordChange}
                       className="form-input w-full border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
                       placeholder="Contraseña"
                     />
@@ -124,6 +172,8 @@ const PasswordConfig = () => {
                     <input
                       type={confirmPasswordVisible ? "text" : "password"}
                       id="password2"
+                      value={confirmPassword}
+                      onChange={handleConfirmPasswordChange}
                       className="form-input w-full border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
                       placeholder="Confirmar contraseña"
                     />
@@ -148,15 +198,46 @@ const PasswordConfig = () => {
                     color={GREY150}
                   />
                   <ul>
-                    {requirementsList.map((requirement, index) => (
-                      <li key={index}>
-                        <Text
-                          className="font-public"
-                          color={GREY150}
-                          text={requirement}
-                        />
-                      </li>
-                    ))}
+                    <li>
+                      <Text
+                        className={`font-public ${
+                          validations.hasMinLength
+                            ? "text-green-500"
+                            : "text-red-500"
+                        }`}
+                        text="Tener 8 caracteres"
+                      />
+                    </li>
+                    <li>
+                      <Text
+                        className={`font-public ${
+                          validations.hasNumberAndSpecialChar
+                            ? "text-green-500"
+                            : "text-red-500"
+                        }`}
+                        text="Ser alfanumérica con al menos 1 carácter numérico y un único carácter especial"
+                      />
+                    </li>
+                    <li>
+                      <Text
+                        className={`font-public ${
+                          validations.hasAllowedSpecialChar
+                            ? "text-green-500"
+                            : "text-red-500"
+                        }`}
+                        text="Tener uno de estos caracteres especiales - / = . $ # *"
+                      />
+                    </li>
+                    <li>
+                      <Text
+                        className={`font-public ${
+                          validations.hasNoPersonalInfo
+                            ? "text-green-500"
+                            : "text-red-500"
+                        }`}
+                        text="Evita colocar información personal"
+                      />
+                    </li>
                   </ul>
                 </div>
 
@@ -164,6 +245,7 @@ const PasswordConfig = () => {
                   <button
                     type="submit"
                     className="w-full text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20"
+                    disabled={isSubmitDisabled}
                   >
                     Guardar
                   </button>
@@ -174,6 +256,7 @@ const PasswordConfig = () => {
         </div>
       </div>
 
+      {/* Modal */}
       <Modal
         show={extraLargeModal}
         onHide={extraLargeToggle}
