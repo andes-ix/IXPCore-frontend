@@ -125,9 +125,10 @@ const SingInForm = (props: any) => {
           <div className="bg-white pt-10 pl-10 pr-10 rounded-t-lg">
             <div>
               {" "}
-              <img src={"/img/logo.webp"} alt="Mundo" width={80} height={94} />
+              <img src={"/img/logo.webp"} alt="PIT" width={80} height={94} />
             </div>
             <Title
+              bold={"semi-bold"}
               size={"big"}
               color={GREY100}
               className="pt-5 font-public"

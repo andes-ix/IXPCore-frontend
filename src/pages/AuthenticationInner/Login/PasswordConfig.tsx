@@ -193,16 +193,16 @@ const PasswordConfig = ({ email }: PasswordConfigProps) => {
         <div className="rounded">
           <div className="bg-white pt-10 pl-10 pr-10 rounded-t-lg">
             <div>
-              <img src={"/img/logo.webp"} alt="Mundo" width={80} height={94} />
+              <img src={"/img/logo.webp"} alt="PIT" width={80} height={94} />
             </div>
-            <Title
+            <Title 
+            bold={"semi-bold"}
               size={"medium"}
               color={GREY100}
-              className="pt-2 font-public font-semibold "
+              className="pt-6 font-public font-semibold "
               text="Configuración de contraseña"
-              bold={"bold"}
             />
-            <div className="pt-2">
+            <div className="pt-2 pb-3">
               <Text
                 size={"medium-sm"}
                 text="Ten en cuenta los parámetros que debe cumplir la contraseña de acceso a configurar."

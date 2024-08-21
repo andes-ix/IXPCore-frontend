@@ -234,6 +234,7 @@ module.exports = {
       backgroundImage: {
         "auth-pattern": "url('assets/images/auth-bg.jpg')",
         "auth-pattern-dark": "url('assets/images/auth-bg-dark.jpg')",
+        "active-man": "url('assets/images/auth-bg-dark.jpg')",
       },
       animation: {
         icons: "iconsAnimation 50s",
