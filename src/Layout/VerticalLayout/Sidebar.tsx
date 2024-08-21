@@ -13,7 +13,8 @@ import SimpleBar from "simplebar-react";
 import HorizontalLayout from "Layout/HorizontalLayout";
 import { AlignCenter } from "lucide-react";
 import { Title } from "Common/Components/Title/titleComponent";
-import { GREY100 } from "Common/constants/colors";
+import { Text } from "Common/Components/Text/textComponent";
+import { GREY10, GREY100 } from "Common/constants/colors";
 
 const Sidebar = ({ layoutType, layoutSidebarSizeType }: any) => {
   return (
@@ -33,8 +34,8 @@ const Sidebar = ({ layoutType, layoutSidebarSizeType }: any) => {
             <span className="hidden group-data-[sidebar-size=sm]:block">
               <img src={logoSm} alt="" className="h-6 mx-auto" />
             </span>
-            <span className="group-data-[sidebar-size=sm]:hidden" >
-            <img src={"/img/logo.webp"} alt="PIT" width={72} height={84} />
+            <span className="group-data-[sidebar-size=sm]:hidden">
+              <img src={"/img/logo.webp"} alt="PIT" width={72} height={84} />
             </span>
           </Link>
           <Link
@@ -45,7 +46,7 @@ const Sidebar = ({ layoutType, layoutSidebarSizeType }: any) => {
               <img src={logoSm} alt="" className="h-6 mx-auto" />
             </span>
             <span className="group-data-[sidebar-size=sm]:hidden">
-            <img src={"/img/logo.webp"} alt="PIT" width={72} height={84} />
+              <img src={"/img/logo.webp"} alt="PIT" width={72} height={84} />
             </span>
           </Link>
           <button
@@ -71,46 +72,44 @@ const Sidebar = ({ layoutType, layoutSidebarSizeType }: any) => {
               </ul>
             </div>
 
-            <div
-            style={{
-              height: 235,
-              alignItems: "flex-end",
-              paddingBottom: "10%",
-              backgroundColor:"#E9E3FF",
-              width:"80%",
-              marginLeft:"25px",
-              borderRadius:10,
-              marginTop:60,
-            }}
-          >
-          <div 
-          style={{
-          marginLeft:"25px",
-          }}
-          >
-          <img src={"/img/active-man.svg"} alt="PIT" width={170} height={193} ></img>
-          </div>
-          <Title
-              bold={"bold"}
-              size={"normal-bg"}
-              color={GREY100}
-              className="pt-5 font-public"
-              text="Servicio de soporte"
-            ></Title>
-            <p className={`text-[#8A8F9C] text-base `} 
-            style={{
-              fontSize:"12px",
-            }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Duis gravida porttitor tempor. 
-              </p>
-              <button
-              type="button"
-              className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20"
+            <div className="flex flex-col items-center justify-center">
+              <div
+                className="flex w-48 h-96 flex-col bg-center bg-no-repeat bg-contain justify-end"
+                style={{
+                  backgroundImage: "url('/img/active-man-2.svg')",
+                }}
               >
-              <span className="align-middle">Enviar ticket</span>
-              </button>
-          </div>
+                <div className="flex flex-col pb-10 items-center ">
+                  <Text
+                    bold={"bold"}
+                    size={"medium"}
+                    color={GREY100}
+                    className="pt-5 font-public"
+                    text="Servicio de soporte"
+                  ></Text>
+                  <Text
+                    color={GREY10}
+                    className="pl-7 pr-7 pt-1 pb-4 text-center"
+                    text={`Lorem ipsum dolor sit amet, consectetur adipiscing elit`}
+                  ></Text>
+                  {/* <p
+                    className={`text-[#8A8F9C] text-base `}
+                    style={{
+                      fontSize: "12px",
+                    }}
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Duis gravida porttitor tempor.
+                  </p> */}
+                  <button
+                    type="button"
+                    className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20 mb-5"
+                  >
+                    <span className="align-middle">Enviar ticket</span>
+                  </button>
+                </div>
+              </div>
+            </div>
           </SimpleBar>
         ) : (
           <div

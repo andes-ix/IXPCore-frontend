@@ -6,7 +6,6 @@ interface AuthProtectedProps {
 }
 
 const AuthProtected: React.FC<AuthProtectedProps> = ({ children }) => {
-  console.log("auth User", localStorage.getItem("authUser"));
   if (!localStorage.getItem("authUser")) {
     return <Navigate to={{ pathname: "/login" }} />;
   }

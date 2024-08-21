@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ChevronRight, CheckCircle2 } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { useFormik as useFormic } from "formik";
 import { Title } from "Common/Components/Title/titleComponent";
 import { Text } from "Common/Components/Text/textComponent";
@@ -39,7 +39,7 @@ const SingInForm = (props: any) => {
     })
   );
 
-  const { user, success, error } = useSelector(selectLogin);
+  const { user, error } = useSelector(selectLogin);
 
   useEffect(() => {
     if (error) {
@@ -63,7 +63,10 @@ const SingInForm = (props: any) => {
           >
             Por favor, verifica tus datos e inténtalo nuevamente. Si has
             olvidado tu contraseña, puedes restablecerla haciendo clic en
-            <span className={`text-[#168EEA] text-sm font-semibold `}>
+            <span
+              onClick={handleSubmitRecoveryPassword}
+              className={`text-[#168EEA] text-sm font-semibold `}
+            >
               <a href="#"> ¿Recuperar contraseña?</a>
             </span>
           </p>
@@ -185,15 +188,13 @@ const SingInForm = (props: any) => {
                     onBlur={validation.handleBlur}
                     value={validation.values.email || ""}
                   />
-                  {(validation.touched.password &&
-                    validation.errors.password) ||
-                  (validation.touched.email && validation.errors.email) ? (
+                  {validation.touched.email && validation.errors.email ? (
                     <>
                       <div
                         id="password-error"
                         className="mt-1 text-sm text-red-500"
                       >
-                        {validation.errors.password || validation.errors.email}
+                        {validation.errors.email}
                       </div>
                     </>
                   ) : null}
@@ -235,13 +236,16 @@ const SingInForm = (props: any) => {
                     onBlur={validation.handleBlur}
                     value={validation.values.password || ""}
                   />
-                  <div
-                    id="password-error"
-                    className="hidden mt-1 text-sm text-red-500"
-                  >
-                    Password must be at least 8 characters long and contain both
-                    letters and numbers.
-                  </div>
+                  {validation.touched.password && validation.errors.password ? (
+                    <>
+                      <div
+                        id="password-error"
+                        className="mt-1 text-sm text-red-500"
+                      >
+                        {validation.errors.password}
+                      </div>
+                    </>
+                  ) : null}
                 </div>
 
                 <div className="mt-10">

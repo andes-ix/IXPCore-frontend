@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Flatpickr from "react-flatpickr";
-import supportImg from "assets/images/support.png";
+// import supportImg from "assets/images/support.png";
 
 import { UpcomingScheduledData } from "Common/data";
 

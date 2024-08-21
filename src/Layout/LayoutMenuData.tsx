@@ -1,20 +1,18 @@
 import {
   LayoutDashboard,
+  Mail,
   RadioTower,
   SquareUser,
   Wallet,
 } from "lucide-react";
 
 const menuData: any = [
-  //   {
-  //     label: "menu",
-  //     isTitle: true,
-  //   },
   {
-    id: "dashboard",
+    id: "dashboards",
     label: "Dashboard",
-    link: "/#",
+    link: "/dashboard",
     icon: <LayoutDashboard />,
+    parentId: 2,
   },
   {
     id: "services",
@@ -45,7 +43,7 @@ const menuData: any = [
   {
     id: "users",
     label: "Usuarios",
-    icon:<SquareUser />,
+    icon: <SquareUser />,
     subItems: [
       {
         id: "userlistview",
