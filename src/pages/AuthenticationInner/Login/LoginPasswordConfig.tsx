@@ -20,7 +20,7 @@ const LoginPasswordConfig = (props: any) => {
     return;
   };
   const searchParams = new URLSearchParams(location.search);
-  const email = searchParams.get("email");
+  const email = searchParams.get("email") || "";
   const code = searchParams.get("code");
 
   document.title = "Sign In | Tailwick - React Admin & Dashboard Template";
@@ -68,7 +68,7 @@ const LoginPasswordConfig = (props: any) => {
           title={titleAlert}
           msg={msgAlert}
         />
-        <PasswordConfig />
+        <PasswordConfig email={email} />
       </LoginLayout>
     </React.Fragment>
   );

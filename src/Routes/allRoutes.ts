@@ -182,7 +182,7 @@ import BasicCreatePassword from "pages/AuthenticationInner/CreatePassword/Basic"
 import CreatePasswordModern from "pages/AuthenticationInner/CreatePassword/CreatePasswordModern";
 import CreatePasswordCover from "pages/AuthenticationInner/CreatePassword/CreatePasswordCover";
 import CreatePasswordBoxed from "pages/AuthenticationInner/CreatePassword/CreatePasswordBoxed";
-import Login from "pages/Authentication/Login";
+// import Login from "pages/Authentication/Login";
 import Logout from "pages/Authentication/LogOut";
 import Pages404 from "pages/AuthenticationInner/Pages404";
 import Register from "pages/Authentication/Register";

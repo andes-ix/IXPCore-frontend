@@ -63,8 +63,11 @@ const SingInForm = (props: any) => {
           >
             Por favor, verifica tus datos e inténtalo nuevamente. Si has
             olvidado tu contraseña, puedes restablecerla haciendo clic en
-            <span className={`text-[#168EEA] text-sm font-semibold `}>
-              <a href="_"> ¿Recuperar contraseña?</a>
+            <span
+              onClick={handleSubmitRecoveryPassword}
+              className={`text-[#168EEA] text-sm font-semibold `}
+            >
+              <a href="#"> ¿Recuperar contraseña?</a>
             </span>
           </p>
         );
@@ -135,7 +138,7 @@ const SingInForm = (props: any) => {
                 Ingresa tu correo electrónico y contraseña e inicia sesión para
                 disfrutar de los beneficios de nuestro
                 <span className={`text-[#168EEA] text-sm font-semibold `}>
-                  <a href="_"> PCP</a>
+                  <a href="#"> PCP</a>
                 </span>
               </p>
             </div>

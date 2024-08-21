@@ -1,12 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Title } from "Common/Components/Title/titleComponent";
 import { Text } from "Common/Components/Text/textComponent";
-import { GREY10, GREY100, GREY150 } from "Common/constants/colors";
-import { Eye, EyeOff } from "lucide-react";
+import { GREY10, GREY100, GREY150, RED100 } from "Common/constants/colors";
+import { Eye, EyeOff, Check } from "lucide-react";
 import Modal from "Common/Components/Modal";
 import { useNavigate } from "react-router-dom";
+import { apiClient } from "services";
+import { AlertTypeEnum } from "Common/constants/alertType.enum";
+import { CustomAlert } from "Common/Components/CustomAlert/customAlert";
 
-const PasswordConfig = () => {
+interface PasswordConfigProps {
+  email?: string;
+}
+const PasswordConfig = ({ email }: PasswordConfigProps) => {
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -14,13 +20,23 @@ const PasswordConfig = () => {
   const [confirmPasswordVisible, setCorfimPasswordVisible] = useState(false);
   const [extraLargeModal, setExtraLargeModal] = useState(false);
   const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
+  const [isSubmitConfirmDisabled, setIsSubmitConfirmDisabled] = useState(true);
+  const [showAlert, SetShowAlerts] = useState<boolean>(false);
+  const [msgAlert, SetMsgAlert] = useState<JSX.Element | string>("");
+  const [titleAlert, SetTitleAlert] = useState<JSX.Element | string>("");
+  const [alertType, SetAlertType] = useState<AlertTypeEnum>(
+    AlertTypeEnum.SUCCESS
+  );
+  const handleShowAlert = (event: any) => {
+    SetShowAlerts(!showAlert);
+    return;
+  };
 
   // Validations state
   const [validations, setValidations] = useState({
     hasMinLength: false,
     hasNumberAndSpecialChar: false,
     hasAllowedSpecialChar: false,
-    hasNoPersonalInfo: false,
   });
 
   const togglePasswordVisibility = () => {
@@ -33,13 +49,6 @@ const PasswordConfig = () => {
 
   const extraLargeToggle = () => setExtraLargeModal(!extraLargeModal);
 
-  const requirementsList = [
-    "- Tener 8 caracteres",
-    "- Ser alfanumérica con al menos 1 carácter numérico y un único carácter especial ",
-    "- Tener uno de estos caracteres especiales - / = . $ # * ",
-    "- Evita colocar información personal",
-  ];
-
   const handlePasswordChange = (e: any) => {
     const value = e.target.value;
     setPassword(value);
@@ -49,20 +58,22 @@ const PasswordConfig = () => {
   const handleConfirmPasswordChange = (e: any) => {
     const value = e.target.value;
     setConfirmPassword(value);
-    validatePassword(value);
+    confirmPasswordValidation(value);
+  };
+
+  const confirmPasswordValidation = (confirmPassword: string) => {
+    setIsSubmitConfirmDisabled(!(String(password) === String(confirmPassword)));
   };
 
   const validatePassword = (password: string) => {
     const hasMinLength = password.length >= 8;
     const hasNumberAndSpecialChar = /(?=.*\d)(?=.*[\W_])/.test(password);
     const hasAllowedSpecialChar = /[-/=.$#*]/.test(password);
-    const hasNoPersonalInfo = !/(\w+\d+|\d+\w+)/.test(password); // Aquí deberías ajustar la regex para la validación específica
 
     setValidations({
       hasMinLength,
       hasNumberAndSpecialChar,
       hasAllowedSpecialChar,
-      hasNoPersonalInfo,
     });
 
     setIsSubmitDisabled(
@@ -70,15 +81,79 @@ const PasswordConfig = () => {
         hasMinLength &&
         hasNumberAndSpecialChar &&
         hasAllowedSpecialChar &&
-        hasNoPersonalInfo
+        String(password) === String(confirmPassword)
       )
     );
   };
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = async (event: any) => {
     event.preventDefault();
+    if (String(password) === String(confirmPassword)) {
+      try {
+        await apiClient.post("/v2/password_reset/change_password/", {
+          email: email,
+          password1: password,
+          password2: confirmPassword,
+        });
 
-    extraLargeToggle();
+        return true;
+      } catch (error) {
+        const { response } = error as any;
+        SetShowAlerts(true);
+        SetAlertType(alertType);
+        if (response?.status === 400) {
+          SetTitleAlert(
+            <Title
+              color={GREY100}
+              bold={"bold"}
+              size={"normal-bg"}
+              text="Correo electrónico incorrecto"
+            ></Title>
+          );
+          SetMsgAlert(
+            <p className={`text-[#DC363C] text-base `} style={{ fontSize: 12 }}>
+              Por favor, verifica tus datos e inténtalo nuevamente.
+            </p>
+          );
+        } else {
+          SetTitleAlert(
+            <Title
+              color={GREY100}
+              bold={"bold"}
+              size={"normal-bg"}
+              text="Ha ocurrido un problema inesperado o de conexión"
+            ></Title>
+          );
+          SetMsgAlert(
+            <Text
+              color={RED100}
+              text={
+                "Por favor, verifica tu conexión a internet e inténtalo nuevamente. Si el problema persiste, contacta a nuestro soporte técnico."
+              }
+            ></Text>
+          );
+        }
+
+        return false; // Indica que la solicitud falló
+      }
+    } else {
+      SetShowAlerts(true);
+      SetAlertType(AlertTypeEnum.ERROR);
+
+      SetTitleAlert(
+        <Title
+          color={GREY100}
+          bold={"bold"}
+          size={"normal-bg"}
+          text="Las contraseñas no coinciden"
+        ></Title>
+      );
+      SetMsgAlert(
+        <p className={`text-[#DC363C] text-base `} style={{ fontSize: 12 }}>
+          Verifique que los datos ingresados coincidan
+        </p>
+      );
+    }
   };
 
   const handleAcceptTermsAndConditions = (event: any) => {
@@ -87,8 +162,33 @@ const PasswordConfig = () => {
     navigate("/dashboard");
   };
 
+  const circleValidation = (text: string, validation: boolean) => {
+    return (
+      <div
+        className={` w-2 h-2 rounded-lg ${
+          text.length === 0
+            ? "bg-[#CFD2D9]"
+            : validation
+            ? "bg-[#48BC7E]"
+            : "bg-[#FB516D]"
+        } flex items-center justify-center`}
+      >
+        {validation && text.length > 0 ? (
+          <Check color="#FFFFFF" height={6} width={6} />
+        ) : null}
+      </div>
+    );
+  };
+
   return (
     <React.Fragment>
+      <CustomAlert
+        type={AlertTypeEnum.ERROR}
+        show={showAlert}
+        handleShowAlert={handleShowAlert}
+        title={titleAlert}
+        msg={msgAlert}
+      />
       <div className="flex flex-col w-[100%] h-[90%] pt-10 ">
         <div className="rounded">
           <div className="bg-white pt-10 pl-10 pr-10 rounded-t-lg">
@@ -174,7 +274,11 @@ const PasswordConfig = () => {
                       id="password2"
                       value={confirmPassword}
                       onChange={handleConfirmPasswordChange}
-                      className="form-input w-full border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
+                      className={`form-input w-full ${
+                        confirmPassword && password !== confirmPassword
+                          ? "border-red-500 focus:border-red-500"
+                          : "border-slate-200 dark:border-zink-500 focus:border-custom-500"
+                      } focus:outline-none disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200`}
                       placeholder="Confirmar contraseña"
                     />
                     <div
@@ -197,46 +301,48 @@ const PasswordConfig = () => {
                     bold={"bold"}
                     color={GREY150}
                   />
-                  <ul>
+                  <ul className="flex flex-col gap-1 pt-2">
                     <li>
-                      <Text
-                        className={`font-public ${
-                          validations.hasMinLength
-                            ? "text-green-500"
-                            : "text-red-500"
-                        }`}
-                        text="Tener 8 caracteres"
-                      />
+                      <div className="flex gap-1 items-center">
+                        <div>
+                          {circleValidation(password, validations.hasMinLength)}
+                        </div>
+
+                        <Text
+                          color={GREY150}
+                          className={`font-public `}
+                          text="Tener 8 caracteres"
+                        />
+                      </div>
                     </li>
                     <li>
-                      <Text
-                        className={`font-public ${
-                          validations.hasNumberAndSpecialChar
-                            ? "text-green-500"
-                            : "text-red-500"
-                        }`}
-                        text="Ser alfanumérica con al menos 1 carácter numérico y un único carácter especial"
-                      />
+                      <div className="flex gap-1 items-center ">
+                        <div className="h-6">
+                          {circleValidation(
+                            password,
+                            validations.hasNumberAndSpecialChar
+                          )}
+                        </div>
+
+                        <Text
+                          color={GREY150}
+                          className={`font-public `}
+                          text="Ser alfanumérica con al menos 1 carácter numérico y un único carácter especial"
+                        />
+                      </div>
                     </li>
                     <li>
-                      <Text
-                        className={`font-public ${
+                      <div className="flex gap-1 items-center">
+                        {circleValidation(
+                          password,
                           validations.hasAllowedSpecialChar
-                            ? "text-green-500"
-                            : "text-red-500"
-                        }`}
-                        text="Tener uno de estos caracteres especiales - / = . $ # *"
-                      />
-                    </li>
-                    <li>
-                      <Text
-                        className={`font-public ${
-                          validations.hasNoPersonalInfo
-                            ? "text-green-500"
-                            : "text-red-500"
-                        }`}
-                        text="Evita colocar información personal"
-                      />
+                        )}
+                        <Text
+                          className={`font-public `}
+                          color={GREY150}
+                          text="Tener uno de estos caracteres especiales - / = . $ # *"
+                        />
+                      </div>
                     </li>
                   </ul>
                 </div>
@@ -244,8 +350,12 @@ const PasswordConfig = () => {
                 <div className="mt-10">
                   <button
                     type="submit"
-                    className="w-full text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20"
-                    disabled={isSubmitDisabled}
+                    className={`w-full text-white btn ${
+                      isSubmitDisabled && isSubmitConfirmDisabled
+                        ? "bg-[#9EC3E4] border-[#9EC3E4] cursor-not-allowed"
+                        : "bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20"
+                    }`}
+                    disabled={isSubmitDisabled && isSubmitConfirmDisabled}
                   >
                     Guardar
                   </button>
