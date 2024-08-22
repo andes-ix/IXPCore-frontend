@@ -46,7 +46,7 @@ const Sidebar = ({ layoutType, layoutSidebarSizeType }: any) => {
               <img src={logoSm} alt="" className="h-6 mx-auto" />
             </span>
             <span className="group-data-[sidebar-size=sm]:hidden">
-              <img src={"/img/logo.webp"} alt="PIT" width={72} height={84} />
+              <img src={"/img/logo-dark.svg"} alt="PIT" width={72} height={84} />
             </span>
           </Link>
           <button
@@ -89,8 +89,8 @@ const Sidebar = ({ layoutType, layoutSidebarSizeType }: any) => {
                   ></Text>
                   <Text
                     color={GREY10}
-                    className="pl-7 pr-7 pt-1 pb-4 text-center"
-                    text={`Lorem ipsum dolor sit amet, consectetur adipiscing elit`}
+                    className="pl-6 pr-6 pt-1 pb-4 text-center"
+                    text={`Nuestro equipo está disponible para asistirte de manera rápida y eficiente.`}
                   ></Text>
                   {/* <p
                     className={`text-[#8A8F9C] text-base `}
