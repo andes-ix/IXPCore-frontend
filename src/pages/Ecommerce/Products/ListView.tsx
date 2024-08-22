@@ -172,7 +172,7 @@ const ListView = () => {
 
     return (
         <React.Fragment>
-            <BreadCrumb title='List View' pageTitle='Products' />
+            <BreadCrumb title='Listado de usuarios' pageTitle='Products' />
             <DeleteModal show={deleteModal} onHide={deleteToggle} onDelete={handleDelete} />
             <ToastContainer closeButton={false} limit={1} />
             <div className="card" id="productListTable">
