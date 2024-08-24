@@ -32,6 +32,7 @@ import { changeLeftsidebarSizeType } from "slices/thunk";
 import { GREY150 } from "Common/constants/colors";
 
 const Header = ({ handleToggleDrawer, handleDrawer }: any) => {
+  const authUser = JSON.parse(localStorage.getItem("authUser") as string);
   const dispatch = useDispatch<any>();
 
   // react-redux
@@ -262,7 +263,7 @@ const Header = ({ handleToggleDrawer, handleDrawer }: any) => {
                   >
                     <div className="bg-pink-100 rounded-full">
                       <img
-                        src={userProfile}
+                        src={"/img/avatar-default.svg"}
                         alt=""
                         className="size-[37.5px] rounded-full"
                       />
@@ -277,7 +278,7 @@ const Header = ({ handleToggleDrawer, handleDrawer }: any) => {
                       <div className="relative inline-block shrink-0">
                         <div className="rounded-full bg-slate-100 dark:bg-zink-500">
                           <img
-                            src={userProfile}
+                            src={"/img/avatar-default.svg"}
                             alt=""
                             className="size-12 rounded-full"
                           />
@@ -288,7 +289,7 @@ const Header = ({ handleToggleDrawer, handleDrawer }: any) => {
                           size={"medium"}
                           bold={"semi-bold"}
                           color={GREY150}
-                          text={user.username || "Juan Hernandez"}
+                          text={authUser?.first_name}
                         ></Text>
                         <Text
                           size={"medium-sm"}
