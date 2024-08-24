@@ -1,24 +1,12 @@
 import React, { useEffect } from "react";
-import {
-  ChevronDown,
-  ChevronsLeft,
-  ChevronsRight,
-  Gem,
-  LogOut,
-  Mail,
-  MessagesSquare,
-  Search,
-  Settings,
-  ShoppingCart,
-  User2,
-} from "lucide-react";
+import { ChevronDown, LogOut, User2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { createSelector } from "reselect";
 import { Text } from "Common/Components/Text/textComponent";
 
 //import images
-import userProfile from "assets/images/users/user-profile.png";
+
 import logoSm from "assets/images/logo-sm.png";
 import logoDark from "assets/images/logo-dark.png";
 import logoLight from "assets/images/logo-light.png";
