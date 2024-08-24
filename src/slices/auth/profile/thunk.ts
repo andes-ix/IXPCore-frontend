@@ -1,36 +1,45 @@
 import { postFakeProfile } from "helpers/fakebackend_helper";
-import { profileFailed, profileSuccess } from "./reducer"
+import { profileFailed, profileSuccess } from "./reducer";
 import { getFirebaseBackend } from "helpers/firebase_helper";
 import { RootState } from "slices";
 import { ThunkAction } from "redux-thunk";
 import { Action, Dispatch } from "redux";
-
+import { apiClient, apiClientWithAuth } from "services";
+import { C } from "@fullcalendar/core/internal-common";
 interface User {
-    username: string;
-    idx: number;
+  email?: string;
+  name?: string;
+  phone?: string;
+  country?: string;
+  jobPosition: string;
+  ID: string;
 }
 
-export const editProfile = (user: User
-): ThunkAction<void, RootState, unknown, Action<string>> => async (dispatch: Dispatch) => {
+export const editProfile =
+  (user: User): ThunkAction<void, RootState, unknown, Action<string>> =>
+  async (dispatch: Dispatch) => {
+    const {
+      email,
+      name: first_name,
+      phone,
+      country,
+      jobPosition: job_position,
+      ID,
+    } = user;
     try {
-        let response: any;
-        if (process.env.REACT_APP_DEFAULTAUTH === "fake") {
-            response = await postFakeProfile(user)
+      const { data } = await apiClientWithAuth.patch(`/v1/user/${ID}/`, {
+        email,
+        first_name,
+        phone,
+        country,
+        job_position,
+      });
 
-        } else if (process.env.REACT_APP_DEFAULTAUTH === "firebase") {
-
-            const fireBaseBackend = getFirebaseBackend();
-            response = await fireBaseBackend.editProfileAPI(
-                user.username,
-                user.idx
-            );
-        }
-
-        if (response) {
-            dispatch(profileSuccess(response))
-        }
-
+      if (data) {
+        localStorage.setItem("authUser", JSON.stringify(data));
+        dispatch(profileSuccess(data));
+      }
     } catch (error) {
-        dispatch(profileFailed(error))
+      dispatch(profileFailed(error));
     }
-}
+  };

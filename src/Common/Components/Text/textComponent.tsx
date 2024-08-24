@@ -1,11 +1,48 @@
 import React from "react";
 interface TextProps {
+  /**
+   * El texto que se mostrará.
+   */
   text: string;
+
+  /**
+   * Tamaño del texto.
+   * - `"small"`: 10px
+   * - `"normal"`: 12px (por defecto)
+   * - `"medium-sm"`: 14px
+   * - `"medium"`: 16px
+   * - `"big-sm"`: 18px
+   * - `"big"`: 20px
+   */
   size?: "small" | "normal" | "medium" | "big" | "medium-sm" | "big-sm";
+
+  /**
+   * Grosor de la fuente.
+   * - `"normal"`: 400 (por defecto)
+   * - `"semi-bold"`: 600
+   * - `"bold"`: 650
+   * - `"ultra-light"`: 100
+   */
   bold?: "normal" | "semi-bold" | "bold" | "ultra-light";
+
+  /**
+   * Color del texto, puede ser cualquier valor válido de CSS para color.
+   */
   color?: string;
+
+  /**
+   * Estilo adicional para aplicar al texto.
+   */
   style?: React.CSSProperties;
+
+  /**
+   * Clases CSS adicionales para personalización.
+   */
   className?: string;
+
+  /**
+   * Familia de la fuente para el texto.
+   */
   fontFamily?: string;
 }
 

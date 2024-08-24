@@ -1,24 +1,12 @@
 import React, { useEffect } from "react";
-import {
-  ChevronDown,
-  ChevronsLeft,
-  ChevronsRight,
-  Gem,
-  LogOut,
-  Mail,
-  MessagesSquare,
-  Search,
-  Settings,
-  ShoppingCart,
-  User2,
-} from "lucide-react";
+import { ChevronDown, LogOut, User2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { createSelector } from "reselect";
 import { Text } from "Common/Components/Text/textComponent";
 
 //import images
-import userProfile from "assets/images/users/user-profile.png";
+
 import logoSm from "assets/images/logo-sm.png";
 import logoDark from "assets/images/logo-dark.png";
 import logoLight from "assets/images/logo-light.png";
@@ -32,6 +20,7 @@ import { changeLeftsidebarSizeType } from "slices/thunk";
 import { GREY150 } from "Common/constants/colors";
 
 const Header = ({ handleToggleDrawer, handleDrawer }: any) => {
+  const authUser = JSON.parse(localStorage.getItem("authUser") as string);
   const dispatch = useDispatch<any>();
 
   // react-redux
@@ -262,7 +251,7 @@ const Header = ({ handleToggleDrawer, handleDrawer }: any) => {
                   >
                     <div className="bg-pink-100 rounded-full">
                       <img
-                        src={userProfile}
+                        src={"/img/avatar-default.svg"}
                         alt=""
                         className="size-[37.5px] rounded-full"
                       />
@@ -277,7 +266,7 @@ const Header = ({ handleToggleDrawer, handleDrawer }: any) => {
                       <div className="relative inline-block shrink-0">
                         <div className="rounded-full bg-slate-100 dark:bg-zink-500">
                           <img
-                            src={userProfile}
+                            src={"/img/avatar-default.svg"}
                             alt=""
                             className="size-12 rounded-full"
                           />
@@ -288,7 +277,7 @@ const Header = ({ handleToggleDrawer, handleDrawer }: any) => {
                           size={"medium"}
                           bold={"semi-bold"}
                           color={GREY150}
-                          text={user.username || "Juan Hernandez"}
+                          text={authUser?.first_name}
                         ></Text>
                         <Text
                           size={"medium-sm"}

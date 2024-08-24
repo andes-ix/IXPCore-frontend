@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Alert from "Common/Components/Alert";
 import Modal from "Common/Components/Modal";
 import { AlertTypeEnum } from "../../constants/alertType.enum";
@@ -63,6 +63,16 @@ export const CustomAlert: React.FC<AlertProps> = ({
   show,
   handleShowAlert,
 }) => {
+  useEffect(() => {
+    if (show) {
+      const timer = setTimeout(() => {
+        handleShowAlert();
+      }, 5000);
+
+      return () => clearTimeout(timer); // Limpiar el temporizador cuando el componente se desmonte o el `show` cambie
+    }
+  }, [show, handleShowAlert]);
+
   return (
     <Modal
       show={show}

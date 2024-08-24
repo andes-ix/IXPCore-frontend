@@ -6,10 +6,9 @@ axios.defaults.baseURL = "";
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
 // content type
-const authUser: any = localStorage.getItem("authUser")
-const token = JSON.parse(authUser) ? JSON.parse(authUser).token : null;
-if (token)
-  axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+const tokenString: any = localStorage.getItem("token");
+const token = JSON.parse(tokenString) ? JSON.parse(tokenString) : null;
+if (token) axios.defaults.headers.common["Authorization"] = "Bearer " + token;
 
 // intercepting to capture errors
 axios.interceptors.response.use(
@@ -57,12 +56,13 @@ class APIClient {
     let paramKeys: any = [];
 
     if (params) {
-      Object.keys(params).map(key => {
-        paramKeys.push(key + '=' + params[key]);
+      Object.keys(params).map((key) => {
+        paramKeys.push(key + "=" + params[key]);
         return paramKeys;
       });
 
-      const queryString = paramKeys && paramKeys.length ? paramKeys.join('&') : "";
+      const queryString =
+        paramKeys && paramKeys.length ? paramKeys.join("&") : "";
       response = axios.get(`${url}?${queryString}`, params);
     } else {
       response = axios.get(`${url}`, params);
@@ -94,7 +94,6 @@ class APIClient {
   };
 }
 const getLoggedUser = () => {
-
   const user = localStorage.getItem("authUser");
   if (!user) {
     return null;

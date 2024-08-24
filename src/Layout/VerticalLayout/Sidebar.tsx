@@ -2,8 +2,6 @@ import React from "react";
 
 //import images
 import logoSm from "assets/images/logo-sm.png";
-import logoDark from "assets/images/logo-dark.png";
-import logoLight from "assets/images/logo-light.png";
 
 import { Link } from "react-router-dom";
 
@@ -11,8 +9,6 @@ import VerticalLayout from "../VerticalLayout/Index";
 import withRouter from "Common/withRouter";
 import SimpleBar from "simplebar-react";
 import HorizontalLayout from "Layout/HorizontalLayout";
-import { AlignCenter } from "lucide-react";
-import { Title } from "Common/Components/Title/titleComponent";
 import { Text } from "Common/Components/Text/textComponent";
 import { GREY10, GREY100 } from "Common/constants/colors";
 
@@ -46,7 +42,12 @@ const Sidebar = ({ layoutType, layoutSidebarSizeType }: any) => {
               <img src={logoSm} alt="" className="h-6 mx-auto" />
             </span>
             <span className="group-data-[sidebar-size=sm]:hidden">
-              <img src={"/img/logo-dark.svg"} alt="PIT" width={72} height={84} />
+              <img
+                src={"/img/logo-dark.svg"}
+                alt="PIT"
+                width={72}
+                height={84}
+              />
             </span>
           </Link>
           <button
