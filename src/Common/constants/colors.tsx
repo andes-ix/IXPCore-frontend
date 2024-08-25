@@ -1,5 +1,6 @@
 // BLUES COLORS
 export const BLUE10 = "#168EEA";
+export const BLUE15 = "#F7FAFC";
 
 // GREYS COLORS
 export const GREY10 = "#8A8F9C";
