@@ -2,140 +2,513 @@ import React, { useState, useEffect } from "react";
 
 // Formik Validation
 import * as Yup from "yup";
-import { useFormik as useFormic } from "formik";
+import { useFormik as useFormic, useFormik } from "formik";
+import styles from "./phone.module.css";
 
 //redux
 import { useSelector, useDispatch } from "react-redux";
+import { PhoneInput } from "react-international-phone";
 
 import userProfile from "assets/images/users/user-profile.png";
 
-import { createSelector } from 'reselect';
-import BreadCrumb from "Common/BreadCrumb";
+import "react-international-phone/style.css";
+
+import { createSelector } from "reselect";
+import countries from "./countries.json";
 import withRouter from "Common/withRouter";
 import { editProfile } from "slices/thunk";
+import { Text } from "Common/Components/Text/textComponent";
+import { Title } from "Common/Components/Title/titleComponent";
+import {
+  BLUE10,
+  GREY100,
+  GREY150,
+  GREY20,
+  RED100,
+} from "Common/constants/colors";
+import { ChevronRight, ImagePlus, LockKeyhole } from "lucide-react";
+import { capitalizeFirstLetter } from "Common/utils";
+import { AlertTypeEnum } from "Common/constants/alertType.enum";
+import useAlert from "Common/hooks/useAlert";
+import { CustomAlert } from "Common/Components/CustomAlert/customAlert";
+import { apiClientWithAuth } from "services";
 
+interface IAuthUser {
+  ID?: Number;
+  email?: String;
+  first_name?: String;
+  last_name?: String;
+  phone?: String;
+  country?: String;
+  jobPosition?: String;
+}
 const UserProfile = () => {
-
   //meta title
+
   document.title = "Profile | Skote - React Admin & Dashboard Template";
 
   const dispatch = useDispatch<any>();
+  const [authUser, setAuthUser] = useState<any>();
+  const [showAlert, SetShowAlerts] = useState<boolean>(false);
 
-  const [email, setEmail] = useState<string>("admin@gmail.com");
-  const [name, setName] = useState<string>('');
-  const [idx, setIdx] = useState<number>(1);
+  const [msgAlert, SetMsgAlert] = useState<JSX.Element | string>("");
+  const [titleAlert, SetTitleAlert] = useState<JSX.Element | string>("");
+  const [alertType, SetAlertType] = useState<AlertTypeEnum>(
+    AlertTypeEnum.SUCCESS
+  );
+
+  const handleShowAlert = () => {
+    SetShowAlerts(!showAlert);
+  };
 
   const selectProperties = createSelector(
     (state: any) => state.Profile,
     (profile) => ({
       user: profile.user,
       error: profile.error,
-      success: profile.success
+      success: profile.success,
     })
   );
 
-  const { error, success, user } = useSelector(selectProperties);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 640);
+  useEffect(() => {
+    const userDetail = JSON.parse(
+      (localStorage.getItem("authUser") as string) || ""
+    );
+    const user: IAuthUser = {
+      first_name: userDetail?.first_name,
+      email: userDetail.email,
+      country: userDetail?.country,
+      phone: userDetail?.phone,
+      jobPosition: userDetail?.job_position,
+      ID: userDetail?.ID,
+    };
+    setAuthUser(user);
+    console.log("este es el user =====", user);
+  }, []);
 
   useEffect(() => {
-    if (process.env.REACT_APP_DEFAULTAUTH === "fake") {
-      setEmail(user.email)
-      setName(user.username);
-      setIdx(user.uid)
-    } else if (process.env.REACT_APP_DEFAULTAUTH === "firebase") {
-      setEmail(user.email)
-      setName(user.username);
-      setIdx(user.uid)
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 1000);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const submitValue = async (values: any) => {
+    try {
+      const {
+        email,
+        name: first_name,
+        phone,
+        country,
+        jobPosition: job_position,
+        ID,
+      } = values;
+      const { data } = await apiClientWithAuth.patch(`/v1/user/${ID}/`, {
+        email,
+        first_name,
+        phone,
+        country,
+        job_position,
+      });
+
+      if (data) {
+        localStorage.setItem("authUser", JSON.stringify(data));
+        SetShowAlerts(true);
+        SetTitleAlert(
+          <Title
+            color={GREY100}
+            bold={"bold"}
+            size={"normal-bg"}
+            text="Información de perfil actualizada satisfactoriamente"
+          ></Title>
+        );
+        SetMsgAlert("");
+        const user: IAuthUser = {
+          first_name: data?.first_name,
+          email: data.email,
+          country: data?.country,
+          phone: data?.phone,
+          jobPosition: data?.job_position,
+          ID: data?.ID,
+        };
+        setAuthUser(user);
+      }
+      return true;
+    } catch (error) {
+      SetAlertType(AlertTypeEnum.ERROR);
+      SetShowAlerts(true);
+      SetTitleAlert(
+        <Title
+          color={GREY100}
+          bold={"bold"}
+          size={"normal-bg"}
+          text="Ha ocurrido un problema inesperado o de conexión"
+        ></Title>
+      );
+      SetMsgAlert(
+        <Text
+          color={RED100}
+          text={
+            "Por favor, verifica tu conexión a internet e inténtalo nuevamente. Si el problema persiste, contacta a nuestro soporte técnico."
+          }
+        ></Text>
+      );
+      return false;
     }
-  }, [user]);
+  };
 
-  const validation = useFormic({
-    // enableReinitialize : use this flag when initial values needs to be changed
-    enableReinitialize: true,
-
+  const validation = useFormik({
+    enableReinitialize: true, // Permite re-inicializar los valores iniciales cuando `user` cambie
     initialValues: {
-      username: name || 'admin',
-      idx: idx || 1,
+      email: authUser?.email || "",
+      name: authUser?.first_name || "",
+      phone: authUser?.phone || "",
+      country: authUser?.country || "",
+      jobPosition: authUser?.jobPosition || "",
+      ID: authUser?.ID,
     },
     validationSchema: Yup.object({
-      username: Yup.string().required("Please Enter Your UserName"),
+      email: Yup.string(),
+      name: Yup.string(),
+      phone: Yup.string(),
+      country: Yup.string(),
+      jobPosition: Yup.string(),
     }),
-    onSubmit: (values) => {
-      dispatch(editProfile(values));
-    }
+    onSubmit: async (values) => {
+      await submitValue(values);
+    },
   });
-
   return (
     <React.Fragment>
-      <div className="container-fluid group-data-[content=boxed]:max-w-boxed mx-auto">
-        {/* Render Breadcrumb */}
-        <BreadCrumb title="Tailwick" pageTitle="Profile" />
-
-        <div className="row">
+      <CustomAlert
+        type={alertType}
+        show={showAlert}
+        handleShowAlert={handleShowAlert}
+        title={titleAlert}
+        msg={msgAlert}
+      />
+      <div className="flex pl-5 pr-6 pt-11 gap-3 justify-between p container-fluid group-data-[content=boxed]:max-w-boxed mx-auto">
+        <div className={isSmallScreen ? "flex flex-col" : "flex"}>
           <div className="grid grid-cols-1 gap-x-5 xl:grid-cols-1">
-            {success && <div className="px-4 py-3 mb-3 text-sm text-green-500 border border-green-200 rounded-md bg-green-50 dark:bg-green-400/20 dark:border-green-500/50" id="successAlert">
-              You have <b>successfully</b> user in.
-            </div>}
-            {error && <div className="px-4 py-3 mb-3 text-sm text-red-500 border border-red-200 rounded-md bg-red-50 dark:bg-red-400/20 dark:border-red-500/50" id="successAlert">
-              You have <b>failed</b> user in.
-            </div>}
-
-
-            <div className="card">
-              <div className="card-body">
-                <div className="flex gap-3">
-                  <div>
+            <Title
+              size={"large"}
+              text={"Información del perfil"}
+              bold={"semi-bold"}
+              color={GREY150}
+            />
+            <Text
+              size={"medium"}
+              className="pt-4"
+              color={GREY150}
+              bold={"semi-bold"}
+              text={"Revise y actualice los detalles de su cuenta"}
+            />
+            <Text
+              size={"medium-sm"}
+              className="pt-2 w-[75%]"
+              color={GREY100}
+              text={`Asegúrese de que estos datos estén actualizados, ya que se
+            utilizarán para información en la facturación de sus servicios.`}
+            />
+            <div className="flex gap-0 pt-2 pb-3">
+              <a href="#">
+                <Text
+                  className="pt-2 pb-2"
+                  size={"medium-sm"}
+                  color={BLUE10}
+                  text="Términos y Condiciones de uso"
+                ></Text>
+              </a>
+            </div>
+            <div className="card xl:w-10/12">
+              <div>
+                <div className="flex h-[100px] pl-10 gap-3 items-center">
+                  <div className="relative flex-wrap items-center gap-4">
                     <img
-                      src={userProfile}
+                      src={"/img/avatar-default.svg"}
                       alt=""
-                      className="avatar-md rounded-circle img-thumbnail"
+                      className="w-[60px] h-[60px] bg-blue-600 rounded-full img-thumbnail"
+                    />
+                    {/* <span className="cursor-pointer">
+                      <div className=" flex items-center justify-center rounded-full size-8 bg-white absolute top-5 right-3  transform translate-x-1/2 translate-y-1/2">
+                        {" "}
+                        <ImagePlus size={15} color={GREY100} />
+                      </div>
+                    </span> */}
+                  </div>
+                  <div className="text-slate-500 w-[60%] p-4 dark:text-zink-200">
+                    <Title
+                      bold="bold"
+                      text={capitalizeFirstLetter(authUser?.first_name)}
+                    />
+                    <Text
+                      text={`Asegúrese de que estos datos estén actualizados, ya que se utilizarán para información en la facturación de sus servicios.`}
                     />
                   </div>
-                  <div className="text-slate-500 dark:text-zink-200">
-                    <h5 className="text-slate-500">{name || "admin"}</h5>
-                    <p className="mb-1">{email || "admin@gmail.com"}</p>
-                    <p className="mb-0">Id no: #{idx || 1}</p>
+                </div>
+                <form
+                  onSubmit={(event: any) => {
+                    event.preventDefault();
+                    validation.handleSubmit();
+                    return false;
+                  }}
+                >
+                  <div
+                    className={`card-body shadow-sm flex flex-col items-center bg-[${GREY20}]`}
+                  >
+                    <div className="mb-3 flex flex-col md:flex-row justify-between items-center w-[90%]">
+                      <div className="flex flex-col w-full sm:w-auto">
+                        <div className="flex justify-between">
+                          <label
+                            htmlFor="name"
+                            className="inline-block mb-2 text-base font-medium"
+                          >
+                            <Text
+                              className="pt-2"
+                              size={"medium-sm"}
+                              color={GREY150}
+                              text="Nombre completo"
+                              bold={"semi-bold"}
+                            />
+                          </label>
+                        </div>
+
+                        <input
+                          type="text"
+                          id="name"
+                          name="name"
+                          className="form-input sm:w-50 md:w-50 lg:w-60 xl:w-70 border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200 mb-2"
+                          placeholder="Salvador Bertenbreiter"
+                          onChange={validation.handleChange}
+                          onBlur={validation.handleBlur}
+                          value={validation?.values?.name}
+                        />
+                      </div>
+                      <div className="flex flex-col w-full sm:w-auto">
+                        <div className="flex justify-between">
+                          <label
+                            htmlFor="email"
+                            className="inline-block mb-2 text-base font-medium"
+                          >
+                            <Text
+                              className="pt-2"
+                              size={"medium-sm"}
+                              color={GREY150}
+                              text="Correo electrónico"
+                              bold={"semi-bold"}
+                            />
+                          </label>
+                        </div>
+                        <input
+                          type="text"
+                          id="email"
+                          name="email"
+                          className="form-input sm:w-50 md:w-50 lg:w-60 xl:w-60 border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200 mb-2"
+                          placeholder="Example@pit.net"
+                          onChange={validation.handleChange}
+                          onBlur={validation.handleBlur}
+                          value={validation?.values?.email}
+                        />
+                      </div>
+                    </div>
+                    <div className="mb-3 flex flex-col md:flex-row justify-between items-center w-[90%]">
+                      <div className="flex flex-col w-full sm:w-auto">
+                        <div className="flex justify-between">
+                          <label
+                            htmlFor="name"
+                            className="inline-block mb-2 text-base font-medium"
+                          ></label>
+                        </div>
+
+                        <div className="flex flex-col w-full sm:w-auto">
+                          <div className="flex justify-between">
+                            <label
+                              htmlFor="name"
+                              className="inline-block mb-2 text-base font-medium"
+                            >
+                              <Text
+                                className="pt-2"
+                                size={"medium-sm"}
+                                color={GREY150}
+                                text="Pais"
+                                bold={"semi-bold"}
+                              />
+                            </label>
+                          </div>
+
+                          <input
+                            type="text"
+                            id="country"
+                            name="country"
+                            disabled={true}
+                            className="form-input sm:w-50 md:w-50 lg:w-60 xl:w-70 border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200 mb-2"
+                            placeholder="Pais"
+                            value={validation?.values?.country}
+                          />
+                        </div>
+                      </div>
+                      <div className="flex flex-col pt-10">
+                        <PhoneInput
+                          name="phone"
+                          defaultCountry={"pe"}
+                          placeholder="(0) 053 555 555"
+                          value={validation.values.phone}
+                          onChange={(phoneValue) =>
+                            validation.setFieldValue("phone", phoneValue)
+                          } // Actualiza el valor de 'phone' en Formik
+                          onBlur={() => validation.setFieldTouched("phone")} // Marca el campo como tocado al perder el foco
+                          countrySelectorStyleProps={{
+                            buttonStyle: {
+                              width: 50,
+                              backgroundColor: "#EAEEF3",
+                            },
+                          }}
+                          inputStyle={{
+                            width: 240,
+                          }}
+                          style={{
+                            width: 240,
+                          }}
+                        />
+                        {validation.touched.phone && validation.errors.phone ? (
+                          <div className="text-red-500 text-sm">
+                            {/* {validation.errors.phone} */}
+                          </div>
+                        ) : null}
+                      </div>
+                    </div>
+                    <div className="mb-3 pt-3 flex flex-col md:flex-row justify-between items-center w-[90%]">
+                      <div className="flex flex-col w-full sm:w-auto">
+                        <div className="flex justify-between">
+                          <label
+                            htmlFor="jobPosition"
+                            className="inline-block mb-2 text-base font-medium"
+                          >
+                            <Text
+                              className="pt-2"
+                              size={"medium-sm"}
+                              color={GREY150}
+                              text="Cargo"
+                              bold={"semi-bold"}
+                            />
+                          </label>
+                        </div>
+
+                        <input
+                          type="text"
+                          id="jobPosition"
+                          name="jobPosition"
+                          className="form-input sm:w-40 md:w-50 lg:w-60 xl:w-60 border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
+                          placeholder="Gerente general"
+                          onChange={validation.handleChange}
+                          onBlur={validation.handleBlur}
+                          value={validation?.values?.jobPosition}
+                        />
+                      </div>
+                    </div>
+                    <div className="flex flex-col md:flex-row justify-end w-[90%]">
+                      <div className="flex flex-col  w-full sm:w-auto">
+                        <button
+                          type="submit"
+                          className=" text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20 mb-5"
+                        >
+                          <span className="align-middle">Actualizar</span>
+                        </button>
+                      </div>
+                    </div>
                   </div>
+                </form>
+                <div
+                  className={`border-t w-[100%] bg-[${GREY20}] border-slate-200 card-body dark:border-zink-500`}
+                >
+                  <Text
+                    color={BLUE10}
+                    size={"normal"}
+                    className="pt-4"
+                    text="Autogestión de contraseña: Cambio de contraseña"
+                  ></Text>
+                  <Text
+                    color={GREY150}
+                    size={"normal"}
+                    className="pt-1 pb-5"
+                    text="Realiza el cambio de tu contraseña de acceso, de manera fácil y rápida."
+                  ></Text>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <h5 className="mb-4">Change User Name</h5>
-
-        <div className="card">
-          <div className="card-body">
-            <form
-              className="form-horizontal"
-              onSubmit={(e) => {
-                e.preventDefault();
-                validation.handleSubmit();
-                return false;
-              }}
-            >
-              <label className="inline-block mb-2 text-base font-medium">User Name</label>
-              <input
-                name="username"
-                className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
-                placeholder="Enter User Name"
-                type="text"
-                onChange={validation.handleChange}
-                onBlur={validation.handleBlur}
-                value={validation.values.username || ""}
-              />
-              {validation.touched.username && validation.errors.username ? (
-                <div className="mt-1 text-sm text-red-500">{validation.errors.username}</div>
-              ) : null}
-              <div className="text-center mt-4">
-                <button type="submit" className="px-2 py-1.5 text-xs text-white btn bg-red-500 hover:text-white hover:bg-red-600 focus:text-white focus:bg-red-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:ring active:ring-custom-100 dark:bg-red-500/20 dark:text-red-500 dark:hover:bg-red-500 dark:hover:text-white dark:focus:bg-red-500 dark:focus:text-white dark:active:bg-red-500 dark:active:text-white dark:ring-red-400/20">
-                  Update User Name
-                </button>
+          <div className=" w-[35%]">
+            <div className="flex gap-4 ">
+              <div className="flex items-center rounded-md size-50 justify-center bg-white">
+                <LockKeyhole color={BLUE10} height={10} width={20} />
               </div>
-            </form>
+              <Title size={"big"} color={GREY150} text={"Seguridad"} />
+            </div>
+
+            <Text
+              className="pt-5"
+              size={"medium"}
+              color={GREY150}
+              bold={"semi-bold"}
+              text={"Verificación en dos pasos"}
+            />
+            <Text
+              color={GREY100}
+              className="pt-1"
+              text={"Protege tu cuenta con la verificación en dos pasos"}
+            />
+            <div className="flex gap-4 pt-6">
+              <div className="bg-[#CDDC01] h-9 w-9 rounded-full flex items-center justify-center">
+                <Text size={"big"} color="white" text="1"></Text>
+              </div>
+              <div className="">
+                <Text
+                  color={GREY100}
+                  text={
+                    "La verificación en dos pasos es un nivel añadido de seguridad, "
+                  }
+                />
+                <Text
+                  color={GREY100}
+                  text={
+                    "ya que solicita un código cada vez que inicias sesión en un dispositivo nuevo."
+                  }
+                />
+              </div>
+            </div>
+            <div className="flex gap-4 pt-6">
+              <div className="bg-[#CDDC01] h-9 w-9 rounded-full flex items-center justify-center">
+                <Text size={"big"} color="white" text="2"></Text>
+              </div>
+              <div className="">
+                <Text
+                  color={GREY100}
+                  text={
+                    "Tu aplicación de autenticación nos permite añadir un nivel de verificación "
+                  }
+                />
+                <Text color={GREY100} text={"extra para proteger tu cuenta."} />
+              </div>
+            </div>
+
+            <div className="flex pt-10 w-full sm:w-auto">
+              <button
+                type="button"
+                className=" text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20 mb-5"
+              >
+                <span className="align-middle">Configurar</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </React.Fragment >
+    </React.Fragment>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Title } from "Common/Components/Title/titleComponent";
 import { Text } from "Common/Components/Text/textComponent";
 import { BLUE10, GREY100, GREY150, RED100 } from "Common/constants/colors";
@@ -32,7 +32,7 @@ const PasswordRecover = () => {
 
   const handleSubmit = async (email: string) => {
     try {
-      await apiClient.post("/v2/password_reset/verificate_code_password/", {
+      await apiClient.post("/v2/password_reset/generate_code_password/", {
         email: email,
       });
 
@@ -56,6 +56,7 @@ const PasswordRecover = () => {
           </p>
         );
       } else {
+        SetShowAlerts(true);
         SetTitleAlert(
           <Title
             color={GREY100}
@@ -107,6 +108,15 @@ const PasswordRecover = () => {
             las indicaciones para recuperar tu contraseña.
           </p>
         );
+
+        formik.resetForm();
+
+        const timer = setTimeout(() => {
+          handleShowAlert();
+          navigate("/login"); // Cambia "/ruta-deseada" por la ruta a la que deseas redirigir
+        }, 5000);
+
+        return () => clearTimeout(timer); // Limpiar el temporizador cuando el componente se desmonte o el `show` cambie
       }
     },
   });

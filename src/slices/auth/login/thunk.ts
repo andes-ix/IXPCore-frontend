@@ -24,10 +24,12 @@ export const loginUser =
       const { data } = await apiClient.post("/v1/signin", { email, password });
 
       if (data) {
-        dispatch(loginSuccess(response));
+        dispatch(loginSuccess(data));
         history("/dashboard");
       }
-      localStorage.setItem("authUser", JSON.stringify(data));
+
+      localStorage.setItem("token", JSON.stringify(data?.token));
+      localStorage.setItem("authUser", JSON.stringify(data?.user_detail));
     } catch (error) {
       dispatch(loginError(error));
     }

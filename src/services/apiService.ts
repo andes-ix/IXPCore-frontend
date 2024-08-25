@@ -17,12 +17,13 @@ export const apiClientWithAuth = axios.create({
 
 apiClientWithAuth.interceptors.request.use(
   (config) => {
-    let user = localStorage.getItem("user") as any;
+    let token = localStorage.getItem("token") as any;
 
-    user = JSON.parse(user);
+    token = JSON.parse(token);
+    console.log(" token ======", token);
 
-    if (user?.token) {
-      config.headers.Authorization = `Bearer ${user?.token}`;
+    if (token) {
+      config.headers.Authorization = `token ${token}`;
     }
     return config;
   },
