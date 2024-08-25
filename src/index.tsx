@@ -7,6 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import { configureStore } from "@reduxjs/toolkit";
 import rootReducer from "./slices";
 import GlobalAlert from "Common/Components/GlobalAlert/globalAlert";
+import { Alert2FProvider } from "Common/contexts/2FAlertContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -17,7 +18,9 @@ root.render(
     <Provider store={store}>
       <GlobalAlert />
       <BrowserRouter basename={process.env.PUBLIC_URL}>
-        <App />
+        <Alert2FProvider>
+          <App />
+        </Alert2FProvider>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>
