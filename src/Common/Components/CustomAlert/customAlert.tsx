@@ -83,7 +83,7 @@ export const CustomAlert: React.FC<AlertProps> = ({
       dialogClassName="w-screen md:w-[40rem] bg-white shadow rounded-md dark:bg-zink-600 flex flex-col"
     >
       <Alert className={getAlertClassName(type)}>
-        {getAlertIcon(type)}
+        <div className="h-full">{getAlertIcon(type)}</div>
         <a href="#" onClick={handleShowAlert}>
           <Title className={getAlertClassButtomX(type)} text="X" />
         </a>
