@@ -1,27 +1,13 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import BreadCrumb from "Common/BreadCrumb";
+
 import { Link } from "react-router-dom";
 import { Dropdown } from "Common/Components/Dropdown";
 import TableContainer from "Common/TableContainer";
-import Flatpickr from "react-flatpickr";
-import moment from "moment";
 import { Text } from "Common/Components/Text/textComponent";
 
 // Icons
-import {
-  Search,
-  Eye,
-  Trash2,
-  Plus,
-  MoreHorizontal,
-  FileEdit,
-  ImagePlus,
-} from "lucide-react";
+import { Search, MoreHorizontal } from "lucide-react";
 import Modal from "Common/Components/Modal";
-import DeleteModal from "Common/DeleteModal";
-
-// Images
-import dummyImg from "assets/images/users/user-dummy-img.jpg";
 
 // react-redux
 import { useDispatch, useSelector } from "react-redux";
@@ -40,7 +26,7 @@ import {
 import { ToastContainer } from "react-toastify";
 import filterDataBySearch from "Common/filterDataBySearch";
 import { Title } from "Common/Components/Title/titleComponent";
-import { BLUE10, BLUE15, GREY100, GREY150 } from "Common/constants/colors";
+import { BLUE10, GREY100, GREY150 } from "Common/constants/colors";
 
 const ListView = () => {
   const dispatch = useDispatch<any>();
@@ -181,40 +167,6 @@ const ListView = () => {
     const keysToSearch = ["name", "designation", "location", "email", "status"];
     filterDataBySearch(userList, search, keysToSearch, setUser);
   };
-
-  // columns
-  //   const Status = ({ item }: any) => {
-  //     switch (item) {
-  //       case "Verified":
-  //         return (
-  //           <span className="px-2.5 py-0.5 text-xs font-medium rounded border bg-green-100 border-transparent text-green-500 dark:bg-green-500/20 dark:border-transparent inline-flex items-center status">
-  //             <CheckCircle className="size-3 mr-1.5" />
-  //             {item}
-  //           </span>
-  //         );
-  //       case "Waiting":
-  //         return (
-  //           <span className="px-2.5 py-0.5 inline-flex items-center text-xs font-medium rounded border bg-slate-100 border-transparent text-slate-500 dark:bg-slate-500/20 dark:text-zink-200 dark:border-transparent status">
-  //             <Loader className="size-3 mr-1.5" />
-  //             {item}
-  //           </span>
-  //         );
-  //       case "Rejected":
-  //         return (
-  //           <span className="px-2.5 py-0.5 inline-flex items-center text-xs font-medium rounded border bg-red-100 border-transparent text-red-500 dark:bg-red-500/20 dark:border-transparent status">
-  //             <X className="size-3 mr-1.5" />
-  //             {item}
-  //           </span>
-  //         );
-  //       default:
-  //         return (
-  //           <span className="px-2.5 py-0.5 text-xs font-medium rounded border bg-green-100 border-transparent text-green-500 dark:bg-green-500/20 dark:border-transparent inline-flex items-center status">
-  //             <CheckCircle className="size-3 mr-1.5" />
-  //             {item}
-  //           </span>
-  //         );
-  //     }
-  //   };
 
   const columns = useMemo(
     () => [
