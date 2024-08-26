@@ -34,27 +34,30 @@ import NotesReducer from "./notes/reducer";
 import SocialReducer from "./social/reducer";
 
 // Invoice
-import InvoiceReducer from "./invoice/reducer"
+import InvoiceReducer from "./invoice/reducer";
 
 // Users
 import UsersReducer from "./users/reducer";
 
-const rootReducer = combineReducers({
-    Layout: LayoutReducer,
-    Login: LoginReducer,
-    Register: RegisterReducer,
-    Profile: ProfileReducer,
-    Chat: ChatReducer,
-    Mailbox: MailboxReducer,
-    Calendar: CalendarReducer,
-    Ecommerce: EcommerceReducer,
-    HRManagment: HRManagmentReducer,
-    Notes: NotesReducer,
-    Social: SocialReducer,
-    Invoice: InvoiceReducer,
-    Users: UsersReducer,
-});
+// Groups
+import GroupsReducer from "./groups/reducer";
 
+const rootReducer = combineReducers({
+  Layout: LayoutReducer,
+  Login: LoginReducer,
+  Register: RegisterReducer,
+  Profile: ProfileReducer,
+  Chat: ChatReducer,
+  Mailbox: MailboxReducer,
+  Calendar: CalendarReducer,
+  Ecommerce: EcommerceReducer,
+  HRManagment: HRManagmentReducer,
+  Notes: NotesReducer,
+  Social: SocialReducer,
+  Invoice: InvoiceReducer,
+  Users: UsersReducer,
+  Groups: GroupsReducer,
+});
 
 export type RootState = ReturnType<typeof rootReducer>;
 

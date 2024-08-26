@@ -84,7 +84,6 @@ const UserProfile = () => {
       ID: userDetail?.ID,
     };
     setAuthUser(user);
-    console.log("este es el user =====", user);
   }, []);
 
   useEffect(() => {

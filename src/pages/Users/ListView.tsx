@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Dropdown } from "Common/Components/Dropdown";
 import TableContainer from "Common/TableContainer";
 import { Text } from "Common/Components/Text/textComponent";
+import countries from "Common/constants/countries.json";
 
 // Icons
 import { Search, MoreHorizontal } from "lucide-react";
@@ -27,6 +28,7 @@ import { ToastContainer } from "react-toastify";
 import filterDataBySearch from "Common/filterDataBySearch";
 import { Title } from "Common/Components/Title/titleComponent";
 import { BLUE10, GREY100, GREY150 } from "Common/constants/colors";
+import { PhoneInput } from "react-international-phone";
 
 const ListView = () => {
   const dispatch = useDispatch<any>();
@@ -87,25 +89,16 @@ const ListView = () => {
     enableReinitialize: true,
 
     initialValues: {
-      img: (eventData && eventData.img) || "",
-      userId: (eventData && eventData.userId) || "",
-      name: (eventData && eventData.name) || "",
-      designation: (eventData && eventData.designation) || "",
-      location: (eventData && eventData.location) || "",
+      ID: (eventData && eventData.ID) || "",
+      first_name: (eventData && eventData.first_name) || "",
       email: (eventData && eventData.email) || "",
-      phoneNumber: (eventData && eventData.phoneNumber) || "",
-      joiningDate: (eventData && eventData.joiningDate) || "",
-      status: (eventData && eventData.status) || "",
+      phone: (eventData && eventData.phone) || "",
+      job_position: (eventData && eventData.job_position) || "",
+      country: (eventData && eventData.country) || "",
     },
     validationSchema: Yup.object({
-      img: Yup.string().required("Please Add Image"),
-      name: Yup.string().required("Please Enter Name"),
-      designation: Yup.string().required("Please Enter Designation"),
-      location: Yup.string().required("Please Enter Location"),
-      email: Yup.string().required("Please Enter Email"),
-      phoneNumber: Yup.string().required("Please Enter Phone Number"),
-      joiningDate: Yup.string().required("Please Enter Joining Date"),
-      status: Yup.string().required("Please Enter Status"),
+      first_name: Yup.string().required("Please Enter first_name"),
+      email: Yup.string().email().required("Please Enter Email"),
     }),
 
     onSubmit: (values) => {
@@ -114,17 +107,12 @@ const ListView = () => {
           id: eventData ? eventData.id : 0,
           ...values,
         };
-        // update user
         dispatch(onUpdateUserList(updateUser));
+        dispatch(onGetUserList());
       } else {
         const newUser = {
           ...values,
-          id: (Math.floor(Math.random() * (30 - 20)) + 20).toString(),
-          userId:
-            "#TW15000" +
-            (Math.floor(Math.random() * (30 - 20)) + 20).toString(),
         };
-        // save new user
         dispatch(onAddUserList(newUser));
       }
       toggle();
@@ -235,7 +223,7 @@ const ListView = () => {
       },
       {
         header: "Rol",
-        accessorKey: "joiningDate",
+        accessorKey: "job_position",
         enableColumnFilter: false,
       },
       {
@@ -426,7 +414,7 @@ const ListView = () => {
                     id="userId"
                     className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
                     disabled
-                    value={validation.values.userId || "#TW1500004"}
+                    value={validation.values.ID || "#TW1500004"}
                   />
                 </div>
 
@@ -439,17 +427,17 @@ const ListView = () => {
                   </label>
                   <input
                     type="text"
-                    id="designationInput"
+                    id="first_name"
                     className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
                     placeholder="Juan Hernandez"
-                    name="designation"
+                    name="first_name"
                     onChange={validation.handleChange}
-                    value={validation.values.designation || ""}
+                    value={validation.values.first_name || ""}
                   />
-                  {validation.touched.designation &&
-                  validation.errors.designation ? (
+                  {validation.touched.first_name &&
+                  validation.errors.first_name ? (
                     <p className="text-red-400">
-                      {validation.errors.designation}
+                      {validation.errors.first_name}
                     </p>
                   ) : null}
                 </div>
@@ -464,38 +452,67 @@ const ListView = () => {
                     Pais
                   </label>
 
-                  <select className="form-select border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200">
-                    <option defaultValue="true">Seleccionar pais</option>
-                    <option value="1">Peru</option>
-                    <option value="2">Colombia</option>
-                    <option value="3">Panama</option>
+                  <select
+                    className="form-select border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
+                    name="country"
+                    required
+                    onChange={validation.handleChange}
+                    value={validation.values.country || ""}
+                  >
+                    {/* Si hay un valor seleccionado en `validation.values.country`, lo mostramos como primera opción */}
+                    {validation.values.country ? (
+                      <option value={validation.values.country}>
+                        {countries.find(
+                          (country) =>
+                            country.text === validation.values.country
+                        )?.text || "País"}
+                      </option>
+                    ) : (
+                      <option value="" disabled hidden>
+                        País
+                      </option>
+                    )}
+
+                    {/* Mapeo de todas las opciones */}
+                    {countries
+                      .filter((c) => c.text !== validation.values.country) // Filtramos para no duplicar la opción seleccionada
+                      .map((c) => (
+                        <option key={c.value} value={c.text}>
+                          {c.text}
+                        </option>
+                      ))}
                   </select>
 
                   {validation.touched.status && validation.errors.status ? (
                     <p className="text-red-400">{validation.errors.status}</p>
                   ) : null}
                 </div>
-                <div className="mb-5">
-                  <label
-                    htmlFor="phoneNumberInput"
-                    className="inline-block mb-2 text-base font-medium"
-                  >
-                    Phone Number
-                  </label>
-                  <input
-                    type="text"
-                    id="phoneNumberInput"
-                    className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
-                    placeholder="12345 67890"
-                    name="phoneNumber"
-                    onChange={validation.handleChange}
-                    value={validation.values.phoneNumber || ""}
+
+                <div className="mb-5  pt-7">
+                  <PhoneInput
+                    name="phone"
+                    defaultCountry={"pe"}
+                    placeholder="(0) 053 555 555"
+                    value={validation.values.phone}
+                    onChange={(phoneValue) =>
+                      validation.setFieldValue("phone", phoneValue)
+                    }
+                    onBlur={() => validation.setFieldTouched("phone")} // Marca el campo como tocado al perder el foco
+                    countrySelectorStyleProps={{
+                      buttonStyle: {
+                        width: 50,
+                        backgroundColor: "#EAEEF3",
+                      },
+                    }}
+                    inputStyle={{
+                      width: 300,
+                    }}
+                    style={{
+                      width: 270,
+                    }}
                   />
-                  {validation.touched.phoneNumber &&
-                  validation.errors.phoneNumber ? (
-                    <p className="text-red-400">
-                      {validation.errors.phoneNumber}
-                    </p>
+                  {validation.touched.phone && validation.errors.phone ? (
+                    <p className="text-red-400">{validation.errors.phone}</p>
                   ) : null}
                 </div>
               </div>
@@ -508,7 +525,7 @@ const ListView = () => {
                     Correo electronico
                   </label>
                   <input
-                    type="email"
+                    type="text"
                     id="emailInput"
                     className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
                     placeholder="Example@pit.net"
@@ -522,22 +539,25 @@ const ListView = () => {
                 </div>
                 <div className="mb-5">
                   <label
-                    htmlFor="emailInput"
+                    htmlFor="job_positionInput"
                     className="inline-block mb-2 text-base font-medium"
                   >
                     Cargo
                   </label>
                   <input
-                    type="email"
-                    id="emailInput"
+                    type="text"
+                    id="job_positionInput"
                     className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
                     placeholder="Gerente general"
-                    name="email"
+                    name="job_position"
                     onChange={validation.handleChange}
-                    value={validation.values.email || ""}
+                    value={validation.values.job_position || ""}
                   />
-                  {validation.touched.email && validation.errors.email ? (
-                    <p className="text-red-400">{validation.errors.email}</p>
+                  {validation.touched.job_position &&
+                  validation.errors.job_position ? (
+                    <p className="text-red-400">
+                      {validation.errors.job_position}
+                    </p>
                   ) : null}
                 </div>
               </div>
