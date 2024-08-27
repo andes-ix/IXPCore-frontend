@@ -31,6 +31,7 @@ import { capitalizeFirstLetter } from "Common/utils";
 import { AlertTypeEnum } from "Common/constants/alertType.enum";
 import { CustomAlert } from "Common/Components/CustomAlert/customAlert";
 import { apiClientWithAuth } from "services";
+import { TwoStepsComponent } from "pages/AuthenticationInner/TwoSteps/TwoStepComponent";
 
 interface IAuthUser {
   ID?: Number;
@@ -191,7 +192,11 @@ const UserProfile = () => {
         title={titleAlert}
         msg={msgAlert}
       />
-      <div className="flex pl-5 pr-6 pt-11 gap-3 justify-between p container-fluid group-data-[content=boxed]:max-w-boxed mx-auto">
+      <div
+        className={`${
+          isSmallScreen ? "flex flex-col" : "flex"
+        } pl-5 pt-11 gap-3 justify-between p container-fluid group-data-[content=boxed]:max-w-boxed mx-auto`}
+      >
         <div className={isSmallScreen ? "flex flex-col" : "flex"}>
           <div className="grid grid-cols-1 gap-x-5 xl:grid-cols-1">
             <Title
@@ -233,12 +238,6 @@ const UserProfile = () => {
                       alt=""
                       className="w-[60px] h-[60px] bg-blue-600 rounded-full img-thumbnail"
                     />
-                    {/* <span className="cursor-pointer">
-                      <div className=" flex items-center justify-center rounded-full size-8 bg-white absolute top-5 right-3  transform translate-x-1/2 translate-y-1/2">
-                        {" "}
-                        <ImagePlus size={15} color={GREY100} />
-                      </div>
-                    </span> */}
                   </div>
                   <div className="text-slate-500 w-[60%] p-4 dark:text-zink-200">
                     <Title
@@ -441,69 +440,9 @@ const UserProfile = () => {
               </div>
             </div>
           </div>
-          <div className=" w-[35%]">
-            <div className="flex gap-4 ">
-              <div className="flex items-center rounded-md size-50 justify-center bg-white">
-                <LockKeyhole color={BLUE10} height={10} width={20} />
-              </div>
-              <Title size={"big"} color={GREY150} text={"Seguridad"} />
-            </div>
-
-            <Text
-              className="pt-5"
-              size={"medium"}
-              color={GREY150}
-              bold={"semi-bold"}
-              text={"Verificación en dos pasos"}
-            />
-            <Text
-              color={GREY100}
-              className="pt-1"
-              text={"Protege tu cuenta con la verificación en dos pasos"}
-            />
-            <div className="flex gap-4 pt-6">
-              <div className="bg-[#CDDC01] h-9 w-9 rounded-full flex items-center justify-center">
-                <Text size={"big"} color="white" text="1"></Text>
-              </div>
-              <div className="">
-                <Text
-                  color={GREY100}
-                  text={
-                    "La verificación en dos pasos es un nivel añadido de seguridad, "
-                  }
-                />
-                <Text
-                  color={GREY100}
-                  text={
-                    "ya que solicita un código cada vez que inicias sesión en un dispositivo nuevo."
-                  }
-                />
-              </div>
-            </div>
-            <div className="flex gap-4 pt-6">
-              <div className="bg-[#CDDC01] h-9 w-9 rounded-full flex items-center justify-center">
-                <Text size={"big"} color="white" text="2"></Text>
-              </div>
-              <div className="">
-                <Text
-                  color={GREY100}
-                  text={
-                    "Tu aplicación de autenticación nos permite añadir un nivel de verificación "
-                  }
-                />
-                <Text color={GREY100} text={"extra para proteger tu cuenta."} />
-              </div>
-            </div>
-
-            <div className="flex pt-10 w-full sm:w-auto">
-              <button
-                type="button"
-                className=" text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20 mb-5"
-              >
-                <span className="align-middle">Configurar</span>
-              </button>
-            </div>
-          </div>
+        </div>
+        <div className="w-full lg:w-[45%] md:w-[100%] flex flex-col pl-10 pr-10 ">
+          <TwoStepsComponent />
         </div>
       </div>
     </React.Fragment>

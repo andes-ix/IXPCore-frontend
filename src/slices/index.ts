@@ -42,6 +42,8 @@ import UsersReducer from "./users/reducer";
 // Groups
 import GroupsReducer from "./groups/reducer";
 
+import TwoStepReducer from "./TwoStep/reducer";
+
 const rootReducer = combineReducers({
   Layout: LayoutReducer,
   Login: LoginReducer,
@@ -57,6 +59,7 @@ const rootReducer = combineReducers({
   Invoice: InvoiceReducer,
   Users: UsersReducer,
   Groups: GroupsReducer,
+  TwoStep: TwoStepReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
