@@ -86,21 +86,54 @@ const PasswordConfig = ({ email }: PasswordConfigProps) => {
     );
   };
 
+  const handleShowAlertTime = () => {
+    SetShowAlerts(!showAlert);
+  };
+
   const handleSubmit = async (event: any) => {
     event.preventDefault();
     if (String(password) === String(confirmPassword)) {
       try {
-        await apiClient.post("/v2/password_reset/change_password/", {
-          email: email,
-          password1: password,
-          password2: confirmPassword,
-        });
+        const data = await apiClient.post(
+          "/v2/password_reset/change_password/",
+          {
+            email: email,
+            password1: password,
+            password2: confirmPassword,
+          }
+        );
+
+        if (data) {
+          SetShowAlerts(true);
+          SetAlertType(AlertTypeEnum.SUCCESS);
+          SetTitleAlert(
+            <Title
+              color={GREY100}
+              bold={"bold"}
+              size={"normal-bg"}
+              text="Correo electrónico enviado satisfactoriamente"
+            ></Title>
+          );
+          SetMsgAlert(
+            <Text
+              color={"#008446"}
+              text={
+                "Ingresa al sistema con tus credenciales de acceso para empezar a disfrutar los beneficios de nuestro PCP."
+              }
+            ></Text>
+          );
+          const timer = setTimeout(() => {
+            handleShowAlertTime();
+            navigate("/login"); // Cambia "/ruta-deseada" por la ruta a la que deseas redirigir
+          }, 5000);
+        }
+        // navigate("/login");
 
         return true;
       } catch (error) {
         const { response } = error as any;
         SetShowAlerts(true);
-        SetAlertType(alertType);
+        SetAlertType(AlertTypeEnum.ERROR);
         if (response?.status === 400) {
           SetTitleAlert(
             <Title
@@ -183,7 +216,7 @@ const PasswordConfig = ({ email }: PasswordConfigProps) => {
   return (
     <React.Fragment>
       <CustomAlert
-        type={AlertTypeEnum.ERROR}
+        type={alertType}
         show={showAlert}
         handleShowAlert={handleShowAlert}
         title={titleAlert}
@@ -195,8 +228,8 @@ const PasswordConfig = ({ email }: PasswordConfigProps) => {
             <div>
               <img src={"/img/logo.webp"} alt="PIT" width={80} height={94} />
             </div>
-            <Title 
-            bold={"semi-bold"}
+            <Title
+              bold={"semi-bold"}
               size={"medium"}
               color={GREY100}
               className="pt-6 font-public font-semibold "

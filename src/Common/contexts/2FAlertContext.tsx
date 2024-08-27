@@ -57,7 +57,7 @@ export const Alert2FProvider: React.FC<Alert2FProviderProps> = ({
         const timeoutId = setTimeout(() => {
           setShowAlert(true);
           localStorage.setItem("alert2FShow", "true");
-        }, 12000); // 120000 ms = 2 minutos
+        }, 120000); // 120000 ms = 2 minutos
 
         return () => clearTimeout(timeoutId);
       }
