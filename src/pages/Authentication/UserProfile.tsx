@@ -192,7 +192,11 @@ const UserProfile = () => {
         title={titleAlert}
         msg={msgAlert}
       />
-      <div className="flex pl-5 pr-6 pt-11 gap-3 justify-between p container-fluid group-data-[content=boxed]:max-w-boxed mx-auto">
+      <div
+        className={`${
+          isSmallScreen ? "flex flex-col" : "flex"
+        } pl-5 pt-11 gap-3 justify-between p container-fluid group-data-[content=boxed]:max-w-boxed mx-auto`}
+      >
         <div className={isSmallScreen ? "flex flex-col" : "flex"}>
           <div className="grid grid-cols-1 gap-x-5 xl:grid-cols-1">
             <Title
@@ -436,9 +440,9 @@ const UserProfile = () => {
               </div>
             </div>
           </div>
-          <div className=" w-[35%]">
-            <TwoStepsComponent />
-          </div>
+        </div>
+        <div className="w-full lg:w-[45%] md:w-[100%] flex flex-col pl-10 pr-10 ">
+          <TwoStepsComponent />
         </div>
       </div>
     </React.Fragment>
