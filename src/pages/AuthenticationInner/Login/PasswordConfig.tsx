@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { apiClient } from "services";
 import { AlertTypeEnum } from "Common/constants/alertType.enum";
 import { CustomAlert } from "Common/Components/CustomAlert/customAlert";
+import { termsAndCondition } from "./termsAndConditionText";
 
 interface PasswordConfigProps {
   email?: string;
@@ -18,7 +19,7 @@ const PasswordConfig = ({ email }: PasswordConfigProps) => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setCorfimPasswordVisible] = useState(false);
-  const [extraLargeModal, setExtraLargeModal] = useState(false);
+  const [extraLargeModal, setExtraLargeModal] = useState(true);
   const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
   const [isSubmitConfirmDisabled, setIsSubmitConfirmDisabled] = useState(true);
   const [showAlert, SetShowAlerts] = useState<boolean>(false);
@@ -406,7 +407,7 @@ const PasswordConfig = ({ email }: PasswordConfigProps) => {
         id="extraLargeModal"
         modal-center="true"
         className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4"
-        dialogClassName="w-screen lg:w-[40rem] bg-white shadow rounded-md dark:bg-zink-600 flex flex-col h-full"
+        dialogClassName="w-screen lg:w-[42rem] bg-white shadow rounded-md dark:bg-zink-600 flex flex-col h-full"
       >
         <Modal.Body>
           <Title
@@ -415,9 +416,15 @@ const PasswordConfig = ({ email }: PasswordConfigProps) => {
             className=" pl-10 pt-10 pr-10 pb-5"
           />
           <div className="max-h-[calc(theme('height.screen')_-_250px)] p-10 overflow-y-auto">
-            <Text text="PIT PERU S.A.C, identificada con número de RUC 20605039546, domiciliada en Cal. Mártir José Olaya 129, Distrito de Miraflores, provincia de Lima, es una persona jurídica de derecho privado, dedicada a (…)1 . Pone a disposición de sus clientes incluyendo a los usuarios de la página web www.(...).pe el presente términos y condiciones." />
-            <Text text="PIT PERU S.A.C, identificada con número de RUC 20605039546, domiciliada en Cal. Mártir José Olaya 129, Distrito de Miraflores, provincia de Lima, es una persona jurídica de derecho privado, dedicada a (…)1 . Pone a disposición de sus clientes incluyendo a los usuarios de la página web www.(...).pe el presente términos y condiciones." />
-            {/* Más texto aquí */}
+            {termsAndCondition.map((term: any) => (
+              <Text
+                color={term?.color}
+                size={term?.size}
+                bold={term?.bold}
+                className={term?.className}
+                text={term?.text}
+              />
+            ))}
           </div>
         </Modal.Body>
         <Modal.Footer>
@@ -431,7 +438,12 @@ const PasswordConfig = ({ email }: PasswordConfigProps) => {
                   value=""
                 />
                 <label htmlFor="checkboxDefault22" className="align-middle">
-                  <Text text="Acepto el presente TERMINOS Y CONDICIONES DE PIT PERÚ”" />
+                  <Text
+                    color={GREY150}
+                    bold={"bold"}
+                    size={"medium"}
+                    text="Acepto el presente TERMINOS Y CONDICIONES DE PIT PERÚ"
+                  />
                 </label>
               </div>
             </div>
