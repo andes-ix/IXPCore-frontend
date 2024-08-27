@@ -29,7 +29,6 @@ import {
 import { ChevronRight, ImagePlus, LockKeyhole } from "lucide-react";
 import { capitalizeFirstLetter } from "Common/utils";
 import { AlertTypeEnum } from "Common/constants/alertType.enum";
-import useAlert from "Common/hooks/useAlert";
 import { CustomAlert } from "Common/Components/CustomAlert/customAlert";
 import { apiClientWithAuth } from "services";
 

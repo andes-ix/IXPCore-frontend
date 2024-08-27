@@ -13,7 +13,7 @@ const GroupsSlice = createSlice({
   extraReducers: (builder) => {
     // List
     builder.addCase(getGroupsList.fulfilled, (state: any, action: any) => {
-      state.userList = action.payload;
+      state.groupList = action.payload;
     });
     builder.addCase(getGroupsList.rejected, (state: any, action: any) => {
       state.error = action.payload.error || null;

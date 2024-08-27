@@ -7,7 +7,6 @@ export const getGroupsList = createAsyncThunk(
   async () => {
     try {
       const { data } = await apiClientWithAuth.get("/v1/groups/");
-      console.log(" ========= groups =========", data);
       return data;
     } catch (error) {
       return error;

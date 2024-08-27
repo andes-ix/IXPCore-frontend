@@ -23,14 +23,20 @@ import {
   addUserList as onAddUserList,
   updateUserList as onUpdateUserList,
   deleteUserList as onDeleteUserList,
+  getGroupsList as onGetGroupList,
 } from "slices/thunk";
 import { ToastContainer } from "react-toastify";
 import filterDataBySearch from "Common/filterDataBySearch";
 import { Title } from "Common/Components/Title/titleComponent";
-import { BLUE10, GREY100, GREY150 } from "Common/constants/colors";
+import { BLUE10, GREY100, GREY150, RED100 } from "Common/constants/colors";
 import { PhoneInput } from "react-international-phone";
 
+import { AlertTypeEnum } from "Common/constants/alertType.enum";
+import { useAlert } from "Common/Components/Alert/AlertProvider";
+import { apiClientWithAuth } from "services/apiService";
+
 const ListView = () => {
+  const { showAlert } = useAlert();
   const dispatch = useDispatch<any>();
 
   const selectDataList = createSelector(
@@ -40,8 +46,17 @@ const ListView = () => {
     })
   );
 
+  const selectGroupList = createSelector(
+    (state: any) => state.Groups,
+    (group) => ({
+      groupList: group.groupList,
+    })
+  );
+
   const { userList } = useSelector(selectDataList);
+  const { groupList } = useSelector(selectGroupList);
   const [user, setUser] = useState<any>([]);
+  const [groups, setGroups] = useState<any>([]);
   const [eventData, setEventData] = useState<any>();
 
   const [show, setShow] = useState<boolean>(false);
@@ -50,11 +65,13 @@ const ListView = () => {
   // Get Data
   useEffect(() => {
     dispatch(onGetUserList());
+    dispatch(onGetGroupList());
   }, [dispatch]);
 
   useEffect(() => {
     setUser(userList);
-  }, [userList]);
+    setGroups(groupList);
+  }, [userList, groupList]);
 
   // Delete Modal
   const [deleteModal, setDeleteModal] = useState<boolean>(false);
@@ -78,14 +95,13 @@ const ListView = () => {
 
   // Update Data
   const handleUpdateDataClick = (ele: any) => {
-    setEventData({ ...ele });
+    setEventData({ ...ele, rol: ele?.groups?.find((ele: unknown) => ele) });
     setIsEdit(true);
     setShow(true);
   };
 
   // validation
   const validation: any = useFormik({
-    // enableReinitialize : use this flag when initial values needs to be changed
     enableReinitialize: true,
 
     initialValues: {
@@ -95,27 +111,102 @@ const ListView = () => {
       phone: (eventData && eventData.phone) || "",
       job_position: (eventData && eventData.job_position) || "",
       country: (eventData && eventData.country) || "",
+      rol: (eventData && eventData.rol) || "",
     },
     validationSchema: Yup.object({
       first_name: Yup.string().required("Please Enter first_name"),
       email: Yup.string().email().required("Please Enter Email"),
     }),
 
-    onSubmit: (values) => {
-      if (isEdit) {
-        const updateUser = {
-          id: eventData ? eventData.id : 0,
-          ...values,
-        };
-        dispatch(onUpdateUserList(updateUser));
-        dispatch(onGetUserList());
-      } else {
-        const newUser = {
-          ...values,
-        };
-        dispatch(onAddUserList(newUser));
+    onSubmit: async (values) => {
+      try {
+        if (isEdit) {
+          const updateUser = {
+            id: eventData ? eventData.id : 0,
+            groups: values.rol
+              ? [Number(values.rol)]
+              : eventData?.rol
+              ? [Number(eventData.rol)]
+              : [],
+            ...values,
+          };
+
+          const {
+            email,
+            first_name,
+            phone,
+            country,
+            job_position,
+            ID,
+            groups,
+          } = updateUser;
+          const { data } = await apiClientWithAuth.patch(`/v1/user/${ID}/`, {
+            email,
+            first_name,
+            phone,
+            country,
+            job_position,
+            groups,
+          });
+          if (data) {
+            showAlert(
+              AlertTypeEnum.SUCCESS,
+              <Title
+                color={GREY100}
+                bold={"bold"}
+                size={"normal-bg"}
+                text="Usuario actualizado satisfactoriamente"
+              ></Title>,
+              <Text color={"#008446"} text={""}></Text>
+            );
+            dispatch(onGetGroupList());
+            dispatch(onGetUserList());
+          }
+        } else {
+          // dispatch(onAddUserList(newUser));
+          const { email, first_name, phone, country, job_position } = values;
+          const { data } = await apiClientWithAuth.post(`/v1/user/`, {
+            email,
+            first_name,
+            last_name: "",
+            password: "12345678",
+            phone,
+            country,
+            job_position,
+          });
+          if (data) {
+            showAlert(
+              AlertTypeEnum.SUCCESS,
+              <Title
+                color={GREY100}
+                bold={"bold"}
+                size={"normal-bg"}
+                text="Usuario creado satisfactoriamente"
+              ></Title>,
+              <Text color={"#008446"} text={""}></Text>
+            );
+            dispatch(onGetGroupList());
+            dispatch(onGetUserList());
+          }
+        }
+        toggle();
+      } catch (error) {
+        showAlert(
+          AlertTypeEnum.ERROR,
+          <Title
+            color={GREY100}
+            bold={"bold"}
+            size={"normal-bg"}
+            text="Ha ocurrido un problema inesperado o de conexión"
+          ></Title>,
+          <Text
+            color={RED100}
+            text={
+              "Por favor, verifica tu conexión a internet e inténtalo nuevamente. Si el problema persiste, contacta a nuestro soporte técnico."
+            }
+          ></Text>
+        );
       }
-      toggle();
     },
   });
 
@@ -177,30 +268,12 @@ const ListView = () => {
         enableColumnFilter: false,
         cell: (cell: any) => (
           <div className="flex items-center gap-2">
-            {/* <div className="flex items-center justify-center size-10 font-medium rounded-full shrink-0 bg-slate-200 text-slate-800 dark:text-zink-50 dark:bg-zink-600">
-              {cell.row.original.img ? (
-                <img
-                  src={cell.row.original.img}
-                  alt=""
-                  className="h-10 rounded-full"
-                />
-              ) : (
-                cell
-                  .getValue()
-                  .split(" ")
-                  .map((word: any) => word.charAt(0))
-                  .join("")
-              )}
-            </div> */}
             <div className="grow">
               <h6 className="mb-1">
                 <Link to="#!" className="name">
                   {cell.getValue()}
                 </Link>
               </h6>
-              {/* <p className="text-slate-500 dark:text-zink-200">
-                {cell.row.original.designation}
-              </p> */}
             </div>
           </div>
         ),
@@ -221,10 +294,21 @@ const ListView = () => {
         accessorKey: "job_position",
         enableColumnFilter: false,
       },
+
       {
         header: "Rol",
-        accessorKey: "job_position",
+        accessorKey: "groups",
         enableColumnFilter: false,
+        cell: (cell: any) => {
+          const groupIds = cell.getValue();
+          const groupNames = groupIds?.map((groupId: number) => {
+            const group = groups?.find(
+              (g: any) => String(g.ID) === String(groupId)
+            );
+            return group ? group.name : groupId;
+          });
+          return <span>{groupNames.join(", ")}</span>;
+        },
       },
       {
         header: "Operación",
@@ -273,7 +357,7 @@ const ListView = () => {
         ),
       },
     ],
-    []
+    [groups]
   );
 
   return (
@@ -459,7 +543,6 @@ const ListView = () => {
                     onChange={validation.handleChange}
                     value={validation.values.country || ""}
                   >
-                    {/* Si hay un valor seleccionado en `validation.values.country`, lo mostramos como primera opción */}
                     {validation.values.country ? (
                       <option value={validation.values.country}>
                         {countries.find(
@@ -577,16 +660,34 @@ const ListView = () => {
                 ></Text>
                 <div className="mb-3 pt-2">
                   <label
-                    htmlFor="statusSelect"
+                    htmlFor="rolInput"
                     className="inline-block mb-2 text-base font-medium"
                   >
                     Rol
                   </label>
-                  <select className="form-select border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200">
+                  <select
+                    className="form-select border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
+                    name="rol"
+                    id="rolInput"
+                    onChange={validation.handleChange}
+                    value={validation.values.rol || ""}
+                  >
                     <option defaultValue="true">Seleccionar rol</option>
-                    <option value="1">Finanzas</option>
-                    <option value="2">Soporte</option>
+                    {!validation.values.rol ? (
+                      <option value="" disabled hidden>
+                        Rol
+                      </option>
+                    ) : null}
+
+                    {groups
+                      // Filtramos para no duplicar la opción seleccionada
+                      .map((c: any) => (
+                        <option key={c.ID} value={c.ID}>
+                          {c.name}
+                        </option>
+                      ))}
                   </select>
+
                   {validation.touched.status && validation.errors.status ? (
                     <p className="text-red-400">{validation.errors.status}</p>
                   ) : null}

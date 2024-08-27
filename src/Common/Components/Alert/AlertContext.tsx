@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState } from "react";
 
 export interface AlertContextType {
   isAlert: boolean;
@@ -11,7 +11,9 @@ const AlertContext = createContext<AlertContextType | undefined>(undefined);
 export const useAlertContext = () => {
   const context = useContext(AlertContext);
   if (context === undefined) {
-    throw new Error('useAlertContext must be used within a AlertContextProvider');
+    throw new Error(
+      "useAlertContext must be used within a AlertContextProvider"
+    );
   }
   return context;
 };
@@ -22,7 +24,11 @@ interface AlertContextProviderProps {
   Component?: any;
 }
 
-export const AlertContextProvider: React.FC<AlertContextProviderProps> = ({ children, className, Component }) => {
+export const AlertContextProvider: React.FC<AlertContextProviderProps> = ({
+  children,
+  className,
+  Component,
+}) => {
   const [isAlert, setIsAlert] = useState<boolean>(true);
 
   const handleAlertToggle = () => {

@@ -3,16 +3,16 @@ import { CustomAlert } from "Common/Components/CustomAlert/customAlert";
 import useAlert from "Common/hooks/useAlert"; // Asegúrate de importar correctamente el hook
 
 const GlobalAlert: React.FC = () => {
-  const { alertState, hideAlert } = useAlert();
+  const { alertState, showAlert, hideAlert } = useAlert();
+
+  if (!alertState.show) return null;
 
   return (
-    <CustomAlert
-      type={alertState.type}
-      show={alertState.show}
-      handleShowAlert={hideAlert}
-      title={alertState.title}
-      msg={alertState.msg}
-    />
+    <div className={`alert ${alertState.type}`}>
+      <h2>{alertState.title}</h2>
+      <p>{alertState.msg}</p>
+      <button onClick={hideAlert}>Close</button>
+    </div>
   );
 };
 

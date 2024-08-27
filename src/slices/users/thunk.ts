@@ -1,9 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { useAlert } from "Common/Components/Alert/AlertProvider";
 
 import {
-  getUserList as getUserListApi,
-  addUserList as addUserListApi,
-  updateUserList as updateUserListApi,
   deleteUserList as deleteUserListApi,
   getUserGrid as getUserGridApi,
   addUserGrid as addUserGridApi,
@@ -36,6 +34,7 @@ export const addUserList = createAsyncThunk(
         country,
         job_position,
       });
+
       return data;
     } catch (error) {
       toast.error("User Added Failed", { autoClose: 2000 });
@@ -45,15 +44,17 @@ export const addUserList = createAsyncThunk(
 );
 export const updateUserList = createAsyncThunk(
   "users/updateUserList",
-  async (values: any) => {
+  async (values: any, extra: any) => {
     try {
-      const { email, first_name, phone, country, job_position, ID } = values;
+      const { email, first_name, phone, country, job_position, ID, groups } =
+        values;
       const { data } = await apiClientWithAuth.patch(`/v1/user/${ID}/`, {
         email,
         first_name,
         phone,
         country,
         job_position,
+        groups,
       });
 
       toast.success("User updated Successfully", { autoClose: 2000 });

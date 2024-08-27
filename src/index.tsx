@@ -6,8 +6,9 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { configureStore } from "@reduxjs/toolkit";
 import rootReducer from "./slices";
-import GlobalAlert from "Common/Components/GlobalAlert/globalAlert";
+
 import { Alert2FProvider } from "Common/contexts/2FAlertContext";
+import { AlertProvider } from "Common/Components/Alert/AlertProvider";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -16,10 +17,11 @@ const store = configureStore({ reducer: rootReducer, devTools: true });
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <GlobalAlert />
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Alert2FProvider>
-          <App />
+          <AlertProvider>
+            <App />
+          </AlertProvider>
         </Alert2FProvider>
       </BrowserRouter>
     </Provider>
