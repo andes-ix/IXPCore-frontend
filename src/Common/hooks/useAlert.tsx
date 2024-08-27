@@ -22,6 +22,7 @@ const useAlert = () => {
       title: JSX.Element | string,
       msg: JSX.Element | string
     ) => {
+      console.log("Showing alert", { type, title, msg });
       setAlertState({
         show: true,
         type,

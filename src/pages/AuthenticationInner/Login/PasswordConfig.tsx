@@ -133,7 +133,7 @@ const PasswordConfig = ({ email }: PasswordConfigProps) => {
       } catch (error) {
         const { response } = error as any;
         SetShowAlerts(true);
-        SetAlertType(alertType);
+        SetAlertType(AlertTypeEnum.ERROR);
         if (response?.status === 400) {
           SetTitleAlert(
             <Title
