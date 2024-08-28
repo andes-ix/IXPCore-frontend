@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Title } from "Common/Components/Title/titleComponent";
 import { Text } from "Common/Components/Text/textComponent";
 import { GREY10, GREY100, GREY150, RED100 } from "Common/constants/colors";
@@ -8,29 +8,57 @@ import { useNavigate } from "react-router-dom";
 import { apiClient } from "services";
 import { AlertTypeEnum } from "Common/constants/alertType.enum";
 import { CustomAlert } from "Common/Components/CustomAlert/customAlert";
+import { termsAndConditionText } from "./termsAndConditionText";
+import { useDispatch, useSelector } from "react-redux";
+import { createSelector } from "reselect";
+
+import { getTermsAndConditionsStatus as onGetTermsAndConditionsStatus } from "slices/thunk";
+import { useAlert } from "Common/Components/Alert/AlertProvider";
 
 interface PasswordConfigProps {
   email?: string;
 }
 const PasswordConfig = ({ email }: PasswordConfigProps) => {
+  const { showAlert } = useAlert();
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [termsAndConditionStatus, SetTermsAndConditionStatus] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setCorfimPasswordVisible] = useState(false);
   const [extraLargeModal, setExtraLargeModal] = useState(false);
   const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
   const [isSubmitConfirmDisabled, setIsSubmitConfirmDisabled] = useState(true);
-  const [showAlert, SetShowAlerts] = useState<boolean>(false);
-  const [msgAlert, SetMsgAlert] = useState<JSX.Element | string>("");
-  const [titleAlert, SetTitleAlert] = useState<JSX.Element | string>("");
-  const [alertType, SetAlertType] = useState<AlertTypeEnum>(
-    AlertTypeEnum.SUCCESS
-  );
-  const handleShowAlert = (event: any) => {
-    SetShowAlerts(!showAlert);
-    return;
+
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
   };
+
+  const dispatch = useDispatch<any>();
+
+  const termsAndConditionDataList = createSelector(
+    (state: any) => state.TermsAndConditions,
+    (TermsAndConditions) => ({
+      termsAndCondition: TermsAndConditions.termsAndCondition,
+    })
+  );
+
+  const { termsAndCondition } = useSelector(termsAndConditionDataList);
+
+  useEffect(() => {
+    if (email) {
+      dispatch(onGetTermsAndConditionsStatus(email));
+    }
+  }, [dispatch, email]);
+
+  useEffect(() => {
+    if (termsAndCondition && typeof termsAndCondition.accept !== "undefined") {
+      SetTermsAndConditionStatus(termsAndCondition?.accept);
+      setExtraLargeModal(!termsAndCondition?.accept);
+    }
+  }, [termsAndCondition]);
 
   // Validations state
   const [validations, setValidations] = useState({
@@ -86,13 +114,46 @@ const PasswordConfig = ({ email }: PasswordConfigProps) => {
     );
   };
 
-  const handleShowAlertTime = () => {
-    SetShowAlerts(!showAlert);
+  const validateSubmit = () => {
+    let isValid = true;
+    if (String(password) !== String(confirmPassword)) {
+      isValid = false;
+      showAlert(
+        AlertTypeEnum.ERROR,
+        <Title
+          color={GREY100}
+          bold={"bold"}
+          size={"normal-bg"}
+          text="Las contraseñas no coinciden"
+        ></Title>,
+        <p className={`text-[#DC363C] text-base `} style={{ fontSize: 12 }}>
+          Verifique que los datos ingresados coincidan
+        </p>
+      );
+    } else if (!termsAndConditionStatus) {
+      showAlert(
+        AlertTypeEnum.ERROR,
+        <Title
+          color={GREY100}
+          bold={"bold"}
+          size={"normal-bg"}
+          text="No a aceptado los terminos y condiciones"
+        ></Title>,
+        <p className={`text-[#DC363C] text-base `} style={{ fontSize: 12 }}>
+          Para continuar debe aceptar los terminos y condiciones
+        </p>
+      );
+      isValid = false;
+      const timer = setTimeout(() => {
+        setExtraLargeModal(true);
+      }, 5000);
+    }
+    return isValid;
   };
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-    if (String(password) === String(confirmPassword)) {
+    if (validateSubmit()) {
       try {
         const data = await apiClient.post(
           "/v2/password_reset/change_password/",
@@ -104,17 +165,14 @@ const PasswordConfig = ({ email }: PasswordConfigProps) => {
         );
 
         if (data) {
-          SetShowAlerts(true);
-          SetAlertType(AlertTypeEnum.SUCCESS);
-          SetTitleAlert(
+          showAlert(
+            AlertTypeEnum.SUCCESS,
             <Title
               color={GREY100}
               bold={"bold"}
               size={"normal-bg"}
-              text="Correo electrónico enviado satisfactoriamente"
-            ></Title>
-          );
-          SetMsgAlert(
+              text="Configuración de contraseña exitosa"
+            ></Title>,
             <Text
               color={"#008446"}
               text={
@@ -123,41 +181,36 @@ const PasswordConfig = ({ email }: PasswordConfigProps) => {
             ></Text>
           );
           const timer = setTimeout(() => {
-            handleShowAlertTime();
             navigate("/login"); // Cambia "/ruta-deseada" por la ruta a la que deseas redirigir
           }, 5000);
         }
-        // navigate("/login");
 
         return true;
       } catch (error) {
         const { response } = error as any;
-        SetShowAlerts(true);
-        SetAlertType(AlertTypeEnum.ERROR);
+
         if (response?.status === 400) {
-          SetTitleAlert(
+          showAlert(
+            AlertTypeEnum.ERROR,
             <Title
               color={GREY100}
               bold={"bold"}
               size={"normal-bg"}
               text="Correo electrónico incorrecto"
-            ></Title>
-          );
-          SetMsgAlert(
+            ></Title>,
             <p className={`text-[#DC363C] text-base `} style={{ fontSize: 12 }}>
               Por favor, verifica tus datos e inténtalo nuevamente.
             </p>
           );
         } else {
-          SetTitleAlert(
+          showAlert(
+            AlertTypeEnum.ERROR,
             <Title
               color={GREY100}
               bold={"bold"}
               size={"normal-bg"}
               text="Ha ocurrido un problema inesperado o de conexión"
-            ></Title>
-          );
-          SetMsgAlert(
+            ></Title>,
             <Text
               color={RED100}
               text={
@@ -169,30 +222,55 @@ const PasswordConfig = ({ email }: PasswordConfigProps) => {
 
         return false; // Indica que la solicitud falló
       }
-    } else {
-      SetShowAlerts(true);
-      SetAlertType(AlertTypeEnum.ERROR);
+    }
+  };
 
-      SetTitleAlert(
+  const handleAcceptTermsAndConditions = async (event: any) => {
+    event.preventDefault();
+    if (!isChecked) {
+      showAlert(
+        AlertTypeEnum.ERROR,
         <Title
           color={GREY100}
           bold={"bold"}
           size={"normal-bg"}
-          text="Las contraseñas no coinciden"
-        ></Title>
-      );
-      SetMsgAlert(
+          text="No a seleccionado aceptar los terminos y condiciones "
+        ></Title>,
         <p className={`text-[#DC363C] text-base `} style={{ fontSize: 12 }}>
-          Verifique que los datos ingresados coincidan
+          Para continuar debe aceptar los terminos y condiciones
         </p>
       );
+      return false;
     }
-  };
-
-  const handleAcceptTermsAndConditions = (event: any) => {
-    event.preventDefault();
-    extraLargeToggle();
-    navigate("/dashboard");
+    try {
+      const { data } = await apiClient.post(
+        "/v1/kvu2/accept_terms_and_conditions/",
+        {
+          email,
+        }
+      );
+      if (data) {
+        SetTermsAndConditionStatus(true);
+        setIsChecked(true);
+        setExtraLargeModal(false);
+      }
+    } catch (error) {
+      showAlert(
+        AlertTypeEnum.ERROR,
+        <Title
+          color={GREY100}
+          bold={"bold"}
+          size={"normal-bg"}
+          text="Ha ocurrido un problema inesperado o de conexión"
+        ></Title>,
+        <Text
+          color={RED100}
+          text={
+            "Por favor, verifica tu conexión a internet e inténtalo nuevamente. Si el problema persiste, contacta a nuestro soporte técnico."
+          }
+        ></Text>
+      );
+    }
   };
 
   const circleValidation = (text: string, validation: boolean) => {
@@ -215,13 +293,6 @@ const PasswordConfig = ({ email }: PasswordConfigProps) => {
 
   return (
     <React.Fragment>
-      <CustomAlert
-        type={alertType}
-        show={showAlert}
-        handleShowAlert={handleShowAlert}
-        title={titleAlert}
-        msg={msgAlert}
-      />
       <div className="flex flex-col w-[100%] h-[90%] pt-10 ">
         <div className="rounded">
           <div className="bg-white pt-10 pl-10 pr-10 rounded-t-lg">
@@ -406,7 +477,7 @@ const PasswordConfig = ({ email }: PasswordConfigProps) => {
         id="extraLargeModal"
         modal-center="true"
         className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4"
-        dialogClassName="w-screen lg:w-[40rem] bg-white shadow rounded-md dark:bg-zink-600 flex flex-col h-full"
+        dialogClassName="w-screen lg:w-[42rem] bg-white shadow rounded-md dark:bg-zink-600 flex flex-col h-full"
       >
         <Modal.Body>
           <Title
@@ -415,9 +486,15 @@ const PasswordConfig = ({ email }: PasswordConfigProps) => {
             className=" pl-10 pt-10 pr-10 pb-5"
           />
           <div className="max-h-[calc(theme('height.screen')_-_250px)] p-10 overflow-y-auto">
-            <Text text="PIT PERU S.A.C, identificada con número de RUC 20605039546, domiciliada en Cal. Mártir José Olaya 129, Distrito de Miraflores, provincia de Lima, es una persona jurídica de derecho privado, dedicada a (…)1 . Pone a disposición de sus clientes incluyendo a los usuarios de la página web www.(...).pe el presente términos y condiciones." />
-            <Text text="PIT PERU S.A.C, identificada con número de RUC 20605039546, domiciliada en Cal. Mártir José Olaya 129, Distrito de Miraflores, provincia de Lima, es una persona jurídica de derecho privado, dedicada a (…)1 . Pone a disposición de sus clientes incluyendo a los usuarios de la página web www.(...).pe el presente términos y condiciones." />
-            {/* Más texto aquí */}
+            {termsAndConditionText.map((term: any) => (
+              <Text
+                color={term?.color}
+                size={term?.size}
+                bold={term?.bold}
+                className={term?.className}
+                text={term?.text}
+              />
+            ))}
           </div>
         </Modal.Body>
         <Modal.Footer>
@@ -429,9 +506,16 @@ const PasswordConfig = ({ email }: PasswordConfigProps) => {
                   className="size-4 border rounded-sm appearance-none cursor-pointer bg-slate-100 border-slate-200 dark:bg-zink-600 dark:border-zink-500 checked:bg-[#1BD699] checked:border-green-500 dark:checked:bg-green-500 dark:checked:border-green-500 checked:disabled:bg-green-400 checked:disabled:border-green-400"
                   type="checkbox"
                   value=""
+                  checked={isChecked}
+                  onChange={handleCheckboxChange}
                 />
                 <label htmlFor="checkboxDefault22" className="align-middle">
-                  <Text text="Acepto el presente TERMINOS Y CONDICIONES DE PIT PERÚ”" />
+                  <Text
+                    color={GREY150}
+                    bold={"bold"}
+                    size={"medium"}
+                    text="Acepto el presente TERMINOS Y CONDICIONES DE PIT PERÚ"
+                  />
                 </label>
               </div>
             </div>

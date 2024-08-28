@@ -37,3 +37,5 @@ export * from "./users/thunk";
 export * from "./groups/thunk";
 
 export * from "./TwoStep/thunk";
+
+export * from "./termsAndConditions/thunk";
