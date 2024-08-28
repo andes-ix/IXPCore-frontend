@@ -11,3 +11,6 @@ export const GREY150 = "#59626A";
 // RED COLORS
 export const RED10 = "#FFE6E6";
 export const RED100 = "#FB516D";
+
+// GREEN
+export const GREEN100 = "#33E692";
