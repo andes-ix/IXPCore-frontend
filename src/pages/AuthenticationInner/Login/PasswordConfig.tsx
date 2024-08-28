@@ -474,7 +474,6 @@ const PasswordConfig = ({ email }: PasswordConfigProps) => {
       <Modal
         show={extraLargeModal}
         onHide={(e: any) => {
-          console.log("e.target.id ====", e.target.id);
           if (e.target.id === "backDropDiv") return; // Ignora clics en el fondo
           extraLargeToggle();
         }}
