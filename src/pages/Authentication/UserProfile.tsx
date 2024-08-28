@@ -424,12 +424,19 @@ const UserProfile = () => {
                 <div
                   className={`border-t w-[100%] bg-[${GREY20}] border-slate-200 card-body dark:border-zink-500`}
                 >
-                  <Text
-                    color={BLUE10}
-                    size={"normal"}
-                    className="pt-4"
-                    text="Autogestión de contraseña: Cambio de contraseña"
-                  ></Text>
+                  <span
+                    className="cursor-pointer"
+                    onClick={() => {
+                      console.log("le diste click");
+                    }}
+                  >
+                    <Text
+                      color={BLUE10}
+                      size={"normal"}
+                      className="pt-4"
+                      text="Autogestión de contraseña: Cambio de contraseña"
+                    ></Text>
+                  </span>
                   <Text
                     color={GREY150}
                     size={"normal"}
