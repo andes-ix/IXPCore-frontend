@@ -13,7 +13,6 @@ const TwoStepSlice = createSlice({
   extraReducers: (builder) => {
     // List
     builder.addCase(getTwoStepStatus.fulfilled, (state: any, action: any) => {
-      console.log("si haces la peticion ====", action.payload);
       state.twoStep = action.payload;
     });
     builder.addCase(getTwoStepStatus.rejected, (state: any, action: any) => {

@@ -1,6 +1,6 @@
 import { GREY150 } from "Common/constants/colors";
 
-export const termsAndCondition = [
+export const termsAndConditionText = [
   {
     text: `PIT PERU S.A.C, identificada con número de RUC 20605039546, domiciliada en Cal. 
 Mártir José Olaya 129, Distrito de Miraflores, provincia de Lima, es una persona jurídica 

@@ -20,7 +20,6 @@ apiClientWithAuth.interceptors.request.use(
     let token = localStorage.getItem("token") as any;
 
     token = JSON.parse(token);
-    console.log(" token ======", token);
 
     if (token) {
       config.headers.Authorization = `token ${token}`;
