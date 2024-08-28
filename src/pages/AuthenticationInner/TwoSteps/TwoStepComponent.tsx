@@ -2,8 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Copy, LockKeyhole } from "lucide-react";
 import { Title } from "Common/Components/Title/titleComponent";
 import { Text } from "Common/Components/Text/textComponent";
-import { BLUE10, GREY100, GREY150, RED100 } from "Common/constants/colors";
-import { apiClient, apiClientWithAuth } from "services";
+import {
+  BLUE10,
+  GREEN100,
+  GREY100,
+  GREY150,
+  RED100,
+} from "Common/constants/colors";
+import { apiClientWithAuth } from "services";
 import { createSelector } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
 import { getTwoStepStatus as onGetTwoStepStatus } from "slices/thunk";
@@ -139,7 +145,6 @@ export const TwoStepsComponent = () => {
         `v1/users/generate-authenticator/`
       );
       if (data) {
-        console.log(data?.qr_base64.trim());
         SetQr(data?.qr_base64);
         SetOtpCode(getSecretFromOtpUrl(data?.otp_code) || "");
       }
@@ -180,16 +185,20 @@ export const TwoStepsComponent = () => {
           />
         </div>
         {twoStepStatus && (
-          <div className="  bg-[#33E692] text-white flex items-center justify-center w-28  rounded-full ml-10 h-10 mt-5">
-            <Text text={"Activado"}></Text>
+          <div
+            className={`bg-[${GREEN100}] text-white flex items-center justify-center w-28  rounded-full ml-10 h-10 mt-5`}
+          >
+            <Text size={"medium"} bold={"semi-bold"} text={"Activado"}></Text>
           </div>
         )}
       </div>
 
+      <div></div>
+
       {twoStepStatus && (
-        <div>
+        <div className={` w-[100%] card-body dark:border-zink-500`}>
           <Text
-            className="w-96 pt-10 pb-10"
+            className="w-96 pt-10 mt-10 pb-10 border-t  border-slate-200 "
             color={GREY150}
             text={
               "Usa los códigos generados por tu aplicación de autenticación para iniciar sesión cada vez que ingreses en un dispositivo no asociado a tu cuenta de usuario."
