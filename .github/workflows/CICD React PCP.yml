@@ -28,7 +28,6 @@ jobs:
           port: 22
           connect_timeout: 15s
           script: |
-            #source /home/pcp_user/.bashrc
             /home/pcp_user/update_pcp_frontend.sh
 
       - uses: actions/checkout@v3
