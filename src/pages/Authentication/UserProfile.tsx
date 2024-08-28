@@ -26,12 +26,16 @@ import {
   GREY20,
   RED100,
 } from "Common/constants/colors";
-import { ChevronRight, ImagePlus, LockKeyhole } from "lucide-react";
+
 import { capitalizeFirstLetter } from "Common/utils";
 import { AlertTypeEnum } from "Common/constants/alertType.enum";
 import { CustomAlert } from "Common/Components/CustomAlert/customAlert";
 import { apiClientWithAuth } from "services";
 import { TwoStepsComponent } from "pages/AuthenticationInner/TwoSteps/TwoStepComponent";
+import CustomModalComponent, {
+  TypeModalEnum,
+} from "Common/Components/CustomModal/customModalComponent";
+import PasswordConfigForm from "pages/AuthenticationInner/Login/PasswordConfigForm";
 
 interface IAuthUser {
   ID?: Number;
@@ -46,10 +50,9 @@ const UserProfile = () => {
   //meta title
 
   document.title = "Profile | Skote - React Admin & Dashboard Template";
-
-  const dispatch = useDispatch<any>();
   const [authUser, setAuthUser] = useState<any>();
   const [showAlert, SetShowAlerts] = useState<boolean>(false);
+  const [showModal, SetShowModal] = useState<boolean>(false);
 
   const [msgAlert, SetMsgAlert] = useState<JSX.Element | string>("");
   const [titleAlert, SetTitleAlert] = useState<JSX.Element | string>("");
@@ -57,18 +60,13 @@ const UserProfile = () => {
     AlertTypeEnum.SUCCESS
   );
 
+  const handleShowModal = () => {
+    SetShowModal(!showModal);
+  };
+
   const handleShowAlert = () => {
     SetShowAlerts(!showAlert);
   };
-
-  const selectProperties = createSelector(
-    (state: any) => state.Profile,
-    (profile) => ({
-      user: profile.user,
-      error: profile.error,
-      success: profile.success,
-    })
-  );
 
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 640);
   useEffect(() => {
@@ -424,12 +422,7 @@ const UserProfile = () => {
                 <div
                   className={`border-t w-[100%] bg-[${GREY20}] border-slate-200 card-body dark:border-zink-500`}
                 >
-                  <span
-                    className="cursor-pointer"
-                    onClick={() => {
-                      console.log("le diste click");
-                    }}
-                  >
+                  <span className="cursor-pointer" onClick={handleShowModal}>
                     <Text
                       color={BLUE10}
                       size={"normal"}
@@ -452,6 +445,17 @@ const UserProfile = () => {
           <TwoStepsComponent />
         </div>
       </div>
+      <CustomModalComponent
+        size={TypeModalEnum.NORMAL}
+        showModal={showModal}
+        handleShowModal={handleShowModal}
+        body={
+          <PasswordConfigForm
+            email={authUser?.email}
+            handleSubmitSuccessfull={handleShowModal}
+          />
+        }
+      ></CustomModalComponent>
     </React.Fragment>
   );
 };
