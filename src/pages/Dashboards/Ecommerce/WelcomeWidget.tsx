@@ -781,7 +781,7 @@ const WelcomeWidget = () => {
           <div className="grid items-center grid-cols-12">
             <div className="col-span-12 lg:col-span-8 2xl:col-span-7">
               <h5 className="mb-3 font-normal tracking-wide text-slate-200">
-                Welcome Paula Keenan 🎉
+                Welcome Claudia🎉
               </h5>
               <p className="mb-5 text-slate-400">
                 An ecommerce dashboard has just that purpose. It provides your
