@@ -1,0 +1,72 @@
+name: Continuous Integration and Delivery
+
+on:
+  push:
+    branches: [ development, stage]
+  pull_request:
+    branches: [ development, stage]
+
+
+jobs:
+
+  build_development:
+    if: github.ref == 'refs/heads/development'
+    name: Build react development
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v3
+
+      - name: ssh pipelines
+        uses: cross-the-world/ssh-pipeline@master
+        env:
+          WELCOME: "SSH Conection"
+        with:
+          host: ${{ secrets.host }}
+          user: ${{ secrets.usuario }}
+          pass: ${{ secrets.clave }}
+          port: 22
+          connect_timeout: 15s
+          script: |
+            source /home/pcp_user/.bashrc
+            /home/pcp_user/update_pcp_frontend.sh
+
+      - uses: actions/checkout@v3
+      - name: Slack Notification
+        uses: MultiFiber/github-action-slack-notify@master
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_MESSAGE: Se actualizo desarrollo/demo en ${{ secrets.host }}
+          SLACK_FOOTER: Enviado automaticamente desde github
+
+
+  build_stage:
+    if: github.ref == 'refs/heads/stage'
+    name: Build react stage
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v3
+
+      - name: ssh pipelines
+        uses: cross-the-world/ssh-pipeline@master
+        env:
+          WELCOME: "ssh pipeline"
+        with:
+          host: ${{ secrets.host }}
+          user: ${{ secrets.usuario }}
+          pass: ${{ secrets.clave }}
+          port: 22
+          connect_timeout: 10s
+          script: |
+            source /home/pcp_user/.bashrc
+            /home/pcp_user/update_pcp_frontend.sh
+
+      #Paso para indicar en slack que se actualizo el servidor
+      - uses: actions/checkout@v3
+      - name: Slack Notification
+        uses: MultiFiber/github-action-slack-notify@master
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_MESSAGE: Se actualizo demo en ${{ secrets.host }}
+          SLACK_FOOTER: Enviado automaticamente desde github          
