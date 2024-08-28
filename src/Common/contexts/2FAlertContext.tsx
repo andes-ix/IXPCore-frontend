@@ -11,6 +11,9 @@ import { Title } from "Common/Components/Title/titleComponent";
 import { Text } from "Common/Components/Text/textComponent";
 import { BLUE10, GREY100, RED100 } from "Common/constants/colors";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { createSelector } from "@reduxjs/toolkit";
+import { getTwoStepStatus as onGetTwoStepStatus } from "slices/thunk";
 
 interface Alert2FContextProps {
   showAlert: boolean;
@@ -40,7 +43,30 @@ export const Alert2FProvider: React.FC<Alert2FProviderProps> = ({
   const alert2FShow = localStorage.getItem("alert2FShow") ? true : false;
   const authUser = authUserRaw ? JSON.stringify(authUserRaw) : null;
   const navigation = useNavigate();
+  const [twoStepStatus, SetTwoStepStatus] = useState<Boolean>(false);
   const [showAlert, setShowAlert] = useState<boolean>(false);
+
+  const dispatch = useDispatch<any>();
+
+  const selectDataTwoStep = createSelector(
+    (state: any) => state.TwoStep,
+    (twoStep) => ({
+      twoStepStatusData: twoStep.twoStep,
+    })
+  );
+
+  const { twoStepStatusData } = useSelector(selectDataTwoStep);
+
+  useEffect(() => {
+    dispatch(onGetTwoStepStatus());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (twoStepStatusData?.success) {
+      SetTwoStepStatus(twoStepStatusData?.success);
+    }
+  }, [twoStepStatusData]);
+
   const handleShowAlert = (event: any) => {
     setShowAlert(!showAlert);
     return;
@@ -55,9 +81,11 @@ export const Alert2FProvider: React.FC<Alert2FProviderProps> = ({
     if (authUser) {
       if (!alert2FShow) {
         const timeoutId = setTimeout(() => {
-          setShowAlert(true);
+          if (!twoStepStatus) {
+            setShowAlert(true);
+          }
           localStorage.setItem("alert2FShow", "true");
-        }, 120000); // 120000 ms = 2 minutos
+        }, 5000); // 120000 ms = 2 minutos
 
         return () => clearTimeout(timeoutId);
       }
