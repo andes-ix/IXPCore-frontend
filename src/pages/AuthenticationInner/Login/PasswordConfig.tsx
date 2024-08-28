@@ -473,7 +473,11 @@ const PasswordConfig = ({ email }: PasswordConfigProps) => {
       {/* Modal */}
       <Modal
         show={extraLargeModal}
-        onHide={extraLargeToggle}
+        onHide={(e: any) => {
+          console.log("e.target.id ====", e.target.id);
+          if (e.target.id === "backDropDiv") return; // Ignora clics en el fondo
+          extraLargeToggle();
+        }}
         id="extraLargeModal"
         modal-center="true"
         className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4"
@@ -528,9 +532,14 @@ const PasswordConfig = ({ email }: PasswordConfigProps) => {
                 Cancelar
               </button>
               <button
+                disabled={!isChecked}
                 onClick={handleAcceptTermsAndConditions}
                 type="button"
-                className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20"
+                className={`text-white ${
+                  !isChecked
+                    ? "btn bg-[#9EC3E4] border-[#9EC3E4] cursor-not-allowed"
+                    : " bg-custom-500 border-custom-500 btn hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20"
+                }  `}
               >
                 Aceptar
               </button>
