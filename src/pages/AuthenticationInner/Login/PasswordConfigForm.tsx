@@ -516,7 +516,7 @@ const PasswordConfig = ({
                       }`}
                       disabled={code ? false : true}
                     >
-                      Guardar
+                      Enviar
                     </button>
                   </div>
                 </form>
