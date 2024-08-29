@@ -197,6 +197,7 @@ import Faqs from "pages/Pages/Faqs";
 import ContactUs from "pages/Pages/ContactUs";
 import LoginPasswordRecover from "pages/AuthenticationInner/Login/LoginPasswordRecovery";
 import LoginPasswordConfig from "pages/AuthenticationInner/Login/LoginPasswordConfig";
+import ListCount  from "pages/HRManagement/Payroll/ListCount";
 
 interface RouteObject {
   path: string;
@@ -239,6 +240,9 @@ const authProtectedRoutes: Array<RouteObject> = [
   { path: "/plugins-swiper-slider", component: SwiperSlider },
   { path: "/plugins-scroll-hint", component: ScrollHint },
   { path: "/plugins-video-player", component: VideoPlayer },
+
+  //count
+  { path: "/list-count-view", component: ListCount },
 
   // navigation
   { path: "/navigation-navbars", component: NavBars },

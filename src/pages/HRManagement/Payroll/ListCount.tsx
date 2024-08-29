@@ -5,6 +5,8 @@ import { Dropdown } from "Common/Components/Dropdown";
 import TableContainer from "Common/TableContainer";
 import { Text } from "Common/Components/Text/textComponent";
 import countries from "Common/constants/countries.json";
+import Tab from "Common/Components/Tab/Tab";
+import { Nav } from "Common/Components/Tab/Nav";
 
 // Icons
 import { Search, MoreHorizontal } from "lucide-react";
@@ -34,8 +36,9 @@ import { PhoneInput } from "react-international-phone";
 import { AlertTypeEnum } from "Common/constants/alertType.enum";
 import { useAlert } from "Common/Components/Alert/AlertProvider";
 import { apiClientWithAuth } from "services/apiService";
+import Flatpickr from "react-flatpickr";
 
-const ListView = () => {
+const ListCount = () => {
   const { showAlert } = useAlert();
   const dispatch = useDispatch<any>();
 
@@ -366,26 +369,84 @@ const ListView = () => {
         <ul className="flex flex-wrap items-center gap-2 mb-3 text-sm font-normal justify-end pt-4 ">
           <li className=" relative before:content-['\ea54'] before:font-remix before:ltr:-right-1 before:rtl:-left-1 before:absolute before:text-[18px] before:-top-[3px] ltr:pr-4 rtl:pl-4 before:rtl:rotate-180 before:text-[#168EEA] dark:before:text-zink-200">
             <a href="#!" className="text-slate-500 dark:text-zink-200">
-              <Text size={"medium"} text={"Usuarios"} color={BLUE10}></Text>
+              <Text size={"medium"} text={"Cuenta"} color={BLUE10}></Text>
             </a>
           </li>
           <li className="text-slate-700 dark:text-zink-100">
             <Text
               size={"medium"}
-              text={"Listado de usuarios"}
+              text={"Estado de cuenta"}
               color={BLUE10}
             ></Text>
           </li>
         </ul>
         <Title
           size={"medium"}
-          text={"Listado de usuarios"}
+          text={"Estado de cuenta"}
+          bold={"normal"}
+          color={GREY150}
+        />
+         <Title
+          size={"normal"}
+          text={"Cliente #TW1500001"}
+          bold={"bold"}
+          color={BLUE10}
+          className="pb-6"
+        />
+       
+       <div className="card ">
+                <div className="card-body">
+                    <div className="grid grid-cols-1 gap-5 2xl:grid-cols-12">
+                        <div className="2xl:col-span-5 pt-4">
+                        <Title
+                          size={"normal-xl"}
+                          text={"Balance"}
+                          bold={"normal"}
+                          color={GREY150}
+                        />
+                            <h5 className="mb-1" style={{
+                              color:"#51626E",
+                              fontSize:"22px",
+                            }}>S/. 3127,00<small className="font-normal text-slate-500 dark:text-zink-200">/ mes</small></h5>
+                            <p className="text-slate-500 dark:text-zink-200" style={{
+                              color:"#51626E",
+                              fontSize:"12px",
+                              fontWeight:"200",
+                            }}>Valor presentado en base (Sol)</p>
+                        </div>
+                        <div className="2xl:col-span-5 2xl:col-start-8">
+                            <div className="overflow-x-auto">
+                                <table className="w-full">
+                                    <tbody>
+                                        <tr >
+                                            <td className="px-3.5 first:pl-0 last:pr-0 py-2 border-y border-transparent font-semibold">Detracción pendiente</td>
+                                            <td className={`px-3.5 first:pl-0 last:pr-0 py-2 border-y border-transparent font-bold text-[${BLUE10}]`}>S/. 1127,00</td>
+                                        </tr>
+                                        <tr >
+                                            <td className="px-3.5 first:pl-0 last:pr-0 py-2 border-y border-transparent font-semibold">Total deuda</td>
+                                            <td className={`px-3.5 first:pl-0 last:pr-0 py-2 border-y border-transparent font-bold text-[${BLUE10}]`}>S/. 53127,00</td>
+                                        </tr>
+                                        <tr >
+                                            <td className="px-3.5 first:pl-0 last:pr-0 py-2 border-y border-transparent font-semibold">Fecha de vencimiento</td>
+                                            <td className={`px-3.5 first:pl-0 last:pr-0 py-2 border-y border-transparent font-bold text-[${BLUE10}]`}>05 de Abril 2024</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <Title
+          size={"normal-xl"}
+          text={"Últimos movimientos"}
           bold={"normal"}
           color={GREY150}
         />
         <div className="pt-2 pb-1">
           <p className={`text-[#8A8F9C] text-base `}>
-            Listado de usuarios habilitados dentro del sistema.
+          Visualiza el detalle de tus facturas y pagos
           </p>
         </div>
 
@@ -396,27 +457,48 @@ const ListView = () => {
               <div className="!py-3.5 card-body">
                 <form action="#!">
                   <div className="flex justify-between">
-                    <div className="relative pb-5">
-                      <input
-                        type="text"
-                        className=" w-80 ltr:pl-8 rtl:pr-8 search form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
-                        placeholder="Buscar usuario"
-                        autoComplete="off"
-                        onChange={(e) => filterSearchData(e)}
-                      />
-                      <Search className="inline-block size-4 absolute ltr:left-2.5 rtl:right-2.5 top-2.5 text-slate-500 dark:text-zink-200 fill-slate-100 dark:fill-zink-600" />
+                    <div className="relative pb-5" style={{
+                      width:"21%",
+                    }}>
+                            <Flatpickr
+                                options={{
+                                    mode: "range",
+                                    dateFormat: "d M, Y",
+                                }}
+                                placeholder="Select Date"
+                                className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
+                            />
+
                     </div>
 
                     <div className="flex gap-2 xl:justify-end">
-                      <div className="shrink-0">
-                        <button
-                          type="button"
-                          className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20"
-                          onClick={toggle}
-                        >
-                          <span className="align-middle">Agregar usuario</span>
-                        </button>
-                      </div>
+                    <div>
+                        <Tab.Container defaultActiveKey="homePill">
+                            <Nav className="flex flex-wrap w-full text-sm font-medium text-center nav-tabs">
+                                <Nav.Item eventKey="homePill" className="group">
+                                    <a href="#!" data-tab-toggle data-target="homePill" className="inline-block px-4 py-2 text-base transition-all duration-300 ease-linear rounded-md text-slate-500 dark:text-zink-200 border border-transparent group-[.active]:bg-custom-500 group-[.active]:text-white hover:text-custom-500 active:text-custom-500 dark:hover:text-custom-500 dark:active:text-custom-500 dark:group-[.active]:hover:text-white -mb-[1px]">General</a>
+                                </Nav.Item>
+                                <Nav.Item eventKey="profilePill" className="group">
+                                    <a href="#!" data-tab-toggle data-target="profilePill" className="inline-block px-4 py-2 text-base transition-all duration-300 ease-linear rounded-md text-slate-500 dark:text-zink-200 border border-transparent group-[.active]:bg-custom-500 group-[.active]:text-white hover:text-custom-500 active:text-custom-500 dark:hover:text-custom-500 dark:active:text-custom-500 dark:group-[.active]:hover:text-white -mb-[1px]">Facturas</a>
+                                </Nav.Item>
+                                <Nav.Item eventKey="settingPill" className="group">
+                                    <a href="#!" data-tab-toggle data-target="settingPill" className="inline-block px-4 py-2 text-base transition-all duration-300 ease-linear rounded-md text-slate-500 dark:text-zink-200 border border-transparent group-[.active]:bg-custom-500 group-[.active]:text-white hover:text-custom-500 active:text-custom-500 dark:hover:text-custom-500 dark:active:text-custom-500 dark:group-[.active]:hover:text-white -mb-[1px]">Pagos</a>
+                                </Nav.Item>
+                            </Nav>
+
+                            <Tab.Content className="mt-5 tab-content">
+                                <Tab.Pane eventKey="homePill" id="homePill">
+                                    <p className="mb-0">gola</p>
+                                </Tab.Pane>
+                                <Tab.Pane eventKey="profilePill" id="profilePill">
+                                    <p className="mb-0">hola </p>
+                                </Tab.Pane>
+                                <Tab.Pane eventKey="settingPill" id="settingPill">
+                                    <p className="mb-0">dfdf </p>
+                                </Tab.Pane>
+                            </Tab.Content>
+                        </Tab.Container>
+                    </div>
                     </div>
                   </div>
                 </form>
@@ -718,4 +800,4 @@ const ListView = () => {
   );
 };
 
-export default ListView;
+export default ListCount

@@ -35,7 +35,7 @@ const menuData: any = [
       {
         id: "countstate",
         label: "Estado de cuenta",
-        link: "/tables-basic",
+        link: "/list-count-view",
         parentId: "tables",
       },
     ],
