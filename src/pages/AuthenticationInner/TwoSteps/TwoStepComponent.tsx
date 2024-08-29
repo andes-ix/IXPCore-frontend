@@ -186,7 +186,7 @@ export const TwoStepsComponent = () => {
         </div>
         {twoStepStatus && (
           <div
-            className={`bg-[${GREEN100}] text-white flex items-center justify-center w-28  rounded-full ml-10 h-10 mt-5`}
+            className={`bg-[#33E692] text-white flex items-center justify-center w-28  rounded-full ml-10 h-10 mt-5`}
           >
             <Text size={"medium"} bold={"semi-bold"} text={"Activado"}></Text>
           </div>

@@ -32,13 +32,13 @@ interface AlertProps {
   /**
    * Función para manejar el cambio de visibilidad del modal.
    */
-  handleShowModal: () => void;
+  handleShowModal: (() => void) | ((e: any) => void);
 
   /**
    * Tipo de tamaño del modal.
    */
   /**
-   * Tamaño del texto.
+   * TypeModalEnum
    * - `"XSMART"`
    * - `"SMART"`
    * - `"NORMAL"`

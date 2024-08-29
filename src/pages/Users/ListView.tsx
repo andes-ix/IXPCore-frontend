@@ -70,7 +70,7 @@ const ListView = () => {
 
   useEffect(() => {
     setUser(userList);
-    setGroups(groupList);
+    setGroups(groupList || []);
   }, [userList, groupList]);
 
   // Delete Modal
