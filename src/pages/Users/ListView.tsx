@@ -70,7 +70,7 @@ const ListView = () => {
 
   useEffect(() => {
     setUser(userList);
-    setGroups(groupList);
+    setGroups(groupList || []);
   }, [userList, groupList]);
 
   // Delete Modal
@@ -163,17 +163,12 @@ const ListView = () => {
             dispatch(onGetUserList());
           }
         } else {
-          // dispatch(onAddUserList(newUser));
-          const { email, first_name, phone, country, job_position } = values;
-          const { data } = await apiClientWithAuth.post(`/v1/user/`, {
-            email,
-            first_name,
-            last_name: "",
+          const newUser = {
             password: "12345678",
-            phone,
-            country,
-            job_position,
-          });
+            groups: values.rol ? [Number(values.rol)] : [],
+            ...values,
+          };
+          const { data } = await apiClientWithAuth.post(`/v1/user/`, newUser);
           if (data) {
             showAlert(
               AlertTypeEnum.SUCCESS,
@@ -672,7 +667,6 @@ const ListView = () => {
                     onChange={validation.handleChange}
                     value={validation.values.rol || ""}
                   >
-                    <option defaultValue="true">Seleccionar rol</option>
                     {!validation.values.rol ? (
                       <option value="" disabled hidden>
                         Rol

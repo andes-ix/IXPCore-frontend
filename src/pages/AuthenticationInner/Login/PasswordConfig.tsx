@@ -3,17 +3,18 @@ import { Title } from "Common/Components/Title/titleComponent";
 import { Text } from "Common/Components/Text/textComponent";
 import { GREY10, GREY100, GREY150, RED100 } from "Common/constants/colors";
 import { Eye, EyeOff, Check } from "lucide-react";
-import Modal from "Common/Components/Modal";
 import { useNavigate } from "react-router-dom";
 import { apiClient } from "services";
 import { AlertTypeEnum } from "Common/constants/alertType.enum";
-import { CustomAlert } from "Common/Components/CustomAlert/customAlert";
 import { termsAndConditionText } from "./termsAndConditionText";
 import { useDispatch, useSelector } from "react-redux";
 import { createSelector } from "reselect";
 
 import { getTermsAndConditionsStatus as onGetTermsAndConditionsStatus } from "slices/thunk";
 import { useAlert } from "Common/Components/Alert/AlertProvider";
+import CustomModalComponent, {
+  TypeModalEnum,
+} from "Common/Components/CustomModal/customModalComponent";
 
 interface PasswordConfigProps {
   email?: string;
@@ -23,7 +24,7 @@ const PasswordConfig = ({ email }: PasswordConfigProps) => {
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [termsAndConditionStatus, SetTermsAndConditionStatus] = useState(false);
+  const [termsAndConditionStatus, setTermsAndConditionStatus] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setCorfimPasswordVisible] = useState(false);
   const [extraLargeModal, setExtraLargeModal] = useState(false);
@@ -55,8 +56,7 @@ const PasswordConfig = ({ email }: PasswordConfigProps) => {
 
   useEffect(() => {
     if (termsAndCondition && typeof termsAndCondition.accept !== "undefined") {
-      SetTermsAndConditionStatus(termsAndCondition?.accept);
-      setExtraLargeModal(!termsAndCondition?.accept);
+      setTermsAndConditionStatus(termsAndCondition?.accept);
     }
   }, [termsAndCondition]);
 
@@ -75,7 +75,7 @@ const PasswordConfig = ({ email }: PasswordConfigProps) => {
     setCorfimPasswordVisible(!confirmPasswordVisible);
   };
 
-  const extraLargeToggle = () => setExtraLargeModal(!extraLargeModal);
+  const toggleModal = () => setExtraLargeModal(!extraLargeModal);
 
   const handlePasswordChange = (e: any) => {
     const value = e.target.value;
@@ -131,28 +131,17 @@ const PasswordConfig = ({ email }: PasswordConfigProps) => {
         </p>
       );
     } else if (!termsAndConditionStatus) {
-      showAlert(
-        AlertTypeEnum.ERROR,
-        <Title
-          color={GREY100}
-          bold={"bold"}
-          size={"normal-bg"}
-          text="No a aceptado los terminos y condiciones"
-        ></Title>,
-        <p className={`text-[#DC363C] text-base `} style={{ fontSize: 12 }}>
-          Para continuar debe aceptar los terminos y condiciones
-        </p>
-      );
       isValid = false;
-      const timer = setTimeout(() => {
-        setExtraLargeModal(true);
-      }, 5000);
     }
     return isValid;
   };
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
+    if (!termsAndConditionStatus) {
+      toggleModal();
+    }
+
     if (validateSubmit()) {
       try {
         const data = await apiClient.post(
@@ -250,7 +239,7 @@ const PasswordConfig = ({ email }: PasswordConfigProps) => {
         }
       );
       if (data) {
-        SetTermsAndConditionStatus(true);
+        setTermsAndConditionStatus(true);
         setIsChecked(true);
         setExtraLargeModal(false);
       }
@@ -470,83 +459,81 @@ const PasswordConfig = ({ email }: PasswordConfigProps) => {
         </div>
       </div>
 
-      {/* Modal */}
-      <Modal
-        show={extraLargeModal}
-        onHide={(e: any) => {
-          console.log("e.target.id ====", e.target.id);
+      <CustomModalComponent
+        showModal={extraLargeModal}
+        handleShowModal={(e: any) => {
           if (e.target.id === "backDropDiv") return; // Ignora clics en el fondo
-          extraLargeToggle();
+          toggleModal();
         }}
-        id="extraLargeModal"
-        modal-center="true"
-        className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4"
-        dialogClassName="w-screen lg:w-[42rem] bg-white shadow rounded-md dark:bg-zink-600 flex flex-col h-full"
-      >
-        <Modal.Body>
-          <Title
-            size={"medium"}
-            text="Términos y condiciones de uso PIT PERU S.A.C"
-            className=" pl-10 pt-10 pr-10 pb-5"
-          />
-          <div className="max-h-[calc(theme('height.screen')_-_250px)] p-10 overflow-y-auto">
-            {termsAndConditionText.map((term: any) => (
-              <Text
-                color={term?.color}
-                size={term?.size}
-                bold={term?.bold}
-                className={term?.className}
-                text={term?.text}
-              />
-            ))}
-          </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <div className="flex flex-col pt-10 pb-10 pl-10 gap-1">
-            <div className="flex gap-1">
-              <div className="flex items-center gap-2">
-                <input
-                  id="checkboxDefault22"
-                  className="size-4 border rounded-sm appearance-none cursor-pointer bg-slate-100 border-slate-200 dark:bg-zink-600 dark:border-zink-500 checked:bg-[#1BD699] checked:border-green-500 dark:checked:bg-green-500 dark:checked:border-green-500 checked:disabled:bg-green-400 checked:disabled:border-green-400"
-                  type="checkbox"
-                  value=""
-                  checked={isChecked}
-                  onChange={handleCheckboxChange}
+        size={TypeModalEnum.LARGE}
+        body={
+          <>
+            <Title
+              size={"medium"}
+              text="Términos y condiciones de uso PIT PERU S.A.C"
+              className=" pl-10 pt-10 pr-10 pb-5"
+            />
+            <div className="max-h-[calc(theme('height.screen')_-_250px)] p-10 overflow-y-auto">
+              {termsAndConditionText.map((term: any) => (
+                <Text
+                  color={term?.color}
+                  size={term?.size}
+                  bold={term?.bold}
+                  className={term?.className}
+                  text={term?.text}
                 />
-                <label htmlFor="checkboxDefault22" className="align-middle">
-                  <Text
-                    color={GREY150}
-                    bold={"bold"}
-                    size={"medium"}
-                    text="Acepto el presente TERMINOS Y CONDICIONES DE PIT PERÚ"
+              ))}
+            </div>
+          </>
+        }
+        footer={
+          <>
+            <div className="flex flex-col pt-10 pb-10 pl-10 gap-1">
+              <div className="flex gap-1">
+                <div className="flex items-center gap-2">
+                  <input
+                    id="checkboxDefault22"
+                    className="size-4 border rounded-sm appearance-none cursor-pointer bg-slate-100 border-slate-200 dark:bg-zink-600 dark:border-zink-500 checked:bg-[#1BD699] checked:border-green-500 dark:checked:bg-green-500 dark:checked:border-green-500 checked:disabled:bg-green-400 checked:disabled:border-green-400"
+                    type="checkbox"
+                    value=""
+                    checked={isChecked}
+                    onChange={handleCheckboxChange}
                   />
-                </label>
+                  <label htmlFor="checkboxDefault22" className="align-middle">
+                    <Text
+                      color={GREY150}
+                      bold={"bold"}
+                      size={"medium"}
+                      text="Acepto el presente TERMINOS Y CONDICIONES DE PIT PERÚ"
+                    />
+                  </label>
+                </div>
+              </div>
+              <div className="flex justify-end gap-3 pr-8">
+                <button
+                  onClick={toggleModal}
+                  type="button"
+                  className="bg-white text-custom-500 btn hover:text-custom-500 hover:bg-custom-100 focus:text-custom-500 focus:bg-custom-100 active:text-custom-500 active:bg-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500/10 dark:focus:bg-custom-500/10 dark:active:bg-custom-500/10"
+                >
+                  Cancelar
+                </button>
+                <button
+                  disabled={!isChecked}
+                  onClick={handleAcceptTermsAndConditions}
+                  type="button"
+                  className={`text-white ${
+                    !isChecked
+                      ? "btn bg-[#9EC3E4] border-[#9EC3E4] cursor-not-allowed"
+                      : " bg-custom-500 border-custom-500 btn hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20"
+                  }  `}
+                >
+                  Aceptar
+                </button>
               </div>
             </div>
-            <div className="flex justify-end gap-3 pr-8">
-              <button
-                onClick={extraLargeToggle}
-                type="button"
-                className="bg-white text-custom-500 btn hover:text-custom-500 hover:bg-custom-100 focus:text-custom-500 focus:bg-custom-100 active:text-custom-500 active:bg-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500/10 dark:focus:bg-custom-500/10 dark:active:bg-custom-500/10"
-              >
-                Cancelar
-              </button>
-              <button
-                disabled={!isChecked}
-                onClick={handleAcceptTermsAndConditions}
-                type="button"
-                className={`text-white ${
-                  !isChecked
-                    ? "btn bg-[#9EC3E4] border-[#9EC3E4] cursor-not-allowed"
-                    : " bg-custom-500 border-custom-500 btn hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20"
-                }  `}
-              >
-                Aceptar
-              </button>
-            </div>
-          </div>
-        </Modal.Footer>
-      </Modal>
+          </>
+        }
+      ></CustomModalComponent>
     </React.Fragment>
   );
 };
