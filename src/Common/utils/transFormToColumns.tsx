@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Status = ({ item, tableOption }: any) => {
   switch (item) {
-    case "PAYMENT":
+    case "paid":
       return (
         <span className="px-2.5 py-0.5 inline-block text-xs font-medium rounded border bg-green-100 border-transparent text-green-500 dark:bg-green-500/20 dark:border-transparent">
           <div className="flex gap-1 justify-center items-center">
@@ -21,7 +21,7 @@ const Status = ({ item, tableOption }: any) => {
           </div>
         </span>
       );
-    case "PENDING":
+    case "not_paid":
       return (
         <span className="px-2.5 py-0.5 inline-block text-xs font-medium rounded border bg-red-100 border-transparent text-red-500 dark:bg-red-500/20 dark:border-transparent">
           <div className="flex gap-1 justify-center items-center">
@@ -56,11 +56,12 @@ export const transformToColumns = (
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toISOString().split("T")[0]; // Devuelve solo la parte YYYY-MM-DD
+    return date.toISOString().split("T")[0];
   };
 
   if (data?.columns) {
     columnsArray = Object.keys(data?.columns)
+      ?.filter((key) => key !== "ID")
       ?.map((key) => {
         const { field } = data?.columns[key];
 
@@ -69,8 +70,6 @@ export const transformToColumns = (
           accessorKey: field,
           enableColumnFilter: false,
         };
-
-        // Verifica si es un campo de tipo "number" para formatearlo como enlace
         if (field === "number") {
           column = {
             ...column,

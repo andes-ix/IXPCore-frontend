@@ -185,9 +185,9 @@ const ListCount = () => {
                         type="button"
                         className={`${
                           showGeneralTable
-                            ? "text-blue-500  bg-white"
-                            : "text-blue-500"
-                        } btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20`}
+                            ? "btn text-white  bg-blue-600"
+                            : "btn text-blue-500"
+                        }  border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20`}
                         onClick={() => {
                           handleShowOptionTable(tableOptionEnum.GENERAL);
                         }}
@@ -198,8 +198,8 @@ const ListCount = () => {
                         type="button"
                         className={`${
                           showInvoiceTable
-                            ? "text-blue-500  bg-white"
-                            : "text-blue-500"
+                            ? "btn text-white  bg-blue-600"
+                            : "btn text-blue-500"
                         } btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20`}
                         onClick={() => {
                           handleShowOptionTable(tableOptionEnum.INVOICE);
@@ -211,8 +211,8 @@ const ListCount = () => {
                         type="button"
                         className={`${
                           showPaymentTable
-                            ? "text-blue-500  bg-white"
-                            : "text-blue-500"
+                            ? "btn text-white  bg-blue-600"
+                            : "btn text-blue-500"
                         } btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20`}
                         onClick={() => {
                           handleShowOptionTable(tableOptionEnum.PAYMENT);

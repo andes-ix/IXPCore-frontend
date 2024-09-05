@@ -45,6 +45,7 @@ import GroupsReducer from "./groups/reducer";
 import TwoStepReducer from "./TwoStep/reducer";
 import TermsAndConditionsReducer from "./termsAndConditions/reducer";
 import PaymentReducer from "./payments/reducer";
+import GeneralBalanceReducer from "./balanceGeneral/reducer";
 
 const rootReducer = combineReducers({
   Layout: LayoutReducer,
@@ -64,6 +65,7 @@ const rootReducer = combineReducers({
   TwoStep: TwoStepReducer,
   TermsAndConditions: TermsAndConditionsReducer,
   Payments: PaymentReducer,
+  GeneralBalances: GeneralBalanceReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
