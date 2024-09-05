@@ -1,6 +1,4 @@
 import React, { useEffect, useMemo, useState } from "react";
-
-import { Link } from "react-router-dom";
 import CustomTableContainer from "Common/Components/CustomTableContainer/CustomTableContainer";
 import { Search } from "lucide-react";
 
@@ -9,11 +7,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { createSelector } from "reselect";
 
 import {
-  getUserList as onGetUserList,
-  getGroupsList as onGetGroupList,
-  getUserDataTableStruct as onGetUserDataTableStruct,
-  getUserDataTableView as onGetUserDataTableView,
+  getBalanceDataTableStruct as onGetDataTableStruct,
+  getBalanceDataTableView as onGeDataTableView,
 } from "slices/thunk";
+import { transformToColumns } from "Common/utils";
+import { tableOptionEnum } from "Common/constants/tableOption.enum";
+import DrawerInvoiceComponent from "./DrawerInvoiceComponent";
 interface IDataTableView {
   size: number;
   data: any[];
@@ -23,10 +22,10 @@ const GeneralTableComponent = () => {
   const dispatch = useDispatch<any>();
 
   const selectDataList = createSelector(
-    (state: any) => state.Users,
+    (state: any) => state.GeneralBalances,
     (data) => ({
-      dataTableView: data.userDataView,
-      dataTableStruct: data.userDataStruct,
+      dataTableView: data.balanceDataView,
+      dataTableStruct: data.balanceDataStruct,
     })
   );
 
@@ -37,17 +36,17 @@ const GeneralTableComponent = () => {
   const [dataTablePage, setDataTablePage] = useState<number>(0);
 
   const [globalFilter, setGlobalFilter] = useState("");
+  // Modal state
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  const filterSearchData = (e: any) => {
-    setGlobalFilter(e.target.value);
+  const handleDrawerOpen = () => {
+    setIsDrawerOpen(!isDrawerOpen);
   };
 
   // Get Data
   useEffect(() => {
-    dispatch(onGetUserList());
-    dispatch(onGetGroupList());
-    dispatch(onGetUserDataTableStruct());
-    dispatch(onGetUserDataTableView(dataTablePage));
+    dispatch(onGetDataTableStruct());
+    dispatch(onGeDataTableView(dataTablePage));
   }, [dispatch]);
 
   useEffect(() => {
@@ -58,73 +57,29 @@ const GeneralTableComponent = () => {
   const onNextPage = () => {
     const tablePosition = dataTablePage + 1;
     setDataTablePage(tablePosition);
-    dispatch(onGetUserDataTableView(tablePosition));
+    dispatch(onGeDataTableView(tablePosition));
   };
 
   const onPreviousPage = () => {
     if (dataTablePage > 0) {
       const tablePosition = dataTablePage - 1;
       setDataTablePage(tablePosition);
-      dispatch(onGetUserDataTableView(tablePosition));
+      dispatch(onGeDataTableView(tablePosition));
     }
   };
-  //
+
+  const handleLinkClick = async (cellValue: any) => {
+    setIsDrawerOpen(true);
+  };
 
   const columns = useMemo(
-    () => [
-      {
-        header: "ID usuario",
-        accessorKey: "ID",
-        enableColumnFilter: false,
-        cell: (cell: any) => (
-          <Link
-            to="#!"
-            className={`transition-all duration-150 ease-linear text-[#172B4D] hover:text-[#172B4D] user-id`}
-          >
-            {cell.getValue()}
-          </Link>
-        ),
-      },
-      {
-        header: "Nombre completo",
-        accessorKey: "first_name",
-        enableColumnFilter: false,
-        cell: (cell: any) => (
-          <div className="flex items-center gap-2">
-            <div className="grow">
-              <h6 className="mb-1">
-                <Link to="#!" className="name">
-                  {cell.getValue()}
-                </Link>
-              </h6>
-            </div>
-          </div>
-        ),
-      },
-      {
-        header: "Teléfono",
-        accessorKey: "phone",
-        enableColumnFilter: false,
-      },
-      {
-        header: "Correo electrónico",
-        accessorKey: "email",
-        enableColumnFilter: false,
-      },
-
-      {
-        header: "Cargo",
-        accessorKey: "job_position",
-        enableColumnFilter: false,
-      },
-
-      {
-        header: "Rol",
-        accessorKey: "groups",
-        enableColumnFilter: false,
-      },
-    ],
-    []
+    () =>
+      transformToColumns(
+        dataTableStructToList,
+        tableOptionEnum.GENERAL,
+        handleLinkClick
+      ),
+    [dataTableStructToList]
   );
 
   return (
@@ -135,7 +90,7 @@ const GeneralTableComponent = () => {
             <div className="" id="paymentsTable">
               <div className="card-body ">
                 {dataTableViewToList?.data &&
-                dataTableViewToList?.data.length > 0 ? (
+                dataTableViewToList?.data?.length > 0 ? (
                   <CustomTableContainer
                     isPagination={true}
                     columns={columns || []}
@@ -171,6 +126,10 @@ const GeneralTableComponent = () => {
               </div>
             </div>
           </div>
+          <DrawerInvoiceComponent
+            handleDrawerOpen={handleDrawerOpen}
+            isDrawerOpen={isDrawerOpen}
+          />
         </div>
       </div>
     </React.Fragment>

@@ -41,3 +41,4 @@ export * from "./TwoStep/thunk";
 export * from "./termsAndConditions/thunk";
 
 export * from "./payments/thunk";
+export * from "./balanceGeneral/thunk";
