@@ -76,7 +76,7 @@ const GeneralTableComponent = () => {
     () =>
       transformToColumns(
         dataTableStructToList,
-        tableOptionEnum.INVOICE,
+        tableOptionEnum.GENERAL,
         handleLinkClick
       ),
     [dataTableStructToList]
