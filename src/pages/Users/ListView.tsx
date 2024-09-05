@@ -2,7 +2,8 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 import { Link } from "react-router-dom";
 import { Dropdown } from "Common/Components/Dropdown";
-import TableContainer from "Common/TableContainer";
+import CustomTableContainer from "Common/Components/CustomTableContainer/CustomTableContainer";
+
 import { Text } from "Common/Components/Text/textComponent";
 import countries from "Common/constants/countries.json";
 
@@ -20,13 +21,11 @@ import { useFormik } from "formik";
 
 import {
   getUserList as onGetUserList,
-  addUserList as onAddUserList,
-  updateUserList as onUpdateUserList,
-  deleteUserList as onDeleteUserList,
   getGroupsList as onGetGroupList,
+  getUserDataTableStruct as onGetUserDataTableStruct,
+  getUserDataTableView as onGetUserDataTableView,
 } from "slices/thunk";
 import { ToastContainer } from "react-toastify";
-import filterDataBySearch from "Common/filterDataBySearch";
 import { Title } from "Common/Components/Title/titleComponent";
 import { BLUE10, GREY100, GREY150, RED100 } from "Common/constants/colors";
 import { PhoneInput } from "react-international-phone";
@@ -34,6 +33,11 @@ import { PhoneInput } from "react-international-phone";
 import { AlertTypeEnum } from "Common/constants/alertType.enum";
 import { useAlert } from "Common/Components/Alert/AlertProvider";
 import { apiClientWithAuth } from "services/apiService";
+
+interface IDataTableView {
+  size: number;
+  data: any[];
+}
 
 const ListView = () => {
   const { showAlert } = useAlert();
@@ -43,6 +47,8 @@ const ListView = () => {
     (state: any) => state.Users,
     (user) => ({
       userList: user.userList,
+      userDataView: user.userDataView,
+      userDataStruct: user.userDataStruct,
     })
   );
 
@@ -53,29 +59,41 @@ const ListView = () => {
     })
   );
 
-  const { userList } = useSelector(selectDataList);
+  const { userList, userDataView, userDataStruct } =
+    useSelector(selectDataList);
   const { groupList } = useSelector(selectGroupList);
   const [user, setUser] = useState<any>([]);
   const [groups, setGroups] = useState<any>([]);
   const [eventData, setEventData] = useState<any>();
+  const [dataTableStruct, setDataTableStruct] = useState({});
+  const [dataTableView, setDataTableView] = useState<IDataTableView>();
+  const [dataTablePage, setDataTablePage] = useState<number>(0);
 
   const [show, setShow] = useState<boolean>(false);
   const [isEdit, setIsEdit] = useState<boolean>(false);
+  const [globalFilter, setGlobalFilter] = useState("");
+
+  const filterSearchData = (e: any) => {
+    setGlobalFilter(e.target.value);
+  };
 
   // Get Data
   useEffect(() => {
     dispatch(onGetUserList());
     dispatch(onGetGroupList());
+    dispatch(onGetUserDataTableStruct());
+    dispatch(onGetUserDataTableView(dataTablePage));
   }, [dispatch]);
 
   useEffect(() => {
     setUser(userList);
     setGroups(groupList || []);
-  }, [userList, groupList]);
+    setDataTableStruct(userDataStruct);
+    setDataTableView(userDataView);
+  }, [userList, groupList, userDataView, userDataStruct]);
 
   // Delete Modal
   const [deleteModal, setDeleteModal] = useState<boolean>(false);
-  const deleteToggle = () => setDeleteModal(!deleteModal);
 
   // Delete Data
   const onClickDelete = (cell: any) => {
@@ -85,17 +103,25 @@ const ListView = () => {
     }
   };
 
-  const handleDelete = () => {
-    if (eventData) {
-      dispatch(onDeleteUserList(eventData.id));
-      setDeleteModal(false);
+  const onNextPage = () => {
+    const tablePosition = dataTablePage + 1;
+    setDataTablePage(tablePosition);
+    console.log(tablePosition);
+    dispatch(onGetUserDataTableView(tablePosition));
+  };
+
+  const onPreviousPage = () => {
+    if (dataTablePage > 0) {
+      const tablePosition = dataTablePage - 1;
+      setDataTablePage(tablePosition);
+      dispatch(onGetUserDataTableView(tablePosition));
     }
   };
   //
 
   // Update Data
   const handleUpdateDataClick = (ele: any) => {
-    setEventData({ ...ele, rol: ele?.groups?.find((ele: unknown) => ele) });
+    setEventData({ ...ele, rol: ele?.groups });
     setIsEdit(true);
     setShow(true);
   };
@@ -121,16 +147,19 @@ const ListView = () => {
     onSubmit: async (values) => {
       try {
         if (isEdit) {
+          const groupId = groupList.find(
+            (group: any) => String(group?.name) === String(eventData?.groups)
+          )?.ID;
           const updateUser = {
             id: eventData ? eventData.id : 0,
-            groups: values.rol
-              ? [Number(values.rol)]
+            groups: groupId
+              ? [Number(groupId)]
               : eventData?.rol
               ? [Number(eventData.rol)]
               : [],
             ...values,
           };
-
+          console.log("update user ====", updateUser);
           const {
             email,
             first_name,
@@ -235,13 +264,6 @@ const ListView = () => {
     }
   }, [show, validation]);
 
-  // Search Data
-  const filterSearchData = (e: any) => {
-    const search = e.target.value;
-    const keysToSearch = ["name", "designation", "location", "email", "status"];
-    filterDataBySearch(userList, search, keysToSearch, setUser);
-  };
-
   const columns = useMemo(
     () => [
       {
@@ -294,16 +316,6 @@ const ListView = () => {
         header: "Rol",
         accessorKey: "groups",
         enableColumnFilter: false,
-        cell: (cell: any) => {
-          const groupIds = cell.getValue();
-          const groupNames = groupIds?.map((groupId: number) => {
-            const group = groups?.find(
-              (g: any) => String(g.ID) === String(groupId)
-            );
-            return group ? group.name : groupId;
-          });
-          return <span>{groupNames.join(", ")}</span>;
-        },
       },
       {
         header: "Operación",
@@ -352,7 +364,7 @@ const ListView = () => {
         ),
       },
     ],
-    [groups]
+    []
   );
 
   return (
@@ -419,11 +431,18 @@ const ListView = () => {
               {/* tabla con datos de los usuarios */}
               <div className="card-body ">
                 {user && user.length > 0 ? (
-                  <TableContainer
+                  <CustomTableContainer
                     isPagination={true}
                     columns={columns || []}
-                    data={user || []}
+                    data={dataTableView?.data || []}
                     customPageSize={10}
+                    pagePosition={dataTablePage}
+                    size={dataTableView?.size}
+                    onNextPage={onNextPage}
+                    onPreviousPage={onPreviousPage}
+                    isGlobalFilter={true}
+                    globalFilter={globalFilter} // Pasa el valor del filtro global
+                    onGlobalFilterChange={setGlobalFilter}
                     divclassName="overflow-x-auto"
                     tableclassName="w-full border-separate table-custom border-spacing-y-1 whitespace-nowrap"
                     theadclassName="text-left relative rounded-md bg-slate-100 dark:bg-zink-600 after:absolute ltr:after:border-l-2 rtl:after:border-r-2 ltr:after:left-0 rtl:after:right-0 after:top-0 after:bottom-0 after:border-transparent [&.active]:after:border-custom-500 [&.active]:bg-slate-100 dark:[&.active]:bg-zink-600"

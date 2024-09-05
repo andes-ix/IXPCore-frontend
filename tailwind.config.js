@@ -283,5 +283,7 @@ module.exports = {
     require("./plugins/prismjs.js"),
     //apps pages
     require("./plugins/apps.js"),
+    // hide scroll bar
+    require("./plugins/hideScrollbar.js"),
   ],
 };
