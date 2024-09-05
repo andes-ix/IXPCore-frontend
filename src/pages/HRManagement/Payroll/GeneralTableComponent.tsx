@@ -89,8 +89,7 @@ const GeneralTableComponent = () => {
           <div className="xl:col-span-12">
             <div className="" id="paymentsTable">
               <div className="card-body ">
-                {dataTableViewToList?.data &&
-                dataTableViewToList?.data?.length > 0 ? (
+                {dataTableViewToList?.data && (
                   <CustomTableContainer
                     isPagination={true}
                     columns={columns || []}
@@ -111,17 +110,6 @@ const GeneralTableComponent = () => {
                     trclassName={`bg-[white] even:bg-[#F7FAFC]`} // Agrega esta clase para alternar los colores de las filas
                     PaginationClassName="flex flex-col items-center mt-8 md:flex-row"
                   />
-                ) : (
-                  <div className="noresult">
-                    <div className="py-6 text-center">
-                      <Search className="size-6 mx-auto text-sky-500 fill-sky-100 dark:sky-500/20" />
-                      <h5 className="mt-2 mb-1">Sorry! No Result Found</h5>
-                      <p className="mb-0 text-slate-500 dark:text-zink-200">
-                        We've searched more than 199+ users We did not find any
-                        users for you search.
-                      </p>
-                    </div>
-                  </div>
                 )}
               </div>
             </div>
