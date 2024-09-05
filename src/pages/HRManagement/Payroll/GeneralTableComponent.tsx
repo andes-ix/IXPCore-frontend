@@ -58,7 +58,6 @@ const GeneralTableComponent = () => {
   const onNextPage = () => {
     const tablePosition = dataTablePage + 1;
     setDataTablePage(tablePosition);
-    console.log(tablePosition);
     dispatch(onGetUserDataTableView(tablePosition));
   };
 

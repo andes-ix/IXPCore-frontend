@@ -106,7 +106,6 @@ const ListView = () => {
   const onNextPage = () => {
     const tablePosition = dataTablePage + 1;
     setDataTablePage(tablePosition);
-    console.log(tablePosition);
     dispatch(onGetUserDataTableView(tablePosition));
   };
 
@@ -159,7 +158,6 @@ const ListView = () => {
               : [],
             ...values,
           };
-          console.log("update user ====", updateUser);
           const {
             email,
             first_name,
