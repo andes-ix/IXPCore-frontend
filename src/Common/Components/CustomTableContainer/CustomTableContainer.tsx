@@ -235,7 +235,16 @@ const CustomTableContainer = ({
           <tbody className={tbodyclassName}>
             {getRowModel().rows.map((row) => {
               return (
-                <tr key={row.id} className={trclassName}>
+                <tr
+                  key={row.id}
+                  className={`${
+                    row
+                      .getVisibleCells()
+                      .some((cell) => Number(cell.getValue()) < 0)
+                      ? "bg-[#FFF6F6]"
+                      : trclassName
+                  }`}
+                >
                   {row.getVisibleCells().map((cell) => {
                     return (
                       <td key={cell.id} className={tdclassName}>

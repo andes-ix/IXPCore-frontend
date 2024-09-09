@@ -197,7 +197,8 @@ import Faqs from "pages/Pages/Faqs";
 import ContactUs from "pages/Pages/ContactUs";
 import LoginPasswordRecover from "pages/AuthenticationInner/Login/LoginPasswordRecovery";
 import LoginPasswordConfig from "pages/AuthenticationInner/Login/LoginPasswordConfig";
-import ListCount  from "pages/HRManagement/Payroll/ListCount";
+import ListCount from "pages/HRManagement/Payroll/ListCount";
+import ListServices from "pages/Services/ListService";
 
 interface RouteObject {
   path: string;
@@ -268,8 +269,10 @@ const authProtectedRoutes: Array<RouteObject> = [
   { path: "/forms-editor-classic", component: EditorClassic },
 
   // Table
-  { path: "/tables-basic", component: BasicTable },
   { path: "/tables-datatable", component: ReactDataTable },
+
+  //Services
+  { path: "/apps-services-list", component: ListServices },
 
   // Icons
   { path: "/icons-remix", component: RemixIcon },

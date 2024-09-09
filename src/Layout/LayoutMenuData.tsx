@@ -22,7 +22,7 @@ const menuData: any = [
       {
         id: "listservice",
         label: "Listado de servicios",
-        link: "/tables-basic",
+        link: "/apps-services-list",
         parentId: "tables",
       },
     ],
