@@ -4,13 +4,15 @@ import { Text } from "Common/Components/Text/textComponent";
 
 import { ToastContainer } from "react-toastify";
 import { Title } from "Common/Components/Title/titleComponent";
-import { BLUE10, GREY150 } from "Common/constants/colors";
+import { BLUE10, GREY10, GREY150 } from "Common/constants/colors";
 
 import Flatpickr from "react-flatpickr";
 import GeneralTableComponent from "./GeneralTableComponent";
 import InvoiceTableComponent from "./InvoiceTableComponent";
 import PaymentTableComponent from "./paymentTableComponent";
 import { tableOptionEnum } from "Common/constants/tableOption.enum";
+import { Filter } from "lucide-react";
+import CustomDropDownComponent from "Common/Components/CustomDropDown/customDropDownComponent";
 
 const ListCount = () => {
   const [showInvoiceTable, setShowInvoiceTable] = useState<boolean>(false);
@@ -39,10 +41,16 @@ const ListCount = () => {
     }
   };
 
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleCheckboxChange = () => {
+    // setIsChecked(!isChecked);
+  };
+
   return (
     <React.Fragment>
-      <div className="p-4">
-        <ul className="flex flex-wrap items-center gap-2 mb-3 text-sm font-normal justify-end pt-4 ">
+      <div className="pl-1 pr-10 pb-4 pt-4 ">
+        <ul className="flex flex-wrap items-center gap-2 mb-3 text-sm font-normal justify-end pt-4 pr-2 ">
           <li className=" relative before:content-['\ea54'] before:font-remix before:ltr:-right-1 before:rtl:-left-1 before:absolute before:text-[18px] before:-top-[3px] ltr:pr-4 rtl:pl-4 before:rtl:rotate-180 before:text-[#168EEA] dark:before:text-zink-200">
             <a href="#!" className="text-slate-500 dark:text-zink-200">
               <Text size={"medium"} text={"Cuenta"} color={BLUE10}></Text>
@@ -56,21 +64,23 @@ const ListCount = () => {
             ></Text>
           </li>
         </ul>
-        <Title
-          size={"medium"}
-          text={"Estado de cuenta"}
-          bold={"normal"}
-          color={GREY150}
-        />
-        <Title
-          size={"normal"}
-          text={"Cliente #TW1500001"}
-          bold={"bold"}
-          color={BLUE10}
-          className="pb-6"
-        />
+        <div className="pl-5">
+          <Title
+            size={"medium"}
+            text={"Estado de cuenta"}
+            bold={"normal"}
+            color={GREY150}
+          />
+          <Title
+            size={"normal"}
+            text={"Cliente #TW1500001"}
+            bold={"bold"}
+            color={BLUE10}
+            className="pb-6"
+          />
+        </div>
 
-        <div className="card ">
+        <div className="card ml-5 mr-2">
           <div className="card-body">
             <div className="grid grid-cols-1 gap-5 2xl:grid-cols-12">
               <div className="2xl:col-span-5 pt-4">
@@ -145,27 +155,28 @@ const ListCount = () => {
           </div>
         </div>
 
-        <Title
-          size={"normal-xl"}
-          text={"Últimos movimientos"}
-          bold={"normal"}
-          color={GREY150}
-        />
-        <div className="pt-2 pb-1">
-          <p className={`text-[#8A8F9C] text-base `}>
-            Visualiza el detalle de tus facturas y pagos
-          </p>
+        <div className="pl-5 pt-5">
+          <Title
+            size={"normal-xl"}
+            text={"Últimos movimientos"}
+            bold={"normal"}
+            color={GREY150}
+          />
+          <div className="pt-2 pb-1">
+            <p className={`text-[#8A8F9C] text-base `}>
+              Visualiza el detalle de tus facturas y pagos
+            </p>
+          </div>
         </div>
-
         <ToastContainer closeButton={false} limit={1} />
         <div className="grid grid-cols-1 gap-x-5 xl:grid-cols-12">
           <div className="xl:col-span-12">
             <div className="" id="usersTable">
               <div className="!py-3.5 card-body">
                 <form action="#!">
-                  <div className="flex justify-between">
+                  <div className="flex justify-between pl-5 pr-10">
                     <div
-                      className="relative pb-5"
+                      className="relative pb-5 flex gap-1"
                       style={{
                         width: "21%",
                       }}
@@ -177,6 +188,59 @@ const ListCount = () => {
                         }}
                         placeholder="Select Date"
                         className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
+                      />
+                      <CustomDropDownComponent
+                        trigger={
+                          <span
+                            className={`bg-[${BLUE10}] cursor-pointer w-12 h-10 flex items-center justify-center rounded-md`}
+                          >
+                            <Filter color="white" size={15} />
+                          </span>
+                        }
+                        triggerClassName="inline-block p-0 transition-all duration-200 ease-linear bg-topbar rounded-full text-topbar-item dropdown-toggle btn hover:bg-topbar-item-bg-hover hover:text-topbar-item-hover group-data-[topbar=dark]:text-topbar-item-dark group-data-[topbar=dark]:bg-topbar-dark group-data-[topbar=dark]:hover:bg-topbar-item-bg-hover-dark group-data-[topbar=dark]:hover:text-topbar-item-hover-dark group-data-[topbar=brand]:bg-topbar-brand group-data-[topbar=brand]:hover:bg-topbar-item-bg-hover-brand group-data-[topbar=brand]:hover:text-topbar-item-hover-brand group-data-[topbar=dark]:dark:bg-zink-700 group-data-[topbar=dark]:dark:hover:bg-zink-600 group-data-[topbar=brand]:text-topbar-item-brand group-data-[topbar=dark]:dark:hover:text-zink-50 group-data-[topbar=dark]:dark:text-zink-200"
+                        body={
+                          <div className="rounded-md h-24 ">
+                            <Text
+                              text={"Filtros predeterminados"}
+                              color={GREY150}
+                              bold={"bold"}
+                              size={"medium-sm"}
+                            />
+                            <div className="flex flex-col gap-3 pt-5 pb-4">
+                              <div className="flex items-center gap-2">
+                                <input
+                                  id="checkboxDefault22"
+                                  className="size-4 border rounded-sm appearance-none cursor-pointer bg-slate-100 border-slate-200 dark:bg-zink-600 dark:border-zink-500 checked:bg-[#1BD699] checked:border-green-500 dark:checked:bg-green-500 dark:checked:border-green-500 checked:disabled:bg-green-400 checked:disabled:border-green-400"
+                                  type="checkbox"
+                                  value=""
+                                  checked={isChecked}
+                                  onChange={handleCheckboxChange}
+                                />
+                                <Text
+                                  size={"medium-sm"}
+                                  color={GREY10}
+                                  text={"Mes actual"}
+                                />
+                              </div>
+                              <div className="flex items-center gap-2">
+                                <input
+                                  id="checkboxDefault22"
+                                  className="size-4 border rounded-sm appearance-none cursor-pointer bg-slate-100 border-slate-200 dark:bg-zink-600 dark:border-zink-500 checked:bg-[#1BD699] checked:border-green-500 dark:checked:bg-green-500 dark:checked:border-green-500 checked:disabled:bg-green-400 checked:disabled:border-green-400"
+                                  type="checkbox"
+                                  value=""
+                                  checked={isChecked}
+                                  onChange={handleCheckboxChange}
+                                />
+                                <Text
+                                  size={"medium-sm"}
+                                  color={GREY10}
+                                  text={"Mes anterior"}
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        }
+                        bodyClassName="absolute z-50 p-4 ltr:text-left rtl:text-right bg-white rounded-md shadow-md dropdown-menu min-w-[12rem] dark:bg-zink-600"
                       />
                     </div>
 

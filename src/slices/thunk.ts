@@ -42,3 +42,4 @@ export * from "./termsAndConditions/thunk";
 
 export * from "./payments/thunk";
 export * from "./balanceGeneral/thunk";
+export * from "./services/thunk";
