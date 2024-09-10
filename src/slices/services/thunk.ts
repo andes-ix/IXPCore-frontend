@@ -20,7 +20,6 @@ export const getServiceDataTableView = createAsyncThunk(
   "service/getServiceDataTableView",
   async (page: number) => {
     try {
-      console.log("si llegas aqui");
       const pagination = { offset: 10, start: page * 10 };
 
       const { data } = await apiClientWithAuth.post(

@@ -16,7 +16,6 @@ const ServiceSlice = createSlice({
     builder.addCase(
       getServiceDataTableView.fulfilled,
       (state: any, action: any) => {
-        console.log("estas obteniendo los servicios", action);
         state.serviceDataView = action.payload;
       }
     );

@@ -56,7 +56,6 @@ const GeneralTableComponent: React.FC<GeneralTableComponentProps> = (
   }, [dispatch, daysSelecteds]);
 
   useEffect(() => {
-    console.log("en el segundo useEffect");
     setDataTableStruct(dataTableStruct);
     setDataTableView(dataTableView);
   }, [dataTableView, dataTableStruct]);
