@@ -9,7 +9,7 @@ import GeneralTableComponent from "./GeneralTableComponent";
 import InvoiceTableComponent from "./InvoiceTableComponent";
 import PaymentTableComponent from "./paymentTableComponent";
 import { tableOptionEnum } from "Common/constants/tableOption.enum";
-import { Filter, X } from "lucide-react";
+import { Download, Filter, X } from "lucide-react";
 import CustomDropDownComponent from "Common/Components/CustomDropDown/customDropDownComponent";
 
 const ListCount = () => {
@@ -194,18 +194,30 @@ const ListCount = () => {
           </div>
         </div>
 
-        <div className="pl-5 pt-5">
-          <Title
-            size={"normal-xl"}
-            text={"Últimos movimientos"}
-            bold={"normal"}
-            color={GREY150}
-          />
-          <div className="pt-2 pb-1">
-            <p className={`text-[#8A8F9C] text-base `}>
-              Visualiza el detalle de tus facturas y pagos
-            </p>
+        <div className="flex justify-between pl-5 pt-5">
+          <div className="leading-5">
+            <Title
+              size={"normal-xl"}
+              text={"Últimos movimientos"}
+              bold={"normal"}
+              color={GREY150}
+            />
+            <div className="pt-2 pb-1">
+              <p className={`text-[#8A8F9C] text-base `}>
+                Visualiza el detalle de tus facturas y pagos
+              </p>
+            </div>
           </div>
+          <span className="cursor-pointer flex gap-2 pr-10">
+            <Download className="" size={20} color={BLUE10} />
+            <Text
+              className=""
+              size={"medium"}
+              text={"Descargar información"}
+              bold={"bold"}
+              color={BLUE10}
+            />
+          </span>
         </div>
         <ToastContainer closeButton={false} limit={1} />
         <div className="grid grid-cols-1 gap-x-5 xl:grid-cols-12">
@@ -215,7 +227,7 @@ const ListCount = () => {
                 <form action="#!">
                   <div className="flex justify-between pl-5 pr-10">
                     <div
-                      className="relative pb-5 flex gap-1"
+                      className="relative pb-5 flex gap-1 pt-2"
                       style={{ width: "21%" }}
                     >
                       <div className="relative w-full">
@@ -235,14 +247,13 @@ const ListCount = () => {
                           className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200 w-full"
                         />
 
-                        {/* Icono dentro del input */}
                         {daysSelecteds && daysSelecteds.length > 0 && (
                           <button
-                            onClick={clearDates} // Al hacer clic, se limpian las fechas
+                            onClick={clearDates}
                             className="absolute right-1 top-[19px] transform -translate-y-1/2"
                             title="Clear dates"
                           >
-                            <X size={15} /> {/* Icono para limpiar */}
+                            <X size={15} />
                           </button>
                         )}
                       </div>
@@ -253,7 +264,7 @@ const ListCount = () => {
                             onClick={(e) => {
                               e.preventDefault();
                             }}
-                            className={`bg-[${BLUE10}] cursor-pointer w-12 h-10 flex items-center justify-center rounded-md`}
+                            className={`bg-[${BLUE10}] cursor-pointer w-12 h-9 flex items-center justify-center rounded-md`}
                           >
                             <Filter color="white" size={15} />
                           </span>
