@@ -1,23 +1,34 @@
-import React, { useState } from "react";
-
+import React, { useRef, useState } from "react";
+import moment from "moment";
+import Flatpickr from "react-flatpickr";
 import { Text } from "Common/Components/Text/textComponent";
-
 import { ToastContainer } from "react-toastify";
 import { Title } from "Common/Components/Title/titleComponent";
 import { BLUE10, GREY10, GREY150 } from "Common/constants/colors";
-
-import Flatpickr from "react-flatpickr";
 import GeneralTableComponent from "./GeneralTableComponent";
 import InvoiceTableComponent from "./InvoiceTableComponent";
 import PaymentTableComponent from "./paymentTableComponent";
 import { tableOptionEnum } from "Common/constants/tableOption.enum";
-import { Filter } from "lucide-react";
+import { Filter, X } from "lucide-react";
 import CustomDropDownComponent from "Common/Components/CustomDropDown/customDropDownComponent";
 
 const ListCount = () => {
+  const datePickerRef = useRef<Flatpickr | null>(null);
   const [showInvoiceTable, setShowInvoiceTable] = useState<boolean>(false);
   const [showPaymentTable, setShowPaymentTable] = useState<boolean>(false);
   const [showGeneralTable, setShowGeneralTable] = useState<boolean>(true);
+
+  const [daysSelecteds, setDaysSelecteds] = useState<string[] | undefined>(
+    undefined
+  );
+
+  const handleDateChange = (dates: string[]) => {
+    if (dates.length === 2) {
+      setDaysSelecteds([dates[0], dates[1]]);
+    } else {
+      setDaysSelecteds([]);
+    }
+  };
 
   const handleShowOptionTable = (optionTable: string) => {
     switch (optionTable) {
@@ -41,17 +52,47 @@ const ListCount = () => {
     }
   };
 
-  const [isChecked, setIsChecked] = useState(false);
+  const [lastMonthIsSelect, setLastMonthIsSelect] = useState(false);
+  const [presentMonthIsSelect, setPresentMonthIsSelect] = useState(false);
 
-  const handleCheckboxChange = () => {
-    // setIsChecked(!isChecked);
+  const handleCheckboxLastMonthChange = (e: any) => {
+    e.preventDefault();
+    const dataMoment = moment().subtract(1, "months");
+    const firtDateLastMonth = dataMoment.startOf("month").toDate();
+    const lastDayLastMonth = dataMoment.endOf("month").toDate();
+    setDaysSelecteds([String(firtDateLastMonth), String(lastDayLastMonth)]);
+    setPresentMonthIsSelect(false);
+    setLastMonthIsSelect(!lastMonthIsSelect);
+  };
+
+  const handleCheckboxPresentMonthChange = (e: any) => {
+    e.preventDefault();
+    const dataMoment = moment();
+    const firtDatePresentMonth = dataMoment.startOf("month").toDate();
+    const lastDayPresentMonth = dataMoment.endOf("month").toDate();
+    setDaysSelecteds([
+      String(firtDatePresentMonth),
+      String(lastDayPresentMonth),
+    ]);
+
+    setLastMonthIsSelect(false);
+    setPresentMonthIsSelect(!presentMonthIsSelect);
+  };
+
+  const clearDates = () => {
+    setDaysSelecteds(undefined); // Limpiamos el estado
+    if (datePickerRef.current) {
+      datePickerRef.current.flatpickr.clear(); // Limpiamos el input visualmente
+    }
+    setLastMonthIsSelect(false);
+    setPresentMonthIsSelect(false);
   };
 
   return (
     <React.Fragment>
-      <div className="pl-1 pr-10 pb-4 pt-4 ">
-        <ul className="flex flex-wrap items-center gap-2 mb-3 text-sm font-normal justify-end pt-4 pr-2 ">
-          <li className=" relative before:content-['\ea54'] before:font-remix before:ltr:-right-1 before:rtl:-left-1 before:absolute before:text-[18px] before:-top-[3px] ltr:pr-4 rtl:pl-4 before:rtl:rotate-180 before:text-[#168EEA] dark:before:text-zink-200">
+      <div className="pl-1 pr-10 pb-4 pt-4">
+        <ul className="flex flex-wrap items-center gap-2 mb-3 text-sm font-normal justify-end pt-4 pr-2">
+          <li className="relative before:content-['\ea54'] before:font-remix before:ltr:-right-1 before:rtl:-left-1 before:absolute before:text-[18px] before:-top-[3px] ltr:pr-4 rtl:pl-4 before:rtl:rotate-180 before:text-[#168EEA] dark:before:text-zink-200">
             <a href="#!" className="text-slate-500 dark:text-zink-200">
               <Text size={"medium"} text={"Cuenta"} color={BLUE10}></Text>
             </a>
@@ -92,13 +133,11 @@ const ListCount = () => {
                 />
                 <h5
                   className="mb-1"
-                  style={{
-                    color: "#51626E",
-                    fontSize: "22px",
-                  }}
+                  style={{ color: "#51626E", fontSize: "22px" }}
                 >
                   S/. 3127,00
                   <small className="font-normal text-slate-500 dark:text-zink-200">
+                    {" "}
                     / mes
                   </small>
                 </h5>
@@ -177,21 +216,43 @@ const ListCount = () => {
                   <div className="flex justify-between pl-5 pr-10">
                     <div
                       className="relative pb-5 flex gap-1"
-                      style={{
-                        width: "21%",
-                      }}
+                      style={{ width: "21%" }}
                     >
-                      <Flatpickr
-                        options={{
-                          mode: "range",
-                          dateFormat: "d M, Y",
-                        }}
-                        placeholder="Select Date"
-                        className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
-                      />
+                      <div className="relative w-full">
+                        <Flatpickr
+                          options={{
+                            mode: "range",
+                            dateFormat: "d/m/Y",
+                          }}
+                          ref={datePickerRef}
+                          value={daysSelecteds || []}
+                          onChange={(dates: Date[]) => {
+                            handleDateChange(
+                              dates.map((date) => date.toISOString())
+                            );
+                          }}
+                          placeholder="Select Date"
+                          className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200 w-full"
+                        />
+
+                        {/* Icono dentro del input */}
+                        {daysSelecteds && daysSelecteds.length > 0 && (
+                          <button
+                            onClick={clearDates} // Al hacer clic, se limpian las fechas
+                            className="absolute right-1 top-[19px] transform -translate-y-1/2"
+                            title="Clear dates"
+                          >
+                            <X size={15} /> {/* Icono para limpiar */}
+                          </button>
+                        )}
+                      </div>
+
                       <CustomDropDownComponent
                         trigger={
                           <span
+                            onClick={(e) => {
+                              e.preventDefault();
+                            }}
                             className={`bg-[${BLUE10}] cursor-pointer w-12 h-10 flex items-center justify-center rounded-md`}
                           >
                             <Filter color="white" size={15} />
@@ -213,8 +274,8 @@ const ListCount = () => {
                                   className="size-4 border rounded-sm appearance-none cursor-pointer bg-slate-100 border-slate-200 dark:bg-zink-600 dark:border-zink-500 checked:bg-[#1BD699] checked:border-green-500 dark:checked:bg-green-500 dark:checked:border-green-500 checked:disabled:bg-green-400 checked:disabled:border-green-400"
                                   type="checkbox"
                                   value=""
-                                  checked={isChecked}
-                                  onChange={handleCheckboxChange}
+                                  checked={presentMonthIsSelect}
+                                  onChange={handleCheckboxPresentMonthChange}
                                 />
                                 <Text
                                   size={"medium-sm"}
@@ -228,8 +289,8 @@ const ListCount = () => {
                                   className="size-4 border rounded-sm appearance-none cursor-pointer bg-slate-100 border-slate-200 dark:bg-zink-600 dark:border-zink-500 checked:bg-[#1BD699] checked:border-green-500 dark:checked:bg-green-500 dark:checked:border-green-500 checked:disabled:bg-green-400 checked:disabled:border-green-400"
                                   type="checkbox"
                                   value=""
-                                  checked={isChecked}
-                                  onChange={handleCheckboxChange}
+                                  checked={lastMonthIsSelect}
+                                  onChange={handleCheckboxLastMonthChange}
                                 />
                                 <Text
                                   size={"medium-sm"}
@@ -249,9 +310,9 @@ const ListCount = () => {
                         type="button"
                         className={`${
                           showGeneralTable
-                            ? "btn text-white  bg-blue-600"
+                            ? "btn text-white bg-blue-600"
                             : "btn text-blue-500"
-                        }  border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20`}
+                        } border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20`}
                         onClick={() => {
                           handleShowOptionTable(tableOptionEnum.GENERAL);
                         }}
@@ -262,7 +323,7 @@ const ListCount = () => {
                         type="button"
                         className={`${
                           showInvoiceTable
-                            ? "btn text-white  bg-blue-600"
+                            ? "btn text-white bg-blue-600"
                             : "btn text-blue-500"
                         } btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20`}
                         onClick={() => {
@@ -275,7 +336,7 @@ const ListCount = () => {
                         type="button"
                         className={`${
                           showPaymentTable
-                            ? "btn text-white  bg-blue-600"
+                            ? "btn text-white bg-blue-600"
                             : "btn text-blue-500"
                         } btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20`}
                         onClick={() => {
@@ -289,9 +350,15 @@ const ListCount = () => {
                 </form>
               </div>
             </div>
-            {showGeneralTable && <GeneralTableComponent />}
-            {showInvoiceTable && <InvoiceTableComponent />}
-            {showPaymentTable && <PaymentTableComponent />}
+            {showGeneralTable && (
+              <GeneralTableComponent daysSelecteds={daysSelecteds} />
+            )}
+            {showInvoiceTable && (
+              <InvoiceTableComponent daysSelecteds={daysSelecteds} />
+            )}
+            {showPaymentTable && (
+              <PaymentTableComponent daysSelecteds={daysSelecteds} />
+            )}
           </div>
         </div>
       </div>

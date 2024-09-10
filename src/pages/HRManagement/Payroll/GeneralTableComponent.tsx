@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
 import CustomTableContainer from "Common/Components/CustomTableContainer/CustomTableContainer";
-import { Search } from "lucide-react";
 
 // react-redux
 import { useDispatch, useSelector } from "react-redux";
@@ -18,7 +17,14 @@ interface IDataTableView {
   data: any[];
 }
 
-const GeneralTableComponent = () => {
+interface GeneralTableComponentProps {
+  daysSelecteds?: string[];
+}
+
+const GeneralTableComponent: React.FC<GeneralTableComponentProps> = (
+  props: React.PropsWithChildren<GeneralTableComponentProps>
+) => {
+  const { daysSelecteds } = props;
   const dispatch = useDispatch<any>();
 
   const selectDataList = createSelector(
@@ -46,36 +52,25 @@ const GeneralTableComponent = () => {
   // Get Data
   useEffect(() => {
     dispatch(onGetDataTableStruct());
-    dispatch(onGeDataTableView(dataTablePage));
-  }, [dispatch]);
+    dispatch(onGeDataTableView({ page: dataTablePage, daysSelecteds }));
+  }, [dispatch, daysSelecteds]);
 
   useEffect(() => {
-    const dataTableViewMap = {
-      size: dataTableView.size,
-      data: dataTableView?.data?.map((balance: any) => ({
-        ...balance,
-        balance: String(
-          Number(
-            parseFloat(balance?.abono || 0) - parseFloat(balance?.cargo || 0)
-          ).toFixed(2)
-        ),
-      })),
-    };
     setDataTableStruct(dataTableStruct);
-    setDataTableView(dataTableViewMap);
+    setDataTableView(dataTableView);
   }, [dataTableView, dataTableStruct]);
 
   const onNextPage = () => {
     const tablePosition = dataTablePage + 1;
     setDataTablePage(tablePosition);
-    dispatch(onGeDataTableView(tablePosition));
+    dispatch(onGeDataTableView({ page: dataTablePage, daysSelecteds }));
   };
 
   const onPreviousPage = () => {
     if (dataTablePage > 0) {
       const tablePosition = dataTablePage - 1;
       setDataTablePage(tablePosition);
-      dispatch(onGeDataTableView(tablePosition));
+      dispatch(onGeDataTableView({ page: dataTablePage, daysSelecteds }));
     }
   };
 
@@ -92,12 +87,6 @@ const GeneralTableComponent = () => {
       ),
     [dataTableStructToList]
   );
-
-  columns.push({
-    header: "Saldo",
-    accessorKey: "balance",
-    enableColumnFilter: false,
-  });
 
   return (
     <React.Fragment>

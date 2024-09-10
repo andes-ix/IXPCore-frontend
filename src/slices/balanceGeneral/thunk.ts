@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { formatDateFilter } from "Common/utils/formatDateFilter";
 
 import "react-toastify/dist/ReactToastify.css";
 import { apiClientWithAuth } from "services/index";
@@ -18,16 +19,34 @@ export const getBalanceDataTableStruct = createAsyncThunk(
 );
 export const getBalanceDataTableView = createAsyncThunk(
   "balances/getBalanceDataTableView",
-  async (page: number) => {
+  async ({
+    page,
+    daysSelecteds,
+  }: {
+    page: number;
+    daysSelecteds?: string[];
+  }) => {
     try {
-      const pagination = { offset: 10, start: page * 10 };
+      let bodyRequest: any = { offset: 10, start: page * 10 };
+      if (daysSelecteds && daysSelecteds.length === 2) {
+        const [startDate, endDate] = daysSelecteds;
+
+        const filters = `[[\"date_balance\",\"gt\",\"${formatDateFilter(
+          startDate
+        )}\"], [\"date_balance\",\"lte\",\"${formatDateFilter(endDate)}\"]]`;
+
+        bodyRequest = {
+          ...bodyRequest,
+          filters,
+        };
+      }
 
       const { data } = await apiClientWithAuth.post(
         "/v1/balance/datatables_view/",
-        pagination
+        bodyRequest
       );
       return data;
-    } catch (error) {
+    } catch (error: any) {
       return error;
     }
   }
