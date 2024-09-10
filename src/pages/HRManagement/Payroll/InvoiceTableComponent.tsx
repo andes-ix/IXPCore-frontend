@@ -41,6 +41,7 @@ const InvoiceTableComponent: React.FC<InvoiceTableComponentProps> = (
   const [dataTableStructToList, setDataTableStruct] = useState({});
   const [dataTableViewToList, setDataTableView] = useState<IDataTableView>();
   const [dataTablePage, setDataTablePage] = useState<number>(0);
+  const [itemDetail, setItemDetail] = useState<Object>({});
 
   const [globalFilter, setGlobalFilter] = useState("");
   // Modal state
@@ -76,6 +77,10 @@ const InvoiceTableComponent: React.FC<InvoiceTableComponentProps> = (
   };
 
   const handleLinkClick = async (cellValue: any) => {
+    const item = dataTableViewToList?.data?.find(
+      (data) => String(data.number) === String(cellValue)
+    );
+    setItemDetail(item);
     setIsDrawerOpen(true);
   };
 
@@ -124,6 +129,7 @@ const InvoiceTableComponent: React.FC<InvoiceTableComponentProps> = (
           <DrawerInvoiceComponent
             handleDrawerOpen={handleDrawerOpen}
             isDrawerOpen={isDrawerOpen}
+            itemDetail={itemDetail}
           />
         </div>
       </div>
