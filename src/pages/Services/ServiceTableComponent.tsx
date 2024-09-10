@@ -129,10 +129,10 @@ const ServiceTableComponent = () => {
               </div>
             </div>
           </div>
-          <DrawerInvoiceComponent
+          {/* <DrawerInvoiceComponent
             handleDrawerOpen={handleDrawerOpen}
             isDrawerOpen={isDrawerOpen}
-          />
+          /> */}
         </div>
       </div>
     </React.Fragment>

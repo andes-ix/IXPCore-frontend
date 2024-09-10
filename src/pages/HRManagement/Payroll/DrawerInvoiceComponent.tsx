@@ -16,16 +16,20 @@ import {
 } from "Common/constants/colors";
 import { Download, QrCode, X } from "lucide-react";
 import { CustomTableSimpleComponent } from "Common/Components/CustomTableSimple/customTableSimple";
+import moment from "moment";
 
 interface DrawerInvoiceProps {
   handleDrawerOpen: () => void;
   isDrawerOpen: boolean;
+  itemDetail: any;
 }
 
 const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
   handleDrawerOpen,
   isDrawerOpen = false,
+  itemDetail,
 }) => {
+  const { extra_details } = itemDetail;
   const columnsTest = [
     { key: "id", label: "Order ID" },
     { key: "shop", label: "Shop" },
@@ -69,13 +73,17 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
                   bold={"bold"}
                   color={BLUE10}
                   size={"medium"}
-                  text={"001-00001753"}
+                  text={itemDetail?.number}
                 />
               </div>
 
               <div className="flex gap-1">
                 <Text size={"big-sm"} color={GREY15} text={"Emisión"} />
-                <Text size={"big-sm"} color={BLUE10} text={"10/03/2024"} />
+                <Text
+                  size={"big-sm"}
+                  color={BLUE10}
+                  text={moment(itemDetail.invoice_date).format("DD/MM/YYYY")}
+                />
               </div>
             </div>
             <span className="cursor-pointer" onClick={handleDrawerOpen}>
@@ -90,20 +98,35 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
                 <div>
                   <img className="w-16 h-22" src={"/img/logo.webp"} alt="PIT" />
                 </div>
-
-                <span className="cursor-pointer" onClick={() => {}}>
-                  <div
-                    className={`flex items-center justify-center size-10 rounded-md  bg-[${BLUE10}]`}
+                {itemDetail?.extra_details?.file && (
+                  <span
+                    className="cursor-pointer"
+                    onClick={() => {
+                      const fileUrl = itemDetail?.extra_details?.file;
+                      if (fileUrl) {
+                        const link = document.createElement("a");
+                        link.href = fileUrl;
+                        link.setAttribute("download", "invoice.pdf"); // El nombre del archivo descargado será "invoice.pdf"
+                        link.setAttribute("target", "_blank"); // Abrir en nueva ventana para asegurar que no lo reemplace
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link); // Eliminar el enlace temporal del DOM
+                      }
+                    }}
                   >
-                    <Download className="size-5" color={"white"} />
-                  </div>
-                </span>
+                    <div
+                      className={`flex items-center justify-center size-10 rounded-md  bg-[${BLUE10}]`}
+                    >
+                      <Download className="size-5" color={"white"} />
+                    </div>
+                  </span>
+                )}
               </div>
               <div>
                 <Text
                   size={"big-sm"}
                   color={GREY150}
-                  text={"PIT PERU S.A.C"}
+                  text={extra_details?.isp_name}
                 ></Text>
                 <Text
                   size={"big"}
@@ -113,15 +136,13 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
                 <Text
                   color={GREY150}
                   size={"medium"}
-                  text={
-                    "San miguel de miraflores cal. martir jose olaya nro 129"
-                  }
+                  text={extra_details?.pit_direction_1}
                 ></Text>
                 <Text
                   color={GREY150}
                   bold={"bold"}
                   size={"big-sm"}
-                  text={"Miraflores, Lima, Perú"}
+                  text={extra_details?.pit_direction_2?.toUpperCase()}
                 ></Text>
               </div>
               <div className="flex pt-5 pb-5 justify-evenly">
@@ -130,14 +151,16 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
                     color={BLUE10}
                     bold={"semi-bold"}
                     size={"big-sm"}
-                    text={"10/03/2024"}
+                    text={moment(itemDetail.invoice_date_due).format(
+                      "DD/MM/YYYY"
+                    )}
                   />
                   <Text color={GREY15} size={"big-sm"} text={"Vencimiento"} />
                 </div>
                 <div className="flex flex-col items-center">
                   <span className="px-2.5 py-0.5 inline-block text-xs font-medium rounded border bg-green-100 border-transparent text-green-500 dark:bg-green-500/20 dark:border-transparent">
                     <div className="flex gap-1 justify-center items-center">
-                      Paid
+                      {itemDetail?.payment_state}
                     </div>
                   </span>
                   <Text color={GREY15} size={"big-sm"} text={" Estatus"} />
@@ -147,7 +170,7 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
                     color={BLUE10}
                     bold={"semi-bold"}
                     size={"big-sm"}
-                    text={"$ 3.127,00 "}
+                    text={`$ ${itemDetail?.amount_total}`}
                   />
                   <Text color={GREY15} size={"big-sm"} text={"Total"} />
                 </div>
@@ -162,14 +185,12 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
                 <Text
                   color={BLUE50}
                   size={"medium"}
-                  text={
-                    "Fiber digital sociedad comercial de responsabilidad limitada"
-                  }
+                  text={itemDetail?.extra_details?.isp_name}
                 ></Text>
                 <Text
                   size={"medium"}
                   color={GREY15}
-                  text={"RUC 20604630488"}
+                  text={extra_details?.pit_document}
                 ></Text>
                 <Text
                   size={"medium"}
@@ -180,9 +201,7 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
                 <Text
                   color={GREY15}
                   size={"medium"}
-                  text={
-                    "MZA,L18 Lote 25,C,H,Mariscal Cáceres (IntercesiónAv., central y Av. Muro)"
-                  }
+                  text={itemDetail?.extra_details?.isp_direction_text}
                 ></Text>
               </div>
               <div className="flex pt-10 justify-between ">
@@ -195,7 +214,7 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
                   ></Text>
                   <Text
                     color={GREY15}
-                    text={"Operación sujeta al SPOT con el gobierno central..."}
+                    text={extra_details?.detraccion_comentary}
                     size={"medium"}
                   />
                 </div>
@@ -208,9 +227,7 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
                   ></Text>
                   <Text
                     color={GREY15}
-                    text={
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-                    }
+                    text={extra_details?.detraccion_description}
                     size={"medium"}
                   />
                 </div>
@@ -220,7 +237,7 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
                     color={BLUE10}
                     bold={"bold"}
                     size={"normal-xl"}
-                    text="127,00"
+                    text={extra_details?.detraccion_amount}
                   ></Title>
                   <Text
                     color={GREY10}
@@ -231,10 +248,10 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
                 </div>
               </div>
               <div className="pt-5">
-                <CustomTableSimpleComponent
+                {/* <CustomTableSimpleComponent
                   columns={columnsTest}
                   data={data}
-                ></CustomTableSimpleComponent>
+                ></CustomTableSimpleComponent> */}
                 <div className="flex pt-5 justify-end">
                   <div className="flex w-1/2">
                     <table className="w-full">
@@ -244,7 +261,7 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
                             Base imponible
                           </th>
                           <th className="px-3.5 py-2.5 font-semibold text-[#8A8F9C]  bg-[#F1F5F9]">
-                            $ 2.650,00
+                            $ {extra_details?.amount_untaxed || 0}
                           </th>
                         </tr>
                       </thead>
@@ -255,7 +272,7 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
                           </td>
                           <td className="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500">
                             <Text
-                              text="$ 477,00"
+                              text={`$ ${extra_details?.amount_tax || 0}`}
                               color={BLUE250}
                               size="medium"
                             />
@@ -272,7 +289,7 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
                           </td>
                           <td className="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500">
                             <Text
-                              text="$ 3.127,00"
+                              text={`$ ${itemDetail?.amount_total || 0}`}
                               color={GREY10}
                               size="medium"
                               bold="bold"
@@ -314,7 +331,7 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
                       color={BLUE50}
                       bold="bold"
                       size={"medium"}
-                      text={"F 001-00001753"}
+                      text={itemDetail?.number}
                     ></Text>
                   </div>
                   <Text
@@ -336,7 +353,7 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
                             Base imponible
                           </th>
                           <th className="px-3.5 py-2.5 font-semibold text-[#8A8F9C]  bg-[#F1F5F9]">
-                            $ 2.650,00
+                            $ {extra_details?.amount_untaxed || 0}
                           </th>
                         </tr>
                       </thead>
@@ -347,7 +364,7 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
                           </td>
                           <td className="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500">
                             <Text
-                              text="$ 477,00"
+                              text={`$ ${extra_details?.amount_tax || 0}`}
                               color={BLUE250}
                               size="medium"
                             />
@@ -364,7 +381,7 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
                           </td>
                           <td className="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500">
                             <Text
-                              text="$ 3.127,00"
+                              text={`$ ${itemDetail?.amount_total || 0}`}
                               color={GREY10}
                               size="medium"
                               bold="bold"
