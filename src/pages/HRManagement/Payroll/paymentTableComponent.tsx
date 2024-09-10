@@ -19,7 +19,14 @@ interface IDataTableView {
   data: any[];
 }
 
-const PaymentTableComponent = () => {
+interface PaymentTableComponentProps {
+  daysSelecteds?: string[];
+}
+
+const PaymentTableComponent: React.FC<PaymentTableComponentProps> = (
+  props: React.PropsWithChildren<PaymentTableComponentProps>
+) => {
+  const { daysSelecteds } = props;
   const dispatch = useDispatch<any>();
 
   const selectDataList = createSelector(
@@ -50,8 +57,8 @@ const PaymentTableComponent = () => {
   // Get Data
   useEffect(() => {
     dispatch(onGetDataTableStruct());
-    dispatch(onGeDataTableView(dataTablePage));
-  }, [dispatch]);
+    dispatch(onGeDataTableView({ page: dataTablePage, daysSelecteds }));
+  }, [dispatch, daysSelecteds]);
 
   useEffect(() => {
     setDataTableStruct(dataTableStruct);
@@ -61,14 +68,14 @@ const PaymentTableComponent = () => {
   const onNextPage = () => {
     const tablePosition = dataTablePage + 1;
     setDataTablePage(tablePosition);
-    dispatch(onGeDataTableView(tablePosition));
+    dispatch(onGeDataTableView({ page: tablePosition, daysSelecteds }));
   };
 
   const onPreviousPage = () => {
     if (dataTablePage > 0) {
       const tablePosition = dataTablePage - 1;
       setDataTablePage(tablePosition);
-      dispatch(onGeDataTableView(tablePosition));
+      dispatch(onGeDataTableView({ page: tablePosition, daysSelecteds }));
     }
   };
 

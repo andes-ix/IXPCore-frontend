@@ -6,32 +6,27 @@ import { useDispatch, useSelector } from "react-redux";
 import { createSelector } from "reselect";
 
 import {
-  getBalanceDataTableStruct as onGetDataTableStruct,
-  getBalanceDataTableView as onGeDataTableView,
+  getServiceDataTableStruct as onGetDataTableStruct,
+  getServiceDataTableView as onGeDataTableView,
 } from "slices/thunk";
 import { transformToColumns } from "Common/utils";
 import { tableOptionEnum } from "Common/constants/tableOption.enum";
-import DrawerInvoiceComponent from "./DrawerInvoiceComponent";
+import DrawerInvoiceComponent from "pages/HRManagement/Payroll/DrawerInvoiceComponent";
+import { Search } from "lucide-react";
+
 interface IDataTableView {
   size: number;
   data: any[];
 }
 
-interface GeneralTableComponentProps {
-  daysSelecteds?: string[];
-}
-
-const GeneralTableComponent: React.FC<GeneralTableComponentProps> = (
-  props: React.PropsWithChildren<GeneralTableComponentProps>
-) => {
-  const { daysSelecteds } = props;
+const ServiceTableComponent = () => {
   const dispatch = useDispatch<any>();
 
   const selectDataList = createSelector(
-    (state: any) => state.GeneralBalances,
+    (state: any) => state.Services,
     (data) => ({
-      dataTableView: data.balanceDataView,
-      dataTableStruct: data.balanceDataStruct,
+      dataTableView: data.serviceDataView,
+      dataTableStruct: data.serviceDataStruct,
     })
   );
 
@@ -42,6 +37,10 @@ const GeneralTableComponent: React.FC<GeneralTableComponentProps> = (
   const [dataTablePage, setDataTablePage] = useState<number>(0);
 
   const [globalFilter, setGlobalFilter] = useState("");
+
+  const filterSearchData = (e: any) => {
+    setGlobalFilter(e.target.value);
+  };
   // Modal state
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
@@ -52,11 +51,10 @@ const GeneralTableComponent: React.FC<GeneralTableComponentProps> = (
   // Get Data
   useEffect(() => {
     dispatch(onGetDataTableStruct());
-    dispatch(onGeDataTableView({ page: dataTablePage, daysSelecteds }));
-  }, [dispatch, daysSelecteds]);
+    dispatch(onGeDataTableView(dataTablePage));
+  }, [dispatch]);
 
   useEffect(() => {
-    console.log("en el segundo useEffect");
     setDataTableStruct(dataTableStruct);
     setDataTableView(dataTableView);
   }, [dataTableView, dataTableStruct]);
@@ -64,14 +62,14 @@ const GeneralTableComponent: React.FC<GeneralTableComponentProps> = (
   const onNextPage = () => {
     const tablePosition = dataTablePage + 1;
     setDataTablePage(tablePosition);
-    dispatch(onGeDataTableView({ page: dataTablePage, daysSelecteds }));
+    dispatch(onGeDataTableView(tablePosition));
   };
 
   const onPreviousPage = () => {
     if (dataTablePage > 0) {
       const tablePosition = dataTablePage - 1;
       setDataTablePage(tablePosition);
-      dispatch(onGeDataTableView({ page: dataTablePage, daysSelecteds }));
+      dispatch(onGeDataTableView(tablePosition));
     }
   };
 
@@ -95,7 +93,17 @@ const GeneralTableComponent: React.FC<GeneralTableComponentProps> = (
         <div className="grid grid-cols-1 gap-x-5 xl:grid-cols-12">
           <div className="xl:col-span-12">
             <div className="" id="paymentsTable">
-              <div className="card-body ">
+              <div className="relative pb-10">
+                <input
+                  type="text"
+                  className=" w-80 ltr:pl-8 rtl:pr-8 search form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
+                  placeholder="Buscar usuario"
+                  autoComplete="off"
+                  onChange={(e) => filterSearchData(e)}
+                />
+                <Search className="inline-block size-4 absolute ltr:left-2.5 rtl:right-2.5 top-2.5 text-slate-500 dark:text-zink-200 fill-slate-100 dark:fill-zink-600" />
+              </div>
+              <div className="card-body pt-5 ">
                 {dataTableViewToList?.data && (
                   <CustomTableContainer
                     isPagination={true}
@@ -131,4 +139,4 @@ const GeneralTableComponent: React.FC<GeneralTableComponentProps> = (
   );
 };
 
-export default GeneralTableComponent;
+export default ServiceTableComponent;
