@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
 import CustomTableContainer from "Common/Components/CustomTableContainer/CustomTableContainer";
-import { Search } from "lucide-react";
 
 // react-redux
 import { useDispatch, useSelector } from "react-redux";
@@ -26,6 +25,8 @@ interface PaymentTableComponentProps {
 const PaymentTableComponent: React.FC<PaymentTableComponentProps> = (
   props: React.PropsWithChildren<PaymentTableComponentProps>
 ) => {
+  const [itemDetail, setItemDetail] = useState<Object>({});
+
   const { daysSelecteds } = props;
   const dispatch = useDispatch<any>();
 
@@ -51,6 +52,10 @@ const PaymentTableComponent: React.FC<PaymentTableComponentProps> = (
     setIsDrawerOpen(!isDrawerOpen);
   };
   const handleLinkClick = async (cellValue: any) => {
+    const item = dataTableViewToList?.data?.find(
+      (data) => String(data.number) === String(cellValue)
+    );
+    setItemDetail(item);
     setIsDrawerOpen(true);
   };
 
@@ -125,6 +130,7 @@ const PaymentTableComponent: React.FC<PaymentTableComponentProps> = (
           <DrawerPaymentComponent
             handleDrawerOpen={handleDrawerOpen}
             isDrawerOpen={isDrawerOpen}
+            itemDetail={itemDetail}
           />
         </div>
       </div>

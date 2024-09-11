@@ -1,11 +1,9 @@
-import { postFakeProfile } from "helpers/fakebackend_helper";
 import { profileFailed, profileSuccess } from "./reducer";
-import { getFirebaseBackend } from "helpers/firebase_helper";
 import { RootState } from "slices";
 import { ThunkAction } from "redux-thunk";
 import { Action, Dispatch } from "redux";
-import { apiClient, apiClientWithAuth } from "services";
-import { C } from "@fullcalendar/core/internal-common";
+import { apiClientWithAuth } from "services";
+
 interface User {
   email?: string;
   name?: string;

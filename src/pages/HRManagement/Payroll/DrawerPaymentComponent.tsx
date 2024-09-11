@@ -16,12 +16,16 @@ import { Download, X } from "lucide-react";
 interface DrawerPaymentProps {
   handleDrawerOpen: () => void;
   isDrawerOpen: boolean;
+  itemDetail: any;
 }
 
 const DrawerPaymentComponent: React.FC<DrawerPaymentProps> = ({
   handleDrawerOpen,
   isDrawerOpen = false,
+  itemDetail,
 }) => {
+  console.log("este es el item detail dentro de drawer", itemDetail);
+  const { extra_details } = itemDetail;
   return (
     <CustomDrawerComponent
       handleCustomDrawer={handleDrawerOpen}
@@ -44,13 +48,8 @@ const DrawerPaymentComponent: React.FC<DrawerPaymentProps> = ({
                   bold={"bold"}
                   color={BLUE10}
                   size={"medium"}
-                  text={"001-00001753"}
+                  text={itemDetail?.number}
                 />
-              </div>
-
-              <div className="flex gap-1">
-                <Text size={"big-sm"} color={GREY15} text={"Emisión"} />
-                <Text size={"big-sm"} color={BLUE10} text={"10/03/2024"} />
               </div>
             </div>
             <span className="cursor-pointer" onClick={handleDrawerOpen}>
@@ -72,14 +71,12 @@ const DrawerPaymentComponent: React.FC<DrawerPaymentProps> = ({
                 <Text
                   color={BLUE50}
                   size={"medium"}
-                  text={
-                    "Fiber digital sociedad comercial de responsabilidad limitada"
-                  }
+                  text={extra_details?.isp_name}
                 ></Text>
                 <Text
                   size={"medium"}
                   color={GREY15}
-                  text={"RUC 20604630488"}
+                  text={extra_details?.isp_document}
                 ></Text>
                 <Text
                   size={"medium"}
@@ -90,9 +87,7 @@ const DrawerPaymentComponent: React.FC<DrawerPaymentProps> = ({
                 <Text
                   color={GREY15}
                   size={"medium"}
-                  text={
-                    "MZA,L18 Lote 25,C,H,Mariscal Cáceres (IntercesiónAv., central y Av. Muro)"
-                  }
+                  text={extra_details?.isp_direction_text.toUpperCase()}
                 ></Text>
               </div>
               {/* add services */}
@@ -104,7 +99,7 @@ const DrawerPaymentComponent: React.FC<DrawerPaymentProps> = ({
                   text={"Servicios asociados"}
                 ></Text>
 
-                <Text
+                {/* <Text
                   className="pt-4"
                   size={"medium"}
                   color={GREY15}
@@ -115,7 +110,7 @@ const DrawerPaymentComponent: React.FC<DrawerPaymentProps> = ({
                   size={"medium"}
                   color={GREY15}
                   text={"[SERV-0020] Crossconexión"}
-                ></Text>
+                ></Text> */}
               </div>
             </div>
             {/* section rigth to drawer */}
@@ -136,11 +131,11 @@ const DrawerPaymentComponent: React.FC<DrawerPaymentProps> = ({
                         text={"Fecha:"}
                       ></Text>
                       <Text
-                        color={BLUE50}
+                        size={"big-sm"}
+                        color={BLUE10}
                         bold="bold"
-                        size={"medium"}
-                        text={"10/03/2024"}
-                      ></Text>
+                        text={itemDetail?.date}
+                      />
                     </div>
 
                     <Text
@@ -157,7 +152,9 @@ const DrawerPaymentComponent: React.FC<DrawerPaymentProps> = ({
                         color={BLUE10}
                         bold={"bold"}
                         size={"medium"}
-                        text={"S/ 357,00 PEN"}
+                        text={`S/ ${itemDetail?.amount_total || 0} ${
+                          extra_details?.currency
+                        }`}
                       />
                       <Text
                         color={GREY10}
@@ -171,12 +168,12 @@ const DrawerPaymentComponent: React.FC<DrawerPaymentProps> = ({
                         color={BLUE10}
                         bold={"bold"}
                         size={"medium"}
-                        text={"Banco de la nación"}
+                        text={itemDetail?.bank}
                       />
                       <Text
                         color={GREY15}
                         size={"medium-sm"}
-                        text={"00-074-173713"}
+                        text={extra_details?.account_bank}
                       />
                       <Text
                         color={GREY10}
@@ -190,7 +187,7 @@ const DrawerPaymentComponent: React.FC<DrawerPaymentProps> = ({
                         color={BLUE10}
                         bold={"bold"}
                         size={"medium"}
-                        text={"Soles"}
+                        text={extra_details?.currency}
                       />
                       <Text
                         color={GREY10}
@@ -210,18 +207,34 @@ const DrawerPaymentComponent: React.FC<DrawerPaymentProps> = ({
                     <Text
                       color={GREY15}
                       size={"medium"}
-                      text={"E001 0000000110 FIBER LINE S.A.C"}
+                      text={extra_details?.display_name}
                     ></Text>
                   </div>
                 </div>
 
-                <span className="cursor-pointer" onClick={() => {}}>
-                  <div
-                    className={`flex items-center justify-center size-10 rounded-md  bg-[${BLUE10}]`}
+                {extra_details?.file && (
+                  <span
+                    className="cursor-pointer"
+                    onClick={() => {
+                      const fileUrl = extra_details?.file;
+                      if (fileUrl) {
+                        const link = document.createElement("a");
+                        link.href = fileUrl;
+                        link.setAttribute("download", "payment.pdf"); // El nombre del archivo descargado será "invoice.pdf"
+                        link.setAttribute("target", "_blank"); // Abrir en nueva ventana para asegurar que no lo reemplace
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link); // Eliminar el enlace temporal del DOM
+                      }
+                    }}
                   >
-                    <Download className="size-5" color={"white"} />
-                  </div>
-                </span>
+                    <div
+                      className={`flex items-center justify-center size-10 rounded-md  bg-[${BLUE10}]`}
+                    >
+                      <Download className="size-5" color={"white"} />
+                    </div>
+                  </span>
+                )}
               </div>
             </div>
           </div>
