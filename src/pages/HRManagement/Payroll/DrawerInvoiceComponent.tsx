@@ -15,7 +15,6 @@ import {
   GREY150,
 } from "Common/constants/colors";
 import { Download, QrCode, X } from "lucide-react";
-import { CustomTableSimpleComponent } from "Common/Components/CustomTableSimple/customTableSimple";
 import moment from "moment";
 
 interface DrawerInvoiceProps {
@@ -30,27 +29,27 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
   itemDetail,
 }) => {
   const { extra_details } = itemDetail;
-  const columnsTest = [
-    { key: "id", label: "Order ID" },
-    { key: "shop", label: "Shop" },
-    { key: "customer", label: "Customer" },
-    { key: "price", label: "Price" },
-  ];
+  // const columnsTest = [
+  //   { key: "id", label: "Order ID" },
+  //   { key: "shop", label: "Shop" },
+  //   { key: "customer", label: "Customer" },
+  //   { key: "price", label: "Price" },
+  // ];
 
-  const data = [
-    {
-      id: "#541254265",
-      shop: "Amezon",
-      customer: "Cleo Carson",
-      price: "$4,521",
-    },
-    {
-      id: "#744145235",
-      shop: "Shoppers",
-      customer: "Juston Eichmann",
-      price: "$7,546",
-    },
-  ];
+  // const data = [
+  //   {
+  //     id: "#541254265",
+  //     shop: "Amezon",
+  //     customer: "Cleo Carson",
+  //     price: "$4,521",
+  //   },
+  //   {
+  //     id: "#744145235",
+  //     shop: "Shoppers",
+  //     customer: "Juston Eichmann",
+  //     price: "$7,546",
+  //   },
+  // ];
   return (
     <CustomDrawerComponent
       handleCustomDrawer={handleDrawerOpen}

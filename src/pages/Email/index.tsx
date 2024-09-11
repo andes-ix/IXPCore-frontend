@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import BreadCrumb from "Common/BreadCrumb";
 import { Link } from "react-router-dom";
 
 // Images
@@ -46,12 +45,8 @@ import {
   getMail as onGetMail,
   unreadMail as onUnreadMail,
   staredMail as onStaredMail,
-  trashMail as onTrashMail,
-  deleteMail as onDeleteMail,
 } from "slices/thunk";
 
-import { ToastContainer, toast } from "react-toastify";
-import DeleteModal from "Common/DeleteModal";
 import Modal from "Common/Components/Modal";
 
 const Mailbox = () => {
@@ -147,34 +142,6 @@ const Mailbox = () => {
 
   // Delete Modal
   const [deleteModal, setDeleteModal] = useState<boolean>(false);
-  const deleteToggle = () => setDeleteModal(!deleteModal);
-
-  // Delete Email
-  const removeEmail = () => {
-    const element: any = document.querySelectorAll("tr.relative");
-    const checkboxAll: any = document.getElementById("checkboxAll");
-
-    element.forEach((element: any) => {
-      if (element.classList.contains("checked")) {
-        var forId = element.querySelector("input").value;
-
-        if (displayCategory === "trash") {
-          dispatch(onDeleteMail(forId));
-        } else {
-          dispatch(onTrashMail(forId));
-        }
-      }
-      element.classList.remove("checked");
-      element.querySelector("input").checked = false;
-    });
-
-    setTimeout(() => {
-      toast.clearWaitingQueue();
-    }, 3000);
-    checkboxAll.checked = false;
-
-    setDeleteModal(false);
-  };
 
   // Mark all as Read
   const readAll = (ele: any) => {
