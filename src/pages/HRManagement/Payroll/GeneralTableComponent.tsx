@@ -11,7 +11,6 @@ import {
 } from "slices/thunk";
 import { transformToColumns } from "Common/utils";
 import { tableOptionEnum } from "Common/constants/tableOption.enum";
-import DrawerInvoiceComponent from "./DrawerInvoiceComponent";
 interface IDataTableView {
   size: number;
   data: any[];

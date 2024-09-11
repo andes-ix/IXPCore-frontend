@@ -1,9 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getBalanceDataTableView, getBalanceDataTableStruct } from "./thunk";
+import {
+  getBalanceDataTableView,
+  getBalanceDataTableStruct,
+  getBalanceDetail,
+} from "./thunk";
 
 export const initialState = {
   balanceDataView: {},
   balanceDataStruct: {},
+  balanceDetail: {},
   errors: {},
 };
 
@@ -38,6 +43,14 @@ const GeneralBalanceSlice = createSlice({
         state.error = action.payload.error || null;
       }
     );
+
+    // Balance detail
+    builder.addCase(getBalanceDetail.fulfilled, (state: any, action: any) => {
+      state.balanceDetail = action.payload;
+    });
+    builder.addCase(getBalanceDetail.rejected, (state: any, action: any) => {
+      state.error = action.payload.error || null;
+    });
   },
 });
 

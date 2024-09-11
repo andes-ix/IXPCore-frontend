@@ -19,7 +19,6 @@ export const loginUser =
   ): ThunkAction<void, RootState, unknown, Action<string>> =>
   async (dispatch: Dispatch) => {
     try {
-      let response: any;
       const { email, password } = user;
       const { data } = await apiClient.post("/v1/signin", { email, password });
 
