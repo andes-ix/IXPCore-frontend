@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import moment from "moment";
 import Flatpickr from "react-flatpickr";
 import { Text } from "Common/Components/Text/textComponent";
@@ -11,16 +11,39 @@ import PaymentTableComponent from "./paymentTableComponent";
 import { tableOptionEnum } from "Common/constants/tableOption.enum";
 import { Download, Filter, X } from "lucide-react";
 import CustomDropDownComponent from "Common/Components/CustomDropDown/customDropDownComponent";
+import { createSelector } from "@reduxjs/toolkit";
+import { useDispatch, useSelector } from "react-redux";
+
+import { getBalanceDetail as onGetBalanceDetail } from "slices/thunk";
 
 const ListCount = () => {
+  const dispatch = useDispatch<any>();
   const datePickerRef = useRef<Flatpickr | null>(null);
   const [showInvoiceTable, setShowInvoiceTable] = useState<boolean>(false);
   const [showPaymentTable, setShowPaymentTable] = useState<boolean>(false);
   const [showGeneralTable, setShowGeneralTable] = useState<boolean>(true);
-
   const [daysSelecteds, setDaysSelecteds] = useState<string[] | undefined>(
     undefined
   );
+  const [balanceDetail, SetBalanceDetail] = useState<any>();
+
+  const selectDataList = createSelector(
+    (state: any) => state.GeneralBalances,
+    (data) => ({
+      balanceDetailData: data.balanceDetail,
+    })
+  );
+
+  const { balanceDetailData } = useSelector(selectDataList);
+
+  // Get Data
+  useEffect(() => {
+    dispatch(onGetBalanceDetail());
+  }, [dispatch]);
+
+  useEffect(() => {
+    SetBalanceDetail(balanceDetailData);
+  }, [balanceDetailData]);
 
   const handleDateChange = (dates: string[]) => {
     if (dates.length === 2) {
@@ -135,7 +158,7 @@ const ListCount = () => {
                   className="mb-1"
                   style={{ color: "#51626E", fontSize: "22px" }}
                 >
-                  S/. 3127,00
+                  S/. {Number(balanceDetail?.saldo_total).toFixed(2) || 0}
                   <small className="font-normal text-slate-500 dark:text-zink-200">
                     {" "}
                     / mes
@@ -149,7 +172,7 @@ const ListCount = () => {
                     fontWeight: "200",
                   }}
                 >
-                  Valor presentado en base (Sol)
+                  Valor presentado en base ({balanceDetail?.currency})
                 </p>
               </div>
               <div className="2xl:col-span-5 2xl:col-start-8">
@@ -163,7 +186,9 @@ const ListCount = () => {
                         <td
                           className={`px-3.5 first:pl-0 last:pr-0 py-2 border-y border-transparent font-bold text-[${BLUE10}]`}
                         >
-                          S/. 1127,00
+                          S/.{" "}
+                          {Number(balanceDetail?.detraccion_total).toFixed(2) ||
+                            0}
                         </td>
                       </tr>
                       <tr>
@@ -173,7 +198,8 @@ const ListCount = () => {
                         <td
                           className={`px-3.5 first:pl-0 last:pr-0 py-2 border-y border-transparent font-bold text-[${BLUE10}]`}
                         >
-                          S/. 53127,00
+                          S/.{" "}
+                          {Number(balanceDetail?.deuda_total).toFixed(2) || 0}
                         </td>
                       </tr>
                       <tr>
@@ -183,7 +209,7 @@ const ListCount = () => {
                         <td
                           className={`px-3.5 first:pl-0 last:pr-0 py-2 border-y border-transparent font-bold text-[${BLUE10}]`}
                         >
-                          05 de Abril 2024
+                          {balanceDetail?.first_date}
                         </td>
                       </tr>
                     </tbody>

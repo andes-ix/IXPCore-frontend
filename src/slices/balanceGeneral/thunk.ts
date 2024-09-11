@@ -17,6 +17,7 @@ export const getBalanceDataTableStruct = createAsyncThunk(
     }
   }
 );
+
 export const getBalanceDataTableView = createAsyncThunk(
   "balances/getBalanceDataTableView",
   async ({
@@ -47,6 +48,21 @@ export const getBalanceDataTableView = createAsyncThunk(
       );
       return data;
     } catch (error: any) {
+      return error;
+    }
+  }
+);
+
+export const getBalanceDetail = createAsyncThunk(
+  "balances/getBalanceDetail",
+  async () => {
+    try {
+      const ispId = localStorage.getItem("ispId");
+      const { data } = await apiClientWithAuth.get(
+        `/v1/balance/resumen/?isp=${ispId}`
+      );
+      return data;
+    } catch (error) {
       return error;
     }
   }

@@ -10,10 +10,12 @@ import {
   deleteUserGrid,
   getUserDataTableStruct,
   getUserDataTableView,
+  getUserOperators,
 } from "./thunk";
 
 export const initialState = {
   userList: [],
+  userOperators: [],
   userDataView: {},
   userDataStruct: {},
   userGrid: [],
@@ -52,6 +54,14 @@ const UsersSlice = createSlice({
         state.error = action.payload.error || null;
       }
     );
+
+    //Get use operators
+    builder.addCase(getUserOperators.fulfilled, (state: any, action: any) => {
+      state.userOperators = action.payload;
+    });
+    builder.addCase(getUserOperators.rejected, (state: any, action: any) => {
+      state.error = action.payload.error || null;
+    });
 
     // List
     builder.addCase(getUserList.fulfilled, (state: any, action: any) => {

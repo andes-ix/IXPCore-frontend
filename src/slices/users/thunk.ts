@@ -1,5 +1,4 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { useAlert } from "Common/Components/Alert/AlertProvider";
 
 import {
   deleteUserList as deleteUserListApi,
@@ -44,6 +43,18 @@ export const getUserDataTableView = createAsyncThunk(
         "/v1/user/datatables_view/",
         pagination
       );
+      return data;
+    } catch (error) {
+      return error;
+    }
+  }
+);
+
+export const getUserOperators = createAsyncThunk(
+  "users/getUserOperators",
+  async () => {
+    try {
+      const { data } = await apiClientWithAuth.get("/v1/user/list_operators/");
       return data;
     } catch (error) {
       return error;
