@@ -57,6 +57,8 @@ const Header = ({ handleToggleDrawer, handleDrawer }: any) => {
         userOperators?.find((operator: any) => operator?.active) || null;
       localStorage.setItem("ispId", JSON.stringify(ispFind?.ID));
       SetIspSelected(ispFind);
+    } else {
+      localStorage.removeItem("ispId");
     }
   }, [userOperators]);
 

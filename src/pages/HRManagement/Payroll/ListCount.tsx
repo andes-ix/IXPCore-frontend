@@ -158,7 +158,10 @@ const ListCount = () => {
                   className="mb-1"
                   style={{ color: "#51626E", fontSize: "22px" }}
                 >
-                  S/. {Number(balanceDetail?.saldo_total).toFixed(2) || 0}
+                  S/.{" "}
+                  {balanceDetail?.saldo_total
+                    ? Number(balanceDetail?.saldo_total).toFixed(2)
+                    : 0}
                   <small className="font-normal text-slate-500 dark:text-zink-200">
                     {" "}
                     / mes
@@ -187,8 +190,9 @@ const ListCount = () => {
                           className={`px-3.5 first:pl-0 last:pr-0 py-2 border-y border-transparent font-bold text-[${BLUE10}]`}
                         >
                           S/.{" "}
-                          {Number(balanceDetail?.detraccion_total).toFixed(2) ||
-                            0}
+                          {balanceDetail?.detraccion_total
+                            ? Number(balanceDetail?.detraccion_total).toFixed(2)
+                            : 0}
                         </td>
                       </tr>
                       <tr>
@@ -199,7 +203,9 @@ const ListCount = () => {
                           className={`px-3.5 first:pl-0 last:pr-0 py-2 border-y border-transparent font-bold text-[${BLUE10}]`}
                         >
                           S/.{" "}
-                          {Number(balanceDetail?.deuda_total).toFixed(2) || 0}
+                          {balanceDetail?.deuda_total
+                            ? Number(balanceDetail?.deuda_total).toFixed(2)
+                            : 0}
                         </td>
                       </tr>
                       <tr>
