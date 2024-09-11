@@ -20,6 +20,44 @@ export const getUserList = createAsyncThunk("users/getUserList", async () => {
     return error;
   }
 });
+
+export const getUserDataTableStruct = createAsyncThunk(
+  "users/getUserDataTableStruct",
+  async () => {
+    try {
+      const { data } = await apiClientWithAuth.get(
+        "/v1/user/datatables_struct/"
+      );
+      return data;
+    } catch (error) {
+      return error;
+    }
+  }
+);
+export const getUserDataTableView = createAsyncThunk(
+  "users/getUserDataTableView",
+  async (page: number) => {
+    try {
+      const pagination = { offset: 10, start: page * 10 };
+
+      const { data } = await apiClientWithAuth.post(
+        "/v1/user/datatables_view/",
+        pagination
+      );
+      return data;
+    } catch (error) {
+      return error;
+    }
+  }
+);
+export const getUserData = createAsyncThunk("users/getUserData", async () => {
+  try {
+    const { data } = await apiClientWithAuth.get("/v1/user/");
+    return data;
+  } catch (error) {
+    return error;
+  }
+});
 export const addUserList = createAsyncThunk(
   "users/addUserList",
   async (values: any) => {

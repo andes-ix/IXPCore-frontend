@@ -22,7 +22,7 @@ const menuData: any = [
       {
         id: "listservice",
         label: "Listado de servicios",
-        link: "/tables-basic",
+        link: "/apps-services-list",
         parentId: "tables",
       },
     ],
@@ -35,7 +35,7 @@ const menuData: any = [
       {
         id: "countstate",
         label: "Estado de cuenta",
-        link: "/tables-basic",
+        link: "/list-count-view",
         parentId: "tables",
       },
     ],

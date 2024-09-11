@@ -8,10 +8,14 @@ import {
   addUserGrid,
   updateUserGrid,
   deleteUserGrid,
+  getUserDataTableStruct,
+  getUserDataTableView,
 } from "./thunk";
 
 export const initialState = {
   userList: [],
+  userDataView: {},
+  userDataStruct: {},
   userGrid: [],
   errors: {},
 };
@@ -21,6 +25,34 @@ const UsersSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
+    //Get data table struct
+    builder.addCase(
+      getUserDataTableStruct.fulfilled,
+      (state: any, action: any) => {
+        state.userDataStruct = action.payload;
+      }
+    );
+    builder.addCase(
+      getUserDataTableStruct.rejected,
+      (state: any, action: any) => {
+        state.error = action.payload.error || null;
+      }
+    );
+
+    //Get user data table view
+    builder.addCase(
+      getUserDataTableView.fulfilled,
+      (state: any, action: any) => {
+        state.userDataView = action.payload;
+      }
+    );
+    builder.addCase(
+      getUserDataTableView.rejected,
+      (state: any, action: any) => {
+        state.error = action.payload.error || null;
+      }
+    );
+
     // List
     builder.addCase(getUserList.fulfilled, (state: any, action: any) => {
       state.userList = action.payload;

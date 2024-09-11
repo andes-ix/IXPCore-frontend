@@ -1,27 +1,15 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-
-import { getInvoiceList as getInvoiceListApi } from "../../helpers/fakebackend_helper";
-import { apiClientWithAuth } from "services";
 import { formatDateFilter } from "Common/utils/formatDateFilter";
 
-export const getInvoiceList = createAsyncThunk(
-  "invoice/getInvoiceList",
-  async () => {
-    try {
-      const response = getInvoiceListApi();
-      return response;
-    } catch (error) {
-      return error;
-    }
-  }
-);
+import "react-toastify/dist/ReactToastify.css";
+import { apiClientWithAuth } from "services/index";
 
-export const getInvoiceDataTableStruct = createAsyncThunk(
-  "invoices/getInvoiceDataTableStruct",
+export const getBalanceDataTableStruct = createAsyncThunk(
+  "balances/getBalanceDataTableStruct",
   async () => {
     try {
       const { data } = await apiClientWithAuth.get(
-        "/v1/invoice/datatables_struct/"
+        "/v1/balance/datatables_struct/"
       );
       return data;
     } catch (error) {
@@ -29,8 +17,8 @@ export const getInvoiceDataTableStruct = createAsyncThunk(
     }
   }
 );
-export const getInvoiceDataTableView = createAsyncThunk(
-  "invoices/getInvoiceDataTableView",
+export const getBalanceDataTableView = createAsyncThunk(
+  "balances/getBalanceDataTableView",
   async ({
     page,
     daysSelecteds,
@@ -43,9 +31,9 @@ export const getInvoiceDataTableView = createAsyncThunk(
       if (daysSelecteds && daysSelecteds.length === 2) {
         const [startDate, endDate] = daysSelecteds;
 
-        const filters = `[[\"invoice_date\",\"gt\",\"${formatDateFilter(
+        const filters = `[[\"date_balance\",\"gt\",\"${formatDateFilter(
           startDate
-        )}\"], [\"invoice_date\",\"lte\",\"${formatDateFilter(endDate)}\"]]`;
+        )}\"], [\"date_balance\",\"lte\",\"${formatDateFilter(endDate)}\"]]`;
 
         bodyRequest = {
           ...bodyRequest,
@@ -54,11 +42,11 @@ export const getInvoiceDataTableView = createAsyncThunk(
       }
 
       const { data } = await apiClientWithAuth.post(
-        "/v1/invoice/datatables_view/",
+        "/v1/balance/datatables_view/",
         bodyRequest
       );
       return data;
-    } catch (error) {
+    } catch (error: any) {
       return error;
     }
   }

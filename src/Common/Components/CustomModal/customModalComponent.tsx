@@ -8,7 +8,7 @@ export enum TypeModalEnum {
   XLARGE = "XLARGE",
 }
 
-interface AlertProps {
+interface CustomDrawerProps {
   /**
    * El título del modal. Puede ser un nodo React.
    */
@@ -48,7 +48,7 @@ interface AlertProps {
   size: TypeModalEnum;
 }
 
-const CustomModalComponent: React.FC<AlertProps> = ({
+const CustomModalComponent: React.FC<CustomDrawerProps> = ({
   title,
   body,
   footer,
