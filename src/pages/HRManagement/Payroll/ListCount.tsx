@@ -15,6 +15,14 @@ import { createSelector } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
 
 import { getBalanceDetail as onGetBalanceDetail } from "slices/thunk";
+import {} from "services";
+import { apiPath } from "constants/env";
+import { formatDateFilter } from "Common/utils/formatDateFilter";
+
+enum fileTypeEnum {
+  EXCEL = "EXCEL",
+  PDF = "PDF ",
+}
 
 const ListCount = () => {
   const dispatch = useDispatch<any>();
@@ -26,6 +34,51 @@ const ListCount = () => {
     undefined
   );
   const [balanceDetail, SetBalanceDetail] = useState<any>();
+  const [donwloadInvoice, SetDonwloadInvoice] = useState<boolean>(false);
+  const [donwloadPayment, SetDonwloadPayment] = useState<boolean>(false);
+  const [donwloadBalance, SetDonwloadBalance] = useState<boolean>(false);
+  const [fileTypeExcel, SetFileTypeExcel] = useState<boolean>(true);
+  const [fileTypePDF, SetFileTypePDF] = useState<boolean>(false);
+  const [lastMonthIsSelect, setLastMonthIsSelect] = useState(false);
+  const [presentMonthIsSelect, setPresentMonthIsSelect] = useState(false);
+  const [dataTablePage, setTablePage] = useState<number>(0);
+
+  const handleOptionFile = (optionFile: string) => {
+    switch (optionFile) {
+      case fileTypeEnum.EXCEL:
+        SetFileTypeExcel(true);
+        SetFileTypePDF(false);
+        break;
+      case fileTypeEnum.PDF:
+        SetFileTypeExcel(false);
+        SetFileTypePDF(true);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const handleOptionDownloadFile = (optionFile: string) => {
+    switch (optionFile) {
+      case tableOptionEnum.GENERAL:
+        SetDonwloadInvoice(false);
+        SetDonwloadPayment(false);
+        SetDonwloadBalance(true);
+        break;
+      case tableOptionEnum.INVOICE:
+        SetDonwloadInvoice(true);
+        SetDonwloadPayment(false);
+        SetDonwloadBalance(false);
+        break;
+      case tableOptionEnum.PAYMENT:
+        SetDonwloadInvoice(false);
+        SetDonwloadPayment(true);
+        SetDonwloadBalance(false);
+        break;
+      default:
+        break;
+    }
+  };
 
   const selectDataList = createSelector(
     (state: any) => state.GeneralBalances,
@@ -75,9 +128,6 @@ const ListCount = () => {
     }
   };
 
-  const [lastMonthIsSelect, setLastMonthIsSelect] = useState(false);
-  const [presentMonthIsSelect, setPresentMonthIsSelect] = useState(false);
-
   const handleCheckboxLastMonthChange = (e: any) => {
     e.preventDefault();
     const dataMoment = moment().subtract(1, "months");
@@ -109,6 +159,61 @@ const ListCount = () => {
     }
     setLastMonthIsSelect(false);
     setPresentMonthIsSelect(false);
+  };
+
+  const handleSubmitDownloadFile = async () => {
+    let token = localStorage.getItem("token") as any;
+    console.log("este es el usuario ====", token);
+    let url = "";
+    let fileName = "";
+    if (donwloadInvoice) {
+      fileName = "invoice";
+      url = "v1/invoice/datatables_download/";
+    }
+    if (donwloadPayment) {
+      fileName = "payment";
+      url = "v1/payment/datatables_download/";
+    }
+    if (donwloadBalance) {
+      fileName = "balance";
+      url = "v1/balance/datatables_download/";
+    }
+    let bodyRequest: any = { offset: 10, start: dataTablePage * 10 };
+    if (daysSelecteds && daysSelecteds.length === 2) {
+      const [startDate, endDate] = daysSelecteds;
+
+      const filters = `[[\"invoice_date\",\"gt\",\"${formatDateFilter(
+        startDate
+      )}\"], [\"invoice_date\",\"lte\",\"${formatDateFilter(endDate)}\"]]`;
+
+      bodyRequest = {
+        ...bodyRequest,
+        filters,
+      };
+    }
+    const header = {
+      Authorization: `token ${token?.replace(/"/g, "")}`,
+      "Content-Type": "application/json",
+    };
+
+    try {
+      const response = await fetch(`${apiPath}/${url}`, {
+        method: "POST",
+        body: JSON.stringify(bodyRequest),
+        headers: header,
+      });
+      const blobTest = await response?.blob();
+      const urlBlob = window.URL.createObjectURL(blobTest);
+      const link = document.createElement("a");
+      link.href = urlBlob;
+      link.download = `${fileName}-${moment().format("YYYY-MM-DD-HH:mm")}.xlsx`;
+      document.body.appendChild(link);
+      link.click();
+      window.URL.revokeObjectURL(urlBlob);
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error("Error al descargar el archivo:", error);
+    }
   };
 
   return (
@@ -242,12 +347,146 @@ const ListCount = () => {
           </div>
           <span className="cursor-pointer flex gap-2 pr-10">
             <Download className="" size={20} color={BLUE10} />
-            <Text
-              className=""
-              size={"medium"}
-              text={"Descargar información"}
-              bold={"bold"}
-              color={BLUE10}
+            <CustomDropDownComponent
+              autoClose={false}
+              triggerClassName="bg-none"
+              trigger={
+                <Text
+                  className="mb-8"
+                  size={"medium"}
+                  text={"Descargar información"}
+                  bold={"bold"}
+                  color={BLUE10}
+                />
+              }
+              bodyClassName="absolute z-50 p-4 ltr:text-left rtl:text-right bg-white rounded-md shadow-md min-h-[20rem] min-w-[12rem] dark:bg-zink-600"
+              body={
+                <div className="rounded-md h-24 ">
+                  <Text
+                    text={"Opciones de descarga"}
+                    color={GREY150}
+                    bold={"bold"}
+                    size={"medium-sm"}
+                  />
+
+                  <div className="flex flex-col gap-3 pt-2">
+                    <Text
+                      text={"Información de interes"}
+                      color={BLUE10}
+                      bold={"bold"}
+                      size={"medium-sm"}
+                    />
+                    <div className="flex items-center gap-2">
+                      <input
+                        id="checkboxDefault22"
+                        className="size-4 border rounded-sm appearance-none cursor-pointer bg-slate-100 border-slate-200 dark:bg-zink-600 dark:border-zink-500 checked:bg-[#1BD699] checked:border-green-500 dark:checked:bg-green-500 dark:checked:border-green-500 checked:disabled:bg-green-400 checked:disabled:border-green-400"
+                        type="checkbox"
+                        value=""
+                        checked={donwloadBalance}
+                        onChange={() => {
+                          handleOptionDownloadFile(tableOptionEnum.GENERAL);
+                        }}
+                      />
+                      <Text
+                        size={"medium-sm"}
+                        color={GREY10}
+                        text={"General"}
+                      />
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <input
+                        id="checkboxDefault22"
+                        className="size-4 border rounded-sm appearance-none cursor-pointer bg-slate-100 border-slate-200 dark:bg-zink-600 dark:border-zink-500 checked:bg-[#1BD699] checked:border-green-500 dark:checked:bg-green-500 dark:checked:border-green-500 checked:disabled:bg-green-400 checked:disabled:border-green-400"
+                        type="checkbox"
+                        value=""
+                        checked={donwloadInvoice}
+                        onChange={() => {
+                          handleOptionDownloadFile(tableOptionEnum.INVOICE);
+                        }}
+                      />
+                      <Text
+                        size={"medium-sm"}
+                        color={GREY10}
+                        text={"Facturas"}
+                      />
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <input
+                        id="checkboxDefault22"
+                        className="size-4 border rounded-sm appearance-none cursor-pointer bg-slate-100 border-slate-200 dark:bg-zink-600 dark:border-zink-500 checked:bg-[#1BD699] checked:border-green-500 dark:checked:bg-green-500 dark:checked:border-green-500 checked:disabled:bg-green-400 checked:disabled:border-green-400"
+                        type="checkbox"
+                        value=""
+                        checked={donwloadPayment}
+                        onChange={() => {
+                          handleOptionDownloadFile(tableOptionEnum.PAYMENT);
+                        }}
+                      />
+                      <Text size={"medium-sm"} color={GREY10} text={"Pagos"} />
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-3 pt-4 ">
+                    <Text
+                      text={"Formato de preferencia"}
+                      color={BLUE10}
+                      bold={"bold"}
+                      size={"medium-sm"}
+                    />
+                    <div className="flex items-center gap-2">
+                      <input
+                        id="checkboxDefault22"
+                        className="size-4 border rounded-sm appearance-none cursor-pointer bg-slate-100 border-slate-200 dark:bg-zink-600 dark:border-zink-500 checked:bg-[#1BD699] checked:border-green-500 dark:checked:bg-green-500 dark:checked:border-green-500 checked:disabled:bg-green-400 checked:disabled:border-green-400"
+                        type="checkbox"
+                        value=""
+                        checked={fileTypePDF}
+                        onChange={() => {
+                          handleOptionFile(fileTypeEnum.PDF);
+                        }}
+                      />
+                      <Text size={"medium-sm"} color={GREY10} text={"PDF"} />
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <input
+                        id="checkboxDefault22"
+                        className="size-4 border rounded-sm appearance-none cursor-pointer bg-slate-100 border-slate-200 dark:bg-zink-600 dark:border-zink-500 checked:bg-[#1BD699] checked:border-green-500 dark:checked:bg-green-500 dark:checked:border-green-500 checked:disabled:bg-green-400 checked:disabled:border-green-400"
+                        type="checkbox"
+                        value=""
+                        checked={fileTypeExcel}
+                        onChange={() => {
+                          handleOptionFile(fileTypeEnum.EXCEL);
+                        }}
+                      />
+                      <Text size={"medium-sm"} color={GREY10} text={"Excel"} />
+                    </div>
+                    <div className="flex justify-end gap-2 pt-2 ">
+                      <button
+                        type="button"
+                        onClick={() => {}}
+                        className="bg-white text-custom-500 btn px-2 py-1 text-sm hover:text-custom-500 hover:bg-custom-100 focus:text-custom-500 focus:bg-custom-100 active:text-custom-500 active:bg-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500/10 dark:focus:bg-custom-500/10 dark:active:bg-custom-500/10"
+                      >
+                        Cancelar
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={handleSubmitDownloadFile}
+                        className={`
+                           btn px-2 py-1 text-sm text-white  
+                          ${
+                            fileTypeExcel &&
+                            (donwloadBalance ||
+                              donwloadInvoice ||
+                              donwloadPayment)
+                              ? "transition-all duration-200 ease-linear bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20"
+                              : "  bg-[#9EC3E4] border-[#9EC3E4]  cursor-not-allowed"
+                          }
+                          `}
+                      >
+                        Descargar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              }
             />
           </span>
         </div>
@@ -394,13 +633,22 @@ const ListCount = () => {
               </div>
             </div>
             {showGeneralTable && (
-              <GeneralTableComponent daysSelecteds={daysSelecteds} />
+              <GeneralTableComponent
+                daysSelecteds={daysSelecteds}
+                setTablePositionPage={setTablePage}
+              />
             )}
             {showInvoiceTable && (
-              <InvoiceTableComponent daysSelecteds={daysSelecteds} />
+              <InvoiceTableComponent
+                daysSelecteds={daysSelecteds}
+                setTablePositionPage={setTablePage}
+              />
             )}
             {showPaymentTable && (
-              <PaymentTableComponent daysSelecteds={daysSelecteds} />
+              <PaymentTableComponent
+                daysSelecteds={daysSelecteds}
+                setTablePositionPage={setTablePage}
+              />
             )}
           </div>
         </div>

@@ -18,12 +18,13 @@ interface IDataTableView {
 
 interface GeneralTableComponentProps {
   daysSelecteds?: string[];
+  setTablePositionPage: any;
 }
 
 const GeneralTableComponent: React.FC<GeneralTableComponentProps> = (
   props: React.PropsWithChildren<GeneralTableComponentProps>
 ) => {
-  const { daysSelecteds } = props;
+  const { daysSelecteds, setTablePositionPage } = props;
   const dispatch = useDispatch<any>();
 
   const selectDataList = createSelector(
@@ -61,6 +62,7 @@ const GeneralTableComponent: React.FC<GeneralTableComponentProps> = (
 
   const onNextPage = () => {
     const tablePosition = dataTablePage + 1;
+    setTablePositionPage(tablePosition);
     setDataTablePage(tablePosition);
     dispatch(onGeDataTableView({ page: dataTablePage, daysSelecteds }));
   };
@@ -68,6 +70,7 @@ const GeneralTableComponent: React.FC<GeneralTableComponentProps> = (
   const onPreviousPage = () => {
     if (dataTablePage > 0) {
       const tablePosition = dataTablePage - 1;
+      setTablePositionPage(tablePosition);
       setDataTablePage(tablePosition);
       dispatch(onGeDataTableView({ page: dataTablePage, daysSelecteds }));
     }
