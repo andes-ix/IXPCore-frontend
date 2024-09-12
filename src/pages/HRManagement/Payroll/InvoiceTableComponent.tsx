@@ -20,12 +20,13 @@ interface IDataTableView {
 
 interface InvoiceTableComponentProps {
   daysSelecteds?: string[];
+  setTablePositionPage: any;
 }
 
 const InvoiceTableComponent: React.FC<InvoiceTableComponentProps> = (
   props: React.PropsWithChildren<InvoiceTableComponentProps>
 ) => {
-  const { daysSelecteds } = props;
+  const { daysSelecteds, setTablePositionPage } = props;
   const dispatch = useDispatch<any>();
 
   const selectDataList = createSelector(
@@ -65,6 +66,7 @@ const InvoiceTableComponent: React.FC<InvoiceTableComponentProps> = (
   const onNextPage = () => {
     const tablePosition = dataTablePage + 1;
     setDataTablePage(tablePosition);
+    setTablePositionPage(tablePosition);
     dispatch(onGeDataTableView({ page: tablePosition, daysSelecteds }));
   };
 
@@ -72,6 +74,7 @@ const InvoiceTableComponent: React.FC<InvoiceTableComponentProps> = (
     if (dataTablePage > 0) {
       const tablePosition = dataTablePage - 1;
       setDataTablePage(tablePosition);
+      setTablePositionPage(tablePosition);
       dispatch(onGeDataTableView({ page: tablePosition, daysSelecteds }));
     }
   };

@@ -1,6 +1,15 @@
-import React, { useState, createContext, useContext, ReactNode, ElementType, useRef, useEffect, useCallback } from 'react';
-import { Link } from 'react-router-dom';
-import { Transition } from '@headlessui/react';
+import React, {
+  useState,
+  createContext,
+  useContext,
+  ReactNode,
+  ElementType,
+  useRef,
+  useEffect,
+  useCallback,
+} from "react";
+import { Link } from "react-router-dom";
+import { Transition } from "@headlessui/react";
 
 interface DropdownContextType {
   open: boolean;
@@ -8,7 +17,9 @@ interface DropdownContextType {
   toggleOpen: () => void;
 }
 
-const DropDownContext = createContext<DropdownContextType | undefined>(undefined);
+const DropDownContext = createContext<DropdownContextType | undefined>(
+  undefined
+);
 
 interface DropdownProps {
   children?: ReactNode;
@@ -16,7 +27,11 @@ interface DropdownProps {
   className?: string;
 }
 
-const Dropdown = ({ as: Component = 'div', children, className }: DropdownProps) => {
+const Dropdown = ({
+  as: Component = "div",
+  children,
+  className,
+}: DropdownProps) => {
   const [open, setOpen] = useState(false);
   const toggleOpen = useCallback(() => {
     setOpen((previousState) => !previousState);
@@ -36,19 +51,16 @@ const Dropdown = ({ as: Component = 'div', children, className }: DropdownProps)
       }
     };
 
-    document.addEventListener('click', handleOutsideClick);
+    document.addEventListener("click", handleOutsideClick);
 
     return () => {
-      document.removeEventListener('click', handleOutsideClick);
+      document.removeEventListener("click", handleOutsideClick);
     };
   }, [open, toggleOpen]); // Include toggleOpen as a dependency
 
   return (
     <DropDownContext.Provider value={{ open, setOpen, toggleOpen }}>
-      <Component
-        ref={dropdownRef}
-        className={`dropdown ${className}`}
-      >
+      <Component ref={dropdownRef} className={`dropdown ${className}`}>
         {children}
       </Component>
     </DropDownContext.Provider>
@@ -63,18 +75,32 @@ interface TriggerProps {
   href?: any;
 }
 
-export const Trigger: React.FC<TriggerProps> = ({ type, children, className, id }) => {
+export const Trigger: React.FC<TriggerProps> = ({
+  type,
+  children,
+  className,
+  id,
+}) => {
   const { open, toggleOpen } = useContext(DropDownContext)!;
 
-  const getClassNameButton = className ? className : "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded";
-  const getClassNameLink = className ? className : "transition-all duration-200 ease-linear bg-white border-dashed dropdown-toggle text-custom-500 btn border-custom-500 hover:text-custom-500 hover:bg-custom-50 hover:border-custom-600 focus:text-custom-600 focus:bg-custom-50 focus:border-custom-600 active:text-custom-600 active:bg-custom-50 active:border-custom-600 dark:focus:ring-custom-400/20 dark:bg-custom-400/20 ";
+  const getClassNameButton = className
+    ? className
+    : "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded";
+  const getClassNameLink = className
+    ? className
+    : "transition-all duration-200 ease-linear bg-white border-dashed dropdown-toggle text-custom-500 btn border-custom-500 hover:text-custom-500 hover:bg-custom-50 hover:border-custom-600 focus:text-custom-600 focus:bg-custom-50 focus:border-custom-600 active:text-custom-600 active:bg-custom-50 active:border-custom-600 dark:focus:ring-custom-400/20 dark:bg-custom-400/20 ";
   return (
     <>
-      {type === 'a' ? (
-        <Link id={id} to="/#" onClick={(e: any) => {
-          e.preventDefault();
-          toggleOpen();
-        }} className={getClassNameLink + (open ? " show" : "")}>
+      {type === "a" ? (
+        <Link
+          id={id}
+          to="/#"
+          onClick={(e: any) => {
+            e.preventDefault();
+            toggleOpen();
+          }}
+          className={getClassNameLink + (open ? " show" : "")}
+        >
           {children}
         </Link>
       ) : (
@@ -86,23 +112,45 @@ export const Trigger: React.FC<TriggerProps> = ({ type, children, className, id 
   );
 };
 
-
 interface ContentProps {
   as?: ElementType;
-  align?: 'left' | 'right';
+  align?: "left" | "right";
   className?: string;
   width?: string;
   contentClasses?: string;
   children: ReactNode;
-  placement?: 'right-end' | 'start-end' | 'top-end' | 'bottom-start' | 'bottom-end' | 'top-start';
+  autoClose?: boolean;
+  placement?:
+    | "right-end"
+    | "start-end"
+    | "top-end"
+    | "bottom-start"
+    | "bottom-end"
+    | "top-start";
 }
 
-const Content: React.FC<ContentProps> = ({ as: Component = 'div', className, children, placement }) => {
+const Content: React.FC<ContentProps> = ({
+  as: Component = "div",
+  className,
+  children,
+  placement,
+  autoClose = true,
+}) => {
   const { open, setOpen } = useContext(DropDownContext)!;
 
-  const getClassName = className || "absolute z-50 py-2 mt-1 text-left list-none bg-white rounded-md shadow-md dropdown-menu min-w-max dark:bg-zink-400";
+  const getClassName =
+    className ||
+    "absolute z-50 py-2 mt-1 text-left list-none bg-white rounded-md shadow-md dropdown-menu min-w-max dark:bg-zink-400";
 
-  const [placementState, setPlacement] = useState('right-end' as 'right-end' | 'start-end' | 'top-end' | 'bottom-start' | 'bottom-end' | 'top-start');
+  const [placementState, setPlacement] = useState(
+    "right-end" as
+      | "right-end"
+      | "start-end"
+      | "top-end"
+      | "bottom-start"
+      | "bottom-end"
+      | "top-start"
+  );
 
   useEffect(() => {
     if (placement) setPlacement(placement);
@@ -113,61 +161,66 @@ const Content: React.FC<ContentProps> = ({ as: Component = 'div', className, chi
   const isRtl = document.getElementsByTagName("html")[0].getAttribute("dir");
 
   const getDropdownStyle = () => {
-    if (open && placementState === 'right-end' && dropdownElementRef.current) {
+    if (open && placementState === "right-end" && dropdownElementRef.current) {
       const dropdownElement = dropdownElementRef.current;
-      dropdownElement.style.position = 'absolute';
-      isRtl === "rtl" ? dropdownElement.style.inset = '0px auto auto 0px' : dropdownElement.style.inset = '0px 0px auto auto';
-      dropdownElement.style.margin = '0px';
-      dropdownElement.style.transform = 'translate(0px, 54px)';
+      dropdownElement.style.position = "absolute";
+      isRtl === "rtl"
+        ? (dropdownElement.style.inset = "0px auto auto 0px")
+        : (dropdownElement.style.inset = "0px 0px auto auto");
+      dropdownElement.style.margin = "0px";
+      dropdownElement.style.transform = "translate(0px, 54px)";
     }
-    if (open && placementState === 'start-end' && dropdownElementRef.current) {
+    if (open && placementState === "start-end" && dropdownElementRef.current) {
       const dropdownElement = dropdownElementRef.current;
-      dropdownElement.style.position = 'absolute';
-      dropdownElement.style.inset = '0px auto auto 0px';
-      dropdownElement.style.margin = '0px';
-      dropdownElement.style.transform = 'translate(0px, 20px)';
+      dropdownElement.style.position = "absolute";
+      dropdownElement.style.inset = "0px auto auto 0px";
+      dropdownElement.style.margin = "0px";
+      dropdownElement.style.transform = "translate(0px, 20px)";
     }
-    if (open && placementState === 'top-end' && dropdownElementRef.current) {
+    if (open && placementState === "top-end" && dropdownElementRef.current) {
       const dropdownElement = dropdownElementRef.current;
-      dropdownElement.style.position = 'absolute';
-      dropdownElement.style.inset = 'auto 0px 0px auto';
-      dropdownElement.style.margin = '0px';
-      dropdownElement.style.transform = 'translate(-58px, -30px)';
+      dropdownElement.style.position = "absolute";
+      dropdownElement.style.inset = "auto 0px 0px auto";
+      dropdownElement.style.margin = "0px";
+      dropdownElement.style.transform = "translate(-58px, -30px)";
     }
-    if (open && placementState === 'bottom-start' && dropdownElementRef.current) {
+    if (
+      open &&
+      placementState === "bottom-start" &&
+      dropdownElementRef.current
+    ) {
       const dropdownElement = dropdownElementRef.current;
-      dropdownElement.style.position = 'absolute';
-      dropdownElement.style.inset = '0px 0px auto auto';
-      dropdownElement.style.margin = '0px';
-      dropdownElement.style.transform = 'translate(0px, 54px)';
+      dropdownElement.style.position = "absolute";
+      dropdownElement.style.inset = "0px 0px auto auto";
+      dropdownElement.style.margin = "0px";
+      dropdownElement.style.transform = "translate(0px, 54px)";
     }
-    if (open && placementState === 'bottom-end' && dropdownElementRef.current) {
+    if (open && placementState === "bottom-end" && dropdownElementRef.current) {
       const dropdownElement = dropdownElementRef.current;
-      dropdownElement.style.position = 'absolute';
-      dropdownElement.style.inset = '0px 0px auto auto';
-      dropdownElement.style.margin = '0px';
-      dropdownElement.style.transform = 'translate(0px, 39px)';
+      dropdownElement.style.position = "absolute";
+      dropdownElement.style.inset = "0px 0px auto auto";
+      dropdownElement.style.margin = "0px";
+      dropdownElement.style.transform = "translate(0px, 39px)";
     }
-    if (open && placementState === 'top-start' && dropdownElementRef.current) {
+    if (open && placementState === "top-start" && dropdownElementRef.current) {
       const dropdownElement = dropdownElementRef.current;
-      dropdownElement.style.position = 'absolute';
-      dropdownElement.style.inset = 'auto auto 0px 0px';
-      dropdownElement.style.margin = '0px';
-      dropdownElement.style.transform = 'translate(0px, -95px)';
+      dropdownElement.style.position = "absolute";
+      dropdownElement.style.inset = "auto auto 0px 0px";
+      dropdownElement.style.margin = "0px";
+      dropdownElement.style.transform = "translate(0px, -95px)";
     }
     return {};
   };
 
   return (
-    <Transition
-      as={React.Fragment}
-      show={open}
-    >
+    <Transition as={React.Fragment} show={open}>
       {(status: any) => (
         <Component
           ref={dropdownElementRef}
-          onClick={() => setOpen(false)}
-          className={`${getClassName} ${status === 'entered' ? 'transition-all' : ''}`}
+          onClick={() => (autoClose ? setOpen(false) : null)}
+          className={`${getClassName} ${
+            status === "entered" ? "transition-all" : ""
+          }`}
           style={getDropdownStyle()}
         >
           {children}
