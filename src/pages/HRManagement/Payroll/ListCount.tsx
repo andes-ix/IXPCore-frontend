@@ -4,12 +4,12 @@ import Flatpickr from "react-flatpickr";
 import { Text } from "Common/Components/Text/textComponent";
 import { ToastContainer } from "react-toastify";
 import { Title } from "Common/Components/Title/titleComponent";
-import { BLUE10, GREY10, GREY150 } from "Common/constants/colors";
+import { BLUE10, GREY10, GREY100, GREY150 } from "Common/constants/colors";
 import GeneralTableComponent from "./GeneralTableComponent";
 import InvoiceTableComponent from "./InvoiceTableComponent";
 import PaymentTableComponent from "./paymentTableComponent";
 import { tableOptionEnum } from "Common/constants/tableOption.enum";
-import { Download, Filter, X } from "lucide-react";
+import { Download, Filter, X, AlertCircle } from "lucide-react";
 import CustomDropDownComponent from "Common/Components/CustomDropDown/customDropDownComponent";
 import { createSelector } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,6 +18,9 @@ import { getBalanceDetail as onGetBalanceDetail } from "slices/thunk";
 import {} from "services";
 import { apiPath } from "constants/env";
 import { formatDateFilter } from "Common/utils/formatDateFilter";
+import { Tooltip } from "react-tooltip";
+import { IconButton } from "yet-another-react-lightbox/*";
+// import { Tooltip } from "react-tooltip";
 
 enum fileTypeEnum {
   EXCEL = "EXCEL",
@@ -255,7 +258,7 @@ const ListCount = () => {
               <div className="2xl:col-span-5 pt-4">
                 <Title
                   size={"normal-xl"}
-                  text={"Balance"}
+                  text={"Total neto"}
                   bold={"normal"}
                   color={GREY150}
                 />
@@ -288,9 +291,12 @@ const ListCount = () => {
                   <table className="w-full">
                     <tbody>
                       <tr>
-                        <td className="px-3.5 first:pl-0 last:pr-0 py-2 border-y border-transparent font-semibold">
-                          Detracción pendiente
-                        </td>
+                        <Text
+                          size={"medium"}
+                          bold={"semi-bold"}
+                          color={GREY100}
+                          text={"Detracción pendiente"}
+                        />
                         <td
                           className={`px-3.5 first:pl-0 last:pr-0 py-2 border-y border-transparent font-bold text-[${BLUE10}]`}
                         >
@@ -301,9 +307,12 @@ const ListCount = () => {
                         </td>
                       </tr>
                       <tr>
-                        <td className="px-3.5 first:pl-0 last:pr-0 py-2 border-y border-transparent font-semibold">
-                          Total deuda
-                        </td>
+                        <Text
+                          size={"medium"}
+                          bold={"semi-bold"}
+                          color={GREY100}
+                          text={"Total deuda"}
+                        />
                         <td
                           className={`px-3.5 first:pl-0 last:pr-0 py-2 border-y border-transparent font-bold text-[${BLUE10}]`}
                         >
@@ -314,11 +323,37 @@ const ListCount = () => {
                         </td>
                       </tr>
                       <tr>
-                        <td className="px-3.5 first:pl-0 last:pr-0 py-2 border-y border-transparent font-semibold">
-                          Fecha de vencimiento
-                        </td>
+                        <div className="flex gap-1">
+                          <Text
+                            size={"medium"}
+                            bold={"semi-bold"}
+                            color={GREY100}
+                            text={"Fecha de vencimiento"}
+                          />
+                          <AlertCircle
+                            data-tooltip-id="default7"
+                            className="pt-1"
+                            color={GREY10}
+                            size={15}
+                          />
+
+                          <Tooltip
+                            id="default7"
+                            variant="info"
+                            classNameArrow="bg-none"
+                            place="right"
+                            html={`
+    <div style="height: 80px; width: 200px; border-radius: 100px;">
+      <h7 style="font-weight: bold; color: white; margin: 0; padding: 4px 8px; border-radius: 4px;">Fecha de vencimiento</h7>
+      <div style="margin-top: 4px; padding: 4px 8px; font-size: 12px; color: white">
+        fecha asociada a la factura pendiente por pago más antigua
+      </div>
+    </div>
+  `}
+                          />
+                        </div>
                         <td
-                          className={`px-3.5 first:pl-0 last:pr-0 py-2 border-y border-transparent font-bold text-[${BLUE10}]`}
+                          className={`px-3.5 first:pl-0 last:pr-0  border-y border-transparent font-bold text-[${BLUE10}]`}
                         >
                           {balanceDetail?.first_date}
                         </td>
