@@ -7,6 +7,7 @@ export const BLUE250 = "#172B4D";
 
 // GREYS COLORS
 export const GREY5 = "#EFEFEF";
+export const GREY1 = "#F1F5F9";
 export const GREY10 = "#8A8F9C";
 export const GREY15 = "#959595";
 export const GREY20 = "#F5F6F7";
