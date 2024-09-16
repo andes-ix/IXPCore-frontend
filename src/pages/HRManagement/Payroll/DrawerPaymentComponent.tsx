@@ -24,7 +24,6 @@ const DrawerPaymentComponent: React.FC<DrawerPaymentProps> = ({
   isDrawerOpen = false,
   itemDetail,
 }) => {
-  console.log("este es el item detail dentro de drawer", itemDetail);
   const { extra_details } = itemDetail;
   return (
     <CustomDrawerComponent
