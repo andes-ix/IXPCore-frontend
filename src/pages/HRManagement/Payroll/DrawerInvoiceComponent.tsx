@@ -4,18 +4,14 @@ import CustomDrawerComponent, {
 import { Title } from "Common/Components/Title/titleComponent";
 import { Text } from "Common/Components/Text/textComponent";
 import {
-  BLACK200,
   BLUE10,
-  BLUE100,
   BLUE250,
-  BLUE50,
   GREY1,
   GREY10,
-  GREY100,
   GREY15,
   GREY150,
 } from "Common/constants/colors";
-import { Download, QrCode, X } from "lucide-react";
+import { X } from "lucide-react";
 import moment from "moment";
 import { CustomTableSimpleComponent } from "Common/Components/CustomTableSimple/customTableSimple";
 
@@ -48,7 +44,7 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
       body={
         <div className="overflow-y-auto max-h-[90vh] hide-scrollbar">
           {/* title section  */}
-          <div className="flex pt-10 pb-5 mr-10 ml-10 mb-10 justify-between border-b  border-slate-200">
+          <div className="flex pt-10 pb-5 mx-20  mb-5 justify-between border-b  border-slate-200">
             <div className="leading-6">
               <div className="flex gap-1">
                 <Title
@@ -56,13 +52,6 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
                   color={GREY150}
                   size={"medium"}
                   text={"Detalle de factura"}
-                />
-                <></>
-                <Title
-                  bold={"bold"}
-                  color={BLUE10}
-                  size={"medium"}
-                  text={itemDetail?.number}
                 />
               </div>
 
@@ -82,7 +71,7 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
 
           <div className="flex pl-10 pr-10 justify-between ">
             {/* section left to drawer */}
-            <div className=" w-3/4 p-10 mb-10 border-solid border-2 border-[#EFEFEF] rounded-md">
+            <div className=" w-3/4 pl-10 pr-10 mb-10">
               <div className=" flex pb-10 justify-between  ">
                 <div className="card shadow-none w-1/3 h-72 rounded-md">
                   <div

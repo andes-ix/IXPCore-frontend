@@ -11,6 +11,8 @@ import {
 } from "slices/thunk";
 import { transformToColumns } from "Common/utils";
 import { tableOptionEnum } from "Common/constants/tableOption.enum";
+import DrawerInvoiceComponent from "./DrawerInvoiceComponent";
+import DrawerPaymentComponent from "./DrawerPaymentComponent";
 interface IDataTableView {
   size: number;
   data: any[];
@@ -43,17 +45,24 @@ const GeneralTableComponent: React.FC<GeneralTableComponentProps> = (
 
   const [globalFilter, setGlobalFilter] = useState("");
   // Modal state
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isInvoiceDrawerOpen, setIsInvoiceDrawerOpen] = useState(false);
+  const [isPaymentDrawerOpen, setIsPaymentDrawerOpen] = useState(false);
 
-  const handleDrawerOpen = () => {
-    setIsDrawerOpen(!isDrawerOpen);
+  const [itemDetail, setItemDetail] = useState<Object>({});
+
+  const handleInvoiceDrawerOpen = () => {
+    setIsInvoiceDrawerOpen(!isInvoiceDrawerOpen);
+  };
+
+  const handlePaymentDrawerOpen = () => {
+    setIsPaymentDrawerOpen(!isPaymentDrawerOpen);
   };
 
   // Get Data
   useEffect(() => {
     dispatch(onGetDataTableStruct());
     dispatch(onGeDataTableView({ page: dataTablePage, daysSelecteds }));
-  }, [dispatch, daysSelecteds]);
+  }, [dispatch, daysSelecteds, dataTablePage]);
 
   useEffect(() => {
     setDataTableStruct(dataTableStruct);
@@ -76,18 +85,23 @@ const GeneralTableComponent: React.FC<GeneralTableComponentProps> = (
     }
   };
 
-  const handleLinkClick = async (cellValue: any) => {
-    setIsDrawerOpen(true);
-  };
-
   const columns = useMemo(
     () =>
       transformToColumns(
         dataTableStructToList,
         tableOptionEnum.GENERAL,
-        handleLinkClick
+        async (cellValue: any) => {
+          const item = dataTableViewToList?.data?.find(
+            (data) => String(data.number) === String(cellValue)
+          );
+          if (item && item?.detail_modal) {
+            setItemDetail(item?.detail_modal);
+            if (item?.TYPE === "PAYMENT") setIsPaymentDrawerOpen(true);
+            if (item?.TYPE === "INVOICE") setIsInvoiceDrawerOpen(true);
+          }
+        }
       ),
-    [dataTableStructToList]
+    [dataTableStructToList, dataTableViewToList]
   );
 
   return (
@@ -122,10 +136,16 @@ const GeneralTableComponent: React.FC<GeneralTableComponentProps> = (
               </div>
             </div>
           </div>
-          {/* <DrawerInvoiceComponent
-            handleDrawerOpen={handleDrawerOpen}
-            isDrawerOpen={isDrawerOpen}
-          /> */}
+          <DrawerInvoiceComponent
+            handleDrawerOpen={handleInvoiceDrawerOpen}
+            isDrawerOpen={isInvoiceDrawerOpen}
+            itemDetail={itemDetail}
+          />
+          <DrawerPaymentComponent
+            handleDrawerOpen={handlePaymentDrawerOpen}
+            isDrawerOpen={isPaymentDrawerOpen}
+            itemDetail={itemDetail}
+          />
         </div>
       </div>
     </React.Fragment>
