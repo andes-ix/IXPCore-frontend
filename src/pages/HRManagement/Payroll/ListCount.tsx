@@ -257,7 +257,7 @@ const ListCount = () => {
             <div className="grid grid-cols-1 gap-5 2xl:grid-cols-12">
               <div className="2xl:col-span-5 pt-4">
                 <Title
-                  size={"normal-xl"}
+                  size={"medium-sm"}
                   text={"Total neto"}
                   bold={"normal"}
                   color={GREY150}
@@ -295,7 +295,7 @@ const ListCount = () => {
                           size={"medium"}
                           bold={"semi-bold"}
                           color={GREY100}
-                          text={"Detracción pendiente"}
+                          text={"Impuestos y detracciones"}
                         />
                         <td
                           className={`px-3.5 first:pl-0 last:pr-0 py-2 border-y border-transparent font-bold text-[${BLUE10}]`}
@@ -332,25 +332,29 @@ const ListCount = () => {
                           />
                           <AlertCircle
                             data-tooltip-id="default7"
-                            className="pt-1"
                             color={GREY10}
                             size={15}
+                            style={{
+                              marginTop:"4px",
+                              marginLeft:"10px",
+                            }}
                           />
 
                           <Tooltip
                             id="default7"
                             variant="info"
-                            classNameArrow="bg-none"
+                            classNameArrow="bg-[none]"
                             place="right"
                             html={`
-    <div style="height: 80px; width: 200px; border-radius: 100px;">
-      <h7 style="font-weight: bold; color: white; margin: 0; padding: 4px 8px; border-radius: 4px;">Fecha de vencimiento</h7>
+    <div style="height: 70px; width: 200px; border-radius: 100px;">
+      <h7 style="font-weight: bold; color: white; margin: 0; padding: 8px; border-radius: 4px;">Fecha de vencimiento</h7>
       <div style="margin-top: 4px; padding: 4px 8px; font-size: 12px; color: white">
-        fecha asociada a la factura pendiente por pago más antigua
+        Fecha asociada a la factura pendiente por pago más antigua
       </div>
     </div>
   `}
                           />
+                          
                         </div>
                         <td
                           className={`px-3.5 first:pl-0 last:pr-0  border-y border-transparent font-bold text-[${BLUE10}]`}
@@ -380,7 +384,7 @@ const ListCount = () => {
               </p>
             </div>
           </div>
-          <span className="cursor-pointer flex gap-2 pr-10">
+          <span className="cursor-pointer flex gap-2 pr-5">
             <Download className="" size={20} color={BLUE10} />
             <CustomDropDownComponent
               autoClose={false}
@@ -394,7 +398,7 @@ const ListCount = () => {
                   color={BLUE10}
                 />
               }
-              bodyClassName="absolute z-50 p-4 ltr:text-left rtl:text-right bg-white rounded-md shadow-md min-h-[20rem] min-w-[12rem] dark:bg-zink-600"
+              bodyClassName="absolute z-50 p-4 ltr:text-left rtl:text-right bg-white rounded-md shadow-md min-h-[18rem] min-w-[14rem] dark:bg-zink-600"
               body={
                 <div className="rounded-md h-24 ">
                   <Text
@@ -472,19 +476,6 @@ const ListCount = () => {
                         className="size-4 border rounded-sm appearance-none cursor-pointer bg-slate-100 border-slate-200 dark:bg-zink-600 dark:border-zink-500 checked:bg-[#1BD699] checked:border-green-500 dark:checked:bg-green-500 dark:checked:border-green-500 checked:disabled:bg-green-400 checked:disabled:border-green-400"
                         type="checkbox"
                         value=""
-                        checked={fileTypePDF}
-                        onChange={() => {
-                          handleOptionFile(fileTypeEnum.PDF);
-                        }}
-                      />
-                      <Text size={"medium-sm"} color={GREY10} text={"PDF"} />
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <input
-                        id="checkboxDefault22"
-                        className="size-4 border rounded-sm appearance-none cursor-pointer bg-slate-100 border-slate-200 dark:bg-zink-600 dark:border-zink-500 checked:bg-[#1BD699] checked:border-green-500 dark:checked:bg-green-500 dark:checked:border-green-500 checked:disabled:bg-green-400 checked:disabled:border-green-400"
-                        type="checkbox"
-                        value=""
                         checked={fileTypeExcel}
                         onChange={() => {
                           handleOptionFile(fileTypeEnum.EXCEL);
@@ -534,7 +525,7 @@ const ListCount = () => {
                   <div className="flex justify-between pl-5 pr-10">
                     <div
                       className="relative pb-5 flex gap-1 pt-2"
-                      style={{ width: "21%" }}
+                      style={{ width: "28%" }}
                     >
                       <div className="relative w-full">
                         <Flatpickr
