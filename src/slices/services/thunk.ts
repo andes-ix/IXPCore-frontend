@@ -8,7 +8,7 @@ export const getServiceDataTableStruct = createAsyncThunk(
   async () => {
     try {
       const { data } = await apiClientWithAuth.get(
-        "/v1/payment/datatables_struct/"
+        "/v1/service/datatables_struct/"
       );
       return data;
     } catch (error) {
@@ -23,7 +23,7 @@ export const getServiceDataTableView = createAsyncThunk(
       const pagination = { offset: 10, start: page * 10 };
 
       const { data } = await apiClientWithAuth.post(
-        "/v1/payment/datatables_view/",
+        "/v1/service/datatables_view/",
         pagination
       );
       return data;

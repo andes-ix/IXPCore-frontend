@@ -1,10 +1,4 @@
-import {
-  LayoutDashboard,
-  Mail,
-  RadioTower,
-  SquareUser,
-  Wallet,
-} from "lucide-react";
+import { LayoutDashboard, RadioTower, SquareUser, Wallet } from "lucide-react";
 
 const menuData: any = [
   {

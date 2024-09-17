@@ -199,6 +199,7 @@ import LoginPasswordRecover from "pages/AuthenticationInner/Login/LoginPasswordR
 import LoginPasswordConfig from "pages/AuthenticationInner/Login/LoginPasswordConfig";
 import ListCount from "pages/HRManagement/Payroll/ListCount";
 import ListServices from "pages/Services/ListService";
+import DetailServices from "pages/Services/DetailService";
 
 interface RouteObject {
   path: string;
@@ -273,6 +274,7 @@ const authProtectedRoutes: Array<RouteObject> = [
 
   //Services
   { path: "/apps-services-list", component: ListServices },
+  { path: "/apps-services-detail", component: DetailServices },
 
   // Icons
   { path: "/icons-remix", component: RemixIcon },
