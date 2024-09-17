@@ -75,7 +75,6 @@ const SessionTablesComponent = () => {
   };
 
   const handleLinkClick = async (cellValue: any) => {
-    console.log("cellValues", cellValue);
     setIsDrawerOpen(true);
   };
 

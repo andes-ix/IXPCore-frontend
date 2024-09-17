@@ -164,7 +164,6 @@ const ListCount = () => {
 
   const handleSubmitDownloadFile = async () => {
     let token = localStorage.getItem("token") as any;
-    console.log("este es el usuario ====", token);
     let url = "";
     let fileName = "";
     if (donwloadInvoice) {
