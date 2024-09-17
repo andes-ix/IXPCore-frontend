@@ -52,9 +52,13 @@ const PaymentTableComponent: React.FC<PaymentTableComponentProps> = (
   const handleDrawerOpen = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
-  const handleLinkClick = async (cellValue: any) => {
+  const handleLinkClick = async (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    cellValue: any
+  ) => {
+    event.preventDefault();
     const item = dataTableViewToList?.data?.find(
-      (data) => String(data.number) === String(cellValue)
+      (data) => String(data?.id) === String(cellValue)
     );
     setItemDetail(item);
     setIsDrawerOpen(true);
@@ -92,6 +96,7 @@ const PaymentTableComponent: React.FC<PaymentTableComponentProps> = (
       transformToColumns(
         dataTableStructToList,
         tableOptionEnum.PAYMENT,
+        "number",
         handleLinkClick
       ),
     [dataTableStructToList]

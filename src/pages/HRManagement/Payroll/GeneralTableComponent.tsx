@@ -90,9 +90,11 @@ const GeneralTableComponent: React.FC<GeneralTableComponentProps> = (
       transformToColumns(
         dataTableStructToList,
         tableOptionEnum.GENERAL,
-        async (cellValue: any) => {
+        "number",
+        async (event: React.MouseEvent<HTMLAnchorElement>, cellValue: any) => {
+          event.preventDefault();
           const item = dataTableViewToList?.data?.find(
-            (data) => String(data.number) === String(cellValue)
+            (data) => String(data?.id) === String(cellValue)
           );
           if (item && item?.detail_modal) {
             setItemDetail(item?.detail_modal);
