@@ -19,8 +19,6 @@ import {} from "services";
 import { apiPath } from "constants/env";
 import { formatDateFilter } from "Common/utils/formatDateFilter";
 import { Tooltip } from "react-tooltip";
-import { IconButton } from "yet-another-react-lightbox/*";
-// import { Tooltip } from "react-tooltip";
 
 enum fileTypeEnum {
   EXCEL = "EXCEL",
