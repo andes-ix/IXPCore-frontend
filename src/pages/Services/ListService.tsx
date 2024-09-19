@@ -34,7 +34,7 @@ const ListServices = () => {
         />
         <div className="pt-2 pb-1 pl-4">
           <p className={`text-[#8A8F9C] text-base `}>
-            Listado de usuarios habilitados dentro del sistema.
+            Listado de servicios contratados con la empresa.
           </p>
         </div>
         <div className="pt-2">

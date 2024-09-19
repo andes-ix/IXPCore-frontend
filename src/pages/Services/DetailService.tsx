@@ -1,4 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+// react-redux
+import { useDispatch, useSelector } from "react-redux";
+import { createSelector } from "reselect";
+
+import { getServiceDetail as onGetServiceDetail } from "slices/thunk";
 
 import { Text } from "Common/Components/Text/textComponent";
 
@@ -8,6 +13,7 @@ import { BLUE10, GREY10, GREY100, GREY150 } from "Common/constants/colors";
 import SessionTablesComponent from "./SessionsTablesComponent";
 import { GraphicComponent } from "./GraphicComponent";
 import SessionSimpleTablesComponent from "./SessionsSimpleTablesComponent";
+import withRouter from "Common/withRouter";
 
 export enum optionDetailTagEnum {
   SESSION_BGP = "SESSION_BGP",
@@ -16,11 +22,38 @@ export enum optionDetailTagEnum {
   TRAFFIC_BUM = "TRAFFIC_BUM",
 }
 
-const ListServices = () => {
+const DetailServices = (props: any) => {
+  console.log("estos son los props ====", props);
+  const [serviceDetailToShow, SetServiceDetailToShow] = useState<any>({});
   const [showSessionBGP, setShowSessionBGP] = useState<boolean>(true);
   const [showTraffic, setShowTraffic] = useState<boolean>(false);
   const [showTrafficBum, setShowTrafficBum] = useState<boolean>(false);
   const [showLost, setShowLost] = useState<boolean>(false);
+  const {
+    router: { location = {}, navigate },
+  } = props;
+  const dispatch = useDispatch<any>();
+
+  const selectDataList = createSelector(
+    (state: any) => state.Services,
+    (data) => ({
+      serviceDetail: data.serviceDetail,
+    })
+  );
+
+  const { serviceDetail } = useSelector(selectDataList);
+
+  const searchParams = new URLSearchParams(location?.search);
+  const typeService = searchParams.get("type-service") || "";
+  const serviceId = searchParams.get("service") || "";
+
+  useEffect(() => {
+    dispatch(onGetServiceDetail(serviceId));
+  }, [dispatch, serviceId]);
+
+  useEffect(() => {
+    SetServiceDetailToShow(serviceDetail);
+  }, [serviceDetail]);
 
   const handleShowOptionTable = (optionTable: string) => {
     switch (optionTable) {
@@ -68,7 +101,7 @@ const ListServices = () => {
               className=""
               size={"medium"}
               bold={"bold"}
-              text={"PE-INP-001"}
+              text={serviceDetailToShow?.circuit_id}
               color={BLUE10}
             />
           </div>
@@ -79,11 +112,18 @@ const ListServices = () => {
               </a>
             </li>
             <li className="text-slate-700 dark:text-zink-100">
-              <Text
-                size={"medium"}
-                text={"Listado de servicios"}
-                color={BLUE10}
-              ></Text>
+              <span
+                className="cursor-pointer"
+                onClick={() => {
+                  navigate("/apps-services-list");
+                }}
+              >
+                <Text
+                  size={"medium"}
+                  text={"Listado de servicios"}
+                  color={BLUE10}
+                ></Text>
+              </span>
             </li>
             <li className=" relative before:content-['\ea54'] before:font-remix before:ltr:-right-1 before:rtl:-left-1 before:absolute before:text-[18px] before:-top-[3px] ltr:pr-4 rtl:pl-4 before:rtl:rotate-180 before:text-[#168EEA] dark:before:text-zink-200"></li>
             <li className="text-slate-700 dark:text-zink-100">
@@ -111,65 +151,73 @@ const ListServices = () => {
           color={GREY10}
         />
         {/* tags section */}
-        {/* <div className="flex  pt-10 gap-2">
-          <button
-            type="button"
-            className={`${
-              showSessionBGP
-                ? "btn text-white bg-blue-600"
-                : "btn text-blue-500"
-            } border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20`}
-            onClick={() => {
-              handleShowOptionTable(optionDetailTagEnum.SESSION_BGP);
-            }}
-          >
-            <span className="align-middle">Estado sesiones BGP</span>
-          </button>
-          <button
-            type="button"
-            className={`${
-              showTraffic ? "btn text-white bg-blue-600" : "btn text-blue-500"
-            } btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20`}
-            onClick={() => {
-              handleShowOptionTable(optionDetailTagEnum.TRAFFIC);
-            }}
-          >
-            <span className="align-middle">Tráfico</span>
-          </button>
-          <button
-            type="button"
-            className={`${
-              showLost ? "btn text-white bg-blue-600" : "btn text-blue-500"
-            } btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20`}
-            onClick={() => {
-              handleShowOptionTable(optionDetailTagEnum.LOST);
-            }}
-          >
-            <span className="align-middle">Pérdida de paquetes</span>
-          </button>
-          <button
-            type="button"
-            className={`${
-              showTrafficBum
-                ? "btn text-white bg-blue-600"
-                : "btn text-blue-500"
-            } btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20`}
-            onClick={() => {
-              handleShowOptionTable(optionDetailTagEnum.TRAFFIC_BUM);
-            }}
-          >
-            <span className="align-middle">Tráfico BUM</span>
-          </button>
-        </div> */}
+        {typeService !== "1" && (
+          <div className="flex  pt-10 gap-2">
+            <button
+              type="button"
+              className={`${
+                showSessionBGP
+                  ? "btn text-white bg-blue-600"
+                  : "btn text-blue-500"
+              } border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20`}
+              onClick={() => {
+                handleShowOptionTable(optionDetailTagEnum.SESSION_BGP);
+              }}
+            >
+              <span className="align-middle">Estado sesiones BGP</span>
+            </button>
+            <button
+              type="button"
+              className={`${
+                showTraffic ? "btn text-white bg-blue-600" : "btn text-blue-500"
+              } btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20`}
+              onClick={() => {
+                handleShowOptionTable(optionDetailTagEnum.TRAFFIC);
+              }}
+            >
+              <span className="align-middle">Tráfico</span>
+            </button>
+            <button
+              type="button"
+              className={`${
+                showLost ? "btn text-white bg-blue-600" : "btn text-blue-500"
+              } btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20`}
+              onClick={() => {
+                handleShowOptionTable(optionDetailTagEnum.LOST);
+              }}
+            >
+              <span className="align-middle">Pérdida de paquetes</span>
+            </button>
+            <button
+              type="button"
+              className={`${
+                showTrafficBum
+                  ? "btn text-white bg-blue-600"
+                  : "btn text-blue-500"
+              } btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20`}
+              onClick={() => {
+                handleShowOptionTable(optionDetailTagEnum.TRAFFIC_BUM);
+              }}
+            >
+              <span className="align-middle">Tráfico BUM</span>
+            </button>
+          </div>
+        )}
 
         <div className="">
-          {showSessionBGP && <SessionSimpleTablesComponent />}
-          {showLost && <GraphicComponent type={optionDetailTagEnum.LOST} />}
-          {showTraffic && (
-            <GraphicComponent type={optionDetailTagEnum.TRAFFIC} />
-          )}
-          {showTrafficBum && (
-            <GraphicComponent type={optionDetailTagEnum.TRAFFIC_BUM} />
+          {typeService === "1" ? (
+            <SessionSimpleTablesComponent serviceType={serviceId} />
+          ) : (
+            <>
+              {showSessionBGP && <SessionTablesComponent />}
+              {showLost && <GraphicComponent type={optionDetailTagEnum.LOST} />}
+              {showTraffic && (
+                <GraphicComponent type={optionDetailTagEnum.TRAFFIC} />
+              )}
+              {showTrafficBum && (
+                <GraphicComponent type={optionDetailTagEnum.TRAFFIC_BUM} />
+              )}
+            </>
           )}
         </div>
       </div>
@@ -177,4 +225,4 @@ const ListServices = () => {
   );
 };
 
-export default ListServices;
+export default withRouter(DetailServices);
