@@ -47,7 +47,11 @@ const Status = ({ item, tableOption }: any) => {
 export const transformToColumns = (
   data: any,
   tableOpetion: tableOptionEnum,
-  onLinkClick: (cellValue: any) => void
+  keyWithFunction?: string,
+  onLinkClick?: (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    cellValue: any
+  ) => void
 ) => {
   let columnsArray: any = [];
 
@@ -70,13 +74,21 @@ export const transformToColumns = (
           accessorKey: field,
           enableColumnFilter: false,
         };
-        if (field === "number") {
+        if (field === keyWithFunction) {
           column = {
             ...column,
             cell: (cell: any) => (
               <Link
                 to="#!"
-                onClick={() => onLinkClick(cell.getValue())} // Añadido
+                onClick={
+                  onLinkClick
+                    ? (e) =>
+                        onLinkClick(
+                          e,
+                          cell?.row?.original?.id || cell?.row?.original?.ID
+                        )
+                    : () => {}
+                } // Añadido
                 className={`transition-all duration-150 text-[#168EEA] ease-linear  hover:text-[#172B4D] user-id`}
               >
                 {cell.getValue()}

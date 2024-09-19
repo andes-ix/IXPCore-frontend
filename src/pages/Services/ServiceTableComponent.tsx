@@ -11,8 +11,8 @@ import {
 } from "slices/thunk";
 import { transformToColumns } from "Common/utils";
 import { tableOptionEnum } from "Common/constants/tableOption.enum";
-import DrawerInvoiceComponent from "pages/HRManagement/Payroll/DrawerInvoiceComponent";
 import { Search } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface IDataTableView {
   size: number;
@@ -20,6 +20,7 @@ interface IDataTableView {
 }
 
 const ServiceTableComponent = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch<any>();
 
   const selectDataList = createSelector(
@@ -73,7 +74,12 @@ const ServiceTableComponent = () => {
     }
   };
 
-  const handleLinkClick = async (cellValue: any) => {
+  const handleLinkClick = async (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    cellValue: any
+  ) => {
+    event.preventDefault();
+    navigate("/apps-services-detail");
     setIsDrawerOpen(true);
   };
 
@@ -82,6 +88,7 @@ const ServiceTableComponent = () => {
       transformToColumns(
         dataTableStructToList,
         tableOptionEnum.GENERAL,
+        "type_service_display",
         handleLinkClick
       ),
     [dataTableStructToList]
@@ -129,10 +136,6 @@ const ServiceTableComponent = () => {
               </div>
             </div>
           </div>
-          {/* <DrawerInvoiceComponent
-            handleDrawerOpen={handleDrawerOpen}
-            isDrawerOpen={isDrawerOpen}
-          /> */}
         </div>
       </div>
     </React.Fragment>
