@@ -6,8 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { createSelector } from "reselect";
 
 import {
-  getServiceDataTableStruct as onGetDataTableStruct,
-  getServiceDataTableView as onGeDataTableView,
+  getPrefixesDataTableStruct as onGetDataTableStruct,
+  getPrefixesDataTableView as onGeDataTableView,
 } from "slices/thunk";
 import { transformToColumns } from "Common/utils";
 import { tableOptionEnum } from "Common/constants/tableOption.enum";
@@ -20,14 +20,21 @@ interface IDataTableView {
   data: any[];
 }
 
-const SessionSimpleTablesComponent = () => {
+interface SessionSimpleTablesProps {
+  serviceType: string;
+}
+
+const SessionSimpleTablesComponent: React.FC<SessionSimpleTablesProps> = (
+  props: React.PropsWithChildren<SessionSimpleTablesProps>
+) => {
+  const { serviceType } = props;
   const dispatch = useDispatch<any>();
 
   const selectDataList = createSelector(
-    (state: any) => state.Services,
+    (state: any) => state.Prefixes,
     (data) => ({
-      dataTableView: data.serviceDataView,
-      dataTableStruct: data.serviceDataStruct,
+      dataTableView: data.prefixeDataView,
+      dataTableStruct: data.prefixeDataStruct,
     })
   );
 
@@ -52,7 +59,7 @@ const SessionSimpleTablesComponent = () => {
   // Get Data
   useEffect(() => {
     dispatch(onGetDataTableStruct());
-    dispatch(onGeDataTableView(dataTablePage));
+    dispatch(onGeDataTableView({ page: dataTablePage, service: serviceType }));
   }, [dispatch]);
 
   useEffect(() => {
@@ -63,14 +70,16 @@ const SessionSimpleTablesComponent = () => {
   const onNextPage = () => {
     const tablePosition = dataTablePage + 1;
     setDataTablePage(tablePosition);
-    dispatch(onGeDataTableView(tablePosition));
+    dispatch(onGeDataTableView({ page: tablePosition, service: serviceType }));
   };
 
   const onPreviousPage = () => {
     if (dataTablePage > 0) {
       const tablePosition = dataTablePage - 1;
       setDataTablePage(tablePosition);
-      dispatch(onGeDataTableView(tablePosition));
+      dispatch(
+        onGeDataTableView({ page: tablePosition, service: serviceType })
+      );
     }
   };
 
@@ -113,8 +122,8 @@ const SessionSimpleTablesComponent = () => {
                     tableclassName="w-full table-custom border-separate border-spacing-y-1 whitespace-nowrap"
                     theadclassName="text-left relative rounded-md bg-slate-100 dark:bg-zink-600 after:absolute ltr:after:border-l-2 rtl:after:border-r-2 ltr:after:left-0 rtl:after:right-0 after:top-0 after:bottom-0 after:border-transparent [&.active]:after:border-custom-500 [&.active]:bg-slate-100 dark:[&.active]:bg-zink-600"
                     thclassName="px-3.5 py-2.5 first:pl-5 last:pr-5 font-semibold bg-[#F8FAFE] text-[#8A8F9C]"
-                    tdclassName="px-3.5 py-2.5 first:pl-5 last:pr-5"
-                    trclassName={`bg-[#F1F5F9] even:bg-[none]`}
+                    tdclassName="px-3.5 py-2.5 first:pl-5 last:pr-5 text-[#51626E]"
+                    trclassName={`bg-[#F1F5F9] even:bg-[#F8FAFE] `}
                     PaginationClassName="flex flex-col items-center mt-8 md:flex-row"
                   />
                 )}

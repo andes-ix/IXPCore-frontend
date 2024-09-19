@@ -1,8 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getServiceDataTableView, getServiceDataTableStruct } from "./thunk";
+import {
+  getServiceDataTableView,
+  getServiceDataTableStruct,
+  getServiceDetail,
+} from "./thunk";
 
 export const initialState = {
   serviceDataView: {},
+  serviceDetail: {},
   serviceDataStruct: {},
   errors: {},
 };
@@ -38,6 +43,14 @@ const ServiceSlice = createSlice({
         state.error = action.payload.error || null;
       }
     );
+
+    //service detail
+    builder.addCase(getServiceDetail.fulfilled, (state: any, action: any) => {
+      state.serviceDetail = action.payload;
+    });
+    builder.addCase(getServiceDetail.rejected, (state: any, action: any) => {
+      state.error = action.payload.error || null;
+    });
   },
 });
 

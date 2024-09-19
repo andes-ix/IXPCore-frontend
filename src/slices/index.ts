@@ -48,6 +48,7 @@ import PaymentReducer from "./payments/reducer";
 import GeneralBalanceReducer from "./balanceGeneral/reducer";
 
 import ServiceReducer from "./services/reducer";
+import PrefixeReducer from "./prefixes/reducer";
 
 const rootReducer = combineReducers({
   Layout: LayoutReducer,
@@ -69,6 +70,7 @@ const rootReducer = combineReducers({
   Payments: PaymentReducer,
   GeneralBalances: GeneralBalanceReducer,
   Services: ServiceReducer,
+  Prefixes: PrefixeReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

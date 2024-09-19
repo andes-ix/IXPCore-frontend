@@ -32,3 +32,15 @@ export const getServiceDataTableView = createAsyncThunk(
     }
   }
 );
+
+export const getServiceDetail = createAsyncThunk(
+  "service/getServiceDetail",
+  async (id: string) => {
+    try {
+      const { data } = await apiClientWithAuth.get(`/v1/service/${id}`);
+      return data;
+    } catch (error) {
+      return error;
+    }
+  }
+);

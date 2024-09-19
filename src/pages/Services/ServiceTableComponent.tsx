@@ -42,12 +42,6 @@ const ServiceTableComponent = () => {
   const filterSearchData = (e: any) => {
     setGlobalFilter(e.target.value);
   };
-  // Modal state
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
-  const handleDrawerOpen = () => {
-    setIsDrawerOpen(!isDrawerOpen);
-  };
 
   // Get Data
   useEffect(() => {
@@ -79,8 +73,12 @@ const ServiceTableComponent = () => {
     cellValue: any
   ) => {
     event.preventDefault();
-    navigate("/apps-services-detail");
-    setIsDrawerOpen(true);
+    const itemDetail = dataTableViewToList?.data?.find(
+      (item) => String(item?.id) === String(cellValue)
+    );
+    navigate(
+      `/apps-services-detail?service=${itemDetail?.id}&type-service=${itemDetail?.type_service_id}`
+    );
   };
 
   const columns = useMemo(
@@ -104,7 +102,7 @@ const ServiceTableComponent = () => {
                 <input
                   type="text"
                   className=" w-80 ltr:pl-8 rtl:pr-8 search form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
-                  placeholder="Buscar usuario"
+                  placeholder="Buscar servicio"
                   autoComplete="off"
                   onChange={(e) => filterSearchData(e)}
                 />
@@ -122,7 +120,7 @@ const ServiceTableComponent = () => {
                     onNextPage={onNextPage}
                     onPreviousPage={onPreviousPage}
                     isGlobalFilter={true}
-                    globalFilter={globalFilter} // Pasa el valor del filtro global
+                    globalFilter={globalFilter}
                     onGlobalFilterChange={setGlobalFilter}
                     divclassName="overflow-x-auto"
                     tableclassName="w-full table-custom border-spacing-y-1 whitespace-nowrap"

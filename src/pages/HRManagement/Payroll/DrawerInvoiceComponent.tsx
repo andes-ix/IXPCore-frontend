@@ -11,8 +11,9 @@ import {
   GREY100,
   GREY15,
   GREY150,
+  GREY2,
 } from "Common/constants/colors";
-import { X } from "lucide-react";
+import { AlertTriangle, X } from "lucide-react";
 import moment from "moment";
 import { CustomTableSimpleComponent } from "Common/Components/CustomTableSimple/customTableSimple";
 
@@ -70,7 +71,6 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
               <X color={GREY15} />
             </span>
           </div>
-
           <div className="flex pl-10 pr-10 justify-between ">
             {/* section left to drawer */}
             <div className=" w-5/6 pl-10 pr-10 mb-10 ">
@@ -243,19 +243,57 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
               </div>
             </div>
             {/* section rigth to drawer */}
-            <div className=" flex justify-center items-center w-3/4 mb-10 ">
-              <div className=" pl-10 w-full h-full">
-                <iframe
-                  className="rounded-md"
-                  src={extra_details?.file}
-                  width="100%"
-                  height="100%"
-                  title="PDF Viewer"
-                  frameBorder="0"
-                ></iframe>
+            {extra_details?.file ? (
+              <div className=" flex justify-center items-center w-3/5 mb-10 mr-10 ">
+                <div className=" pl-10 w-full h-full">
+                  <iframe
+                    className="rounded-md"
+                    src={extra_details?.file}
+                    width="100%"
+                    height="100%"
+                    title="PDF Viewer"
+                    frameBorder="0"
+                  ></iframe>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div
+                className={` flex flex-col justify-center items-center w-3/5 mb-10 bg-[${GREY1}] rounded-md mr-10`}
+              >
+                {" "}
+                <img
+                  src={"/img/triangle-alert.png"}
+                  alt="alert"
+                  width={80}
+                  height={94}
+                />
+                <Text
+                  className="pt-5"
+                  text={"¡No hay archivos disponibles!"}
+                  color={GREY100}
+                  size="big-sm"
+                  bold="bold"
+                />
+                <Text
+                  className="w-96 text-center pt-2"
+                  bold="ultra-light"
+                  color={GREY100}
+                  text={`Parece que no tienes la factura disponible para descargar en este momento. 
+                          Si esperas ver alguna factura y no aparece aquí, 
+                          verifica más tarde o contacta a nuestro equipo de soporte para obtener ayuda.`}
+                />
+                <div className="pt-5">
+                  <button
+                    type="button"
+                    className={` btn text-white bg-blue-600 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20`}
+                  >
+                    <span className="align-middle">Contactar a soporte</span>
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
+          #E1E2EA
         </div>
       }
     />

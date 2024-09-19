@@ -12,6 +12,15 @@ const Status = ({ item, tableOption }: any) => {
           </div>
         </span>
       );
+    case "active":
+      return (
+        <span className="px-2.5 py-0.5 inline-block text-xs font-medium rounded border bg-green-100 border-transparent text-green-500 dark:bg-green-500/20 dark:border-transparent">
+          <div className="flex gap-1 justify-center items-center">
+            <div className="size-1 rounded-full bg-[#249782]"></div>
+            Activo
+          </div>
+        </span>
+      );
     case "PARTIAL":
       return (
         <span className="px-2.5 py-0.5 inline-block text-xs font-medium rounded border bg-yellow-100 border-transparent text-yellow-500 dark:bg-yellow-500/20 dark:border-transparent">
@@ -95,7 +104,7 @@ export const transformToColumns = (
               </Link>
             ),
           };
-        } else if (field === "payment_state") {
+        } else if (field === "payment_state" || field === "state") {
           column = {
             ...column,
             cell: (cell: any) => (
