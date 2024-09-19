@@ -103,7 +103,7 @@ const ServiceTableComponent = () => {
                 />
                 <Search className="inline-block size-4 absolute ltr:left-2.5 rtl:right-2.5 top-2.5 text-slate-500 dark:text-zink-200 fill-slate-100 dark:fill-zink-600" />
               </div>
-              <div className="card-body pt-5 ">
+              <div className="card-body  ">
                 {dataTableViewToList?.data && (
                   <CustomTableContainer
                     isPagination={true}

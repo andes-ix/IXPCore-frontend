@@ -221,8 +221,8 @@ const ListCount = () => {
 
   return (
     <React.Fragment>
-      <div className="pl-1 pr-10 pb-4 pt-4">
-        <ul className="flex flex-wrap items-center gap-2 mb-3 text-sm font-normal justify-end pt-4 pr-2">
+      <div className="pt-4 pr-4">
+        <ul className="flex flex-wrap items-center gap-2 mb-3 text-sm font-normal justify-end pr-4 pt-4">
           <li className="relative before:content-['\ea54'] before:font-remix before:ltr:-right-1 before:rtl:-left-1 before:absolute before:text-[18px] before:-top-[3px] ltr:pr-4 rtl:pl-4 before:rtl:rotate-180 before:text-[#168EEA] dark:before:text-zink-200">
             <a href="#!" className="text-slate-500 dark:text-zink-200">
               <Text size={"medium"} text={"Cuenta"} color={BLUE10}></Text>
