@@ -10,8 +10,8 @@ import ServiceTableComponent from "./ServiceTableComponent";
 const ListServices = () => {
   return (
     <React.Fragment>
-      <div className="p-4">
-        <ul className="flex flex-wrap items-center gap-2 mb-3 text-sm font-normal justify-end pt-4 ">
+      <div className="pt-4 pr-4">
+        <ul className="flex flex-wrap items-center gap-2 mb-3 text-sm font-normal justify-end pt-4 pr-4">
           <li className=" relative before:content-['\ea54'] before:font-remix before:ltr:-right-1 before:rtl:-left-1 before:absolute before:text-[18px] before:-top-[3px] ltr:pr-4 rtl:pl-4 before:rtl:rotate-180 before:text-[#168EEA] dark:before:text-zink-200">
             <a href="#!" className="text-slate-500 dark:text-zink-200">
               <Text size={"medium"} text={"Servicios"} color={BLUE10}></Text>
@@ -37,7 +37,7 @@ const ListServices = () => {
             Listado de servicios contratados con la empresa.
           </p>
         </div>
-        <div className="pt-2">
+        <div >
           <ServiceTableComponent />
         </div>
       </div>

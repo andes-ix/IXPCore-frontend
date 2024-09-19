@@ -50,8 +50,8 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
             <div className="leading-6">
               <div className="flex gap-1">
                 <Title
-                  bold={"bold"}
-                  color={GREY150}
+                  bold={"normal"}
+                  color={GREY100}
                   size={"medium"}
                   text={"Detalle de factura"}
                 />
@@ -62,6 +62,7 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
                 <Text
                   size={"big-sm"}
                   color={BLUE10}
+                  bold={"bold"}
                   text={moment(itemDetail.invoice_date).format("DD/MM/YYYY")}
                 />
               </div>
@@ -72,11 +73,11 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
           </div>
           <div className="flex pl-10 pr-10 justify-between ">
             {/* section left to drawer */}
-            <div className=" w-3/4 pl-10 pr-10 mb-10">
+            <div className=" w-5/6 pl-10 pr-10 mb-10 ">
               <div className=" flex pb-10 justify-between  ">
                 <div className="card shadow-none w-1/3 h-72 rounded-md">
                   <div
-                    className={`h-1/3 bg-[${GREY1}]  flex justify-between  `}
+                    className={`h-1/3 bg-[${GREY1}]  rounded-md  flex justify-between  `}
                   >
                     <div className="flex flex-col pl-5 leading-5 justify-center">
                       <Text
@@ -120,9 +121,9 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
                     </div>
                   </div>
                   <div
-                    className={`h-1/3 bg-[${GREY1}]  flex justify-between  `}
+                    className={`h-1/3 bg-[${GREY1}] rounded-md  flex justify-between  `}
                   >
-                    <div className="flex flex-col pl-5 leading-5 justify-center">
+                    <div className="flex flex-col pl-5  leading-5 justify-center">
                       <Text
                         bold="bold"
                         size={"big-sm"}
@@ -139,9 +140,9 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
                   </div>
                 </div>
 
-                <div className=" pl-4 w-3/4  h-72 ">
+                <div className=" pl-4 w-5/6  h-72  ">
                   <div
-                    className={`flex flex-col p-5 h-full rounded-md  bg-[#F9F9F9]`}
+                    className={`flex flex-col p-5 h-full rounded-md  bg-[#F9F9F9] w-full`}
                   >
                     <Text
                       size={"big"}
@@ -167,7 +168,7 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
                           }
                         />
                       </div>
-                      <div>
+                      <div className="w-3/12 items-end ">
                         <Title
                           size={"medium"}
                           color={BLUE10}
