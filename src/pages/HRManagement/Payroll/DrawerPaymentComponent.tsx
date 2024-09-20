@@ -24,7 +24,7 @@ const DrawerPaymentComponent: React.FC<DrawerPaymentProps> = ({
   isDrawerOpen = false,
   itemDetail,
 }) => {
-  const { extra_details } = itemDetail;
+  const { extra_details = {} } = itemDetail;
   return (
     <CustomDrawerComponent
       handleCustomDrawer={handleDrawerOpen}
