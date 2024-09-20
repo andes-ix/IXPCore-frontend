@@ -131,7 +131,7 @@ const GeneralTableComponent: React.FC<GeneralTableComponentProps> = (
                     theadclassName="text-left relative rounded-md bg-slate-100 dark:bg-zink-600 after:absolute ltr:after:border-l-2 rtl:after:border-r-2 ltr:after:left-0 rtl:after:right-0 after:top-0 after:bottom-0 after:border-transparent [&.active]:after:border-custom-500 [&.active]:bg-slate-100 dark:[&.active]:bg-zink-600"
                     thclassName="px-3.5 py-2.5 first:pl-5 last:pr-5 font-semibold bg-[#F1F5F9] text-[#8A8F9C]"
                     tdclassName="px-3.5 py-2.5 first:pl-5 last:pr-5"
-                    trclassName={`bg-[white] even:bg-[#F7FAFC]`}
+                    trclassName={`bg-[white] even:bg-[#F7FAFC] text-[#172B4D]`}
                     PaginationClassName="flex flex-col items-center mt-8 md:flex-row"
                   />
                 )}

@@ -209,7 +209,9 @@ const DetailServices = (props: any) => {
             <SessionSimpleTablesComponent serviceType={serviceId} />
           ) : (
             <>
-              {showSessionBGP && <SessionTablesComponent />}
+              {showSessionBGP && (
+                <SessionTablesComponent serviceType={serviceId} />
+              )}
               {showLost && <GraphicComponent type={optionDetailTagEnum.LOST} />}
               {showTraffic && (
                 <GraphicComponent type={optionDetailTagEnum.TRAFFIC} />
