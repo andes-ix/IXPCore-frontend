@@ -86,7 +86,7 @@ const DrawerPaymentComponent: React.FC<DrawerPaymentProps> = ({
                 <Text
                   color={GREY15}
                   size={"medium"}
-                  text={extra_details?.isp_direction_text.toUpperCase()}
+                  text={extra_details?.isp_direction_text?.toUpperCase()}
                 ></Text>
               </div>
               {/* add services */}
