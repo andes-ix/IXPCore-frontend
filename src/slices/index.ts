@@ -49,6 +49,7 @@ import GeneralBalanceReducer from "./balanceGeneral/reducer";
 
 import ServiceReducer from "./services/reducer";
 import PrefixeReducer from "./prefixes/reducer";
+import SessionBGPReducer from "./sessionBGP/reducer";
 
 const rootReducer = combineReducers({
   Layout: LayoutReducer,
@@ -71,6 +72,7 @@ const rootReducer = combineReducers({
   GeneralBalances: GeneralBalanceReducer,
   Services: ServiceReducer,
   Prefixes: PrefixeReducer,
+  SessionBGP: SessionBGPReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
