@@ -134,11 +134,13 @@ const InvoiceTableComponent: React.FC<InvoiceTableComponentProps> = (
               </div>
             </div>
           </div>
-          <DrawerInvoiceComponent
-            handleDrawerOpen={handleDrawerOpen}
-            isDrawerOpen={isDrawerOpen}
-            itemDetail={itemDetail}
-          />
+          {itemDetail && (
+            <DrawerInvoiceComponent
+              handleDrawerOpen={handleDrawerOpen}
+              isDrawerOpen={isDrawerOpen}
+              itemDetail={itemDetail}
+            />
+          )}
         </div>
       </div>
     </React.Fragment>

@@ -28,7 +28,7 @@ const DrawerInvoiceComponent: React.FC<DrawerInvoiceProps> = ({
   isDrawerOpen = false,
   itemDetail,
 }) => {
-  const { extra_details } = itemDetail;
+  const { extra_details = {} } = itemDetail;
   const columnsTest = [
     { key: "id", label: "Descripción" },
     { key: "shop", label: "Cantidad" },
